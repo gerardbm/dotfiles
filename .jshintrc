@@ -1,0 +1,9 @@
+/* http://jshint.com/docs/options/ */
+{
+	"laxbreak"  : true,
+	"laxcomma"  : true,
+	"asi"       : true,
+	"boss"      : true,
+	"expr"      : true,
+	"validthis" : true
+}

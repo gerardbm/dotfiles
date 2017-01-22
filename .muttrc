@@ -1,0 +1,96 @@
+# Account
+set realname  = "Gerard"
+set imap_user = "EMAILADDRESS@gmail.com"
+set smtp_url  = "smtp://EMAILADDRESS@smtp.gmail.com:587/"
+set spoolfile = "imaps://imap.gmail.com:993/INBOX"
+set folder    = "imaps://imap.gmail.com:993"
+set record    = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+
+# Caching
+set header_cache     = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+
+# UI
+set sort          = threads
+set sort_aux      = last-date-received
+set index_format  = "%[%b %d %H:%M]   %-15.15L   %?M?<%03M> &      ?%s"
+set status_format = "%f (%s) (%?V?limited to '%V'&no limit pattern?) (%P)"
+set menu_scroll
+
+# Use neovim editor and don't break lines
+set editor="nvim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
+
+# Charset
+set charset      = utf-8
+set send_charset = utf-8
+
+# Certificates
+set certificate_file = "~/.mutt/certificates"
+set ssl_starttls     = yes
+set ssl_force_tls    = yes
+
+# -----------------------------------------------------
+# Vim-like keybindings
+# -----------------------------------------------------
+
+# 1. Index
+# ----------
+bind index j next-entry
+bind index k previous-entry
+bind index J next-thread
+bind index K previous-thread
+
+bind index / search
+bind index ? search-reverse
+bind index n search-next
+bind index N search-opposite
+
+bind index gg first-entry
+bind index G last-entry
+
+bind index \Cd half-down
+bind index \Cu half-up
+
+bind index l collapse-thread
+bind index z collapse-all
+
+bind index r reply
+bind index a group-reply
+bind index L list-reply
+
+bind index h limit
+
+# '?' is used for search-opposite
+bind index \Ch help
+
+# Always start with threads collapsed
+# and with the most recent thread selected
+push <collapse-all><last-entry>
+
+# 2. Pager
+# ----------
+bind pager j next-line
+bind pager k previous-line
+
+bind pager <down> next-line
+bind pager <up>   previous-line
+
+bind pager / search
+bind pager ? search-reverse
+bind pager n search-next
+bind pager N search-opposite
+
+bind pager gg top
+bind pager G bottom
+
+bind pager \Cd half-down
+bind pager \Cu half-up
+
+bind pager r reply
+bind pager a group-reply
+bind pager l list-reply
+bind pager L list-reply
+
+# '?' is used for search-opposite
+bind pager \Ch help

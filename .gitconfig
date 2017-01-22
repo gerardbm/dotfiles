@@ -1,0 +1,12 @@
+[user]
+	email = gerardbajona@gmail.com
+	name = Gerard\n
+[core]
+	editor = nvim
+[alias]
+	lod = log --oneline --decorate
+	lodag = log --oneline --decorate --all --graph
+	st = status
+	ci = commit
+	unstage = reset HEAD
+	go = checkout

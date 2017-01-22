@@ -1,0 +1,70 @@
+## begin .xbindkeys
+
+# Switch between desktops
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Switch One Desktop to the Left'"
+Control + Shift + Mod2 + h
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Switch One Desktop to the Right'"
+Control + Shift + Mod2 + l
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Switch One Desktop Down'"
+Control + Shift + Mod2 + j
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Switch One Desktop Up'"
+Control + Shift + Mod2 + k
+
+# Zoom desktop with the mouse
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut view_zoom_in"
+Mod4 + b:4
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut view_zoom_out"
+Mod4 + b:5
+
+# Move the current window to a desktop
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window One Desktop to the Left'"
+Control + Mod2 + Mod4 + h
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window One Desktop to the Right'"
+Control + Mod2 + Mod4 + l
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window One Desktop Down'"
+Control + Mod2 + Mod4 + j
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window One Desktop Up'"
+Control + Mod2 + Mod4 + k
+
+# Minimize the current window
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Minimize'"
+Control + Mod2 + Mod4 + m
+
+# Tile windows
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Quick Tile Bottom Left'"
+Control + Alt + KP_1
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Quick Tile Bottom Right'"
+Control + Alt + KP_3
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Quick Tile Top Left'"
+Control + Alt + KP_7
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Quick Tile Top Right'"
+Control + Alt + KP_9
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Quick Tile Left'"
+Control + Alt + KP_4
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Quick Tile Right'"
+Control + Alt + KP_6
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Maximize'"
+Control + Alt + KP_5
+
+"qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Grow Horizontal'"
+Control + Alt + KP_8
+
+## end .xbindkeys
