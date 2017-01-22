@@ -26,7 +26,7 @@ First, install it from the repositories; then you need to change your current sh
 
 And set one as default for your user:
 
-`$ chsh -s /path/to/shell`
+`$ chsh -s /usr/bin/zsh`
 
 Now log out and log in to see the new shell as default. Copy the file `.zshrc` to your `$HOME` directory. Install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) following the instructions from its page. Atomic theme must be downloaded from [Atomic repository](https://github.com/gerardbm/atomic).
 
@@ -36,7 +36,7 @@ Install it from the repositories and copy the file `.Xresources` to your `$HOME`
 
 ##### Tmux
 
-Install it from the repositories and install the package `urlview`. No need for additional plugins. Finally, copy the file `.tmux.conf` from the [Atomic repository](https://github.com/gerardbm/atomic) and paste to your `$HOME` directory.
+Install it from the repositories and install the package `urlview`. No need for additional plugins. Finally, copy the file `.tmux.conf` and paste to your `$HOME` directory.
 
 ##### Powerline
 
