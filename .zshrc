@@ -107,7 +107,7 @@ alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
 
 # Dev
 alias gst='git status'
-alias st='cd /home/gerard/DEV/wpdev/wp-content/themes/starion/'
+alias st='cd $HOME/DEV/wpdev/wp-content/themes/starion/'
 
 # Testing
 alias tmux16='env TERM=xterm-16color tmux'
@@ -127,7 +127,8 @@ fi
 case $COLORTERM in
 	gnome-terminal) export TERM=tmux-256color ;; # Gnome-Terminal
 	xfce4-terminal) export TERM=tmux-256color ;; # XFCE Terminal
-	1) export TERM=xterm-256color-italic ;;      # Konsole, Yakuake
+	rxvt) export TERM=tmux-256color ;;           # URxvt
+	1) export TERM=xterm-256color-italic ;;      # Konsole
 esac
 
 # FZF
