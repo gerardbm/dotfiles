@@ -123,13 +123,5 @@ if [[ -a ~/.atomic-tty.sh ]]; then
 	source ~/.atomic-tty.sh
 fi
 
-# Setting $TERM based on $COLORTERM
-case $COLORTERM in
-	gnome-terminal) export TERM=tmux-256color ;; # Gnome-Terminal
-	xfce4-terminal) export TERM=tmux-256color ;; # XFCE Terminal
-	rxvt) export TERM=tmux-256color ;;           # URxvt
-	1) export TERM=xterm-256color-italic ;;      # Konsole
-esac
-
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
