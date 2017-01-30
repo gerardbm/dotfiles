@@ -105,6 +105,8 @@ alias neo='nvim'
 alias ner='nvim ~/.config/nvim/init.vim'
 alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
 
+alias tr='trash'
+
 # Dev
 alias gst='git status'
 alias st='cd $HOME/DEV/wpdev/wp-content/themes/starion/'
