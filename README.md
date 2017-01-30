@@ -18,6 +18,29 @@ Themes and color schemes:
 
 ### Configuration
 
+##### i3-gaps
+
+Install i3-gaps instead of i3-wm. Make sure you have installed the following libraries, which are a requirement to run my setup properly:
+
+- pactl: to run pulse audio controls from the keyboard.
+- xbacklight: make Fn keys work.
+- feh: image viewer which can be used as background setter.
+- lxappearance: customize look and feel (lxde-native).
+- rofi: a window switcher, run dialog and dmenu replacement.
+- transset-df: transparency for windows.
+- compton: compositor based on xcompmgr with some improvements.
+- network-manager-applet: network icon for the system tray.
+- volumeicon: volume icon for the system tray.
+- morc_menu: categorized desktop application menu.
+- dunst: a customizable and lightweight notification-daemon.
+- trash-cli: command-line tool to move files to the trash.
+- polkit-gnome: authorization manager for the desktop.
+- FontAwesome.io: font to display icons in the i3bar.
+
+Optional:
+- arandr: can be useful to generate xrandr \*.sh scripts.
+- redshift: adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less or reduce the risk for delayed sleep phase syndrome if you are working in front of the screen at night.
+
 ##### Zsh
 
 First, install it from the repositories; then you need to change your current shell (bash is the default, normally). To list all installed shells, run:
@@ -68,11 +91,15 @@ Install it from the repositories.
 
 ##### Ranger
 
-Install it from the repositories.
+Install it from the repositories. After startup, ranger creates the directory `~/.config/ranger`. To copy the default configuration to this directory run the following command:
+
+`
+ranger --copy-config=all
+`
 
 ##### Mutt
 
-Install mutt from the repositories, copy the file `.muttrc` to your `$HOME` directory and modify the settings for your email. It is configured to work for gmail.
+Install mutt from the repositories, copy the file `.muttrc` to your `$HOME` directory and modify the settings for your email. It is configured to work with gmail accounts. Then copy the theme called `atomic.muttrc` from my [Atomic repository](https://github.com/gerardbm/atomic) to your mutt folder: `$HOME/.mutt/atomic.muttrc`.
 
 ##### Cmus
 
