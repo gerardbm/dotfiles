@@ -1,15 +1,24 @@
 URxvt.font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=11
 URxvt.scrollBar: false
-URxvt.letterSpace: -1
+URxvt.letterSpace: -2
 URxvt.internalBorder: 1
 URxvt.pointerBlank: true
 URxvt.hold: false
 
-URxvt.iso14755: true
+URxvt.iso14755: false
 URxvt.iso14755_52: false
 
+! Xft.dpi: 96
+! Xft.antialias: true
+! Xft.hinting: true
+! Xft.rgba: rgb
+! Xft.autohint: false
+! Xft.hintstyle: hintfull
+! Xft.lcdfilter: lcddefault
+
+! urxvt*depth: 32
 urxvt*foreground: #A6B5C5
-urxvt*background: #141A1F
+urxvt*background: [90]#141A1F
 
 *color0:  #141A1F
 *color1:  #EC5252
@@ -27,3 +36,23 @@ urxvt*background: #141A1F
 *color13: #CA96FF
 *color14: #6ECFCF
 *color15: #A6B5C5
+
+
+
+! rofi
+! rofi.modi: run
+! rofi.font: DejaVu\ Sans\ Mono\ 12
+! rofi.width: 34
+! rofi.lines: 10
+! rofi.columns: 1
+! rofi.opacity: 60
+! !                    bg       fg      altbg    hlbg     hlfg
+! rofi.color-normal: #A6B5C5, #141A1F, #282828, #ebdbb2, #282828
+! rofi.color-urgent: #A6B5C5, #141A1F, #282828, #ebdbb2, #282828
+! rofi.color-active: #A6B5C5, #141A1F, #282828, #ebdbb2, #282828
+! rofi.color-window: #A6B5C5, #141A1F
+! rofi.bw: 0
+! rofi.location: 2
+! rofi.padding: 100
+! rofi.fuzzy: false
+
