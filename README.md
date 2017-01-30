@@ -16,9 +16,9 @@
 Themes and color schemes:
 **Atomic** for zsh, URxvt, tmux, vim, irssi, cmus.
 
-### Configuration
+## Configuration
 
-##### i3-gaps
+### i3-gaps
 
 Install i3-gaps instead of i3-wm. Make sure you have installed the following libraries, which are a requirement to run my setup properly:
 
@@ -41,7 +41,7 @@ Optional:
 - arandr: can be useful to generate xrandr \*.sh scripts.
 - redshift: adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less or reduce the risk for delayed sleep phase syndrome if you are working in front of the screen at night.
 
-##### Zsh
+### Zsh
 
 First, install it from the repositories; then you need to change your current shell (bash is the default, normally). To list all installed shells, run:
 
@@ -53,23 +53,23 @@ And set one as default for your user:
 
 Now log out and log in to see the new shell as default. Copy the file `.zshrc` to your `$HOME` directory. Install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) following the instructions from its page. Atomic theme must be downloaded from [Atomic repository](https://github.com/gerardbm/atomic).
 
-##### URxvt
+### URxvt
 
 Install it from the repositories and copy the file `.Xresources` to your `$HOME` directory. It already includes the Atomic color scheme.
 
-##### Tmux
+### Tmux
 
 Install it from the repositories and install the package `urlview`. No need for additional plugins. Finally, copy the file `.tmux.conf` and paste to your `$HOME` directory.
 
-##### Powerline
+### Powerline
 
 Clone or download the [Powerline fonts repository](https://github.com/powerline/fonts) and run the script `./install.sh`.
 
-##### Git
+### Git
 
 Install git from the repositories, configure your account and copy the alias from the file `.gitconfig`.
 
-##### Vim and neovim
+### Vim and neovim
 
 Install vim, gvim and neovim from the repositories.
 
@@ -85,11 +85,11 @@ Open vim and neovim and run the command `:PlugInstall`.
 
 From my [Atomic repository](https://github.com/gerardbm/atomic), copy the file `vim/atomic.vim` to your vim/neovim folder: `../colors/atomic.vim`, and the file `vim-airline/atomic.vim` to your vim-airline-themes folder: `../plugged/vim-airline-themes/autoload/airline/themes/atomic.vim`.
 
-##### Vimf
+### Vimf
 
 Install it from the repositories.
 
-##### Ranger
+### Ranger
 
 Install it from the repositories. After startup, ranger creates the directory `~/.config/ranger`. To copy the default configuration to this directory run the following command:
 
@@ -97,15 +97,15 @@ Install it from the repositories. After startup, ranger creates the directory `~
 ranger --copy-config=all
 `
 
-##### Mutt
+### Mutt
 
 Install mutt from the repositories, copy the file `.muttrc` to your `$HOME` directory and modify the settings for your email. It is configured to work with gmail accounts. Then copy the theme called `atomic.muttrc` from my [Atomic repository](https://github.com/gerardbm/atomic) to your mutt folder: `$HOME/.mutt/atomic.muttrc`.
 
-##### Cmus
+### Cmus
 
 Install cmus from the repositories, copy the theme from my [Atomic repository](https://github.com/gerardbm/atomic) to your cmus folder: `$HOME/.cmus/atomic.theme`, also copy the file `playlist.pl` to the same folder.
 
-##### Irssi
+### Irssi
 
 Install irssi from the repositories and install the following libraries (some plugins require them):
 
