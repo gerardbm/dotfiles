@@ -45,7 +45,7 @@ chatnets = {
   };
   ChatZona = {
     type = "IRC";
-    autosendcmd = "ignore nick;ignore chan";
+    autosendcmd = "";
     nick = "NICKNAME";
     username = "-";
     realname = "Gerard";
@@ -393,9 +393,6 @@ keyboard = (
   { key = "^G"; id = "command"; data = "go"; },
   { key = "^H"; id = "command"; data = "window previous"; },
   { key = "^L"; id = "command"; data = "window next"; }
+  { key = "^N"; data = ""; id = "forward_history"; },
+  { key = "^P"; data = ""; id = "backward_history"; }
 );
-ignores = (
-  { mask = "nick"; level = "ALL"; },
-  { mask = "chan"; level = "ALL"; }
-);
-
