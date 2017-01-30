@@ -1,29 +1,101 @@
-URxvt.font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=11
-URxvt.scrollBar: false
-URxvt.letterSpace: -1
-URxvt.internalBorder: 1
-URxvt.pointerBlank: true
-URxvt.hold: false
+! ------------------------------------------------------------
+! XFT
+! ------------------------------------------------------------
 
-URxvt.iso14755: true
-URxvt.iso14755_52: false
+Xft.dpi       : 96
+Xft.antialias : true
+Xft.hinting   : true
+Xft.rgba      : rgb
+Xft.autohint  : false
+Xft.hintstyle : hintfull
+Xft.lcdfilter : lcddefault
 
-urxvt*foreground: #A6B5C5
-urxvt*background: #141A1F
+! ------------------------------------------------------------
+! Variables
+! ------------------------------------------------------------
 
-*color0:  #141A1F
-*color1:  #EC5252
-*color2:  #5DA813
-*color3:  #C97016
-*color4:  #3790E9
-*color5:  #A35AED
-*color6:  #13AEAE
-*color7:  #53697F
-*color8:  #202931
-*color9:  #FF9191
-*color10: #9ACD68
-*color11: #EDA45C
-*color12: #7DBEFF
-*color13: #CA96FF
-*color14: #6ECFCF
-*color15: #A6B5C5
+#define base1 #141A1F
+#define acr50 #EC5252
+#define acg50 #5DA813
+#define aco50 #C97016
+#define acb50 #3790E9
+#define acv50 #A35AED
+#define acc50 #13AEAE
+#define base3 #53697F
+#define base2 #202931
+#define acr70 #FF9191
+#define acg70 #9ACD68
+#define aco70 #EDA45C
+#define acb70 #7DBEFF
+#define acv70 #CA96FF
+#define acc70 #6ECFCF
+#define base4 #A6B5C5
+
+! ------------------------------------------------------------
+! URxvt
+! ------------------------------------------------------------
+
+URxvt.font           : xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=11
+URxvt.letterSpace    : -1
+URxvt.internalBorder : 1
+URxvt.scrollBar      : false
+URxvt.pointerBlank   : true
+URxvt.hold           : false
+URxvt.iso14755       : false
+URxvt.iso14755_52    : false
+URxvt*loginShell     : true
+URxvt*buffered       : true
+urxvt*depth          : 32
+urxvt*foreground     : base4
+urxvt*background     : [90]base1
+
+! ------------------------------------------------------------
+! Colors
+! ------------------------------------------------------------
+
+*color0  : base1
+*color1  : acr50
+*color2  : acg50
+*color3  : aco50
+*color4  : acb50
+*color5  : acv50
+*color6  : acc50
+*color7  : base3
+*color8  : base2
+*color9  : acr70
+*color10 : acg70
+*color11 : aco70
+*color12 : acb70
+*color13 : acv70
+*color14 : acc70
+*color15 : base4
+
+! ------------------------------------------------------------
+! Rofi
+! ------------------------------------------------------------
+
+rofi.terminal          : /usr/bin/urxvtc
+rofi.run-shell-command : /usr/bin/urxvtc -e '{cmd}'
+rofi.ssh-command       : tmux split-window -h -p 50 '{ssh-client} {host}'
+rofi.sidebar-mode      : true
+rofi.fuzzy             : true
+rofi.font              : DejaVu\ Sans\ Mono\ 11
+rofi.location          : 0
+rofi.width             : 34
+rofi.padding           : 8
+rofi.borderwidth       : 1
+rofi.columns           : 1
+rofi.lines             : 7
+rofi.separator-style   : solid
+
+! Colors            bg     fg     altbg  hlbg   hlfg
+rofi.color-normal : base1, base4, base1, acc50, base1
+rofi.color-urgent : base1, acr50, base1, acr50, base1
+rofi.color-active : base1, acb50, base1, acb50, base1
+rofi.color-window : base1, acc50, base3
+rofi.bw           : 1
+
+! Key bindings
+rofi.kb-cancel        : Escape,Control+c
+rofi.kb-mode-next     : Control+Tab,Control+l
+rofi.kb-mode-previous : Control+Shift+Tab,Control+h
