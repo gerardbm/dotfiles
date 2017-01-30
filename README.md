@@ -16,7 +16,7 @@
 Themes and color schemes:
 **Atomic** for zsh, URxvt, tmux, vim, irssi, cmus.
 
-## Configuration
+## Setup
 
 ### i3-gaps
 
