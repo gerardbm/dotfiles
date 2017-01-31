@@ -43,7 +43,7 @@ new_float normal
 # Smart borders
 hide_edge_borders smart
 
- # Orientation
+# Orientation
 default_orientation horizontal
 
 # Gaps settings
@@ -64,12 +64,12 @@ bindsym $mod+t exec i3-sensible-terminal
 bindsym $mod+Return kill
 
 # Start program launcher
-bindsym $mod+space exec rofi -show run
+bindsym $mod+space exec --no-startup-id rofi -show run
 bindsym $mod+m exec --no-startup-id morc_menu
 
 # Window transparency adjustment
-bindsym $mod+o exec transset-df -a --min 0.05 --dec 0.05
-bindsym $mod+p exec transset-df -a --inc 0.05
+bindsym $mod+o exec --no-startup-id transset-df -a --min 0.05 --dec 0.05
+bindsym $mod+p exec --no-startup-id transset-df -a --inc 0.05
 
 # Change focus
 bindsym $mod+h focus left
@@ -169,14 +169,15 @@ bindsym $mod+shift+x exec i3lock --color "$base1"
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+	bindsym h resize shrink width 5 px or 5 ppt
+	bindsym j resize grow height 5 px or 5 ppt
+	bindsym k resize shrink height 5 px or 5 ppt
+	bindsym l resize grow width 5 px or 5 ppt
 
-        # Back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+	# Back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym Control+c mode "default"
 }
 
 bindsym $mod+0 mode "$mode_system"
@@ -184,14 +185,15 @@ bindsym $mod+0 mode "$mode_system"
 set $mode_system (e)xit, switch_(u)ser, (r)eboot, (s)hutdown
 
 mode "$mode_system" {
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym s exec --no-startup-id i3exit shutdown, mode "default"
+	bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+	bindsym e exec --no-startup-id i3exit logout, mode "default"
+	bindsym r exec --no-startup-id i3exit reboot, mode "default"
+	bindsym s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+	# Exit system mode: "Enter" or "Escape"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym Control+c mode "default"
 }
 
 # --------------------------------------------------------------------------------
@@ -222,8 +224,19 @@ client.placeholder      $base1 $base2 $base4 $base1 $base2
 client.background       $base2
 
 bar {
+	position bottom
 	status_command i3status
 	height $height
+	colors {
+		background $base2
+		statusline $base4
+		separator  $base3
+		focused_workspace  $acc70 $acc50 $base1
+		active_workspace   $acb70 $acb50 $base1
+		inactive_workspace $base3 $base2 $base3
+		urgent_workspace   $acg70 $acg50 $base1
+		binding_mode       $acr70 $acr50 $base1
+	}
 }
 
 # --------------------------------------------------------------------------------
@@ -237,20 +250,20 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenshot
 bindsym Print exec --no-startup-id i3-scrot
 
 # Volume
-bindsym $mod+v exec terminal -e 'alsamixer'
+bindsym $mod+v exec --no-startup-id terminal -e 'alsamixer'
 
 # Compton control
 bindsym $mod+c exec --no-startup-id pkill compton
@@ -268,13 +281,13 @@ exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config $HOME/.com
 exec --no-startup-id feh --bg-fill $HOME/Imatges/amazing-wallpaper-36.jpg
 
 exec --no-startup-id start_conky_live_maia
-exec_always --no-startup-id setcursor
+exec --no-startup-id setcursor
 exec --no-startup-id setxkbmap es
 exec --no-startup-id volumeicon
 
-exec pa-applet
-exec nm-applet
-exec udiskie -s
+exec --no-startup-id pa-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id udiskie -s
 
 # conky!
 # exec --no-startup-id sh -c 'cd ${HOME}/.conkycolors && ./zco.sh'
