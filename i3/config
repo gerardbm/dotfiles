@@ -16,23 +16,23 @@ font pango:DejaVu Sans Mono for Powerline 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Atomic palette                       Fallback
-set_from_resource $darkblack   color0  #141A1F
-set_from_resource $darkred     color1  #EC5252
-set_from_resource $darkgreen   color2  #5DA813
-set_from_resource $darkyellow  color3  #C97016
-set_from_resource $darkblue    color4  #3790E9
-set_from_resource $darkmagenta color5  #A35AED
-set_from_resource $darkcyan    color6  #13AEAE
-set_from_resource $darkwhite   color7  #53697F
-set_from_resource $black       color8  #202931
-set_from_resource $red         color9  #FF9191
-set_from_resource $green       color10 #9ACD68
-set_from_resource $yellow      color11 #EDA45C
-set_from_resource $blue        color12 #7DBEFF
-set_from_resource $magenta     color13 #CA96FF
-set_from_resource $cyan        color14 #6ECFCF
-set_from_resource $white       color15 #A6B5C5
+# Atomic palette                 Fallback
+set_from_resource $base1 color0  #141A1F
+set_from_resource $acr50 color1  #EC5252
+set_from_resource $acg50 color2  #5DA813
+set_from_resource $aco50 color3  #C97016
+set_from_resource $acb50 color4  #3790E9
+set_from_resource $acv50 color5  #A35AED
+set_from_resource $acc50 color6  #13AEAE
+set_from_resource $base3 color7  #53697F
+set_from_resource $base2 color8  #202931
+set_from_resource $acr70 color9  #FF9191
+set_from_resource $acg70 color10 #9ACD68
+set_from_resource $aco70 color11 #EDA45C
+set_from_resource $acb70 color12 #7DBEFF
+set_from_resource $acv70 color13 #CA96FF
+set_from_resource $acc70 color14 #6ECFCF
+set_from_resource $base4 color15 #A6B5C5
 
 set $height 21
 
@@ -163,7 +163,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Block the screen (i3lock)
-bindsym $mod+shift+x exec i3lock --color "$darkblack"
+bindsym $mod+shift+x exec i3lock --color "$base1"
 
 # Resize window
 bindsym $mod+r mode "resize"
@@ -213,13 +213,13 @@ for_window [urgent=latest] focus
 # Look and feel
 # --------------------------------------------------------------------------------
 
-# class                 border  backg.  text    indic.  child_border
-client.focused          $darkcyan  $darkcyan  $darkblack $darkred   $darkcyan
-client.focused_inactive $darkwhite $darkwhite $darkblack $darkcyan
-client.unfocused        $darkblack $darkblack $darkwhite $darkblack
-client.urgent           $darkred   $darkred   $darkblack $darkred
-client.placeholder      $darkblack $black     $white     $darkblack $black
-client.background       $black
+# class                 border backg. text   indic. child_border
+client.focused          $acc50 $acc50 $base1 $acr50 $acc50
+client.focused_inactive $base3 $base3 $base1 $acc50
+client.unfocused        $base1 $base1 $base3 $base1
+client.urgent           $acr50 $acr50 $base1 $acr50
+client.placeholder      $base1 $base2 $base4 $base1 $base2
+client.background       $base2
 
 bar {
 	status_command i3status
