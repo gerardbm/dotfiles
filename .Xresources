@@ -49,6 +49,19 @@ urxvt*depth          : 32
 urxvt*foreground     : base4
 urxvt*background     : [90]base1
 
+URxvt.keysym.S-F1:  \033[11;2~
+URxvt.keysym.S-F2:  \033[12;2~
+URxvt.keysym.S-F3:  \033[13;2~
+URxvt.keysym.S-F4:  \033[14;2~
+URxvt.keysym.S-F5:  \033[15;2~
+URxvt.keysym.S-F6:  \033[17;2~
+URxvt.keysym.S-F7:  \033[18;2~
+URxvt.keysym.S-F8:  \033[19;2~
+URxvt.keysym.S-F9:  \033[20;2~
+URxvt.keysym.S-F10: \033[21;2~
+URxvt.keysym.S-F11: \033[23;2~
+URxvt.keysym.S-F12: \033[24;2~
+
 ! ------------------------------------------------------------
 ! Colors
 ! ------------------------------------------------------------
@@ -88,14 +101,14 @@ rofi.columns           : 1
 rofi.lines             : 7
 rofi.separator-style   : solid
 
+! Key bindings
+rofi.kb-cancel        : Escape,Control+c
+rofi.kb-mode-next     : Control+Tab,Control+l
+rofi.kb-mode-previous : Control+Shift+Tab,Control+h
+
 ! Colors            bg     fg     altbg  hlbg   hlfg
 rofi.color-normal : base1, base4, base1, acc50, base1
 rofi.color-urgent : base1, acr50, base1, acr50, base1
 rofi.color-active : base1, acb50, base1, acb50, base1
 rofi.color-window : base1, acc50, base3
 rofi.bw           : 1
-
-! Key bindings
-rofi.kb-cancel        : Escape,Control+c
-rofi.kb-mode-next     : Control+Tab,Control+l
-rofi.kb-mode-previous : Control+Shift+Tab,Control+h
