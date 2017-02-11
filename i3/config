@@ -225,17 +225,17 @@ client.background       $base2
 
 bar {
 	position bottom
-	status_command i3status
 	height $height
+	status_command i3status -c $HOME/.i3/i3status.conf
 	colors {
 		background $base2
 		statusline $base4
-		separator  $base3
-		focused_workspace  $acc70 $acc50 $base1
-		active_workspace   $acb70 $acb50 $base1
-		inactive_workspace $base3 $base2 $base3
-		urgent_workspace   $acg70 $acg50 $base1
-		binding_mode       $acr70 $acr50 $base1
+		separator  $acc50
+		focused_workspace  $base2 $base2 $acc50
+		active_workspace   $base2 $base2 $acb50
+		inactive_workspace $base2 $base2 $base3
+		urgent_workspace   $base2 $base2 $acg50
+		binding_mode       $base2 $base2 $acr50
 	}
 }
 
@@ -272,13 +272,23 @@ bindsym $mod+Ctrl+c exec --no-startup-id compton -b --config $HOME/.compton.conf
 # Hide/unhide i3 bar
 bindsym $mod+n bar mode toggle
 
+# Display Caps_Lock and Num_Lock in the i3blocks bar
+# bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
+
+# Enable/disable caps mode
+mode "CAPS" {
+		bindsym Caps_Lock mode "default"
+}
+bindsym Caps_Lock mode "CAPS"
+
 # --------------------------------------------------------------------------------
 # Startup
 # --------------------------------------------------------------------------------
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config $HOME/.compton.conf
-exec --no-startup-id feh --bg-fill $HOME/Imatges/amazing-wallpaper-36.jpg
+exec --no-startup-id feh --bg-fill $HOME/.wallpaper/wallpaper.jpg
 
 exec --no-startup-id start_conky_live_maia
 exec --no-startup-id setcursor
