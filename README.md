@@ -107,13 +107,16 @@ Install cmus from the repositories, copy the theme from my [Atomic repository](h
 
 ### Irssi
 
-Install irssi from the repositories and install the following libraries (some plugins require them):
+Install irssi from the repositories and install the following dependencies (some plugins require them):
 
 ```
 perl-libwww
 perl-lwp-protocol-https
 perl-text-charwidth
+perl-glib-object-introspection
 ```
+
+The package `perl-glib-object-introspection` is required for the plugin `desktop-notify` and on Arch Linux is available on AUR. Then, it will use dunst to display de notifications.
 
 Run the script `irssi/iip.sh`: it will install the updated plugins and will create the symlinks automatically:
 
