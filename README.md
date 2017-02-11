@@ -1,6 +1,5 @@
 # Dotfiles
 
-- DE: KDE
 - WM: i3-gaps
 - Shell: zsh
 - Terminal: URxvt
@@ -123,3 +122,23 @@ Run the script `irssi/iip.sh`: it will install the updated plugins and will crea
 `. ./iip.sh`
 
 Copy the file `irssi/config` to your irssi folder: `$HOME/.irssi/config`, then change nicknames, passwords, servers, channels, etc., for yours.
+
+### Screenfetch
+
+```bash
+ ██████████████████  ████████     gerard@Pegasus
+ ██████████████████  ████████     OS: Manjaro 16.10.3 Fringilla
+ ██████████████████  ████████     Kernel: x86_64 Linux 4.4.45-1-MANJARO
+ ██████████████████  ████████     Uptime: 8h 5m
+ ████████            ████████     Packages: 1310
+ ████████  ████████  ████████     Shell: zsh 5.3.1
+ ████████  ████████  ████████     Resolution: 1366x768
+ ████████  ████████  ████████     WM: i3
+ ████████  ████████  ████████     GTK Theme: Vertex-Maia-Dark [GTK2/3]
+ ████████  ████████  ████████     Icon Theme: Vertex-Maia
+ ████████  ████████  ████████     Font: Noto Sans 10
+ ████████  ████████  ████████     CPU: Intel Core i5-3320M @ 4x 3.3GHz [45.0°C]
+ ████████  ████████  ████████     GPU: Mesa DRI Intel(R) Ivybridge Mobile
+ ████████  ████████  ████████     RAM: 1279MiB / 3657MiB
+
+```
