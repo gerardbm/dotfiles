@@ -71,17 +71,10 @@ channels = (
   { name = "#android"; chatnet = "Hispano"; autojoin = "Yes"; },
   { name = "#ubuntu"; chatnet = "Hispano"; autojoin = "Yes"; },
   { name = "#irssi"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#barcelona"; chatnet = "ChatZona"; autojoin = "Yes"; },
-  { name = "##linux"; chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#vim"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "##linux"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#vim"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#git"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#css"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#bash"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "##php"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#python"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#ubuntu"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#wordpress"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "##javascript"; chatnet = "Freenode"; autojoin = "No"; }
 );
 
 aliases = {

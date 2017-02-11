@@ -34,6 +34,7 @@ wget http://scripts.irssi.org/scripts/sysinfo_dg.pl
 wget http://scripts.irssi.org/scripts/tmux-nicklist-portable.pl
 wget http://scripts.irssi.org/scripts/trackbar22.pl
 wget http://scripts.irssi.org/scripts/usercount.pl
+wget http://scripts.irssi.org/scripts/desktop-notify.pl
 
 # Create the symlinks
 for file in "$DIRECTORY2"*.pl; do

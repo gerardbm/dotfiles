@@ -12,6 +12,7 @@ Scripts:
 * **tmux-nicklist-portable**: It's awesome to see a nick list into a tmux pane.
 * **trackbar22**: It adds an horizontal line to remember the last line we read.
 * **usercount**: Count the users of a channel and display it in the status bar.
+* **desktop-notify**: Display desktop notifications when a message is received.
 
 There are two ways to install the scripts:
 
@@ -42,6 +43,7 @@ Note that **scriptassist** requires to have some perl modules installed.
 perl-libwww
 perl-lwp-protocol-https
 perl-text-charwidth
+perl-glib-object-introspection
 ```
 
 It's not required to install them through CPAN if these packages are in the repositories of your distro. In Manjaro (Arch Linux based), they are.
