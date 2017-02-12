@@ -253,11 +253,12 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
-# Media player controls
-bindsym XF86AudioPlay exec --no-startup-id playerctl play
-bindsym XF86AudioPause exec --no-startup-id playerctl pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+# Cmus-remote
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u
+bindsym XF86AudioPause exec --no-startup-id cmus-remote -u
+bindsym XF86AudioNext exec --no-startup-id cmus-remote -n
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r
+bindsym $mod+u exec --no-startup-id cmus-remote -u
 
 # Screenshot
 bindsym Print exec --no-startup-id i3-scrot
