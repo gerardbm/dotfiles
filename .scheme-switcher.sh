@@ -13,7 +13,10 @@
 #
 # URL: https://github.com/gerardbm/dotfiles
 
-if [[ "$COLORTERM" = '1' ]]; then
+# Variable to check if I'm using the Konsole terminal
+CHECKTERM=$(xprop -id "$WINDOWID" WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/\1/')
+
+if [[ "$CHECKTERM" = 'konsole' ]]; then
 
 	color-scheme() {
 		arg="${1:-colors=Atomic}"
