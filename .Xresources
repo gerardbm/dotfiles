@@ -45,9 +45,9 @@ URxvt.iso14755       : false
 URxvt.iso14755_52    : false
 URxvt*loginShell     : true
 URxvt*buffered       : true
-urxvt*depth          : 32
-urxvt*foreground     : base4
-urxvt*background     : [90]base1
+URxvt*depth          : 32
+URxvt*foreground     : base4
+URxvt*background     : [90]base1
 
 URxvt.keysym.S-F1:  \033[11;2~
 URxvt.keysym.S-F2:  \033[12;2~
