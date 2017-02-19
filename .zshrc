@@ -88,7 +88,7 @@ alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
 
-# GNU/Linux
+# Packaging
 alias upg='sudo apt-get update && sudo apt-get upgrade'
 alias pag='sudo pacman -Syu'
 
@@ -101,15 +101,19 @@ alias xr='xrdb ~/.Xresources'
 
 # Vim/Neovim
 alias vir='vim ~/.vimrc'
-alias neo='nvim'
 alias ner='nvim ~/.config/nvim/init.vim'
+alias neo='nvim'
 alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
 
+# Trash-cli tool
 alias tr='trash'
 
 # Dev
 alias gst='git status'
 alias st='cd $HOME/DEV/wpdev/wp-content/themes/starion/'
+
+# Network
+alias wanip='curl -s icanhazip.com'
 
 # Testing
 alias tmux16='env TERM=xterm-16color tmux'
