@@ -1,5 +1,5 @@
 [global]
-    font = DejaVu Sans Mono 10
+    font = Terminus 12
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -38,13 +38,13 @@
     # window allows bounces back and forth.
     # This option conflicts with "word_wrap".
     # Set to 0 to disable.
-    bounce_freq = 5
+    bounce_freq = 0
 
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 60
+    show_age_threshold = 200
 
     # Split notifications into multiple lines if they don't fit into
     # geometry.
@@ -75,13 +75,13 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 15
+    transparency = 10
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
     # default 120
-    idle_threshold = 120
+    idle_threshold = 0
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -97,7 +97,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = none
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -120,7 +120,6 @@
     separator_height = 1
 
     # Padding between text and separator.
-    # padding = 8
     padding = 8
 
     # Horizontal padding.
@@ -132,7 +131,8 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = #454947
+    # separator_color = #454947
+    separator_color = frame
 
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -143,7 +143,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = qutebrowser
+    browser = /usr/bin/qutebrowser
 
     # Align icons left/right/off
     icon_position = left
@@ -163,11 +163,10 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = mod1+space
+    close = mod4+q
 
     # Close all notifications.
-    # close_all = ctrl+shift+space
-    close_all = ctrl+mod1+space
+    close_all = ctrl+mod4+q
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
@@ -175,23 +174,23 @@
     history = ctrl+mod4+h
 
     # Context menu.
-    context = ctrl+mod1+c
+    context = ctrl+mod4+m
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#2B2C2B"
-    foreground = "#888888"
+    background = "#141A1F"
+    foreground = "#A6B5C5"
     timeout = 10
 
 [urgency_normal]
-    background = "#2B2C2B"
-    foreground = "#F9FAF9"
+    background = "#141A1F"
+    foreground = "#A6B5C5"
     timeout = 10
 
 [urgency_critical]
-    background = "#D62929"
-    foreground = "#F9FAF9"
+    background = "#141A1F"
+    foreground = "#9ACD68"
     timeout = 0
 
 
@@ -209,10 +208,16 @@
 #   script appname summary body icon urgency
 # where urgency can be "LOW", "NORMAL" or "CRITICAL".
 #
-# NOTE: if you don't want a notification to be displayed, set the format
-# to "".
-# NOTE: It might be helpful to run dunst -print in a terminal in order
+# NOTES:
+# 1. If you don't want a notification to be displayed, set the format to "".
+# 2. It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
+
+[irc]
+    appname = irssi
+    timeout = 1
+    background = "#141A1F"
+    foreground = "#A6B5C5"
 
 #[espeak]
 #    summary = "*"
@@ -270,20 +275,10 @@
 #    background = "#A8EB41"
 #    foreground = "#FFFFFF"
 #
-[irc]
-		appname = irssi
-		timeout = 1
-		background = "#0033bb"
-		foreground = "#dddddd"
-#
 # [CMUS]
 #    appname = CMUS
 #    category = cmus
 #    background = "#6C4AB7"
 #    foreground = "#FFE756"
-#
-#
-#     background = "#30AB70"
-#     foreground = "#F67245"
 #
 # vim: ft=cfg
