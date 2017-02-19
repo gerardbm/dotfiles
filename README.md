@@ -128,17 +128,17 @@ Copy the file `irssi/config` to your irssi folder: `$HOME/.irssi/config`, then c
 ```bash
  ██████████████████  ████████     gerard@Pegasus
  ██████████████████  ████████     OS: Manjaro 16.10.3 Fringilla
- ██████████████████  ████████     Kernel: x86_64 Linux 4.4.45-1-MANJARO
- ██████████████████  ████████     Uptime: 8h 5m
- ████████            ████████     Packages: 1310
+ ██████████████████  ████████     Kernel: x86_64 Linux 4.4.48-1-MANJARO
+ ██████████████████  ████████     Uptime: 10h 52m
+ ████████            ████████     Packages: 1383
  ████████  ████████  ████████     Shell: zsh 5.3.1
  ████████  ████████  ████████     Resolution: 1366x768
  ████████  ████████  ████████     WM: i3
- ████████  ████████  ████████     GTK Theme: Vertex-Maia-Dark [GTK2/3]
- ████████  ████████  ████████     Icon Theme: Vertex-Maia
+ ████████  ████████  ████████     GTK Theme: E17gtk [GTK2/3]
+ ████████  ████████  ████████     Icon Theme: breeze-dark
  ████████  ████████  ████████     Font: Noto Sans 10
- ████████  ████████  ████████     CPU: Intel Core i5-3320M @ 4x 3.3GHz [45.0°C]
+ ████████  ████████  ████████     CPU: Intel Core i5-3320M @ 4x 3.3GHz [47.0°C]
  ████████  ████████  ████████     GPU: Mesa DRI Intel(R) Ivybridge Mobile
- ████████  ████████  ████████     RAM: 1279MiB / 3657MiB
+ ████████  ████████  ████████     RAM: 2197MiB / 3657MiB
 
 ```
