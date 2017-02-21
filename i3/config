@@ -216,6 +216,53 @@ bindsym Control+Shift+c exec --no-startup-id gnome-calculator
 bindsym Control+Shift+m exec --no-startup-id terminal -name 'mail' -e 'mutt'
 
 # --------------------------------------------------------------------------------
+# Multimedia keyboard control
+# --------------------------------------------------------------------------------
+
+# Pulse Audio controls
+# Note: volume status is are already in i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym XF86AudioMicMute exec     --no-startup-id pactl set-source-mute 1 toggle
+bindsym XF86AudioMute exec        --no-startup-id pactl set-sink-mute 0 toggle
+
+# Cmus-remote
+bindsym $mod+u exec        --no-startup-id cmus-remote -u && sh ~/.i3/cmus.sh
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u && sh ~/.i3/cmus.sh
+bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && notify-send -t 2 'Cmus: next'
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && notify-send -t 2 'Cmus: prev'
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id cmus-remote -v +10% && sh ~/.i3/cmus-vol.sh
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id cmus-remote -v -10% && sh ~/.i3/cmus-vol.sh
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10 && sh ~/.i3/xbacklight.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && sh ~/.i3/xbacklight.sh
+
+# Screenshot
+bindsym Print exec --no-startup-id i3-scrot
+
+# Screen recorder
+bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
+
+# Volume
+bindsym $mod+v exec --no-startup-id terminal -e 'alsamixer'
+
+# Compton control
+bindsym $mod+c exec      --no-startup-id pkill compton
+bindsym $mod+Ctrl+c exec --no-startup-id compton -b --config $HOME/.compton.conf
+
+# Hide/display i3 bar
+bindsym $mod+n bar mode toggle
+
+# Caps mode
+# TODO: make a wrapper for i3status
+mode "Caps ▇▇▇" {
+	bindsym Caps_Lock mode "default"; exec --no-startup-id sleep 0.2 && sh ~/.i3/caps.sh
+}
+
+bindsym Caps_Lock mode "Caps ▇▇▇"; exec --no-startup-id sh ~/.i3/caps.sh
+
+# --------------------------------------------------------------------------------
 # Assignments
 # --------------------------------------------------------------------------------
 
@@ -292,53 +339,6 @@ bar {
 		binding_mode       $base2 $base2 $acr50
 	}
 }
-
-# --------------------------------------------------------------------------------
-# Multimedia keyboard control
-# --------------------------------------------------------------------------------
-
-# Pulse Audio controls
-# Note: volume status is are already in i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym XF86AudioMicMute exec     --no-startup-id pactl set-source-mute 1 toggle
-bindsym XF86AudioMute exec        --no-startup-id pactl set-sink-mute 0 toggle
-
-# Cmus-remote
-bindsym $mod+u exec        --no-startup-id cmus-remote -u && sh ~/.i3/cmus.sh
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u && sh ~/.i3/cmus.sh
-bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && notify-send -t 2 'Cmus: next'
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && notify-send -t 2 'Cmus: prev'
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id cmus-remote -v +10% && sh ~/.i3/cmus-vol.sh
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id cmus-remote -v -10% && sh ~/.i3/cmus-vol.sh
-
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10 && sh ~/.i3/xbacklight.sh
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && sh ~/.i3/xbacklight.sh
-
-# Screenshot
-bindsym Print exec --no-startup-id i3-scrot
-
-# Screen recorder
-bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
-
-# Volume
-bindsym $mod+v exec --no-startup-id terminal -e 'alsamixer'
-
-# Compton control
-bindsym $mod+c exec      --no-startup-id pkill compton
-bindsym $mod+Ctrl+c exec --no-startup-id compton -b --config $HOME/.compton.conf
-
-# Hide/display i3 bar
-bindsym $mod+n bar mode toggle
-
-# Caps mode
-# TODO: make a wrapper for i3status
-mode "Caps ▇▇▇" {
-	bindsym Caps_Lock mode "default"; exec --no-startup-id sleep 0.2 && sh ~/.i3/caps.sh
-}
-
-bindsym Caps_Lock mode "Caps ▇▇▇"; exec --no-startup-id sh ~/.i3/caps.sh
 
 # --------------------------------------------------------------------------------
 # Startup
