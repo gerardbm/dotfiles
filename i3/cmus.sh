@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to control the cmus status notification.
+# Script to display the cmus status (playing/stopped).
 # It works through i3-gaps (or i3-wm) and dunst.
 #
 # Full configuration is available in this repository:

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to display the Caps Lock.
+# Script to display the Caps Lock status.
 # It works through i3-gaps (or i3-wm) and dunst.
 #
 # Full configuration is available in this repository:

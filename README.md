@@ -35,6 +35,7 @@ Install i3-gaps instead of i3-wm. Make sure you have installed the following lib
 - trash-cli: command-line tool to move files to the trash.
 - polkit-gnome: authorization manager for the desktop.
 - FontAwesome.io: font to display icons in the i3bar.
+- simplescreenrecorder: tool to record the desktop.
 
 Optional:
 - arandr: can be useful to generate xrandr \*.sh scripts.
