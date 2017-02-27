@@ -8,7 +8,6 @@ Scripts:
 * **idletime**: It retrieves the idletime of any nickname.
 * **openurl**: List the saved URLs.
 * **scriptassist**: Really useful script manager. It checks for updates, as well!
-* **sysinfo_dg**: This script prints the current system info in a channel.
 * **tmux-nicklist-portable**: It's awesome to see a nick list into a tmux pane.
 * **trackbar22**: It adds an horizontal line to remember the last line we read.
 * **usercount**: Count the users of a channel and display it in the status bar.

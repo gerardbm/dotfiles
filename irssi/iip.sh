@@ -30,7 +30,6 @@ wget http://scripts.irssi.org/scripts/go2.pl
 wget http://scripts.irssi.org/scripts/idletime.pl
 wget http://scripts.irssi.org/scripts/openurl.pl
 wget http://scripts.irssi.org/scripts/scriptassist.pl
-wget http://scripts.irssi.org/scripts/sysinfo_dg.pl
 wget http://scripts.irssi.org/scripts/tmux-nicklist-portable.pl
 wget http://scripts.irssi.org/scripts/trackbar22.pl
 wget http://scripts.irssi.org/scripts/usercount.pl
