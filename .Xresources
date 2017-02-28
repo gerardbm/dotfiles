@@ -137,7 +137,7 @@ rofi.run-shell-command : /usr/bin/urxvtc -e '{cmd}'
 rofi.ssh-command       : tmux split-window -h -p 50 '{ssh-client} {host}'
 rofi.sidebar-mode      : true
 rofi.fuzzy             : true
-rofi.font              : DejaVu\ Sans\ Mono\ 11
+rofi.font              : Terminus\ 12
 rofi.location          : 0
 rofi.width             : 34
 rofi.padding           : 8
