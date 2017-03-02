@@ -1,0 +1,69 @@
+" --------------------------------------------------
+" A Pdf Viewer Like Vim (APVLV) - Settings
+" --------------------------------------------------
+
+" Zoom in/out
+map I zi
+map O zo
+map W zw
+map H zh
+
+" Ctrl+P show print dialog
+map <C-p> :print<CR>
+
+" Zoom value, default is fitwidth
+" Zoom has 4 styles:
+" - a float type number
+" - fitwidth
+" - fitheight
+" - normal
+set zoom=fitwidth
+
+" Set command timeout between two key press
+set commandtimeout=700
+
+" Set default dir
+set defaultdir=~/
+
+" Set if use content view
+set content=yes
+
+" Set weather use continuous view
+" Make sure the autoscrollpage is set to 'yes' if you want to set this to yes
+set continuous=yes
+
+" Set a pad to continuous page
+set continuouspad=2
+
+" Set if auto scroll page when at the end or begin of one pdf page
+set autoscrollpage=yes
+
+" Set if auto scroll doc from 1st page when goto the last page
+set autoscrolldoc=no
+
+" Set if disable ~/.apvlvinfo, default is no
+set noinfo=no
+
+" Set pdf object cache size
+set pdfcache=4
+
+" Set if use right and bottom scrollbar
+set scrollbar=yes
+
+" Set if use visual mode to select and copy text
+set visualmode=no
+
+" Set if wrapscan text
+set wrapscan=yes
+
+" Set double click action
+" Option value is 'word', 'line' or 'page'
+set doubleclick = page
+
+" Set GUI options
+" m means menu, T means toolbar
+set guioptions = m
+
+" Set if use auto reload document
+" > 0 means auto reload after some seconds. = 0 means not auto reload
+" set autoreload = 3
