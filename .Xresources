@@ -37,7 +37,7 @@ Xft.lcdfilter : lcddefault
 
 URxvt.font           : xft:Terminus:size=13
 URxvt.letterSpace    : -1
-URxvt.internalBorder : 4
+URxvt.internalBorder : 1
 URxvt.scrollBar      : false
 URxvt.pointerBlank   : true
 URxvt.hold           : false
@@ -143,13 +143,19 @@ rofi.width             : 34
 rofi.padding           : 8
 rofi.borderwidth       : 1
 rofi.columns           : 1
-rofi.lines             : 7
+rofi.lines             : 10
 rofi.separator-style   : solid
 
 ! Key bindings
-rofi.kb-cancel        : Escape,Control+c
-rofi.kb-mode-next     : Control+Tab,Control+l
-rofi.kb-mode-previous : Control+Shift+Tab,Control+h
+rofi.kb-accept-entry     : Control+m,Return,KP_Enter
+rofi.kb-cancel           : Escape,Control+c
+rofi.kb-mode-next        : Control+l
+rofi.kb-mode-previous    : Control+h
+rofi.kb-row-down         : Control+j
+rofi.kb-row-up           : Control+k
+rofi.kb-remove-to-eol    : Control+i
+rofi.kb-remove-to-sol    : Control+u
+rofi.kb-remove-char-back : BackSpace
 
 ! Colors            bg     fg     altbg  hlbg   hlfg
 rofi.color-normal : base1, base4, base1, base3, base1
