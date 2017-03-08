@@ -35,6 +35,10 @@ Xft.lcdfilter : lcddefault
 ! URxvt
 ! ------------------------------------------------------------
 
+! Notes:
+! Cursor shape on neovim only works with 'xterm-256color'
+
+URxvt*termName       : xterm-256color
 URxvt.font           : xft:Terminus:size=13
 URxvt.letterSpace    : -1
 URxvt.internalBorder : 1
@@ -147,15 +151,16 @@ rofi.lines             : 10
 rofi.separator-style   : solid
 
 ! Key bindings
-rofi.kb-accept-entry     : Control+m,Return,KP_Enter
-rofi.kb-cancel           : Escape,Control+c
-rofi.kb-mode-next        : Control+l
-rofi.kb-mode-previous    : Control+h
-rofi.kb-row-down         : Control+j
-rofi.kb-row-up           : Control+k
-rofi.kb-remove-to-eol    : Control+i
-rofi.kb-remove-to-sol    : Control+u
-rofi.kb-remove-char-back : BackSpace
+rofi.kb-accept-entry        : Control+m,Return,KP_Enter
+rofi.kb-cancel              : Escape,Control+c
+rofi.kb-mode-next           : Control+l
+rofi.kb-mode-previous       : Control+h
+rofi.kb-row-down            : Control+j
+rofi.kb-row-up              : Control+k
+rofi.kb-remove-to-eol       : Control+y
+rofi.kb-remove-to-sol       : Control+u
+rofi.kb-remove-char-back    : Control+s,BackSpace
+rofi.kb-remove-char-forward : Control+d,Delete
 
 ! Colors            bg     fg     altbg  hlbg   hlfg
 rofi.color-normal : base1, base4, base1, base3, base1
