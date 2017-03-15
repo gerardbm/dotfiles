@@ -190,15 +190,15 @@ set $mode_resize Resize
 bindsym $mod+r mode "$mode_resize"
 
 mode "$mode_resize" {
-        bindsym h resize shrink width 5 px
-        bindsym j resize grow height 5 px
-        bindsym k resize shrink height 5 px
-        bindsym l resize grow width 5 px
+	bindsym h resize shrink width 5 px
+	bindsym j resize grow height 5 px
+	bindsym k resize shrink height 5 px
+	bindsym l resize grow width 5 px
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Control+c mode "default"
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym Control+c mode "default"
 }
 
 bindsym $mod+0 mode "$mode_system"
@@ -222,22 +222,22 @@ mode "$mode_system" {
 set $mode_move Move
 bindsym $mod+m mode "$mode_move" focus floating
 mode "$mode_move" {
-    bindsym $alt+Tab focus right
+	bindsym $alt+Tab focus right
 
-    bindsym Left  move left
-    bindsym Down  move down
-    bindsym Up    move up
-    bindsym Right move right
+	bindsym Left  move left
+	bindsym Down  move down
+	bindsym Up	  move up
+	bindsym Right move right
 
-    bindsym h     move left
-    bindsym j     move down
-    bindsym k     move up
-    bindsym l     move right
+	bindsym h	  move left
+	bindsym j	  move down
+	bindsym k	  move up
+	bindsym l	  move right
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym Control+c mode "default"
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym Control+c mode "default"
 }
 
 # Caps mode
@@ -259,7 +259,7 @@ mode "$mode_caps" {
 # Open applications
 bindsym Control+Shift+g exec --no-startup-id gvim
 bindsym Control+Shift+p exec --no-startup-id pcmanfm
-bindsym Control+Shift+c exec --no-startup-id xcalc
+bindsym Control+Shift+c exec --no-startup-id speedcrunch
 bindsym Control+Shift+m exec --no-startup-id urxvt -name 'mail' -e 'mutt'
 
 # Pulse Audio controls
@@ -317,7 +317,6 @@ assign [class="^LibreCAD$"] $ws5
 assign [class="^Inkscape$"] $ws5
 assign [class="^Dia$"] $ws5
 assign [class="^Blender$"] $ws6
-assign [class="^SpeedCrunch$"] $ws7
 assign [class="^Wxmaxima$"] $ws7
 assign [class="^VirtualBox$"] $ws7
 assign [class="^Skype$"] $ws8
@@ -339,6 +338,7 @@ for_window [title="OllyDbg"] floating disable border none
 for_window [title="Levelup"] floating enable border none
 for_window [title="Calculator"] floating enable border normal
 for_window [class="Dia" title="^Dia v"] floating enable border normal
+for_window [class="SpeedCrunch"] floating enable border normal
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
