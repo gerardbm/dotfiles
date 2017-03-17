@@ -31,6 +31,23 @@ Xft.lcdfilter : lcddefault
 #define acc70 #6ECFCF
 #define base4 #A6B5C5
 
+*color0  : base1
+*color1  : acr50
+*color2  : acg50
+*color3  : aco50
+*color4  : acb50
+*color5  : acv50
+*color6  : acc50
+*color7  : base3
+*color8  : base2
+*color9  : acr70
+*color10 : acg70
+*color11 : aco70
+*color12 : acb70
+*color13 : acv70
+*color14 : acc70
+*color15 : base4
+
 ! ------------------------------------------------------------
 ! URxvt
 ! ------------------------------------------------------------
@@ -67,26 +84,9 @@ URxvt.keysym.S-F10 : \033[21;2~
 URxvt.keysym.S-F11 : \033[23;2~
 URxvt.keysym.S-F12 : \033[24;2~
 
-! ------------------------------------------------------------
-! Colors
-! ------------------------------------------------------------
-
-*color0  : [90]base1
-*color1  : acr50
-*color2  : acg50
-*color3  : aco50
-*color4  : acb50
-*color5  : acv50
-*color6  : acc50
-*color7  : base3
-*color8  : [90]base2
-*color9  : acr70
-*color10 : acg70
-*color11 : aco70
-*color12 : acb70
-*color13 : acv70
-*color14 : acc70
-*color15 : base4
+! Default transparency
+URxvt.color0 : [90]base1
+URxvt.color8 : [90]base2
 
 ! XTerm escape sequences
 ! 10   = base4 (foreground)
