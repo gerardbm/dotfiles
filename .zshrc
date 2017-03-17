@@ -129,5 +129,9 @@ if [[ -a ~/.atomic-tty.sh ]]; then
 	source ~/.atomic-tty.sh
 fi
 
+# Commands
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
