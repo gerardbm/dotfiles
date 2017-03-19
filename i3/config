@@ -258,7 +258,7 @@ mode "$mode_caps" {
 
 # Open applications
 bindsym Control+Shift+g exec --no-startup-id gvim
-bindsym Control+Shift+p exec --no-startup-id pcmanfm
+bindsym Control+Shift+f exec --no-startup-id pcmanfm
 bindsym Control+Shift+c exec --no-startup-id speedcrunch
 bindsym Control+Shift+m exec --no-startup-id urxvt -name 'mail' -e 'mutt'
 
