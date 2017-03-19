@@ -64,7 +64,7 @@ Xft.lcdfilter : lcddefault
 ! Notes:
 ! Cursor shape on neovim only works with 'xterm-256color'
 
-URxvt*termName       : xterm-256color
+URxvt*termName       : xterm-256color-italic
 URxvt*font           : xft:Terminus:size=13
 URxvt*letterSpace    : -1
 URxvt*internalBorder : 1
@@ -166,9 +166,9 @@ URxvt.resize-font.bigger  : C-Up
 ! XTerm
 ! ------------------------------------------------------------
 
-xterm*termName        : xterm-256color
+xterm*termName        : xterm-256color-italic
 xterm*renderFont      : true
-xterm*faceName        : DejavuSansMonoForPowerline
+xterm*faceName        : TerminessPowerline
 xterm*faceSize        : 13
 xterm*locale          : true
 xterm*metaSendsEscape : true
