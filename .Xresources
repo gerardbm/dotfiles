@@ -62,7 +62,7 @@ Xft.lcdfilter : lcddefault
 ! ------------------------------------------------------------
 
 ! Notes:
-! Cursor shape on neovim only works with 'xterm-256color'
+! Cursor shape on nvim only works with '^xterm-256color'
 
 URxvt*termName       : xterm-256color-italic
 URxvt*font           : xft:Terminus:size=13
@@ -81,18 +81,22 @@ URxvt*background     : [90]base1
 URxvt*borderColor    : [90]base1
 URxvt*cursorColor    : base4
 
-URxvt.keysym.S-F1  : \033[11;2~
-URxvt.keysym.S-F2  : \033[12;2~
-URxvt.keysym.S-F3  : \033[13;2~
-URxvt.keysym.S-F4  : \033[14;2~
-URxvt.keysym.S-F5  : \033[15;2~
-URxvt.keysym.S-F6  : \033[17;2~
-URxvt.keysym.S-F7  : \033[18;2~
-URxvt.keysym.S-F8  : \033[19;2~
-URxvt.keysym.S-F9  : \033[20;2~
-URxvt.keysym.S-F10 : \033[21;2~
-URxvt.keysym.S-F11 : \033[23;2~
-URxvt.keysym.S-F12 : \033[24;2~
+! Keysyms
+URxvt*keysym.Home  : \033OH
+URxvt*keysym.End   : \033OF
+
+URxvt*keysym.S-F1  : \033[11;2~
+URxvt*keysym.S-F2  : \033[12;2~
+URxvt*keysym.S-F3  : \033[13;2~
+URxvt*keysym.S-F4  : \033[14;2~
+URxvt*keysym.S-F5  : \033[15;2~
+URxvt*keysym.S-F6  : \033[17;2~
+URxvt*keysym.S-F7  : \033[18;2~
+URxvt*keysym.S-F8  : \033[19;2~
+URxvt*keysym.S-F9  : \033[20;2~
+URxvt*keysym.S-F10 : \033[21;2~
+URxvt*keysym.S-F11 : \033[23;2~
+URxvt*keysym.S-F12 : \033[24;2~
 
 ! Default transparency
 URxvt.color0 : [90]base1
