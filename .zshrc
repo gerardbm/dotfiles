@@ -119,9 +119,20 @@ alias wanip='curl -s icanhazip.com'
 alias tmux16='env TERM=xterm-16color tmux'
 # --------------------------------------------------
 
+CHECKTERM=$(xprop -id "$WINDOWID" WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/\1/')
+
 # Scheme switcher (Konsole only)
-if [[ -a ~/.scheme-switcher.sh ]]; then
-	source ~/.scheme-switcher.sh
+if [[ "$CHECKTERM" = 'konsole' ]]; then
+	if [[ -a ~/.konsole-schemes.sh ]]; then
+		source ~/.konsole-schemes.sh
+	fi
+fi
+
+# Scheme switcher (URxvt only)
+if [[ "$CHECKTERM" = 'urxvt' ]]; then
+	if [[ -a ~/.urxvt-schemes.sh ]]; then
+		source ~/.urxvt-schemes.sh
+	fi
 fi
 
 # Atomic dark color scheme for tty
