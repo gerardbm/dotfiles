@@ -6,7 +6,7 @@
 [alias]
 	lod = log --oneline --decorate
 	lodag = log --oneline --decorate --all --graph
-	st = status
+	gst = status
 	ci = commit
 	unstage = reset HEAD
 	go = checkout
