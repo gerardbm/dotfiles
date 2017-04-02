@@ -89,8 +89,9 @@ alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
 
 # Packaging
-alias upg='sudo apt-get update && sudo apt-get upgrade'
-alias pag='sudo pacman -Syu'
+alias aptupg='sudo apt-get update && sudo apt-get upgrade'
+alias pacmir='sudo pacman-mirrors -g'
+alias pacupg='sudo pacman -Syu'
 
 # Zsh
 alias vish='vim ~/.zshrc'
@@ -102,6 +103,7 @@ alias xr='xrdb ~/.Xresources'
 # Vim/Neovim
 alias vir='vim ~/.vimrc'
 alias ner='nvim ~/.config/nvim/init.vim'
+alias nor='vim -N -u NORC'
 alias neo='nvim'
 alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
 
