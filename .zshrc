@@ -87,6 +87,7 @@ alias lsp='ls -C --color=always | less -R'
 alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
+alias swapoff='sudo swapoff -a'
 
 # Packaging
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
