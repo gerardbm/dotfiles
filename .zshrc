@@ -87,7 +87,7 @@ alias lsp='ls -C --color=always | less -R'
 alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
-alias swapoff='sudo swapoff -a'
+alias cleanswap='sudo swapoff -a && sudo swapon -a'
 
 # Packaging
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
@@ -110,6 +110,9 @@ alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
 
 # Trash-cli tool
 alias tr='trash'
+
+# Google Drive sync
+alias drive='cd $HOME/Grive/ && grive'
 
 # Dev
 alias gst='git status'
