@@ -1,0 +1,5 @@
+# SURFRAW_graphical_browser=/usr/bin/chromium
+SURFRAW_text_browser=/usr/bin/w3m
+SURFRAW_graphical=no
+SURFRAW_screen=tmux
+SURFRAW_new_screen=no
