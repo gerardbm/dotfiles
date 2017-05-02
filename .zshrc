@@ -96,10 +96,10 @@ alias pacupg='sudo pacman -Syu'
 
 # Zsh
 alias vish='vim ~/.zshrc'
-alias sr='source ~/.zshrc'
+alias sosh='source ~/.zshrc'
 
 # RXvt
-alias xr='xrdb ~/.Xresources'
+alias xres='xrdb ~/.Xresources'
 
 # Vim/Neovim
 alias vir='vim ~/.vimrc'
@@ -113,6 +113,13 @@ alias tr='trash'
 
 # Google Drive sync
 alias drive='cd $HOME/Grive/ && grive'
+
+# Surfraw
+alias srg='surfraw google'
+alias srd='surfraw duckduckgo'
+alias srs='surfraw stack'
+alias sra='surfraw aur'
+alias srl='surfraw slinuxdoc'
 
 # Dev
 alias gst='git status'
