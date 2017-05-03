@@ -82,7 +82,7 @@ export GOPATH=$HOME/DEV/goprojects
 # Aliases:
 # For a full list of active aliases, run `alias`.
 # --------------------------------------------------
-# UNIX
+# GNU/Linux
 alias lsp='ls -C --color=always | less -R'
 alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
@@ -98,7 +98,7 @@ alias pacupg='sudo pacman -Syu'
 alias vish='vim ~/.zshrc'
 alias sosh='source ~/.zshrc'
 
-# RXvt
+# URxvt
 alias xres='xrdb ~/.Xresources'
 
 # Vim/Neovim
@@ -124,6 +124,11 @@ alias srl='surfraw slinuxdoc'
 # Dev
 alias gst='git status'
 alias st='cd $HOME/DEV/wpdev/wp-content/themes/starion/'
+
+# Translate-shell (Google Translate CLI)
+alias gt='translate-shell'
+alias enes='translate-shell en:es'
+alias esen='translate-shell es:en'
 
 # Network
 alias wanip='curl -s icanhazip.com'
