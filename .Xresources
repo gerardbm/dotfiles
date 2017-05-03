@@ -165,7 +165,7 @@ URxvt.keysym.C-0: command:\033]10;#554D37\007\033]11;#F7F2E4\007\033]708;#F7F2E4
 ! Perl extensions
 URxvt.perl-ext             : default,url-select
 URxvt.keysym.M-u           : perl:url-select:select_next
-URxvt.url-select.launcher  : /usr/bin/qutebrowser
+URxvt.url-select.launcher  : /usr/bin/w3m
 URxvt.url-select.underline : true
 
 ! Plugin: 'urxvt-resize-font-git'

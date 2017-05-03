@@ -1,1 +1,1 @@
-COMMAND qutebrowser %s
+COMMAND w3m %s
