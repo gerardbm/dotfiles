@@ -125,10 +125,10 @@ alias srl='surfraw slinuxdoc'
 alias gst='git status'
 alias st='cd $HOME/DEV/wpdev/wp-content/themes/starion/'
 
-# Translate-shell (Google Translate CLI)
+# Translate-shell
 alias gt='translate-shell'
-alias enes='translate-shell en:es'
-alias esen='translate-shell es:en'
+alias enes='translate-shell en:es -e bing -b'
+alias esen='translate-shell es:en -e bing -b'
 
 # Network
 alias wanip='curl -s icanhazip.com'
