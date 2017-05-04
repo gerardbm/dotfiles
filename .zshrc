@@ -123,7 +123,7 @@ alias srl='surfraw slinuxdoc'
 
 # Dev
 alias gst='git status'
-alias st='cd $HOME/DEV/wpdev/wp-content/themes/starion/'
+alias dev='cd $HOME/DEV/ && ls'
 
 # Translate-shell
 alias gt='translate-shell'
