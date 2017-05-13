@@ -168,6 +168,18 @@ URxvt.keysym.M-u           : perl:url-select:select_next
 URxvt.url-select.launcher  : /usr/bin/w3m
 URxvt.url-select.underline : true
 
+! Pressing 'y', the URL is copied to PRIMARY
+! To paste it, press Shift-Insert
+!
+! Or...
+!
+! Copy it from PRIMARY to clipboard with C-M-c
+! Now it can be pasted from clipboard with C-M-v
+
+URxvt.keysym.Control-M-v   : eval:paste_clipboard
+URxvt.keysym.Control-M-c   : eval:selection_to_clipboard
+
+
 ! Plugin: 'urxvt-resize-font-git'
 URxvt.perl-ext-common     : resize-font
 URxvt.resize-font.smaller : C-Down
