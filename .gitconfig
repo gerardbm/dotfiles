@@ -4,8 +4,9 @@
 [core]
 	editor = nvim
 [alias]
-	lod = log --oneline --decorate
-	lodag = log --oneline --decorate --all --graph
+	lod = log --oneline --decorate --all --graph
+	lol = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr)'
+	loa = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(cyan)[%an]'
 	gst = status
 	ci = commit
 	unstage = reset HEAD

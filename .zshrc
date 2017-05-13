@@ -98,7 +98,7 @@ alias pacupg='sudo pacman -Syu'
 alias vish='vim ~/.zshrc'
 alias sosh='source ~/.zshrc'
 
-# URxvt
+# Xresources
 alias xres='xrdb ~/.Xresources'
 
 # Vim/Neovim
@@ -107,6 +107,9 @@ alias ner='nvim ~/.config/nvim/init.vim'
 alias nor='vim -N -u NORC'
 alias neo='nvim'
 alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
+
+# Emacs
+alias emacs='emacs -nw'
 
 # Trash-cli tool
 alias tr='trash'
@@ -126,15 +129,18 @@ alias gst='git status'
 alias dev='cd $HOME/DEV/ && ls'
 
 # Translate-shell
-alias gt='translate-shell'
+alias gt='translate-shell -e bing'
 alias enes='translate-shell en:es -e bing -b'
 alias esen='translate-shell es:en -e bing -b'
 
 # Network
 alias wanip='curl -s icanhazip.com'
 
-# Testing
+# Testing terminal emulators
 alias tmux16='env TERM=xterm-16color tmux'
+alias testpl='echo "\ue0b0 \ue0b1 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699 \ue0b3 \ue0b2"'
+alias testft='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[4munderline\e[0m \e[9mstrikethrough\e[0m"'
+
 # --------------------------------------------------
 
 CHECKTERM=$(xprop -id "$WINDOWID" WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/\1/')
@@ -159,8 +165,14 @@ if [[ -a ~/.atomic-tty.sh ]]; then
 fi
 
 # Commands
-bindkey "^P" up-line-or-search
-bindkey "^N" down-line-or-search
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
+
+# Syntax highlighting
+# Install it from AUR: 'yaourt -S zsh-syntax-highlighting'
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
