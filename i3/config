@@ -258,8 +258,10 @@ mode "$mode_caps" {
 
 # Open applications
 bindsym Control+Shift+g exec --no-startup-id gvim
+bindsym Control+Shift+e exec --no-startup-id emacs
 bindsym Control+Shift+f exec --no-startup-id pcmanfm
 bindsym Control+Shift+c exec --no-startup-id speedcrunch
+bindsym Control+Shift+q exec --no-startup-id qalculate-gtk
 bindsym Control+Shift+m exec --no-startup-id urxvt -name 'mail' -e 'mutt'
 
 # Pulse Audio controls
@@ -282,7 +284,8 @@ bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10 && sh ~/.i
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && sh ~/.i3/xbacklight.sh
 
 # Screenshot
-bindsym Print exec --no-startup-id i3-scrot
+bindsym --release Control+Print exec --no-startup-id i3-scrot
+bindsym --release Control+Shift+Print exec --no-startup-id i3-scrot -w
 
 # Screen recorder
 bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
@@ -304,6 +307,7 @@ bindsym $mod+n bar mode toggle
 assign [class="^URxvt$"] $ws1
 assign [class="^URxvt$" instance="^mail$"] $ws1
 assign [class="^Gvim$"] $ws2
+assign [class="^Emacs$"] $ws2
 assign [class="^Atom$"] $ws2
 assign [class="^Eclipse$"] $ws2
 assign [class="^Thunar$"] $ws3
@@ -342,6 +346,7 @@ for_window [title="Levelup"] floating enable border none
 for_window [title="Calculator"] floating enable border normal
 for_window [class="Dia" title="^Dia v"] floating enable border normal
 for_window [class="SpeedCrunch"] floating enable border normal
+for_window [class="Qalculate-gtk"] floating enable border normal
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
