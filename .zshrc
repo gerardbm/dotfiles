@@ -141,6 +141,23 @@ alias tmux16='env TERM=xterm-16color tmux'
 alias testpl='echo "\ue0b0 \ue0b1 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699 \ue0b3 \ue0b2"'
 alias testft='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[4munderline\e[0m \e[9mstrikethrough\e[0m"'
 
+# http://www.zzapper.co.uk/zshtips.html
+alias -g ND='*(/om[1])' 	      # newest directory
+alias -g NF='*(.om[1])' 	      # newest file
+alias -g NO='&>|/dev/null'
+alias -g P='2>&1 | $PAGER'
+alias -g VV='| vim -R -'
+alias -g L='| less'
+alias -g M='| most'
+alias -g C='| wc -l'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g LL="2>&1 | less"
+alias -g CA="2>&1 | cat -A"
+alias -g NE="2> /dev/null"
+alias -g NUL="> /dev/null 2>&1"
+
 # --------------------------------------------------
 
 CHECKTERM=$(xprop -id "$WINDOWID" WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/\1/')
@@ -162,6 +179,13 @@ fi
 # Atomic dark color scheme for tty
 if [[ -a ~/.atomic-tty.sh ]]; then
 	source ~/.atomic-tty.sh
+fi
+
+# Default browsers
+if [ -n "$DISPLAY"  ]; then
+	export BROWSER=/usr/bin/qutebrowser
+else
+	export BROWSER=/usr/bin/w3m
 fi
 
 # Commands

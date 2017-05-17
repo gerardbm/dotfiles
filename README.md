@@ -2,7 +2,7 @@
 
 - WM: i3-gaps
 - Shell: zsh
-- Terminal: URxvt
+- Terminal: URxvt, XTerm
 - Multiplexer: tmux
 - Font: Powerline
 - Control version: git
@@ -40,6 +40,7 @@ Install i3-gaps instead of i3-wm. Make sure you have installed the following lib
 Optional:
 - arandr: can be useful to generate xrandr \*.sh scripts.
 - redshift: adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less or reduce the risk for delayed sleep phase syndrome if you are working in front of the screen at night.
+- libfm-pref-apps and exo-preferred-applications: the name is self-descriptive.
 
 ### Zsh
 
