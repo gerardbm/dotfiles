@@ -196,7 +196,7 @@ xterm*faceSize        : 11
 xterm*locale          : true
 xterm*metaSendsEscape : true
 xterm*eightBitInput   : false
-xtere*eightBitControl : false
+xterm*eightBitControl : false
 xterm*eightBitOutput  : true
 xterm*loginShell      : true
 xterm*scrollBar       : false
