@@ -88,11 +88,13 @@ alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
 alias cleanswap='sudo swapoff -a && sudo swapon -a'
+alias pscpu='ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6'
+alias pscpuw='watch "ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6"'
 
-# Packaging
-alias aptupg='sudo apt-get update && sudo apt-get upgrade'
-alias pacmir='sudo pacman-mirrors -g'
+# Packaging (Arch and Debian based)
 alias pacupg='sudo pacman -Syu'
+alias pacmir='sudo pacman-mirrors -g'
+alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Zsh
 alias vish='vim ~/.zshrc'
@@ -180,6 +182,10 @@ fi
 if [[ -a ~/.atomic-tty.sh ]]; then
 	source ~/.atomic-tty.sh
 fi
+
+# Fix bottom border in gvim fullscreen
+# https://groups.google.com/forum/#!topic/vim_use/Ty4FTDu8b1w
+export GTK_MODULES=gtkparasite gvim
 
 # Default browsers
 if [ -n "$DISPLAY"  ]; then
