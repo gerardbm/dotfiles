@@ -114,7 +114,7 @@ alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
 alias emacs='emacs -nw'
 
 # Trash-cli tool
-alias tr='trash'
+alias tra='trash'
 
 # Google Drive sync
 alias drive='cd $HOME/Grive/ && grive'
@@ -129,6 +129,7 @@ alias srl='surfraw slinuxdoc'
 # Dev
 alias gst='git status'
 alias dev='cd $HOME/DEV/ && ls'
+alias cui='uuidgen | tr -d "\n" | xclip -selection clipboard'
 
 # Translate-shell
 alias gt='translate-shell -e bing'
