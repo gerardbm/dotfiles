@@ -37,7 +37,7 @@ chatnets = {
     autosendcmd = "wait -hispano 2000";
     nick = "NICKNAME";
     username = "-";
-    realname = "Gerard";
+    realname = "Irssi";
     usermode = "+cn";
     max_kicks = "1";
     max_msgs = "4";
@@ -48,7 +48,7 @@ chatnets = {
     autosendcmd = "";
     nick = "NICKNAME";
     username = "-";
-    realname = "Gerard";
+    realname = "Irssi";
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
@@ -58,7 +58,7 @@ chatnets = {
     autosendcmd = "unquery NickServ";
     nick = "NICKNAME";
     username = "~";
-    realname = "Gerard";
+    realname = "Irssi";
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
@@ -66,15 +66,22 @@ chatnets = {
 };
 
 channels = (
-  { name = "#programacion"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#hardware"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#android"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#ubuntu"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#irssi"; chatnet = "Hispano"; autojoin = "Yes"; },
+  { name = "#programacion"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#hardware"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#android"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#ubuntu"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#irssi"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#lleida"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#barcelona"; chatnet = "ChatZona"; autojoin = "No"; },
   { name = "##linux"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#vim"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#git"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#css"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#bash"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#python"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#ubuntu"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#wordpress"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "##javascript"; chatnet = "Freenode"; autojoin = "No"; }
 );
 
 aliases = {
@@ -273,14 +280,16 @@ statusbar = {
 
       items = {
         barstart = { priority = "100"; };
-        time = { };
         user = { };
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
+        position = { };
         usercount = { };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
+        vim_mode = { };
+        vim_windows = { };
       };
     };
 
@@ -328,6 +337,16 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_0 = {
+      placement = "bottom";
+      visible = "inactive";
+      type = "window";
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 
@@ -339,7 +358,7 @@ conversions = {
 
 settings = {
   core = {
-    real_name = "Gerard";
+    real_name = "Irssi";
     user_name = "-";
     nick = "NICKNAME";
     recode_fallback = "CP1252";
@@ -374,9 +393,12 @@ settings = {
   "perl/core/scripts" = {
     awl_shared_sbar = "OFF";
     awl_viewer = "yes";
+    awl_mouse = "no";
     awl_block = "20";
+    awl_hide_empty = "0";
+    awl_placement = "bottom";
+    awl_position = "-1";
     nicklist_pane_width = "20";
-    autoaway_timeout = "300";
   };
   "irc/core" = { auto_whowas = "yes"; max_ctcp_queue = "0"; };
 };
@@ -386,7 +408,17 @@ notifies = { NICKNAME = { }; };
 keyboard = (
   { key = "^G"; id = "command"; data = "go"; },
   { key = "^H"; id = "command"; data = "window previous"; },
-  { key = "^L"; id = "command"; data = "window next"; }
-  { key = "^N"; data = ""; id = "forward_history"; },
-  { key = "^P"; data = ""; id = "backward_history"; }
+  { key = "^L"; id = "command"; data = "window next"; },
+  { key = "^N"; id = "forward_history"; data = ""; },
+  { key = "^P"; id = "backward_history"; data = ""; },
+  { key = "^B"; id = "backward_character"; data = ""; },
+  { key = "^F"; id = "forward_character"; data = ""; },
+  { key = "^J"; id = "backspace"; data = ""; },
+  { key = "^D"; id = "delete_character"; data = ""; },
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm"; },
+  {
+    key = "^O";
+    id = "command";
+    data = "script exec Irssi::Script::tmux_nicklist_portable::toggle_nicklist";
+  }
 );

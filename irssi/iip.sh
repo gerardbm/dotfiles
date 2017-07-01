@@ -22,18 +22,18 @@ cd "$DIRECTORY2"
 
 # Download the scripts
 wget http://scripts.irssi.org/scripts/adv_windowlist.pl
-wget http://scripts.irssi.org/scripts/autoaway.pl
 wget http://scripts.irssi.org/scripts/buffer.pl
-wget http://scripts.irssi.org/scripts/calc.pl
 wget http://scripts.irssi.org/scripts/cleanpublic.pl
+wget https://scripts.irssi.org/scripts/clones_scanner.pl
 wget http://scripts.irssi.org/scripts/go2.pl
 wget http://scripts.irssi.org/scripts/idletime.pl
-wget http://scripts.irssi.org/scripts/openurl.pl
 wget http://scripts.irssi.org/scripts/scriptassist.pl
 wget http://scripts.irssi.org/scripts/tmux-nicklist-portable.pl
 wget http://scripts.irssi.org/scripts/trackbar22.pl
 wget http://scripts.irssi.org/scripts/usercount.pl
-wget http://scripts.irssi.org/scripts/desktop-notify.pl
+wget https://scripts.irssi.org/scripts/sb_position.pl
+wget https://raw.githubusercontent.com/radiosilence/irssi-dunst/master/notify.pl
+wget https://raw.githubusercontent.com/shabble/irssi-scripts/master/vim-mode/vim_mode.pl
 
 # Create the symlinks
 for file in "$DIRECTORY2"*.pl; do
