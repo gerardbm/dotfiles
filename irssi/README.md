@@ -1,17 +1,17 @@
 Scripts:
 * **adv_windowlist**: Use `awl_viewer = "yes";` to fit the windows list into a tmux pane.
-* **autoaway**: TODO: Enable it automatically when Irssi starts.
 * **buffer**: Great script to copy and paste text inside Irssi.
-* **calc**: Useful script to make arithmetic operations inside Irssi.
 * **cleanpublic**: Remove colors in public channels, so we can read black text as white.
+* **clones_scanner**: Notifies you if there's someone in #channel with the same hostname.
 * **go2**: This command is mapped to `^G` (ctrl+g) to go to a window.
 * **idletime**: It retrieves the idletime of any nickname.
-* **openurl**: List the saved URLs.
+* **notify**: Displays desktop notifications when a message is received.
+* **sb_position**: Displays current position in scrollback.
 * **scriptassist**: Really useful script manager. It checks for updates, as well!
 * **tmux-nicklist-portable**: It's awesome to see a nick list into a tmux pane.
 * **trackbar22**: It adds an horizontal line to remember the last line we read.
 * **usercount**: Count the users of a channel and display it in the status bar.
-* **desktop-notify**: Display desktop notifications when a message is received.
+* **vim_mode**: Emulates some of the vi(m) features for the Irssi inputline.
 
 There are two ways to install the scripts:
 
