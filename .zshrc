@@ -117,7 +117,7 @@ alias emacs='emacs -nw'
 alias tra='trash'
 
 # Google Drive sync
-alias drive='cd $HOME/Grive/ && grive'
+alias gdrive='cd $HOME/Grive/ && grive'
 
 # Surfraw
 alias srg='surfraw google'
