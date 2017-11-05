@@ -66,7 +66,7 @@ Xft.lcdfilter : lcddefault
 
 URxvt*termName       : xterm-256color
 URxvt*font           : xft:DejaVu Sans Mono for Powerline:size=11
-URxvt*letterSpace    : -1
+URxvt*letterSpace    : 0
 URxvt*internalBorder : 1
 URxvt*scrollBar      : false
 URxvt*pointerBlank   : true
