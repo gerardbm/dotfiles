@@ -325,11 +325,11 @@ assign [class="^Dia$"] $ws5
 assign [class="^Blender$"] $ws6
 assign [class="^Wxmaxima$"] $ws7
 assign [class="^VirtualBox$"] $ws7
+assign [class="^mpv$"] $ws7
 assign [class="^Skype$"] $ws8
 assign [class="^Firefox$"] $ws9
 assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
-assign [class="^Dwb$"] $ws9
 
 # according to: http://sprunge.us/QgOG
 for_window [window_role="pop-up"] floating enable

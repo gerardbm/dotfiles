@@ -93,7 +93,7 @@ alias pscpuw='watch "ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6"
 
 # Packaging (Arch and Debian based)
 alias pacupg='sudo pacman -Syu'
-alias pacmir='sudo pacman-mirrors -g'
+alias pacmir='sudo pacman-mirrors -f0 && sudo pacman -Syy'
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Zsh
