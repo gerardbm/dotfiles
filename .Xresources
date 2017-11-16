@@ -61,10 +61,7 @@ Xft.lcdfilter : lcddefault
 ! URxvt
 ! ------------------------------------------------------------
 
-! Notes:
-! Cursor shape on nvim only works with '^xterm-256color'
-
-URxvt*termName       : xterm-256color
+URxvt*termName       : rxvt-unicode-256color
 URxvt*font           : xft:DejaVu Sans Mono for Powerline:size=11
 URxvt*letterSpace    : 0
 URxvt*internalBorder : 1
@@ -189,7 +186,7 @@ URxvt.resize-font.bigger  : C-Up
 ! XTerm
 ! ------------------------------------------------------------
 
-xterm*termName        : xterm-256color-italic
+xterm*termName        : xterm-256color
 xterm*renderFont      : true
 xterm*faceName        : DejaVu Sans Mono for Powerline
 xterm*faceSize        : 11
