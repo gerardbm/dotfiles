@@ -33,7 +33,6 @@ keymap ^[[Z NULL
 keymap ESC-m NULL
 keymap ( NULL
 keymap ) NULL
-keymap C-j NULL
 keymap C-m NULL
 keymap ESC-C-j NULL
 keymap ESC-C-m NULL
@@ -81,8 +80,6 @@ keymap gg NULL
 keymap G NULL
 keymap w NULL
 keymap b NULL
-keymap C-n NULL
-keymap C-p NULL
 keymap ESC-TAB NULL
 keymap f NULL
 keymap C-o NULL
@@ -91,7 +88,6 @@ keymap C-j NULL
 keymap C-] NULL
 keymap I NULL
 keymap ESC-I NULL
-keymap ESC-C-j NULL
 keymap y NULL
 keymap u NULL
 keymap i NULL
