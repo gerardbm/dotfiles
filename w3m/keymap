@@ -153,8 +153,12 @@ keymap ZQ NULL
 ########## command ##########
 keymap :: COMMAND
 keymap :H HELP
-keymap :O OPTIONS
 keymap :d DOWNLOAD_LIST
+
+########## options ##########
+keymap O OPTIONS
+keymap mm MENU
+keymap M EXTERN_LINK
 
 ########## history navigation ##########
 keymap L NEXT
@@ -166,6 +170,7 @@ keymap :h HISTORY
 keymap C-e UP
 keymap C-y DOWN
 keymap gg BEGIN
+keymap gt GOTO_LINE
 keymap G END
 keymap d NEXT_PAGE
 keymap u PREV_PAGE
