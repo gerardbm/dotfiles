@@ -44,15 +44,31 @@ Optional:
 
 ### Zsh
 
-First, install it from the repositories; then you need to change your current shell (bash is the default, normally). To list all installed shells, run:
-
-`$ chsh -l`
-
-And set one as default for your user:
+First, install it from the repositories; then you need to change your current shell (bash is the default, normally):
 
 `$ chsh -s /usr/bin/zsh`
 
-Now log out and log in to see the new shell as default. Copy the file `.zshrc` to your `$HOME` directory. Install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) following the instructions from its page. Atomic theme must be downloaded from [Atomic repository](https://github.com/gerardbm/atomic).
+Now log out and log in to see the new shell as default. Copy the file `.zshrc` to your `$HOME` directory. Install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) following the instructions from its page.
+
+Via curl:
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+
+Via wget:
+
+`sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"`
+
+Atomic theme must be downloaded from [Atomic repository](https://github.com/gerardbm/atomic).
+
+Enable zsh-syntax-highlighting:
+
+`git clone https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.syntax`
+
+It's already sourced at the end of the file `.zshrc`:
+
+`source $HOME/.syntax/zsh-syntax-highlighting.zsh`
+
+In fact, it can be installed through yaourt (Arch-based) and from the official repositories on Debian 9. However, for each case the plugin is installed in different paths, so I prefer to download the last version to my `$HOME` directory to keep the portability.
 
 ### URxvt
 

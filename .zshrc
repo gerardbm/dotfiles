@@ -200,8 +200,4 @@ bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 
 # Syntax highlighting
-# Install it from AUR: 'yaourt -S zsh-syntax-highlighting'
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $HOME/.syntax/zsh-syntax-highlighting.zsh
