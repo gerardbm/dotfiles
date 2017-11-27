@@ -26,7 +26,7 @@ ZSH_THEME="atomic"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -97,21 +97,21 @@ alias pacmir='sudo pacman-mirrors -f0 && sudo pacman -Syy'
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Zsh
-alias vish='vim ~/.zshrc'
+alias vish='nvim ~/.zshrc'
 alias sosh='source ~/.zshrc'
 
 # Xresources
 alias xres='xrdb ~/.Xresources'
 
 # Vim/Neovim
-alias vir='vim ~/.vimrc'
-alias ner='nvim ~/.config/nvim/init.vim'
-alias nor='vim -N -u NORC'
+alias vir='vim $HOME/.vimrc'
+alias nir='nvim $HOME/.config/nvim/init.vim'
+alias nor='nvim -N -u NORC'
 alias neo='nvim'
-alias syn='cd /usr/share/nvim/runtime/syntax/ && ls'
+alias syn='cd /usr/share/nvim/runtime/syntax/; ls'
 
 # Emacs
-alias emacs='emacs -nw'
+alias emacst='emacs -nw'
 
 # Trash-cli tool
 alias tra='trash'
@@ -120,23 +120,31 @@ alias tra='trash'
 alias gdrive='cd $HOME/Grive/ && grive'
 
 # Surfraw
-alias srg='surfraw google'
+alias sra='surfraw archwiki'
+alias src='surfraw cite'
 alias srd='surfraw duckduckgo'
-alias srs='surfraw stack'
-alias sra='surfraw aur'
+alias srg='surfraw google'
 alias srl='surfraw slinuxdoc'
+alias srm='surfraw mdm'
+alias srs='surfraw stack'
+alias srt='surfraw github'
+alias srw='surfraw wikipedia'
+alias srwca='surfraw wikipedia -l=CA'
+alias srwes='surfraw wikipedia -l=ES'
+alias sry='surfraw youtube'
 
 # Dev
 alias gst='git status'
-alias dev='cd $HOME/DEV/ && ls'
-alias cui='uuidgen | tr -d "\n" | xclip -selection clipboard'
+alias cdv='cd $HOME/DEV/; ls'
+alias cdd='cd $HOME/dotfiles/; ls'
+alias cui='uuid | tr -d "\n" | xclip -selection clipboard'
 
 # Translate-shell
-alias gt='translate-shell -e bing'
-alias enes='translate-shell en:es -e bing -b'
-alias esen='translate-shell es:en -e bing -b'
+alias enes='trans en:es -e bing -b'
+alias esen='trans es:en -e bing -b'
 
 # Network
+alias ipr='ip route'
 alias wanip='curl -s icanhazip.com'
 
 # Testing terminal emulators
@@ -183,10 +191,6 @@ fi
 if [[ -a ~/.atomic-tty.sh ]]; then
 	source ~/.atomic-tty.sh
 fi
-
-# Fix bottom border in gvim fullscreen
-# https://groups.google.com/forum/#!topic/vim_use/Ty4FTDu8b1w
-export GTK_MODULES=gtkparasite gvim
 
 # Default browsers
 if [ -n "$DISPLAY"  ]; then

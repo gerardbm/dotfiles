@@ -61,7 +61,7 @@ Xft.lcdfilter : lcddefault
 ! URxvt
 ! ------------------------------------------------------------
 
-URxvt*termName       : rxvt-unicode-256color
+URxvt*termName       : screen-256color
 URxvt*font           : xft:DejaVu Sans Mono for Powerline:size=11
 URxvt*letterSpace    : 0
 URxvt*internalBorder : 1
@@ -79,8 +79,10 @@ URxvt*borderColor    : [90]base1
 URxvt*cursorColor    : base4
 
 ! Keysyms
-URxvt*keysym.Home  : \033OH
-URxvt*keysym.End   : \033OF
+URxvt*keysym.Home    : \033[1~
+URxvt*keysym.End     : \033[4~
+URxvt*keysym.KP_Home : \033[1~
+URxvt*keysym.KP_End  : \033[4~
 
 URxvt*keysym.S-F1  : \033[11;2~
 URxvt*keysym.S-F2  : \033[12;2~
@@ -160,7 +162,9 @@ URxvt.keysym.C-0: command:\033]10;#554D37\007\033]11;#F7F2E4\007\033]708;#F7F2E4
 ! ------------------------------------------------------------
 
 ! Perl extensions
-URxvt.perl-ext             : default,url-select
+URxvt.perl-ext             : default,url-select,resize-font
+
+! Plugin: url-select
 URxvt.keysym.M-u           : perl:url-select:select_next
 URxvt.url-select.launcher  : /usr/bin/w3m
 URxvt.url-select.underline : true
@@ -176,11 +180,10 @@ URxvt.url-select.underline : true
 URxvt.keysym.Control-M-v   : eval:paste_clipboard
 URxvt.keysym.Control-M-c   : eval:selection_to_clipboard
 
-
-! Plugin: 'urxvt-resize-font-git'
-URxvt.perl-ext-common     : resize-font
-URxvt.resize-font.smaller : C-Down
-URxvt.resize-font.bigger  : C-Up
+! Plugin: resize-font
+URxvt.keysym.C-Down  : resize-font:smaller
+URxvt.keysym.C-Up    : resize-font:bigger
+URxvt.keysym.C-Left  : resize-font:reset
 
 ! ------------------------------------------------------------
 ! XTerm

@@ -1,5 +1,5 @@
 # Account
-set realname  = "Gerard Bajona"
+set realname  = "REAL NAME"
 set from      = "EMAIL@gmail.com"
 set imap_user = "EMAIL@gmail.com"
 set smtp_url  = "smtp://EMAIL@smtp.gmail.com:587/"
