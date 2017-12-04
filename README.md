@@ -54,6 +54,7 @@ Install i3-gaps instead of i3-wm. Make sure you have installed the following lib
 - surfraw: a fast unix command line interface for WWW services.
 - apvlv: PDF reader customizable with vim-like navigation.
 - uuid: Universally Unique Identifier command line tool.
+- mediainfo: command-line tool to display info about audio/video.
 
 Optional:
 - arandr: can be useful to generate xrandr \*.sh scripts.
