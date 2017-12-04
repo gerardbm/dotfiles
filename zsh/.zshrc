@@ -173,15 +173,8 @@ alias -g NUL="> /dev/null 2>&1"
 
 CHECKTERM=$(xprop -id "$WINDOWID" WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/\1/')
 
-# Scheme switcher (Konsole only)
-if [[ "$CHECKTERM" = 'konsole' ]]; then
-	if [[ -a ~/.konsole-schemes.sh ]]; then
-		source ~/.konsole-schemes.sh
-	fi
-fi
-
-# Scheme switcher (URxvt only)
-if [[ "$CHECKTERM" = 'urxvt' ]]; then
+# Scheme switcher (URxvt)
+if [[ "$CHECKTERM" = 'rxvt-unicode' ]]; then
 	if [[ -a ~/.urxvt-schemes.sh ]]; then
 		source ~/.urxvt-schemes.sh
 	fi
