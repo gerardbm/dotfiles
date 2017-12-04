@@ -159,14 +159,14 @@ keymap M EXTERN_LINK
 ########## history navigation ##########
 keymap L NEXT
 keymap H PREV
-keymap :p SELECT_MENU
+keymap :m SELECT_MENU
 keymap :h HISTORY
 
 ########## scrolling ##########
 keymap C-e UP
 keymap C-y DOWN
 keymap gg BEGIN
-keymap gt GOTO_LINE
+keymap gl GOTO_LINE
 keymap G END
 keymap d NEXT_PAGE
 keymap u PREV_PAGE
@@ -187,24 +187,25 @@ keymap w NEXT_WORD
 keymap b PREV_WORD
 
 ########## cursor history ##########
-keymap C-i REDO
-keymap C-o UNDO
+keymap C-r REDO
+keymap C-z UNDO
 
 ########## navigation ##########
 keymap f MOVE_LIST_MENU
 keymap F LIST_MENU
 keymap C-n NEXT_LINK
 keymap C-p PREV_LINK
-keymap :l PEEK_LINK
+keymap y PEEK_LINK
 
 # reload
 keymap r RELOAD
-keymap C-r RELOAD
 
 # save/load
-keymap :w SAVE
-keymap :W PRINT
 keymap o GOTO
+keymap :w SAVE
+keymap C-s SAVE
+keymap C-d SAVE_LINK
+keymap :p PRINT
 keymap :e LOAD
 
 # jump
@@ -213,10 +214,14 @@ keymap C-] TAB_LINK
 keymap C-j GOTO_LINK
 
 ########## info ##########
-keymap y PEEK
-keymap gC-g INFO
+keymap s PEEK
+keymap i PEEK_IMG
+keymap I VIEW_IMAGE
+keymap C-i SAVE_IMAGE
 keymap C-g LINE_INFO
-keymap gf VIEW
+keymap C-f INFO
+keymap c VIEW
+keymap v COOKIE
 
 ########## search ##########
 keymap / ISEARCH
@@ -227,17 +232,17 @@ keymap N SEARCH_PREV
 
 ########## bookmarks ##########
 keymap a ADD_BOOKMARK
-keymap :b VIEW_BOOKMARK
+keymap C-b VIEW_BOOKMARK
 
 ########## tab ##########
 keymap C-w CLOSE_TAB
-keymap gh GOTO https://www.google.com/
-keymap gH TAB_GOTO https://www.google.com/
+keymap gh GOTO https://duckduckgo.com/
+keymap gH TAB_GOTO https://duckduckgo.com/
 keymap C-t NEW_TAB
 keymap C-l NEXT_TAB
 keymap C-h PREV_TAB
-# keymap C-wL TAB_RIGHT
-# keymap C-wH TAB_LEFT
+keymap gt NEXT_TAB
+keymap gT PREV_TAB
 keymap t TAB_GOTO
 keymap T TAB_MENU
 
