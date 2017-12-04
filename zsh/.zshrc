@@ -90,6 +90,10 @@ alias cmc='./configure && make && sudo checkinstall'
 alias cleanswap='sudo swapoff -a && sudo swapon -a'
 alias pscpu='ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6'
 alias pscpuw='watch "ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6"'
+alias ram='free -h'
+alias dush='du -sh'
+alias dushs='du -sh * | sort -r -h'
+alias disk='df -h .'
 
 # Packaging (Arch and Debian based)
 alias pacupg='sudo pacman -Syu'
@@ -97,8 +101,8 @@ alias pacmir='sudo pacman-mirrors -f0 && sudo pacman -Syy'
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Zsh
-alias vish='nvim ~/.zshrc'
-alias sosh='source ~/.zshrc'
+alias nez='nvim ~/.zshrc'
+alias soz='source ~/.zshrc'
 
 # Xresources
 alias xres='xrdb ~/.Xresources'
@@ -116,9 +120,6 @@ alias emacst='emacs -nw'
 # Trash-cli tool
 alias tra='trash'
 
-# Google Drive sync
-alias gdrive='cd $HOME/Grive/ && grive'
-
 # Surfraw
 alias sra='surfraw archwiki'
 alias src='surfraw cite'
@@ -133,8 +134,22 @@ alias srwca='surfraw wikipedia -l=CA'
 alias srwes='surfraw wikipedia -l=ES'
 alias sry='surfraw youtube'
 
+# Faster git alias
+alias gs='git status'
+alias gd='git diff'
+alias gds='git diff --stat'
+alias gdc='git diff --cached'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcam='git commit --amend -m'
+alias gl='git lol'
+alias ga='git add'
+alias go='git checkout'
+alias gb='git branch'
+alias gunst='git reset HEAD' # Unstage file
+alias gundo='git reset --soft HEAD~1' # Undo last commit
+
 # Dev
-alias gst='git status'
 alias cdv='cd $HOME/DEV/; ls'
 alias cdd='cd $HOME/dotfiles/; ls'
 alias cui='uuid | tr -d "\n" | xclip -selection clipboard'
