@@ -35,8 +35,6 @@ set_from_resource $acv70 color13 #CA96FF
 set_from_resource $acc70 color14 #6ECFCF
 set_from_resource $base4 color15 #A6B5C5
 
-set $height 21
-
 # Border style
 new_window pixel 1
 new_float normal
@@ -47,19 +45,12 @@ hide_edge_borders smart
 # Orientation
 default_orientation horizontal
 
-# Gaps settings
-smart_gaps on
-smart_borders on
-
-gaps inner 12
-gaps outer 0
-
 # --------------------------------------------------------------------------------
 # Key bindings
 # --------------------------------------------------------------------------------
 
 # Start a terminal
-bindsym $mod+t exec i3-sensible-terminal
+bindsym $mod+t exec rxvt-unicode
 
 # Kill focused window
 bindsym $mod+Return kill
@@ -204,13 +195,12 @@ mode "$mode_resize" {
 bindsym $mod+0 mode "$mode_system"
 
 # System mode
-set $mode_system (e)xit, switch_(u)ser, (r)eboot, (s)hutdown
+set $mode_system [L]ogout [R]eboot [P]oweroff
 
 mode "$mode_system" {
-	bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-	bindsym e exec --no-startup-id i3exit logout, mode "default"
-	bindsym r exec --no-startup-id i3exit reboot, mode "default"
-	bindsym s exec --no-startup-id i3exit shutdown, mode "default"
+	bindsym l exec --no-startup-id i3-msg exit, mode "default"
+	bindsym r exec --no-startup-id sh ~/.config/i3/exit-reboot.sh, mode "default"
+	bindsym p exec --no-startup-id sh ~/.config/i3/exit-poweroff.sh, mode "default"
 
 	# Exit system mode: "Enter" or "Escape"
 	bindsym Return mode "default"
@@ -242,18 +232,18 @@ mode "$mode_move" {
 
 # Caps mode
 # TODO: make a wrapper for i3status
-set $mode_caps Caps Lock
+set $mode_caps [CAPS]
 
-bindsym Caps_Lock mode       "$mode_caps"; exec --no-startup-id sh ~/.i3/caps.sh
-bindsym Shift+Caps_Lock mode "$mode_caps"; exec --no-startup-id sh ~/.i3/caps.sh
-bindsym Ctrl+Caps_Lock mode  "$mode_caps"; exec --no-startup-id sh ~/.i3/caps.sh
-bindsym $alt+Caps_Lock mode  "$mode_caps"; exec --no-startup-id sh ~/.i3/caps.sh
+bindsym Caps_Lock mode       "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
+bindsym Shift+Caps_Lock mode "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
+bindsym Ctrl+Caps_Lock mode  "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
+bindsym $alt+Caps_Lock mode  "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
 
 mode "$mode_caps" {
-	bindsym Caps_Lock mode       "default"; exec --no-startup-id sleep 0.2 && sh ~/.i3/caps.sh
-	bindsym Shift+Caps_Lock mode "default"; exec --no-startup-id sleep 0.2 && sh ~/.i3/caps.sh
-	bindsym Ctrl+Caps_Lock mode  "default"; exec --no-startup-id sleep 0.2 && sh ~/.i3/caps.sh
-	bindsym $alt+Caps_Lock mode  "default"; exec --no-startup-id sleep 0.2 && sh ~/.i3/caps.sh
+	bindsym Caps_Lock mode       "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
+	bindsym Shift+Caps_Lock mode "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
+	bindsym Ctrl+Caps_Lock mode  "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
+	bindsym $alt+Caps_Lock mode  "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
 }
 
 # Open applications
@@ -272,16 +262,16 @@ bindsym XF86AudioMicMute exec     --no-startup-id pactl set-source-mute 1 toggle
 bindsym XF86AudioMute exec        --no-startup-id pactl set-sink-mute 0 toggle
 
 # Cmus-remote
-bindsym $mod+u exec        --no-startup-id cmus-remote -u && sh ~/.i3/cmus.sh
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u && sh ~/.i3/cmus.sh
+bindsym $mod+u exec        --no-startup-id cmus-remote -u && sh ~/.config/i3/cmus.sh
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u && sh ~/.config/i3/cmus.sh
 bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && notify-send -t 2 'Cmus: next'
 bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && notify-send -t 2 'Cmus: prev'
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id cmus-remote -v +10% && sh ~/.i3/cmus-vol.sh
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id cmus-remote -v -10% && sh ~/.i3/cmus-vol.sh
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id cmus-remote -v +10% && sh ~/.config/i3/cmus-vol.sh
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id cmus-remote -v -10% && sh ~/.config/i3/cmus-vol.sh
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10 && sh ~/.i3/xbacklight.sh
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && sh ~/.i3/xbacklight.sh
+bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10 && sh ~/.config/i3/xbacklight.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && sh ~/.config/i3/xbacklight.sh
 
 # Screenshot
 bindsym --release Control+Print exec --no-startup-id i3-scrot
@@ -291,7 +281,7 @@ bindsym --release Control+Shift+Print exec --no-startup-id i3-scrot -w
 bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
 
 # Volume
-bindsym $mod+v exec --no-startup-id urxvt -e 'alsamixer'
+bindsym $mod+v exec --no-startup-id rxvt-unicode -e 'alsamixer'
 
 # Compton control
 bindsym $mod+c exec      --no-startup-id pkill compton
@@ -310,10 +300,9 @@ assign [class="^Gvim$"] $ws2
 assign [class="^Emacs$"] $ws2
 assign [class="^Atom$"] $ws2
 assign [class="^Eclipse$"] $ws2
-assign [class="^Thunar$"] $ws3
 assign [class="^Pcmanfm$"] $ws3
-assign [class="^Apvlv$"] $ws3
-assign [class="^Pamac-manager$"] $ws3
+assign [class="^Synaptic$"] $ws3
+assign [class="^Apvlv$"] $ws4
 assign [class="^libreoffice-startcenter$"] $ws4
 assign [class="^PdfMod$"] $ws4
 assign [class="^Glade$"] $ws5
@@ -347,6 +336,7 @@ for_window [title="Calculator"] floating enable border normal
 for_window [class="Dia" title="^Dia v"] floating enable border normal
 for_window [class="SpeedCrunch"] floating enable border normal
 for_window [class="Qalculate-gtk"] floating enable border normal
+for_window [class="feh"] floating enable border normal
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -366,10 +356,9 @@ client.background       $base2
 bar {
 	position top
 	separator_symbol "/"
-	height $height
 	strip_workspace_numbers yes
 	font pango:Terminus 10
-	status_command i3status -c $HOME/.i3/i3status.conf
+	status_command i3status -c $HOME/.config/i3/i3status.conf
 	colors {
 		background $base2
 		statusline $base4
@@ -386,15 +375,14 @@ bar {
 # Startup
 # --------------------------------------------------------------------------------
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config $HOME/.compton.conf
-exec --no-startup-id feh --bg-fill $HOME/.wallpaper/wallpaper_02.jpg
+exec --no-startup-id feh --bg-fill $HOME/.wallpaper/debian_01.jpg
 
 exec --no-startup-id setcursor
 exec --no-startup-id setxkbmap es
 exec --no-startup-id volumeicon
-
-exec --no-startup-id nm-applet
+exec --no-startup-id wicd-gtk -t
 exec --no-startup-id udiskie -s
 
 #Set default volume
