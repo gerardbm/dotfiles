@@ -34,22 +34,48 @@ Configuration files:
 
 ### Debian
 
-Enable 'unstable' (sid) reposoitories and give them low preference:
+**Add the user to the sudoers file**
+
+1. Enter to the root mode: `su -` (then, root password)
+
+2. Edit the file `/etc/sudoers`:
+
+`sudo visudo -f /etc/sudoers`
+
+3. Add this line after `ROOT ALL (ALL:ALL) ALL`:
+
+`<user> ALL (ALL:ALL) ALL`
+
+**Disable autologin on LXDE**:
+
+1. Edit the following file:
+
+`sudo nano /etc/lightdm/lightdm.conf`
+
+2. Find the line `#autologin-user=`.
+
+3. Uncomment the line and add the user:
+
+`autologin-user=<user>`
+
+**Enable 'unstable' (sid) repositories**
+
+1. Edit the file `/etc/apt/sources.list`
 
 `sudo nano /etc/apt/sources.list`
 
-Add this two lines at the end:
+2. Add this two lines at the end:
 
 ```
 deb http://ftp.es.debian.org/debian/ sid main contrib non-free
 deb-src http://ftp.es.debian.org/debian/ sid main contrib non-free
 ```
 
-Now change the preferences:
+3. Change the preferences. Create the following file:
 
 `sudo nano /etc/apt/preferences`
 
-Add these lines:
+4. Add these lines:
 
 ```
 Package: *
@@ -61,7 +87,7 @@ Pin: release a=unstable
 Pin-Priority: 300
 ```
 
-Finally, update:
+5. Finally, update:
 
 `sudo apt-get update`
 
