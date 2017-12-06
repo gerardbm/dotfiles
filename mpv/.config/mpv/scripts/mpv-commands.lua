@@ -1,13 +1,13 @@
 -- Zoom
 function zoom_in()
 	zoom = mp.get_property("video-zoom")
-	zoom_to = zoom + 0.1
+	zoom_to = zoom + 0.2
 	mp.set_property("video-zoom", zoom_to)
 end
 
 function zoom_out()
 	zoom = mp.get_property("video-zoom")
-	zoom_to = zoom - 0.1
+	zoom_to = zoom - 0.2
 	mp.set_property("video-zoom", zoom_to)
 end
 
@@ -75,8 +75,8 @@ mp.add_key_binding("r", "cw", cw)
 mp.add_key_binding("Shift+r", "ccw", ccw)
 mp.add_key_binding("Ctrl+r", "reset_rotate", reset_rotate)
 
-mp.add_key_binding("Ctrl+l", "pan_right", pan_right)
-mp.add_key_binding("Ctrl+h", "pan_left", pan_left)
-mp.add_key_binding("Ctrl+k", "pan_up", pan_up)
-mp.add_key_binding("Ctrl+j", "pan_down", pan_down)
+mp.add_key_binding("l", "pan_right", pan_right)
+mp.add_key_binding("h", "pan_left", pan_left)
+mp.add_key_binding("k", "pan_up", pan_up)
+mp.add_key_binding("j", "pan_down", pan_down)
 mp.add_key_binding("Ctrl+p", "reset_pan", pan_reset)
