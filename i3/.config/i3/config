@@ -195,7 +195,7 @@ mode "$mode_resize" {
 bindsym $mod+0 mode "$mode_system"
 
 # System mode
-set $mode_system [L]ogout [R]eboot [P]oweroff
+set $mode_system [L] [R] [P]
 
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3-msg exit, mode "default"
