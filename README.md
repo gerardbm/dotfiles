@@ -1,6 +1,6 @@
 # ~/dotfiles for Debian 9 and WMs
 
-This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow <package>` to create the symlinks automatically for each package (1). For more information about stow read its documentation (`man stow`).
+This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --no-folding <package>` to create the symlinks automatically for each package. For more information about stow read its documentation (`man stow`).
 
 Color schemes and neovim files are not into this repository. Find them into:
 
@@ -120,7 +120,7 @@ Enable zsh-syntax-highlighting:
 
 Symlink the zsh settings:
 
-`cd $HOME/dotfiles && stow zsh`
+`cd $HOME/dotfiles && stow --no-folding zsh`
 
 Change the current shell:
 
@@ -136,13 +136,13 @@ Install it from the repositories:
 
 Symlink the rxvt-unicode settings:
 
-`cd $HOME/dotfiles && stow X`
+`cd $HOME/dotfiles && stow --no-folding X`
 
 Atomic color scheme is already included.
 
 Install the scripts `url-select` and `resize-font`:
 
-`cd $HOME/dotfiles && stow urxvt`
+`cd $HOME/dotfiles && stow --no-folding urxvt`
 
 To check for newer versions on Github:
 
@@ -163,7 +163,7 @@ Install the package `urlview`:
 
 Symlink the tmux settings:
 
-`cd $HOME/dotfiles && stow tmux`
+`cd $HOME/dotfiles && stow --no-folding tmux`
 
 ### Git
 
@@ -173,7 +173,7 @@ Install it from the repositories:
 
 Symlink the git settings:
 
-`cd $HOME/dotfiles && stow git`
+`cd $HOME/dotfiles && stow --no-folding git`
 
 ### Powerline
 
@@ -203,6 +203,16 @@ Install the plugins with the command:
 
 `:PlugInstall`.
 
+### Vint
+
+Install pip3 from the repositories:
+
+`sudo apt-get install python3-pip`
+
+Install pylint from pip3:
+
+`sudo pip3 install vint`
+
 ### Pylint
 
 Install pip3 from the repositories:
@@ -213,15 +223,39 @@ Install pylint from pip3:
 
 `sudo pip3 install pylint`
 
+### Nodejs, tern, jshint and csshint
+
+Install them from the repositories:
+
+`sudo apt-get install nodejs nodejs-legacy npm`
+
+Install tern from npm:
+
+```sh
+sudo npm install -g tern
+sudo npm install -g jshint
+sudo npm install -g csshint
+```
+
+### W3m
+
+Install it from the repositories:
+
+`sudo apt-get install w3m`
+
+Symlink the w3m settings:
+
+`cd $HOME/dotfiles && stow --no-folding w3m`
+
 ### Ranger
 
 Install it from the repositories:
 
 `sudo apt-get install ranger`
 
-Create the folder first and then symlink the ranger settings:
+Symlink the ranger settings:
 
-`mkdir $HOME/.config/ranger && cd $HOME/dotfiles && stow ranger`
+`cd $HOME/dotfiles && stow --no-folding ranger`
 
 ### Mutt
 
@@ -247,9 +281,9 @@ Install it from the repositories:
 
 `sudo apt-get install cmus`
 
-Create the folder first and then symlink the cmus settings:
+Symlink the cmus settings:
 
-`mkdir $HOME/.config/cmus && cd $HOME/dotfiles && stow cmus`
+`cd $HOME/dotfiles && stow --no-folding cmus`
 
 Install the atomic theme for cmus:
 
@@ -280,7 +314,3 @@ Copy the script to install the plugins for the first time:
 Run it:
 
 `. ./iip.sh`
-
----
-
-1. The command `stow <package>` will create a new directory if it's needed, and if the root directory doesn't exist, it also will add the new files to the dotfiles repository. Sometimes we don't want it (i.e. irssi logs, cmus search-command, or any temporary file auto generated). The solution for this is to create the destination directory before of using the stow command, for example: `mkdir ~/.irssi`, then `stow $HOME/dotfiles/irssi`.
