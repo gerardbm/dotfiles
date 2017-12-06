@@ -95,32 +95,33 @@ Pin-Priority: 300
 
 Make sure you have installed the following libraries, which are a requirement to run my setup properly:
 
-- pulseaudio-utils: to run pulse audio controls from the keyboard.
-- xbacklight: make Fn keys work.
-- feh: image viewer which can be used as background setter.
-- lxappearance: customize look and feel (lxde-native).
-- rofi: a window switcher, run dialog and dmenu replacement.
-- compton: compositor based on xcompmgr with some improvements.
-- volumeicon-alsa: volume icon for the system tray.
-- dunst: a customizable and lightweight notification-daemon.
-- libnotify-bin: a program to send desktop notifications.
-- trash-cli: command-line tool to move files to the trash.
-- lxpolkit: authorization manager for the desktop.
-- FontAwesome.io: font to display icons in the i3bar.
-- simplescreenrecorder: tool to record the desktop.
-- translate-shell: tool to translate between languages.
-- surfraw: a fast unix command line interface for WWW services.
 - apvlv: PDF reader customizable with vim-like navigation.
-- uuid: Universally Unique Identifier command line tool.
+- compton: compositor based on xcompmgr with some improvements.
+- dunst: a customizable and lightweight notification-daemon.
+- feh: image viewer which can be used as background setter.
+- FontAwesome.io: font to display icons in the i3bar.
+- libnotify-bin: a program to send desktop notifications.
+- lxappearance: customize look and feel (lxde-native).
+- lxpolkit: authorization manager for the desktop.
 - mediainfo: command-line tool to display info about audio/video.
-- udiskie: automounter for removable media (flash drives).
+- pulseaudio-utils: to run pulse audio controls from the keyboard.
+- rofi: a window switcher, run dialog and dmenu replacement.
+- simplescreenrecorder: tool to record the desktop.
+- surfraw: a fast unix command line interface for WWW services.
+- translate-shell: tool to translate between languages.
 - transmission-cli: a bittorrent client from the command-line.
+- trash-cli: command-line tool to move files to the trash.
+- udiskie: automounter for removable media (flash drives).
+- uuid: Universally Unique Identifier command line tool.
+- volumeicon-alsa: volume icon for the system tray.
 - wicd: Wired and wireless network connection manager.
+- xbacklight: make Fn keys work.
+- xsel: command-line tool to manipulate the X selection.
 
 Optional:
 - arandr: can be useful to generate xrandr \*.sh scripts.
-- redshift: adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less or reduce the risk for delayed sleep phase syndrome if you are working in front of the screen at night.
 - libfm-pref-apps and exo-preferred-applications: the name is self-descriptive.
+- redshift: adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less or reduce the risk for delayed sleep phase syndrome if you are working in front of the screen at night.
 
 ### Zsh
 
