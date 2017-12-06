@@ -95,9 +95,18 @@ alias dush='du -sh'
 alias dushs='du -sh * | sort -r -h'
 alias disk='df -h .'
 
-# Packaging (Arch and Debian based)
-alias pacupg='sudo pacman -Syu'
-alias pacmir='sudo pacman-mirrors -f0 && sudo pacman -Syy'
+# Apt
+alias aptedit='sudo apt edit-sources'
+alias aptdep='apt-cache depends'
+alias aptpol='apt-cache policy'
+alias aptsea='apt-cache search'
+alias aptsho='apt-cache show'
+alias aptver='apt-cache madison'
+alias aptbin='apt-get download'
+alias aptsrc='apt-get source'
+alias aptins='sudo apt-get install'
+alias aptrem='sudo apt-get remove'
+alias aptaut='sudo apt-get autoremove'
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Zsh
@@ -122,6 +131,7 @@ alias tra='trash'
 
 # Surfraw
 alias sra='surfraw archwiki'
+alias sre='surfraw debwiki'
 alias src='surfraw cite'
 alias srd='surfraw duckduckgo'
 alias srg='surfraw google'
@@ -148,11 +158,14 @@ alias go='git checkout'
 alias gb='git branch'
 alias gunst='git reset HEAD' # Unstage file
 alias gundo='git reset --soft HEAD~1' # Undo last commit
+alias gpuom='git push origin master'
+alias gpush='git push'
+alias gpull='git pull'
 
 # Dev
 alias cdv='cd $HOME/DEV/; ls'
 alias cdd='cd $HOME/dotfiles/; ls'
-alias cui='uuid | tr -d "\n" | xclip -selection clipboard'
+alias cui='uuid | tr -d "\n" | xsel -b'
 
 # Translate-shell
 alias enes='trans en:es -e bing -b'
