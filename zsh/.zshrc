@@ -75,9 +75,11 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Go Path
-export PATH=$PATH:/usr/local/go/bin
+# Golang path
 export GOPATH=$HOME/DEV/goprojects
+
+# Local bin path
+export PATH=$HOME/.local/bin:$PATH
 
 # Aliases:
 # For a full list of active aliases, run `alias`.
