@@ -271,9 +271,6 @@ bindsym --release Control+Shift+Print exec --no-startup-id scrot -s
 # Screen recorder
 bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
 
-# Volume
-# bindsym $mod+b exec --no-startup-id rxvt-unicode -e 'alsamixer'
-
 # Compton control
 bindsym $mod+c exec      --no-startup-id pkill compton
 bindsym $mod+Ctrl+c exec --no-startup-id compton -b --config $HOME/.compton.conf
@@ -309,12 +306,12 @@ assign [class="^VirtualBox$"] $ws7
 assign [class="^mpv$"] $ws7
 assign [class="^Skype$"] $ws8
 assign [class="^Firefox$"] $ws9
+assign [class="^Firefox-esr$"] $ws9
 assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 
 # according to: http://sprunge.us/QgOG
 for_window [window_role="pop-up"] floating enable
-for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Gmrun"] floating enable
 for_window [class="rdesktop"] floating enable
 for_window [class="Vncviewer"] floating enable

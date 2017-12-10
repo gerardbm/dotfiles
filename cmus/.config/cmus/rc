@@ -1,0 +1,2 @@
+# Don't change the system audio, only cmus
+set softvol=true
