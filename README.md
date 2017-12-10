@@ -115,7 +115,7 @@ Make sure you have installed the following libraries, which are a requirement to
 - uuid: Universally Unique Identifier command line tool.
 - volumeicon-alsa: volume icon for the system tray.
 - wicd: Wired and wireless network connection manager.
-- xbacklight: make Fn keys work.
+- xbacklight: adjust backlight brightness using RandR extension.
 - xsel: command-line tool to manipulate the X selection.
 
 Optional:
@@ -173,9 +173,9 @@ Install the scripts: `url-select`, `resize-font` and `unichr`:
 
 To check for newer versions on Github:
 
-The script `resize-font`: https://github.com/simmel/urxvt-resize-font
-The script `url-select`: https://github.com/johntyree/urxvt-perls
-The script `unichr`: https://emergent.unpythonic.net/
+- The script `resize-font`: https://github.com/simmel/urxvt-resize-font
+- The script `url-select`: https://github.com/johntyree/urxvt-perls
+- The script `unichr`: https://emergent.unpythonic.net/
 
 Note: there is a script called `resize-font` into `johntyree/urxvt-perls` as well, but it's not updated.
 
@@ -322,8 +322,8 @@ cp atomic/cmus/atomic.theme $HOME/.config/cmus
 
 From cmus command line:
 
-Set the colorscheme: `:colorscheme atomic`
-Add the playlist: `:add $HOME/.config/cmus/playlist.pl`
+- Set the colorscheme: `:colorscheme atomic`
+- Add the playlist: `:add $HOME/.config/cmus/playlist.pl`
 
 ### Irssi
 
