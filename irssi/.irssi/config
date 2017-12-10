@@ -406,6 +406,9 @@ keyboard = (
   { key = "^H"; id = "backspace"; data = ""; },
   { key = "^D"; id = "delete_character"; data = ""; },
   { key = "meta-[M"; id = "command"; data = "mouse_xterm"; },
+  { key = "meta-u"; id = "scroll_backward"; data = ""; },
+  { key = "meta-d"; id = "scroll_forward"; data = ""; },
+
   {
     key = "^O";
     id = "command";

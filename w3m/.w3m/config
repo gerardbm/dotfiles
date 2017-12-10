@@ -80,15 +80,15 @@ urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
 editor /usr/bin/vim
 mailto_options 1
 mailer /usr/bin/mail
-extbrowser /usr/bin/mpv
+extbrowser sh -c 'echo "$0" | xsel -b'
 extbrowser2 /usr/bin/qutebrowser
 extbrowser3 /usr/bin/firefox
-extbrowser4
+extbrowser4 /usr/bin/mpv
 extbrowser5
 extbrowser6
 extbrowser7
 extbrowser8
-extbrowser9 sh -c 'printf %s "$0" | xsel -b'
+extbrowser9
 bgextviewer 1
 use_lessopen 0
 passwd_file ~/.w3m/passwd

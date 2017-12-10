@@ -1,13 +1,13 @@
-# i3 config file (v4)
+# i3wm config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Modifier is the Super (Win) key
 set $mod Mod4
 
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Default settings
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -45,33 +45,28 @@ hide_edge_borders smart
 # Orientation
 default_orientation horizontal
 
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Key bindings
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 # Start a terminal
-bindsym $mod+t exec rxvt-unicode
+bindsym $mod+Control+n exec rxvt-unicode
 
 # Kill focused window
 bindsym $mod+Return kill
 
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
-bindsym $mod+d exec --no-startup-id morc_menu
 
-# Window transparency adjustment
-bindsym $mod+o exec --no-startup-id transset-df -a --min 0.05 --dec 0.05
-bindsym $mod+p exec --no-startup-id transset-df -a --inc 0.05
+# Navigate to the next/prev workspace
+bindsym $mod+Control+l workspace next
+bindsym $mod+Control+h workspace prev
 
 # Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# Emulate alt+tab
-bindsym $mod+Tab focus right
-bindsym $mod+Shift+Tab focus left
 
 # Move focused window
 bindsym $mod+Shift+h move left
@@ -104,10 +99,6 @@ bindsym $mod+a focus parent
 
 # Focus the child container
 bindsym $mod+Shift+a focus child
-
-# Navigate to the next/prev workspace
-bindsym Ctrl+Shift+l workspace next
-bindsym Ctrl+Shift+h workspace prev
 
 # Terminal
 set $ws1  "1:  "
@@ -158,11 +149,12 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Shift+p move container to workspace back_and_forth; \
+	workspace back_and_forth
 
 # Come back to the prev workspace (same bindsym)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
+bindsym $mod+Control+p workspace back_and_forth
 force_display_urgency_hint 0 ms
 focus_on_window_activation focus
 
@@ -176,7 +168,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+shift+x exec i3lock --color "$base1"
 
 # Resize window mode
-set $mode_resize Resize
+set $mode_resize [Resize]
 
 bindsym $mod+r mode "$mode_resize"
 
@@ -199,8 +191,8 @@ set $mode_system [L] [R] [P]
 
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3-msg exit, mode "default"
-	bindsym r exec --no-startup-id sh ~/.config/i3/exit-reboot.sh, mode "default"
-	bindsym p exec --no-startup-id sh ~/.config/i3/exit-poweroff.sh, mode "default"
+	bindsym r exec --no-startup-id sh ~/.config/i3/reboot.sh, mode "default"
+	bindsym p exec --no-startup-id sh ~/.config/i3/power.sh, mode "default"
 
 	# Exit system mode: "Enter" or "Escape"
 	bindsym Return mode "default"
@@ -208,42 +200,36 @@ mode "$mode_system" {
 	bindsym Control+c mode "default"
 }
 
-# move floating windows with keys
-set $mode_move Move
+# Move floating windows with keys
+set $mode_move [Move]
 bindsym $mod+m mode "$mode_move" focus floating
 mode "$mode_move" {
 	bindsym $alt+Tab focus right
-
-	bindsym Left move left
-	bindsym Down move down
-	bindsym Up move up
-	bindsym Right move right
 
 	bindsym h move left
 	bindsym j move down
 	bindsym k move up
 	bindsym l move right
 
-	# back to normal: Enter or Escape
+	# Back to normal: Enter or Escape
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 	bindsym Control+c mode "default"
 }
 
 # Caps mode
-# TODO: make a wrapper for i3status
 set $mode_caps [CAPS]
 
-bindsym Caps_Lock mode       "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
-bindsym Shift+Caps_Lock mode "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
-bindsym Ctrl+Caps_Lock mode  "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
-bindsym $alt+Caps_Lock mode  "$mode_caps"; exec --no-startup-id sh ~/.config/i3/caps.sh
+bindsym Caps_Lock mode       "$mode_caps"
+bindsym Shift+Caps_Lock mode "$mode_caps"
+bindsym Ctrl+Caps_Lock mode  "$mode_caps"
+bindsym $alt+Caps_Lock mode  "$mode_caps"
 
 mode "$mode_caps" {
-	bindsym Caps_Lock mode       "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
-	bindsym Shift+Caps_Lock mode "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
-	bindsym Ctrl+Caps_Lock mode  "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
-	bindsym $alt+Caps_Lock mode  "default"; exec --no-startup-id sleep 0.2 && sh ~/.config/i3/caps.sh
+	bindsym Caps_Lock mode       "default"
+	bindsym Shift+Caps_Lock mode "default"
+	bindsym Ctrl+Caps_Lock mode  "default"
+	bindsym $alt+Caps_Lock mode  "default"
 }
 
 # Open applications
@@ -258,41 +244,47 @@ bindsym Control+Shift+m exec --no-startup-id urxvt -name 'mail' -e 'mutt'
 # Note: volume status is are already in i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym XF86AudioMicMute exec     --no-startup-id pactl set-source-mute 1 toggle
-bindsym XF86AudioMute exec        --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+i               exec --no-startup-id pactl set-sink-volume 0 +10%
+bindsym $mod+o               exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym $mod+v               exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute 1 toggle
 
 # Cmus-remote
-bindsym $mod+u exec        --no-startup-id cmus-remote -u && sh ~/.config/i3/cmus.sh
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u && sh ~/.config/i3/cmus.sh
-bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && notify-send -t 2 'Cmus: next'
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && notify-send -t 2 'Cmus: prev'
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id cmus-remote -v +10% && sh ~/.config/i3/cmus-vol.sh
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id cmus-remote -v -10% && sh ~/.config/i3/cmus-vol.sh
+bindsym $mod+u exec        --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym XF86AudioPlay exec --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && \
+	notify-send -t 2 'Cmus: next'
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && \
+	notify-send -t 2 'Cmus: prev'
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10 && sh ~/.config/i3/xbacklight.sh
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && sh ~/.config/i3/xbacklight.sh
+bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10% && \
+	sh ~/.config/i3/xbacklight.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
+	sh ~/.config/i3/xbacklight.sh
 
 # Screenshot
-bindsym --release Control+Print exec --no-startup-id i3-scrot
-bindsym --release Control+Shift+Print exec --no-startup-id i3-scrot -w
+bindsym --release Control+Print exec --no-startup-id scrot
+bindsym --release Control+Shift+Print exec --no-startup-id scrot -s
 
 # Screen recorder
 bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
 
 # Volume
-bindsym $mod+v exec --no-startup-id rxvt-unicode -e 'alsamixer'
+# bindsym $mod+b exec --no-startup-id rxvt-unicode -e 'alsamixer'
 
 # Compton control
 bindsym $mod+c exec      --no-startup-id pkill compton
 bindsym $mod+Ctrl+c exec --no-startup-id compton -b --config $HOME/.compton.conf
 
 # Hide/display i3 bar
-bindsym $mod+n bar mode toggle
+bindsym $mod+z \
+	bar mode toggle
 
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Assignments
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 assign [class="^URxvt$"] $ws1
 assign [class="^URxvt$" instance="^mail$"] $ws1
@@ -341,29 +333,29 @@ for_window [class="feh"] floating enable border normal
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Look and feel
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 # class                 border backg. text   indic. child_border
-client.focused          $base3 $base3 $base4 $acc50 $base3
+client.focused          $acc50 $acc50 $base2 $acr50 $acc50
 client.focused_inactive $base3 $base3 $base2 $base3
 client.unfocused        $base2 $base2 $base3 $base2
-client.urgent           $acr50 $acr50 $base1 $acr50
+client.urgent           $acg50 $acg50 $base1 $acg50
 client.placeholder      $base2 $base2 $base4 $base2 $base2
 client.background       $base2
 
 bar {
 	position top
 	separator_symbol "/"
-	strip_workspace_numbers yes
+	strip_workspace_numbers no
 	font pango:Terminus 10
 	status_command i3status -c $HOME/.config/i3/i3status.conf
 	colors {
 		background $base2
 		statusline $base4
 		separator  $base3
-		focused_workspace  $base2 $base2 $base4
+		focused_workspace  $acc50 $acc50 $base2
 		active_workspace   $base2 $base2 $acb50
 		inactive_workspace $base2 $base2 $base3
 		urgent_workspace   $base2 $base2 $acg50
@@ -371,22 +363,22 @@ bar {
 	}
 }
 
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Startup
-# --------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 exec --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config $HOME/.compton.conf
+exec --no-startup-id compton -b --config $HOME/.compton.conf
 exec --no-startup-id feh --bg-fill $HOME/.wallpaper/debian_01.jpg
 
 exec --no-startup-id setcursor
 exec --no-startup-id setxkbmap es
-exec --no-startup-id volumeicon
-exec --no-startup-id wicd-gtk -t
 exec --no-startup-id udiskie -s
+# exec --no-startup-id volumeicon
+# exec --no-startup-id wicd-gtk -t
 
 #Set default volume
 exec --no-startup-id pactl set-sink-volume 0 '30%'
 
 # Set LCD brightness
-exec --no-startup-id xbacklight -set 20
+exec --no-startup-id xbacklight -set 50%

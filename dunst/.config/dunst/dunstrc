@@ -1,58 +1,21 @@
 [global]
-    font = Terminus 12
+    ### Display ###
 
-    # Allow a small subset of html markup:
-    #   <b>bold</b>
-    #   <i>italic</i>
-    #   <s>strikethrough</s>
-    #   <u>underline</u>
+    # Which monitor should the notifications be displayed on.
+    monitor = 0
+
+    # Display notification on focused monitor.  Possible modes are:
+    #   mouse: follow mouse pointer
+    #   keyboard: follow window with keyboard focus
+    #   none: don't follow anything
     #
-    # For a complete reference see
-    # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
-    # If markup is not allowed, those tags will be stripped out of the
-    # message.
-    allow_markup = yes
-
-    # The format of the message.  Possible variables are:
-    #   %a  appname
-    #   %s  summary
-    #   %b  body
-    #   %i  iconname (including its path)
-    #   %I  iconname (without its path)
-    #   %p  progress value if set ([  0%] to [100%]) or nothing
-    # Markup is allowed
-    # format = "%s %p\n%b"
-    format = "%s\n%b"
-
-    # Sort messages by urgency.
-    sort = yes
-
-    # Show how many messages are currently hidden (because of geometry).
-    indicate_hidden = yes
-
-    # Alignment of message text.
-    # Possible values are "left", "center" and "right".
-    alignment = left
-
-    # The frequency with wich text that is longer than the notification
-    # window allows bounces back and forth.
-    # This option conflicts with "word_wrap".
-    # Set to 0 to disable.
-    bounce_freq = 0
-
-
-    # Show age of message if message is older than show_age_threshold
-    # seconds.
-    # Set to -1 to disable.
-    show_age_threshold = 200
-
-    # Split notifications into multiple lines if they don't fit into
-    # geometry.
-    word_wrap = no
-
-    # Ignore newlines '\n' in notifications.
-    ignore_newline = no
-
+    # "keyboard" needs a window manager that exports the
+    # _NET_ACTIVE_WINDOW property.
+    # This should be the case for almost all modern window managers.
+    #
+    # If this option is set to mouse or keyboard, the monitor option
+    # will be ignored.
+    follow = none
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -63,56 +26,27 @@
     # (dmenu-like).  If width is 0, the window expands to the longest
     # message displayed.  A positive x is measured from the left, a
     # negative from the right side of the screen.  Y is measured from
-    # the top and down respectevly.
+    # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x4+25+25"
+    geometry = "300x0-0+21"
+
+    # Show how many messages are currently hidden (because of geometry).
+    indicate_hidden = yes
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = yes
+    shrink = no
 
     # The transparency of the window.  Range: [0; 100].
-    # This option will only work if a compositing windowmanager is
+    # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 10
+    transparency = 0
 
-    # Don't remove messages, if the user is idle (no mouse or keyboard input)
-    # for longer than idle_threshold seconds.
-    # Set to 0 to disable.
-    # default 120
-    idle_threshold = 0
-
-    # Which monitor should the notifications be displayed on.
-    monitor = 0
-
-    # Display notification on focused monitor.  Possible modes are:
-    #   mouse: follow mouse pointer
-    #   keyboard: follow window with keyboard focus
-    #   none: don't follow anything
-    #
-    # "keyboard" needs a windowmanager that exports the
-    # _NET_ACTIVE_WINDOW property.
-    # This should be the case for almost all modern windowmanagers.
-    #
-    # If this option is set to mouse or keyboard, the monitor option
-    # will be ignored.
-    follow = none
-
-    # Should a notification popped up from history be sticky or timeout
-    # as if it would normally do.
-    sticky_history = yes
-
-    # Maximum amount of notifications kept in history
-    history_length = 20
-
-    # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
-
-    # The height of a single line.  If the height is smaller than the
-    # font height, it will get raised to the font height.
-    # This adds empty space above and under the text.
-    line_height = 0
+    # The height of the entire notification.  If the height is smaller
+    # than the font height and padding combined, it will be raised
+    # to the font height and padding.
+    notification_height = 0
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -123,7 +57,14 @@
     padding = 8
 
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 8
+
+    # Defines width in pixels of frame around the notification window.
+    # Set to 0 to disable.
+    frame_width = 0
+
+    # Defines color of the frame around the notification window.
+    frame_color = "#53697F"
 
     # Define a color for the separator.
     # possible values are:
@@ -131,29 +72,155 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    # separator_color = #454947
     separator_color = frame
+
+    # Sort messages by urgency.
+    sort = yes
+
+    # Don't remove messages, if the user is idle (no mouse or keyboard input)
+    # for longer than idle_threshold seconds.
+    # Set to 0 to disable.
+    # Transient notifications ignore this setting.
+    idle_threshold = 0
+
+    ### Text ###
+
+    font = Terminus 12
+
+    # The spacing between lines.  If the height is smaller than the
+    # font height, it will get raised to the font height.
+    line_height = 0
+
+    # Possible values are:
+    # full: Allow a small subset of html markup in notifications:
+    #        <b>bold</b>
+    #        <i>italic</i>
+    #        <s>strikethrough</s>
+    #        <u>underline</u>
+    #
+    #        For a complete reference see
+    #        <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
+    #
+    # strip: This setting is provided for compatibility with some broken
+    #        clients that send markup even though it's not enabled on the
+    #        server. Dunst will try to strip the markup but the parsing is
+    #        simplistic so using this option outside of matching rules for
+    #        specific applications *IS GREATLY DISCOURAGED*.
+    #
+    # no:    Disable markup parsing, incoming notifications will be treated as
+    #        plain text. Dunst will not advertise that it has the body-markup
+    #        capability if this is set as a global setting.
+    #
+    # It's important to note that markup inside the format option will be parsed
+    # regardless of what this is set to.
+    markup = full
+
+    # The format of the message.  Possible variables are:
+    #   %a  appname
+    #   %s  summary
+    #   %b  body
+    #   %i  iconname (including its path)
+    #   %I  iconname (without its path)
+    #   %p  progress value if set ([  0%] to [100%]) or nothing
+    #   %n  progress value if set without any extra characters
+    #   %%  Literal %
+    # Markup is allowed
+    # format = "<b>%s</b>\n%b"
+    format = "%s\n%b"
+
+    # Alignment of message text.
+    # Possible values are "left", "center" and "right".
+    alignment = left
+
+    # Show age of message if message is older than show_age_threshold
+    # seconds.
+    # Set to -1 to disable.
+    # show_age_threshold = 60
+	show_age_threshold = -1
+
+    # Split notifications into multiple lines if they don't fit into
+    # geometry.
+    word_wrap = no
+
+    # When word_wrap is set to no, specify where to ellipsize long lines.
+    # Possible values are "start", "middle" and "end".
+    ellipsize = end
+
+    # Ignore newlines '\n' in notifications.
+    ignore_newline = no
+
+    # Merge multiple notifications with the same content
+    stack_duplicates = true
+
+    # Hide the count of merged notifications with the same content
+    hide_duplicate_count = true
+
+    # Display indicators for URLs (U) and actions (A).
+    show_indicators = yes
+
+    ### Icons ###
+
+    # Align icons left/right/off
+    icon_position = right
+
+    # Scale larger icons down to this size, set to 0 to disable
+    max_icon_size = 32
+
+    # Paths to default icons.
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+    ### History ###
+
+    # Should a notification popped up from history be sticky or timeout
+    # as if it would normally do.
+    sticky_history = yes
+
+    # Maximum amount of notifications kept in history
+    history_length = 20
+
+    ### Misc/Advanced ###
+
+    # dmenu path.
+    dmenu = /usr/bin/dmenu -p dunst:
+
+    # Browser for opening urls in context menu.
+    browser = /usr/bin/firefox -new-tab
+
+    # Always run rule-defined scripts, even if the notification is suppressed
+    always_run_script = true
+
+    # Define the title of the windows spawned by dunst
+    title = Dunst
+
+    # Define the class of the windows spawned by dunst
+    class = Dunst
 
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
     startup_notification = false
 
-    # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    ### Legacy
 
-    # Browser for opening urls in context menu.
-    browser = /usr/bin/qutebrowser
+    # Use the Xinerama extension instead of RandR for multi-monitor support.
+    # This setting is provided for compatibility with older nVidia drivers that
+    # do not support RandR and using it on systems that support RandR is highly
+    # discouraged.
+    #
+    # By enabling this setting dunst will not be able to detect when a monitor
+    # is connected or disconnected which might break follow mode if the screen
+    # layout changes.
+    force_xinerama = false
 
-    # Align icons left/right/off
-    icon_position = left
-
-    # Paths to default icons.
-    icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
-
-[frame]
-    width = 1
-    color = "#53697F"
+# Experimental features that may or may not work correctly. Do not expect them
+# to have a consistent behaviour across releases.
+[experimental]
+    # Calculate the dpi to use on a per-monitor basis.
+    # If this setting is enabled the Xft.dpi value will be ignored and instead
+    # dunst will attempt to calculate an appropriate dpi value for each monitor
+    # using the resolution and physical size. This might be useful in setups
+    # where there are multiple screens with very different dpi values.
+    per_monitor_dpi = false
 
 [shortcuts]
 
@@ -163,18 +230,20 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = mod4+q
+    # close = ctrl+space
 
     # Close all notifications.
-    close_all = ctrl+mod4+q
+    # close_all = ctrl+shift+space
+	close_all = mod4+q
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1".
-    history = ctrl+mod4+h
+    # of "1". Make sure this key actually exists on your keyboard layout,
+    # e.g. check output of 'xmodmap -pke'
+    # history = ctrl+grave
 
     # Context menu.
-    context = ctrl+mod4+m
+    # context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
@@ -182,17 +251,23 @@
     background = "#141A1F"
     foreground = "#A6B5C5"
     timeout = 10
+    # Icon for notifications with low urgency, uncomment to enable
+    #icon = /path/to/icon
 
 [urgency_normal]
     background = "#141A1F"
     foreground = "#A6B5C5"
     timeout = 10
+    # Icon for notifications with normal urgency, uncomment to enable
+    #icon = /path/to/icon
 
 [urgency_critical]
     background = "#141A1F"
     foreground = "#9ACD68"
+    frame_color = "#EC5252"
     timeout = 0
-
+    # Icon for notifications with critical urgency, uncomment to enable
+    #icon = /path/to/icon
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -208,16 +283,10 @@
 #   script appname summary body icon urgency
 # where urgency can be "LOW", "NORMAL" or "CRITICAL".
 #
-# NOTES:
-# 1. If you don't want a notification to be displayed, set the format to "".
-# 2. It might be helpful to run dunst -print in a terminal in order
+# NOTE: if you don't want a notification to be displayed, set the format
+# to "".
+# NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
-
-[irc]
-    appname = irssi
-    timeout = 1
-    background = "#141A1F"
-    foreground = "#A6B5C5"
 
 #[espeak]
 #    summary = "*"
@@ -231,6 +300,11 @@
 #    # This notification will not be displayed
 #    summary = "foobar"
 #    format = ""
+
+#[history-ignore]
+#    # This notification will not be saved in history
+#    summary = "foobar"
+#    history_ignore = yes
 
 #[signed_on]
 #    appname = Pidgin
@@ -251,34 +325,5 @@
 #    appname = Pidgin
 #    summary = *twitter.com*
 #    urgency = normal
-#
-#[Claws Mail]
-#    appname = claws-mail
-#    category = email.arrived
-#    urgency = normal
-#    background = "#2F899E"
-#    foreground = "#FFA247"
-#
-#[mute.sh]
-#     appname = mute
-#     category = mute.sound
-#     script = mute.sh
-#
-#[JDownloader]
-#    appname = JDownloader
-#    category = JD
-#    background = "#FFA247"
-#    foreground = "#FFFFFF"
-#
-#[newsbeuter]
-#    summary = *Feeds*
-#    background = "#A8EB41"
-#    foreground = "#FFFFFF"
-#
-# [CMUS]
-#    appname = CMUS
-#    category = cmus
-#    background = "#6C4AB7"
-#    foreground = "#FFE756"
 #
 # vim: ft=cfg

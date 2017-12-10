@@ -167,7 +167,7 @@ Symlink the rxvt-unicode settings:
 
 Atomic color scheme is already included.
 
-Install the scripts `url-select` and `resize-font`:
+Install the scripts: `url-select`, `resize-font` and `unichr`:
 
 `cd $HOME/dotfiles && stow --no-folding urxvt`
 
@@ -175,6 +175,7 @@ To check for newer versions on Github:
 
 The script `resize-font`: https://github.com/simmel/urxvt-resize-font
 The script `url-select`: https://github.com/johntyree/urxvt-perls
+The script `unichr`: https://emergent.unpythonic.net/
 
 Note: there is a script called `resize-font` into `johntyree/urxvt-perls` as well, but it's not updated.
 
@@ -341,3 +342,126 @@ Copy the script to install the plugins for the first time:
 Run it:
 
 `. ./iip.sh`
+
+## Navigation
+
+All shortcuts are vim-style (H, J, K, L + U, D) and they are configured to work without conflicts coherently between i3wm, tmux, (neo)vim et al. Explanation:
+
+Horizontal navigation between WM workspaces, tmux windows and vim buffers only has two directions: left and right. In this case, a modifier in combination with H and L is coherent with vim-style.
+
+Four directions navigation (e.g: i3wm windows, tmux panes, vim windows) needs four keys: for left, right, top and bottom. In this case, a modifier in combination with H, J, K, L is coherent with vim-style.
+
+Vertical navigation to scroll up/down tmux windows, vim buffers or man pages has two directions but as well two speeds. In this case, a modifier in combination with J, K, U and D is coherent with vim-style.
+
+These are the guidelines:
+- Vim-like navigation.
+- Make it intuitive.
+- Reduce the keystrokes.
+- Improve the workflow.
+
+That said, it is very logical to have different modifier keys for every application:
+- <kbd>Super</kbd> to control the windows manager (i3wm in my case).
+- <kbd>Alt</kbd> to control the terminal multiplexer (tmux in my case).
+- <kbd>Control</kbd> to control a specific program (neovim, w3m, irssi).
+
+Tmux and neovim share <kbd>Alt</kbd>+{hjkl} to navigate between tmux panes and neovim windows; thanks to the plugin [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
+
+Tmux uses a prefix key to separate all the shortcuts from the system. This idea is very convenient to avoid conflicts between shortcuts, however it implies too much keystrokes. This prefix also has some disadvantages, because it uses the default <kbd>Control</kbd>+<kbd>b</kbd>: you lose a useful readline command (backward character). Some people remap it to <kbd>Control</kbd>+<kbd>a</kbd> because it's easier to press, so they lose a useful readline command (go to the start of the line). Also, it is used into vim to increase a numeric value.
+
+My recommendation is to use the <kbd>Alt</kbd> key to remap some tmux bind-keys (using the `-n` flag), skipping the prefix for the most used actions (navigation, resize).
+
+The result:
+
+```
+| ACTION        | I3WM          | TMUX         | NEOVIM       |
+| $mod key      | Super         | Alt          | Control      |
+| ------------- | ------------- | ------------ | ------------ |
+|               | (workspaces)  | (windows)    | (buffers)    |
+| Next          | Ctrl+Super+l  | Ctrl+Alt+l   | Ctrl+l       |
+| Previous      | Ctrl+Super+h  | Ctrl+Alt+h   | Ctrl+h       |
+| Last          | Ctrl+Super+p  | Ctrl+Alt+p   | Ctrl+p Enter |
+| ------------- | ------------- | ------------ | ------------ |
+|               |               | (windows)    | (buffers)    |
+| Up: 1 line    |               | Alt+v k      | Ctrl+k       |
+| Down: 1 line  |               | Alt+v j      | Ctrl+j       |
+| Up: ½ page    |               | Alt+v u      | Ctrl+u       |
+| Down: ½ page  |               | Alt+v d      | Ctrl+d       |
+| ------------- | ------------- | ------------ | ------------ |
+|               | (windows)     | (panes)      | (windows)    |
+| Focus left    | Super+h       | Alt+h        | Alt+h        |
+| Focus right   | Super+l       | Alt+l        | Alt+l        |
+| Focus top     | Super+k       | Alt+k        | Alt+k        |
+| Focus bottom  | Super+j       | Alt+j        | Alt+j        |
+| Focus last    |               |              | Ctrl+w p     |
+| Focus next    |               |              | Ctrl+w l     |
+| Focus prev    |               |              | Ctrl+w h     |
+| Only active   |               |              | Ctrl+w o     |
+| Kill active   | Super+Enter   | Alt+Enter    | Ctrl+w Enter |
+| New terminal  | Ctrl+Super+n  | Ctrl+Alt+n   | Ctrl+t       |
+| ------------- | ------------- | ------------ | ------------ |
+|               | (windows)     | (panes)      | (windows)    |
+| Fullscreen    | Super+f       | Alt+f        | Ctrl+f       |
+| Resize left   | Super+r h     | Alt+Ctrl+ h  | >            |
+| Resize right  | Super+r l     | Alt+Ctrl+ l  | <            |
+| Resize top    | Super+r k     | Alt+Ctrl+ k  | -            |
+| Resize bottom | Super+r j     | Alt+Ctrl+ j  | +            |
+| Split v       | Super+.       | Alt+.        | Ctrl+w .     |
+| Split h       | Super+-       | Alt+-        | Ctrl+w -     |
+| ------------- | ------------- | ------------ | ------------ |
+| [Move to...]  | (windows)     | (panes)      | (windows)    |
+| - left        | Super+H       |              | Ctrl+w H     |
+| - right       | Super+L       |              | Ctrl+w L     |
+| - top         | Super+K       | Alt+K        | Ctrl+w K     |
+| - bottom      | Super+J       | Alt+J        | Ctrl+w J     |
+| - last        | Super+Shift+p |              |              |
+| - X workspace | Super+Shift+X |              |              |
+```
+
+Command line tools:
+
+```
+| ACTION        | irssi         | w3m          | man          |
+| ------------- | ------------- | ------------ | ------------ |
+|               | (windows) (1) | (tabs)       | (pages)      |
+| Next          | Ctrl+j        | Ctrl+l       |              |
+| Previous      | Ctrl+k        | Ctrl+h       |              |
+| ------------- | ------------- | ------------ | ------------ |
+|               | (buffers)     | (websites)   | (buffers)    |
+| Up: 1 line    |               | k            | k            |
+| Down: 1 line  |               | j            | j            |
+| Up: ½ page    | Alt+u, Alt+p  | u            | u            |
+| Down: ½ page  | Alt+d, Alt+n  | d            | d            |
+|               |        (2)    |              |              |
+
+---
+
+| ACTION        | ranger        | cmus         | mutt         |
+| ------------- | ------------- | ------------ | ------------ |
+|               | (files, dirs) | (playlists)  | (emails)     |
+| Up: 1 line    | k             | k            | k            |
+| Down: 1 line  | j             | j            | j            |
+| Custom left   | h, fold       | h, seek -5   |              |
+| Custom right  | l, unfold     | l, seek +5   |              |
+
+---
+1. Irssi windows are displayed in a column (vertical) according to my custom setup.
+2. Alt+p and Alt+n are configured by default.
+```
+
+Multimedia tools:
+
+```
+| ACTION        | apvlv         | mpv          | feh          |
+| ------------- | ------------- | ------------ | ------------ |
+|               | (pdfs)        | (videos)     | (images)     |
+| Up            | k             | k            | k            |
+| Down          | j             | j            | j            |
+| Left          | h             | h            | h            |
+| Right         | l             | l            | l            |
+| Zoom in       | z             | z            | z            |
+| Zoom out      | Z             | Z            | Z            |
+| Up: ½ page    | u             |              |              |
+| Down: ½ page  | d             |              |              |
+```
+
+Yes, a mouse would make the life easier. And boring ;-)

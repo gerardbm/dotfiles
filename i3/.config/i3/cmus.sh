@@ -1,16 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Script to display the cmus status (playing/stopped).
-# It works through i3-gaps (or i3-wm) and dunst.
+# It works through i3wm, notify-osd and dunst.
 #
 # Full configuration is available in this repository:
 # URL: https://github.com/gerardbm/dotfiles
 
-STATUS="$(cmus-remote -Q 2>/dev/null | grep status)"
+if ! pgrep -x "cmus" > /dev/null
+then
+	DISPLAY="Cmus is not running"
+else
+	cmus-remote -u
+fi
 
-if [[ "$STATUS" == "status playing" ]]; then
+STATUS="$(cmus-remote -Q 2>/dev/null | grep -i status)"
+
+if [ "$STATUS" = "status playing" ]; then
 	DISPLAY="Cmus: play"
-elif [[ "$STATUS" == "status stopped" ]]; then
+elif [ "$STATUS" = "status stopped" ]; then
 	DISPLAY="Cmus: stop"
 fi
 

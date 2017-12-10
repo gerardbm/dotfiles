@@ -3,10 +3,21 @@
 " --------------------------------------------------
 
 " Zoom in/out
-map I zi
-map O zo
-map W zw
-map H zh
+map z zi
+map Z zo
+
+" Zoom to fit window width
+map w zw
+
+" Zoom to fit window height
+map h zh
+
+" Scroll
+map u <C-u>
+map d <C-d>
+
+" Search
+map <Space> /
 
 " Ctrl+P show print dialog
 map <C-p> :print<CR>

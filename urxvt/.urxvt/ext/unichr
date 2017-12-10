@@ -1,0 +1,128 @@
+#! perl
+#    Copyright © 2012 Jeff Epler <jepler@unpythonic.net>
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# -----------------------------------------------------------------------------
+#
+#    Modified    : 2017 Gerard Bajona
+#    Description : Control-c ends the process (lines 104-106)
+
+# this extension implements unicode character entering like some other program
+
+use charnames qw(viacode);
+
+sub on_init {
+   my ($self) = @_;
+
+   my $hotkey = $self->{argv}[0]
+                || $self->x_resource ("enter-unicode")
+                || "C-U";
+
+   $self->parse_keysym ($hotkey, "perl:enter-unicode:start")
+      or warn "unable to register '$hotkey' as unicode entry hotkey\n";
+
+   ()
+}
+
+sub on_user_command {
+   my ($self, $cmd) = @_;
+
+   $cmd eq "enter-unicode:start"
+      and $self->enter;
+
+   ()
+}
+
+sub msg {
+   my ($self, $msg) = @_;
+
+   $self->{overlay} = $self->overlay (0, -1, $self->ncol, 1, urxvt::OVERLAY_RSTYLE, 0);
+   $self->{overlay}->set (0, 0, $self->special_encode ($msg));
+}
+
+sub enter {
+   my ($self) = @_;
+
+   return if $self->{overlay};
+
+   $self->{view_start} = $self->view_start;
+   $self->{pty_ev_events} = $self->pty_ev_events (urxvt::EV_NONE);
+   $self->{row} = $self->nrow - 1;
+   $self->{hex} = "";
+   $self->{real_tt_write} = 0;
+   $self->enable (
+      key_press     => \&key_press,
+      tt_write      => \&tt_write,
+   );
+
+   $self->idle;
+}
+
+sub leave {
+   my ($self, $do_send) = @_;
+
+   $self->disable ("key_press", "tt_write");
+   $self->pty_ev_events ($self->{pty_ev_events});
+
+   if ($do_send) {
+     my $u = $self->locale_encode(chr(hex($self->{hex})));
+     $self->{term}->tt_write($u);
+   }
+
+   delete $self->{overlay};
+   delete $self->{hex};
+}
+
+sub idle {
+   my ($self) = @_;
+
+   my $h = hex($self->{hex});
+   my $u = chr($h);
+   my $n = &charnames::viacode($h);
+   $self->msg ("Enter unicode in hex U+$self->{hex}█ $u $n");
+}
+
+sub key_press {
+   my ($self, $event, $keysym, $string) =  @_;
+   my $char = chr($keysym);
+
+   if ($keysym == 0xff0d || $keysym == 0xff8d) { # enter
+      $self->leave(1);
+   } elsif ($keysym == 0xff1b) { # escape
+      $self->leave(0);
+   } elsif ($keysym == 0xff1b || lc($char) eq 'q' ||
+      (lc($char) eq 'c' && $event->{state} & urxvt::ControlMask)) { # C-c
+         $self->leave(0);
+   } elsif ($keysym == 0xff08) { # backspace
+      substr $self->{hex}, -1, 1, "";
+      $self->idle;
+   } elsif ($string =~ /[0-9a-fA-F]/) {
+      return; # pass to tt_write
+   }
+
+   1
+}
+
+sub tt_write {
+   my ($self, $data) = @_;
+
+   $self->{hex} .= $self->locale_decode ($data);
+   $self->idle;
+
+   1
+}
+
+

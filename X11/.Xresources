@@ -162,11 +162,11 @@ URxvt.keysym.C-0: command:\033]10;#554D37\007\033]11;#F7F2E4\007\033]708;#F7F2E4
 ! ------------------------------------------------------------
 
 ! Perl extensions
-URxvt.perl-ext             : default,url-select,resize-font
+URxvt.perl-ext             : default,url-select,resize-font,unichr
 
 ! Plugin: url-select
-URxvt.keysym.M-u           : perl:url-select:select_next
-URxvt.url-select.launcher  : /usr/bin/w3m
+URxvt.keysym.C-M-u         : perl:url-select:select_next
+URxvt.url-select.launcher  : tmux new-window w3m
 URxvt.url-select.underline : true
 
 ! Pressing 'y', the URL is copied to PRIMARY
@@ -181,9 +181,9 @@ URxvt.keysym.Control-M-v   : eval:paste_clipboard
 URxvt.keysym.Control-M-c   : eval:selection_to_clipboard
 
 ! Plugin: resize-font
-URxvt.keysym.C-Down  : resize-font:smaller
-URxvt.keysym.C-Up    : resize-font:bigger
-URxvt.keysym.C-Left  : resize-font:reset
+URxvt.keysym.Control-Down  : resize-font:smaller
+URxvt.keysym.Control-Up    : resize-font:bigger
+URxvt.keysym.Control-Left  : resize-font:reset
 
 ! ------------------------------------------------------------
 ! XTerm

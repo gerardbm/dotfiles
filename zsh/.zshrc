@@ -124,6 +124,7 @@ alias nir='nvim $HOME/.config/nvim/init.vim'
 alias nor='nvim -N -u NORC'
 alias neo='nvim'
 alias syn='cd /usr/share/nvim/runtime/syntax/; ls'
+alias neodiff='nvim `git diff --name-only`'
 
 # Emacs
 alias emacst='emacs -nw'
@@ -151,6 +152,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gds='git diff --stat'
 alias gdc='git diff --cached'
+alias gdo='git diff --name-only'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gcam='git commit --amend -m'
@@ -167,6 +169,7 @@ alias gpull='git pull'
 # Dev
 alias cdv='cd $HOME/DEV/; ls'
 alias cdd='cd $HOME/dotfiles/; ls'
+alias cdw='cd $HOME/DEV/vimwiki/; ls'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
 # Translate-shell
@@ -181,6 +184,7 @@ alias wanip='curl -s icanhazip.com'
 alias tmux16='env TERM=xterm-16color tmux'
 alias testpl='echo "\ue0b0 \ue0b1 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699 \ue0b3 \ue0b2"'
 alias testft='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[4munderline\e[0m \e[9mstrikethrough\e[0m"'
+alias testvt='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[1m\e[3mbolditalic\e[0m"'
 
 # http://www.zzapper.co.uk/zshtips.html
 alias -g ND='*(/om[1])' 	      # newest directory
@@ -205,14 +209,14 @@ CHECKTERM=$(xprop -id "$WINDOWID" WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/
 
 # Scheme switcher (URxvt)
 if [[ "$CHECKTERM" = 'rxvt-unicode' ]]; then
-	if [[ -a ~/.urxvt-schemes.sh ]]; then
-		source ~/.urxvt-schemes.sh
+	if [[ -a ~/.local/bin/urxvt-schemes ]]; then
+		source ~/.local/bin/urxvt-schemes
 	fi
 fi
 
 # Atomic dark color scheme for tty
-if [[ -a ~/.atomic-tty.sh ]]; then
-	source ~/.atomic-tty.sh
+if [[ -a ~/.local/bin/atomic-tty ]]; then
+	source ~/.local/bin/atomic-tty
 fi
 
 # Default browsers
