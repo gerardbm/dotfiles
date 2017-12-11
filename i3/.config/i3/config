@@ -50,7 +50,7 @@ default_orientation horizontal
 # -----------------------------------------------------------------------------
 
 # Start a terminal
-bindsym $mod+Control+n exec rxvt-unicode
+bindsym Control+Shift+n exec rxvt-unicode
 
 # Kill focused window
 bindsym $mod+Return kill
@@ -222,12 +222,15 @@ mode "$mode_caps" {
 }
 
 # Open applications
-bindsym Control+Shift+g exec --no-startup-id gvim
 bindsym Control+Shift+e exec --no-startup-id emacs
 bindsym Control+Shift+f exec --no-startup-id pcmanfm
-bindsym Control+Shift+c exec --no-startup-id speedcrunch
+bindsym Control+Shift+s exec --no-startup-id speedcrunch
 bindsym Control+Shift+q exec --no-startup-id qalculate-gtk
 bindsym Control+Shift+m exec --no-startup-id urxvt -name 'mail' -e 'mutt'
+bindsym Control+Shift+c exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
+bindsym Control+Shift+p exec --no-startup-id urxvt -name 'python' -e 'python'
+bindsym Control+Shift+i exec --no-startup-id urxvt -name 'ipython' -e 'ipython'
+bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
 
 # Pulse Audio controls
 # Note: volume status is are already in i3status
@@ -254,11 +257,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
 	sh ~/.config/i3/xbacklight.sh
 
 # Screenshot
-bindsym --release Control+Print exec --no-startup-id scrot
-bindsym --release Control+Shift+Print exec --no-startup-id scrot -s
-
-# Screen recorder
-bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
+bindsym --release Control+Print exec --no-startup-id scrot \
+	$HOME/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
 
 # Compton control
 bindsym $mod+c exec      --no-startup-id pkill compton
@@ -315,6 +315,10 @@ for_window [class="Dia" title="^Dia v"] floating enable border normal
 for_window [class="SpeedCrunch"] floating enable border normal
 for_window [class="Qalculate-gtk"] floating enable border normal
 for_window [class="feh"] floating enable border normal
+for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^mail$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^ipython$"] floating enable border 1px
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
