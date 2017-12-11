@@ -92,7 +92,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # Toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Control+space floating toggle
 
 # Focus the parent container
 bindsym $mod+a focus parent
@@ -100,32 +100,21 @@ bindsym $mod+a focus parent
 # Focus the child container
 bindsym $mod+Shift+a focus child
 
-# Terminal
-set $ws1  "1:  "
+# Make the focused window a scratchpad
+bindsym $mod+Control+m move scratchpad
 
-# Development
-set $ws2  "2:  "
+# Show the scratchpad window
+bindsym $mod+Control+i scratchpad show
 
-# Accessories
-set $ws3  "3:  "
-
-# Office
-set $ws4  "4:  "
-
-# 2D drawing
-set $ws5  "5:  "
-
-# 3D drawing
-set $ws6  "6:  "
-
-# Education
-set $ws7  "7:  "
-
-# Social
-set $ws8  "8:  "
-
-# Internet
-set $ws9  "9:  "
+set $ws1  "1: >_ "
+set $ws2  "2: dev "
+set $ws3  "3: doc "
+set $ws4  "4: net "
+set $ws5  "5: p2p "
+set $ws6  "6: sys "
+set $ws7  "7: var "
+set $ws8  "8: vid "
+set $ws9  "9: www "
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -187,7 +176,7 @@ mode "$mode_resize" {
 bindsym $mod+0 mode "$mode_system"
 
 # System mode
-set $mode_system [L] [R] [P]
+set $mode_system [L], [R], [P]
 
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3-msg exit, mode "default"
@@ -289,22 +278,22 @@ assign [class="^Gvim$"] $ws2
 assign [class="^Emacs$"] $ws2
 assign [class="^Atom$"] $ws2
 assign [class="^Eclipse$"] $ws2
-assign [class="^Pcmanfm$"] $ws3
-assign [class="^Synaptic$"] $ws3
-assign [class="^Apvlv$"] $ws4
-assign [class="^libreoffice-startcenter$"] $ws4
-assign [class="^PdfMod$"] $ws4
-assign [class="^Glade$"] $ws5
-assign [class="^Designer$"] $ws5
-assign [class="^Gimp$"] $ws5
-assign [class="^LibreCAD$"] $ws5
-assign [class="^Inkscape$"] $ws5
-assign [class="^Dia$"] $ws5
-assign [class="^Blender$"] $ws6
-assign [class="^Wxmaxima$"] $ws7
+assign [class="^Glade$"] $ws2
+assign [class="^Designer$"] $ws2
+assign [class="^Gimp$"] $ws2
+assign [class="^LibreCAD$"] $ws2
+assign [class="^Inkscape$"] $ws2
+assign [class="^Dia$"] $ws2
+assign [class="^Blender$"] $ws2
+assign [class="^Apvlv$"] $ws3
+assign [class="^libreoffice-startcenter$"] $ws3
+assign [class="^PdfMod$"] $ws3
+assign [class="^Skype$"] $ws5
+assign [class="^Synaptic$"] $ws6
+assign [class="^Pcmanfm$"] $ws6
 assign [class="^VirtualBox$"] $ws7
-assign [class="^mpv$"] $ws7
-assign [class="^Skype$"] $ws8
+assign [class="^Wxmaxima$"] $ws7
+assign [class="^mpv$"] $ws8
 assign [class="^Firefox$"] $ws9
 assign [class="^Firefox-esr$"] $ws9
 assign [class="^Chromium$"] $ws9
@@ -345,16 +334,16 @@ client.background       $base2
 bar {
 	position top
 	separator_symbol "/"
-	strip_workspace_numbers no
-	font pango:Terminus 10
+	strip_workspace_numbers yes
+	font pango:Terminess Powerline 10
 	status_command i3status -c $HOME/.config/i3/i3status.conf
 	colors {
 		background $base2
 		statusline $base4
-		separator  $base3
+		separator  $acc50
 		focused_workspace  $acc50 $acc50 $base2
 		active_workspace   $base2 $base2 $acb50
-		inactive_workspace $base2 $base2 $base3
+		inactive_workspace $base2 $base2 $acc50
 		urgent_workspace   $base2 $base2 $acg50
 		binding_mode       $base2 $base2 $acr50
 	}

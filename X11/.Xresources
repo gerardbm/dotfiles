@@ -62,7 +62,17 @@ Xft.lcdfilter : lcddefault
 ! ------------------------------------------------------------
 
 URxvt*termName       : screen-256color
-URxvt*font           : xft:DejaVu Sans Mono for Powerline:size=11
+URxvt*font           : xft:Terminess Powerline:size=14
+!
+! Terminus italics are ugly, so I do not use them.
+!
+! URxvt*boldFont       : xft:Terminus:size=14:bold
+! URxvt*italicFont     : xft:Terminus:size=14:italic
+! URxvt*boldItalicFont : xft:Terminus:size=14:bold:italic
+!
+URxvt.keysym.C-M-9 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11\007
+URxvt.keysym.C-M-0 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11:bold\007
+
 URxvt*letterSpace    : 0
 URxvt*internalBorder : 1
 URxvt*scrollBar      : false
@@ -99,27 +109,6 @@ URxvt*keysym.S-F12 : \033[24;2~
 
 ! Default transparency
 URxvt.color0 : [90]base1
-
-! XTerm escape sequences
-! 10   = base4 (foreground)
-! 11   = base1 (background)
-! 12   = base4 (cursorColor)
-! 708  = base1 (borderColor)
-! 4;1  = acr50
-! 4;2  = acg50
-! 4;3  = aco50
-! 4;4  = acb50
-! 4;5  = acv50
-! 4;6  = acc50
-! 4;7  = base3
-! 4;8  = base2
-! 4;9  = acr70
-! 4;10 = acg70
-! 4;11 = aco70
-! 4;12 = acb70
-! 4;13 = acv70
-! 4;14 = acc70
-! 4;15 = base4
 
 ! Switch color schemes (Atomic colors)
 ! ------------------------------------------------------------
@@ -168,7 +157,7 @@ URxvt.perl-ext             : default,url-select,resize-font,unichr
 URxvt.keysym.C-M-u         : perl:url-select:select_next
 URxvt.url-select.launcher  : tmux new-window w3m
 URxvt.url-select.underline : true
-
+!
 ! Pressing 'y', the URL is copied to PRIMARY
 ! To paste it, press Shift-Insert
 !
@@ -176,7 +165,7 @@ URxvt.url-select.underline : true
 !
 ! Copy it from PRIMARY to clipboard with C-M-c
 ! Now it can be pasted from clipboard with C-M-v
-
+!
 URxvt.keysym.Control-M-v   : eval:paste_clipboard
 URxvt.keysym.Control-M-c   : eval:selection_to_clipboard
 
@@ -257,3 +246,32 @@ rofi.color-urgent : base1, acr50, base1, acr50, base1
 rofi.color-active : base1, acc50, base1, acc50, base1
 rofi.color-window : base1, base3, base3
 rofi.bw           : 1
+
+! ------------------------------------------------------------
+! Information
+! ------------------------------------------------------------
+
+! XTerm escape sequences
+! 10;  = base4 (foreground)
+! 11;  = base1 (background)
+! 12;  = base4 (cursorColor)
+! 708; = base1 (borderColor)
+! 4;1  = acr50
+! 4;2  = acg50
+! 4;3  = aco50
+! 4;4  = acb50
+! 4;5  = acv50
+! 4;6  = acc50
+! 4;7  = base3
+! 4;8  = base2
+! 4;9  = acr70
+! 4;10 = acg70
+! 4;11 = aco70
+! 4;12 = acb70
+! 4;13 = acv70
+! 4;14 = acc70
+! 4;15 = base4
+! 710; = set normal font
+! 711; = set bold font
+! 712; = set italic font
+! 713; = set bold italic font

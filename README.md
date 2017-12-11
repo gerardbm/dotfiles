@@ -16,7 +16,7 @@ Configuration files:
 - Shell       : zsh
 - Terminal    : urxvt
 - Multiplexer : tmux
-- Font        : DejaVu Sans Mono for Powerline
+- Font        : Terminess Powerline
 - CVS         : git
 - Editor      : neovim
 - Files       : ranger
@@ -213,6 +213,10 @@ And install it:
 
 `cd fonts && ./install.sh`.
 
+**Fontconfig**
+
+«In some distributions (e.g. Debian), Terminess Powerline is ignored by default and must be explicitly allowed. A fontconfig file is provided which enables it. Copy this file from the fontconfig directory to your home folder under ~/.config/fontconfig/conf.d (create it if it doesn't exist) and re-run `fc-cache -vf`». Paragraph extracted from [Powerline](https://github.com/powerline/fonts).
+
 ### Neovim
 
 Install it from the repositories:
@@ -349,7 +353,7 @@ All shortcuts are vim-style (H, J, K, L + U, D) and they are configured to work 
 
 Horizontal navigation between WM workspaces, tmux windows and vim buffers only has two directions: left and right. In this case, a modifier in combination with H and L is coherent with vim-style.
 
-Four directions navigation (e.g: i3wm windows, tmux panes, vim windows) needs four keys: for left, right, top and bottom. In this case, a modifier in combination with H, J, K, L is coherent with vim-style.
+Four directions navigation (e.g. i3wm windows, tmux panes, vim windows) needs four keys: for left, right, top and bottom. In this case, a modifier in combination with H, J, K, L is coherent with vim-style.
 
 Vertical navigation to scroll up/down tmux windows, vim buffers or man pages has two directions but as well two speeds. In this case, a modifier in combination with J, K, U and D is coherent with vim-style.
 
