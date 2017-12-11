@@ -84,7 +84,6 @@ export PATH=$HOME/.local/bin:$PATH
 # Aliases:
 # For a full list of active aliases, run `alias`.
 # --------------------------------------------------
-# GNU/Linux
 alias lsp='ls -C --color=always | less -R'
 alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
@@ -96,6 +95,27 @@ alias ram='free -h'
 alias dush='du -sh'
 alias dushs='du -sh * | sort -r -h'
 alias disk='df -h .'
+
+# X11
+alias xres='xrdb ~/.Xresources'
+
+# Zsh
+alias nez='nvim ~/.zshrc'
+alias soz='source ~/.zshrc'
+
+# Vim/Neovim
+alias vir='vim $HOME/.vimrc'
+alias nir='nvim $HOME/.config/nvim/init.vim'
+alias nor='nvim -N -u NORC'
+alias neo='nvim'
+alias syn='cd /usr/share/nvim/runtime/syntax/; ls'
+alias neodiff='nvim `git diff --name-only`'
+
+# Emacs
+alias emacst='emacs -nw'
+
+# Trash-cli tool
+alias tra='trash'
 
 # Apt
 alias aptedit='sudo apt edit-sources'
@@ -111,27 +131,6 @@ alias aptsid='sudo apt-get -t sid install'
 alias aptrem='sudo apt-get remove'
 alias aptaut='sudo apt-get autoremove'
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
-
-# Zsh
-alias nez='nvim ~/.zshrc'
-alias soz='source ~/.zshrc'
-
-# Xresources
-alias xres='xrdb ~/.Xresources'
-
-# Vim/Neovim
-alias vir='vim $HOME/.vimrc'
-alias nir='nvim $HOME/.config/nvim/init.vim'
-alias nor='nvim -N -u NORC'
-alias neo='nvim'
-alias syn='cd /usr/share/nvim/runtime/syntax/; ls'
-alias neodiff='nvim `git diff --name-only`'
-
-# Emacs
-alias emacst='emacs -nw'
-
-# Trash-cli tool
-alias tra='trash'
 
 # Surfraw
 alias sra='surfraw archwiki'
