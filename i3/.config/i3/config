@@ -26,7 +26,7 @@ set_from_resource $acb50 color4  #3790E9
 set_from_resource $acv50 color5  #A35AED
 set_from_resource $acc50 color6  #13AEAE
 set_from_resource $base3 color7  #53697F
-set_from_resource $base2 color8  #202931
+set_from_resource $base2 color8  #1A2128
 set_from_resource $acr70 color9  #FF9191
 set_from_resource $acg70 color10 #9ACD68
 set_from_resource $aco70 color11 #EDA45C
