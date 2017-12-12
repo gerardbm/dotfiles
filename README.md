@@ -401,7 +401,7 @@ The result:
 | Focus prev    |               |              | Ctrl+w h     |
 | Only active   |               |              | Ctrl+w o     |
 | Kill active   | Super+Enter   | Alt+Enter    | Ctrl+w Enter |
-| New terminal  | Ctrl+Super+n  | Ctrl+Alt+n   | Ctrl+t       |
+| New terminal  | Super+n       | Ctrl+Alt+n   | Ctrl+t       |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (windows)     | (panes)      | (windows)    |
 | Fullscreen    | Super+f       | Alt+f        | Ctrl+f       |

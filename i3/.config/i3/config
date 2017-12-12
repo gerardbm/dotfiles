@@ -50,7 +50,7 @@ default_orientation horizontal
 # -----------------------------------------------------------------------------
 
 # Start a terminal
-bindsym Control+Shift+n exec rxvt-unicode
+bindsym $mod+n exec --no-startup-id rxvt-unicode -name 'rxvt-unicode'
 
 # Kill focused window
 bindsym $mod+Return kill
@@ -98,10 +98,10 @@ bindsym $mod+Control+space floating toggle
 bindsym $mod+a focus parent
 
 # Focus the child container
-bindsym $mod+Shift+a focus child
+bindsym $mod+Control+a focus child
 
 # Make the focused window a scratchpad
-bindsym $mod+Control+m move scratchpad
+bindsym $mod+Shift+i move scratchpad
 
 # Show the scratchpad window
 bindsym $mod+Control+i scratchpad show
@@ -110,7 +110,7 @@ set $ws1  "1: >_ "
 set $ws2  "2: dev "
 set $ws3  "3: doc "
 set $ws4  "4: net "
-set $ws5  "5: p2p "
+set $ws5  "5: smm "
 set $ws6  "6: sys "
 set $ws7  "7: var "
 set $ws8  "8: vid "
@@ -148,10 +148,10 @@ force_display_urgency_hint 0 ms
 focus_on_window_activation focus
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Control+c reload
 
 # Restart i3 inplace (preserves your layout/session)
-bindsym $mod+Shift+r restart
+bindsym $mod+Control+r restart
 
 # Block the screen (i3lock)
 bindsym $mod+shift+x exec i3lock --color "$base1"
@@ -209,28 +209,27 @@ mode "$mode_move" {
 # Caps mode
 set $mode_caps [CAPS]
 
-bindsym Caps_Lock mode       "$mode_caps"
+bindsym Caps_Lock mode "$mode_caps"
 bindsym Shift+Caps_Lock mode "$mode_caps"
-bindsym Ctrl+Caps_Lock mode  "$mode_caps"
-bindsym $alt+Caps_Lock mode  "$mode_caps"
+bindsym Control+Caps_Lock mode "$mode_caps"
+bindsym $alt+Caps_Lock mode "$mode_caps"
 
 mode "$mode_caps" {
-	bindsym Caps_Lock mode       "default"
+	bindsym Caps_Lock mode "default"
 	bindsym Shift+Caps_Lock mode "default"
-	bindsym Ctrl+Caps_Lock mode  "default"
-	bindsym $alt+Caps_Lock mode  "default"
+	bindsym Control+Caps_Lock mode "default"
+	bindsym $alt+Caps_Lock mode "default"
 }
 
 # Open applications
-bindsym Control+Shift+e exec --no-startup-id emacs
-bindsym Control+Shift+f exec --no-startup-id pcmanfm
-bindsym Control+Shift+s exec --no-startup-id speedcrunch
-bindsym Control+Shift+q exec --no-startup-id qalculate-gtk
-bindsym Control+Shift+m exec --no-startup-id urxvt -name 'mail' -e 'mutt'
-bindsym Control+Shift+c exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
-bindsym Control+Shift+p exec --no-startup-id urxvt -name 'python' -e 'python'
-bindsym Control+Shift+i exec --no-startup-id urxvt -name 'ipython' -e 'ipython'
-bindsym Control+Shift+r exec --no-startup-id simplescreenrecorder --start-hidden
+bindsym $mod+Control+g exec --no-startup-id gvim
+bindsym $mod+Control+e exec --no-startup-id emacs
+bindsym $mod+Control+f exec --no-startup-id pcmanfm
+bindsym $mod+Control+b exec --no-startup-id FBReader
+bindsym $mod+Control+q exec --no-startup-id qalculate-gtk
+bindsym $mod+Control+n exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
+bindsym $mod+Control+y exec --no-startup-id urxvt -name 'python' -e 'python'
+bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 
 # Pulse Audio controls
 # Note: volume status is are already in i3status
@@ -239,11 +238,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+i               exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym $mod+o               exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym $mod+v               exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+u               exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute 1 toggle
 
 # Cmus-remote
-bindsym $mod+u exec        --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym $mod+Control+u exec        --no-startup-id sh ~/.config/i3/cmus.sh
 bindsym XF86AudioPlay exec --no-startup-id sh ~/.config/i3/cmus.sh
 bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && \
 	notify-send -t 2 'Cmus: next'
@@ -257,12 +256,12 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
 	sh ~/.config/i3/xbacklight.sh
 
 # Screenshot
-bindsym --release Control+Print exec --no-startup-id scrot \
+bindsym --release $mod+Print exec --no-startup-id scrot \
 	$HOME/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
 
 # Compton control
 bindsym $mod+c exec      --no-startup-id pkill compton
-bindsym $mod+Ctrl+c exec --no-startup-id compton -b --config $HOME/.compton.conf
+bindsym $mod+Shift+c exec --no-startup-id compton -b --config $HOME/.compton.conf
 
 # Hide/display i3 bar
 bindsym $mod+z \
@@ -272,8 +271,7 @@ bindsym $mod+z \
 # Assignments
 # -----------------------------------------------------------------------------
 
-assign [class="^URxvt$"] $ws1
-assign [class="^URxvt$" instance="^mail$"] $ws1
+assign [class="^URxvt$" instance="^rxvt-unicode$"] $ws1
 assign [class="^Gvim$"] $ws2
 assign [class="^Emacs$"] $ws2
 assign [class="^Atom$"] $ws2
@@ -285,9 +283,11 @@ assign [class="^LibreCAD$"] $ws2
 assign [class="^Inkscape$"] $ws2
 assign [class="^Dia$"] $ws2
 assign [class="^Blender$"] $ws2
+assign [class="^FBReader$"] $ws3
 assign [class="^Apvlv$"] $ws3
 assign [class="^libreoffice-startcenter$"] $ws3
 assign [class="^PdfMod$"] $ws3
+assign [class="^Filezilla$"] $ws4
 assign [class="^Skype$"] $ws5
 assign [class="^Synaptic$"] $ws6
 assign [class="^Pcmanfm$"] $ws6
@@ -299,26 +299,13 @@ assign [class="^Firefox-esr$"] $ws9
 assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 
-# according to: http://sprunge.us/QgOG
 for_window [window_role="pop-up"] floating enable
-for_window [class="Gmrun"] floating enable
-for_window [class="rdesktop"] floating enable
-for_window [class="Vncviewer"] floating enable
-for_window [class="MPlayer"] floating enable border none
-for_window [class="Conky"] floating enable border none
-for_window [title="Firefox Preferences"] floating enable border none
-for_window [class="trayer"] floating enable border none
-for_window [title="OllyDbg"] floating disable border none
-for_window [title="Levelup"] floating enable border none
-for_window [title="Calculator"] floating enable border normal
-for_window [class="Dia" title="^Dia v"] floating enable border normal
+for_window [title="About Mozilla Firefox"] floating enable border 1px
 for_window [class="SpeedCrunch"] floating enable border normal
 for_window [class="Qalculate-gtk"] floating enable border normal
 for_window [class="feh"] floating enable border normal
 for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
-for_window [class="^URxvt$" instance="^mail$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
-for_window [class="^URxvt$" instance="^ipython$"] floating enable border 1px
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
