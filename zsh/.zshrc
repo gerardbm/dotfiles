@@ -205,15 +205,6 @@ alias -g NUL="> /dev/null 2>&1"
 
 # --------------------------------------------------
 
-CHECKTERM=$(xprop -id "$WINDOWID" WM_CLASS | cut -d" " -f3 | sed 's/^.\(.*\)..$/\1/')
-
-# Scheme switcher (URxvt)
-if [[ "$CHECKTERM" = 'rxvt-unicode' ]]; then
-	if [[ -a ~/.local/bin/urxvt-schemes ]]; then
-		source ~/.local/bin/urxvt-schemes
-	fi
-fi
-
 # Atomic dark color scheme for tty
 if [[ -a ~/.local/bin/atomic-tty ]]; then
 	source ~/.local/bin/atomic-tty
