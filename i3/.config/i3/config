@@ -346,7 +346,7 @@ bar {
 
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id compton -b --config $HOME/.compton.conf
-exec --no-startup-id feh --bg-fill $HOME/.wallpaper/debian_01.jpg
+exec --no-startup-id feh --bg-fill $HOME/.wallpaper/debian_grey.png
 
 exec --no-startup-id setcursor
 exec --no-startup-id setxkbmap es
