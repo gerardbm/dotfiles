@@ -237,7 +237,7 @@ keymap a ADD_BOOKMARK
 keymap C-b VIEW_BOOKMARK
 
 ########## tab ##########
-keymap C-w CLOSE_TAB
+keymap x CLOSE_TAB
 keymap gh GOTO https://duckduckgo.com/
 keymap gH TAB_GOTO https://duckduckgo.com/
 keymap C-t NEW_TAB
