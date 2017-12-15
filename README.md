@@ -347,6 +347,14 @@ Run it:
 
 `. ./iip.sh`
 
+### Less
+
+Less config is into a binarry file called `$HOME/.less`.
+
+Compile the file `$HOME/.lesskey` with `lesskey` command to generate it.
+
+Sources: https://www.systutorials.com/docs/linux/man/1-lesskey/#lbAE
+
 ## Navigation
 
 All shortcuts are vim-style (H, J, K, L + U, D) and they are configured to work without conflicts coherently between i3wm, tmux, (neo)vim et al. Explanation:
