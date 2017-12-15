@@ -217,6 +217,22 @@ And install it:
 
 «In some distributions (e.g. Debian), Terminess Powerline is ignored by default and must be explicitly allowed. A fontconfig file is provided which enables it. Copy this file from the fontconfig directory to your home folder under ~/.config/fontconfig/conf.d (create it if it doesn't exist) and re-run `fc-cache -vf`». Paragraph extracted from [Powerline](https://github.com/powerline/fonts).
 
+### FontAwesome
+
+Install it from the repositories:
+
+`sudo apt-get install fonts-font-awesome`
+
+(Not using anymore, though).
+
+### Vim
+
+Install it from the repositories:
+
+`sudo apt-get install vim vim-gtk3`
+
+The package `vim-gtk3` adds the 'huge version' with a lot of features (+python3, +clipboard...), and the GTK3 GUI.
+
 ### Neovim
 
 Install it from the repositories:
@@ -245,6 +261,14 @@ Install pylint from pip3:
 
 `sudo pip3 install vint`
 
+### Clang
+
+Install clang from the repositories:
+
+`sudo apt-get install clang libclang-dev`
+
+The package `libclang-dev` is required on Debian.
+
 ### Pylint
 
 Install pip3 from the repositories:
@@ -255,18 +279,23 @@ Install pylint from pip3:
 
 `sudo pip3 install pylint`
 
-### Nodejs, tern, jshint and csshint
+### Nodejs, tern, jshint, csshint...
 
 Install them from the repositories:
 
 `sudo apt-get install nodejs nodejs-legacy npm`
 
-Install tern from npm:
+Or, to have the latest nodejs...
+
+`sudo apt-get -t sid install nodejs npm`
+
+Finally install the packages from npm:
 
 ```sh
 sudo npm install -g tern
 sudo npm install -g jshint
 sudo npm install -g csshint
+sudo npm install -g instant-markdown-d
 ```
 
 ### W3m
