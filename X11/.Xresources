@@ -181,8 +181,8 @@ URxvt.keysym.Control-Left  : resize-font:reset
 
 xterm*termName        : xterm-256color
 xterm*renderFont      : true
-xterm*faceName        : DejaVu Sans Mono for Powerline
-xterm*faceSize        : 11
+xterm*faceName        : Terminess Powerline
+xterm*faceSize        : 12
 xterm*locale          : true
 xterm*metaSendsEscape : true
 xterm*eightBitInput   : false
