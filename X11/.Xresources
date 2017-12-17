@@ -152,10 +152,10 @@ URxvt.keysym.C-0: command:\033]10;#554D37\007\033]11;#F7F2E4\007\033]708;#F7F2E4
 ! ------------------------------------------------------------
 
 ! Perl extensions
-URxvt.perl-ext             : default,url-select,resize-font,unichr
+URxvt.perl-ext             : default,url-select,resize-font,unichr,clipboard
 
 ! Plugin: url-select
-URxvt.keysym.C-M-u         : perl:url-select:select_next
+URxvt.keysym.Control-O     : perl:url-select:select_next
 URxvt.url-select.launcher  : tmux new-window w3m
 URxvt.url-select.underline : true
 !
@@ -167,13 +167,17 @@ URxvt.url-select.underline : true
 ! Copy it from PRIMARY to clipboard with C-M-c
 ! Now it can be pasted from clipboard with C-M-v
 !
-URxvt.keysym.Control-M-v   : eval:paste_clipboard
-URxvt.keysym.Control-M-c   : eval:selection_to_clipboard
+! URxvt.keysym.Control-C : eval:selection_to_clipboard
+! URxvt.keysym.Control-V : eval:paste_clipboard
+
+
+URxvt.keysym.Control-C: perl:clipboard:copy
+URxvt.keysym.Control-V: perl:clipboard:paste
 
 ! Plugin: resize-font
-URxvt.keysym.Control-Down  : resize-font:smaller
-URxvt.keysym.Control-Up    : resize-font:bigger
-URxvt.keysym.Control-Left  : resize-font:reset
+URxvt.keysym.Control-H : resize-font:smaller
+URxvt.keysym.Control-L : resize-font:bigger
+URxvt.keysym.Control-K : resize-font:reset
 
 ! ------------------------------------------------------------
 ! XTerm
