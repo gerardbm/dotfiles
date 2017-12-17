@@ -170,9 +170,8 @@ URxvt.url-select.underline : true
 ! URxvt.keysym.Control-C : eval:selection_to_clipboard
 ! URxvt.keysym.Control-V : eval:paste_clipboard
 
-
-URxvt.keysym.Control-C: perl:clipboard:copy
-URxvt.keysym.Control-V: perl:clipboard:paste
+URxvt.keysym.Control-C : perl:clipboard:copy
+URxvt.keysym.Control-V : perl:clipboard:paste
 
 ! Plugin: resize-font
 URxvt.keysym.Control-H : resize-font:smaller

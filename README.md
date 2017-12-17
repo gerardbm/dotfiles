@@ -167,7 +167,7 @@ Symlink the rxvt-unicode settings:
 
 Atomic color scheme is already included.
 
-Install the scripts: `url-select`, `resize-font` and `unichr`:
+Install the scripts:
 
 `cd $HOME/dotfiles && stow --no-folding urxvt`
 
@@ -175,9 +175,8 @@ To check for newer versions on Github:
 
 - The script `resize-font`: https://github.com/simmel/urxvt-resize-font
 - The script `url-select`: https://github.com/johntyree/urxvt-perls
+- The script `clipboard`: https://github.com/pkkolos/urxvt-scripts
 - The script `unichr`: https://emergent.unpythonic.net/
-
-Note: there is a script called `resize-font` into `johntyree/urxvt-perls` as well, but it's not updated.
 
 ### Tmux
 
@@ -384,6 +383,10 @@ Compile the file `$HOME/.lesskey` with `lesskey` command to generate it.
 
 Sources: https://www.systutorials.com/docs/linux/man/1-lesskey/#lbAE
 
+### VirtualBox
+
+Packages for VirtualBox are not available in Debian 9. To install VirtualBox you must use the stretch-backports repository or the upstream third-party repository. More info, here: https://wiki.debian.org/VirtualBox.
+
 ## Navigation
 
 All shortcuts are vim-style (H, J, K, L + U, D) and they are configured to work without conflicts coherently between i3wm, tmux, (neo)vim et al. Explanation:
@@ -409,9 +412,9 @@ Tmux and neovim share <kbd>Alt</kbd>+{hjkl} to navigate between tmux panes and n
 
 Tmux uses a prefix key to separate all the shortcuts from the system. This idea is very convenient to avoid conflicts between shortcuts, however it implies too much keystrokes. This prefix also has some disadvantages, because it uses the default <kbd>Control</kbd>+<kbd>b</kbd>: you lose a useful readline command (backward character). Some people remap it to <kbd>Control</kbd>+<kbd>a</kbd> because it's easier to press, so they lose a useful readline command (go to the start of the line). Also, it is used into vim to increase a numeric value.
 
-My recommendation is to use the <kbd>Alt</kbd> key to remap some tmux bind-keys (using the `-n` flag), skipping the prefix for the most used actions (navigation, resize).
+My recommendation is to use the <kbd>Alt</kbd> key to remap some tmux bind-keys (using the `-n` flag), skipping the prefix for the most used actions.
 
-The result:
+The following table shows the main workflow:
 
 ```
 | ACTION        | I3WM          | TMUX         | NEOVIM       |
@@ -423,56 +426,65 @@ The result:
 | Last          | Ctrl+Super+p  | Ctrl+Alt+p   | Ctrl+p Enter |
 | ------------- | ------------- | ------------ | ------------ |
 |               |               | (windows)    | (buffers)    |
-| Up: 1 line    |               | Alt+v k      | Ctrl+k       |
-| Down: 1 line  |               | Alt+v j      | Ctrl+j       |
-| Up: ½ page    |               | Alt+v u      | Ctrl+u       |
-| Down: ½ page  |               | Alt+v d      | Ctrl+d       |
+| Up: 1 line    |               | Alt+m k      | Ctrl+k       |
+| Down: 1 line  |               | Alt+m j      | Ctrl+j       |
+| Up: ½ page    |               | Alt+m u      | Ctrl+u       |
+| Down: ½ page  |               | Alt+m d      | Ctrl+d       |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (windows)     | (panes)      | (windows)    |
-| Focus left    | Super+h       | Alt+h        | Alt+h        |
-| Focus right   | Super+l       | Alt+l        | Alt+l        |
-| Focus top     | Super+k       | Alt+k        | Alt+k        |
-| Focus bottom  | Super+j       | Alt+j        | Alt+j        |
+| Focus ←       | Super+h       | Alt+h        | Alt+h        |
+| Focus →       | Super+l       | Alt+l        | Alt+l        |
+| Focus ↑       | Super+k       | Alt+k        | Alt+k        |
+| Focus ↓       | Super+j       | Alt+j        | Alt+j        |
 | Focus last    |               |              | Ctrl+w p     |
 | Focus next    |               |              | Ctrl+w l     |
 | Focus prev    |               |              | Ctrl+w h     |
+| Focus #1      | Super+1       | Alt+1        |              |
+| Focus #2      | Super+2       | Alt+2        |              |
+| Focus #3      | Super+3       | Alt+3        |              |
+| Focus #4      | Super+4       | Alt+4        |              |
+| Focus #5      | Super+5       | Alt+5        |              |
+| Focus #6      | Super+6       | Alt+6        |              |
+| Focus #7      | Super+7       | Alt+7        |              |
+| Focus #8      | Super+8       | Alt+8        |              |
+| Focus #9      | Super+9       | Alt+9        |              |
+| New terminal  | Ctrl+Super+n  | Ctrl+Alt+n   | Ctrl+t       |
+| Kill active   | Ctrl+Super+j  | Ctrl+Alt+j   | Ctrl+w j     |
 | Only active   |               |              | Ctrl+w o     |
-| Kill active   | Super+Enter   | Alt+Enter    | Ctrl+w Enter |
-| New terminal  | Super+n       | Ctrl+Alt+n   | Ctrl+t       |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (windows)     | (panes)      | (windows)    |
 | Fullscreen    | Super+f       | Alt+f        | Ctrl+f       |
-| Resize left   | Super+r h     | Alt+Ctrl+ h  | >            |
-| Resize right  | Super+r l     | Alt+Ctrl+ l  | <            |
-| Resize top    | Super+r k     | Alt+Ctrl+ k  | -            |
-| Resize bottom | Super+r j     | Alt+Ctrl+ j  | +            |
+| Resize ←      | Super+r h     | Alt+H        | >            |
+| Resize →      | Super+r l     | Alt+L        | <            |
+| Resize ↑      | Super+r k     | Alt+K        | -            |
+| Resize ↓      | Super+r j     | Alt+J        | +            |
 | Split v       | Super+.       | Alt+.        | Ctrl+w .     |
 | Split h       | Super+-       | Alt+-        | Ctrl+w -     |
 | ------------- | ------------- | ------------ | ------------ |
-| [Move to...]  | (windows)     | (panes)      | (windows)    |
-| - left        | Super+H       |              | Ctrl+w H     |
-| - right       | Super+L       |              | Ctrl+w L     |
-| - top         | Super+K       | Alt+K        | Ctrl+w K     |
-| - bottom      | Super+J       | Alt+J        | Ctrl+w J     |
-| - last        | Super+Shift+p |              |              |
-| - X workspace | Super+Shift+X |              |              |
+|               | (windows)     | (panes)      | (windows)    |
+| Move to ←     | Super+H       |              | Ctrl+w H     |
+| Move to →     | Super+L       |              | Ctrl+w L     |
+| Move to ↑     | Super+K       | Alt+K        | Ctrl+w K     |
+| Move to ↓     | Super+J       | Alt+J        | Ctrl+w J     |
+| Move to last  | Super+Shift+p |              |              |
+| Move to # WS  | Super+Shift+# |              |              |
 ```
 
 Command line tools:
 
 ```
-| ACTION        | irssi         | w3m          | man          |
+| ACTION        | man           | w3m          | irssi        |
 | ------------- | ------------- | ------------ | ------------ |
-|               | (windows) (1) | (tabs)       | (pages)      |
-| Next          | Ctrl+j        | Ctrl+l       |              |
-| Previous      | Ctrl+k        | Ctrl+h       |              |
+|               | (pages)       | (tabs)       | (windows)    |
+| Next          |               | Ctrl+l       | Ctrl+j       |
+| Previous      |               | Ctrl+h       | Ctrl+k (1)   |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (buffers)     | (websites)   | (buffers)    |
-| Up: 1 line    |               | k            | k            |
-| Down: 1 line  |               | j            | j            |
-| Up: ½ page    | Alt+u, Alt+p  | u            | u            |
-| Down: ½ page  | Alt+d, Alt+n  | d            | d            |
-|               |        (2)    |              |              |
+| Up: 1 line    | k             | k            |              |
+| Down: 1 line  | j             | j            |              |
+| Up: ½ page    | u             | u            | Alt+u, Alt+p |
+| Down: ½ page  | d             | d            | Alt+d, Alt+n |
+|               |               |              |        (2)   |
 
 ---
 
@@ -481,12 +493,13 @@ Command line tools:
 |               | (files, dirs) | (playlists)  | (emails)     |
 | Up: 1 line    | k             | k            | k            |
 | Down: 1 line  | j             | j            | j            |
-| Custom left   | h, fold       | h, seek -5   |              |
-| Custom right  | l, unfold     | l, seek +5   |              |
+| Custom ←      | h, fold       | h, seek -5   |              |
+| Custom →      | l, unfold     | l, seek +5   |              |
 
 ---
-1. Irssi windows are displayed in a column (vertical) according to my custom setup.
-2. Alt+p and Alt+n are configured by default.
+
+1. Irssi windows are displayed in a column (vertical) according to my setup.
+2. Alt+p and Alt+n are configured by default into irssi.
 ```
 
 Multimedia tools:
@@ -495,14 +508,14 @@ Multimedia tools:
 | ACTION        | apvlv         | mpv          | feh          |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (pdfs)        | (videos)     | (images)     |
-| Up            | k             | k            | k            |
-| Down          | j             | j            | j            |
-| Left          | h             | h            | h            |
-| Right         | l             | l            | l            |
+| ←             | h             | h            | h            |
+| →             | l             | l            | l            |
+| ↑             | k             | k            | k            |
+| ↓             | j             | j            | j            |
 | Zoom in       | z             | z            | z            |
 | Zoom out      | Z             | Z            | Z            |
 | Up: ½ page    | u             |              |              |
 | Down: ½ page  | d             |              |              |
 ```
 
-Yes, a mouse would make the life easier. And boring ;-)
+Yes, a mouse would make the life easier. And slower ;-)

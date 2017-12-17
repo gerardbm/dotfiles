@@ -12,7 +12,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:DejaVu Sans Mono for Powerline 10
-font pango:Terminus 10
+font pango: Terminus 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -50,10 +50,10 @@ default_orientation horizontal
 # -----------------------------------------------------------------------------
 
 # Start a terminal
-bindsym $mod+n exec --no-startup-id rxvt-unicode -name 'rxvt-unicode'
+bindsym $mod+Control+n exec --no-startup-id rxvt-unicode -name 'rxvt-unicode'
 
 # Kill focused window
-bindsym $mod+Return kill
+bindsym $mod+Control+j kill
 
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
@@ -87,9 +87,9 @@ bindsym $mod+y split toggle
 bindsym $mod+f fullscreen toggle
 
 # Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+p layout tabbed
+bindsym $mod+n layout toggle split
+bindsym $mod+b layout stacking
 
 # Toggle tiling / floating
 bindsym $mod+Control+space floating toggle
@@ -154,7 +154,7 @@ bindsym $mod+Control+c reload
 bindsym $mod+Control+r restart
 
 # Block the screen (i3lock)
-bindsym $mod+shift+x exec i3lock --color "$base1"
+bindsym $mod+Control+x exec i3lock --color "$base1"
 
 # Resize window mode
 set $mode_resize [Resize]
@@ -227,8 +227,9 @@ bindsym $mod+Control+e exec --no-startup-id emacs
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
 bindsym $mod+Control+b exec --no-startup-id FBReader
 bindsym $mod+Control+q exec --no-startup-id qalculate-gtk
-bindsym $mod+Control+n exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
-bindsym $mod+Control+y exec --no-startup-id urxvt -name 'python' -e 'python'
+bindsym $mod+Control+m exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
+bindsym $mod+Control+o exec --no-startup-id urxvt -name 'python' -e 'bpython3'
+bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 
 # Pulse Audio controls
@@ -236,17 +237,17 @@ bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym $mod+i               exec --no-startup-id pactl set-sink-volume 0 +10%
-bindsym $mod+o               exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym $mod+u               exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+i               exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym $mod+o               exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute 1 toggle
 
 # Cmus-remote
-bindsym $mod+Control+u exec        --no-startup-id sh ~/.config/i3/cmus.sh
-bindsym XF86AudioPlay exec --no-startup-id sh ~/.config/i3/cmus.sh
-bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && \
+bindsym $mod+Control+u exec  --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym XF86AudioPlay exec   --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym XF86AudioNext exec   --no-startup-id cmus-remote -n && \
 	notify-send -t 2 'Cmus: next'
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && \
+bindsym XF86AudioPrev exec   --no-startup-id cmus-remote -r && \
 	notify-send -t 2 'Cmus: prev'
 
 # Screen brightness controls
@@ -260,7 +261,7 @@ bindsym --release $mod+Print exec --no-startup-id scrot \
 	$HOME/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
 
 # Compton control
-bindsym $mod+c exec      --no-startup-id pkill compton
+bindsym $mod+c exec       --no-startup-id pkill compton
 bindsym $mod+Shift+c exec --no-startup-id compton -b --config $HOME/.compton.conf
 
 # Hide/display i3 bar
@@ -288,10 +289,12 @@ assign [class="^Apvlv$"] $ws3
 assign [class="^libreoffice-startcenter$"] $ws3
 assign [class="^PdfMod$"] $ws3
 assign [class="^Filezilla$"] $ws4
+assign [class="^Deluge$"] $ws4
+assign [class="^Amule$"] $ws4
 assign [class="^Skype$"] $ws5
 assign [class="^Synaptic$"] $ws6
 assign [class="^Pcmanfm$"] $ws6
-assign [class="^VirtualBox$"] $ws7
+assign [class="^VirtualBox Manager$"] $ws7
 assign [class="^Wxmaxima$"] $ws7
 assign [class="^mpv$"] $ws8
 assign [class="^Firefox$"] $ws9
@@ -300,11 +303,13 @@ assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 
 for_window [window_role="pop-up"] floating enable
+for_window [class="Lxappearance"] floating enable
 for_window [title="About Mozilla Firefox"] floating enable border 1px
 for_window [class="SpeedCrunch"] floating enable border normal
 for_window [class="Qalculate-gtk"] floating enable border normal
 for_window [class="feh"] floating enable border normal
 for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
 
 # Switch to workspace with urgent window automatically
@@ -326,7 +331,7 @@ bar {
 	position top
 	separator_symbol "/"
 	strip_workspace_numbers yes
-	font pango:Terminess Powerline 10
+	font pango: Terminus 10
 	status_command i3status -c $HOME/.config/i3/i3status.conf
 	colors {
 		background $base2
