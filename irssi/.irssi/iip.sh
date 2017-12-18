@@ -3,17 +3,14 @@
 # --------------------------------------------------------------------------------
 # Execute the script: ". ./iip.sh"
 
-INITIALDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-DIRECTORY1="$HOME/.irssi/"
-DIRECTORY2="$HOME/.irssi/scripts/"
-DIRECTORY3="$HOME/.irssi/scripts/autorun/"
+INITIAL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR_SCRIPTS="$HOME/.irssi/scripts/"
+DIR_AUTORUN="$HOME/.irssi/scripts/autorun/"
 
 # Create the directories
-if [ ! -d "$DIRECTORY1" ]; then mkdir "$DIRECTORY1"; fi
-if [ ! -d "$DIRECTORY2" ]; then mkdir "$DIRECTORY2"; fi
-if [ ! -d "$DIRECTORY3" ]; then mkdir "$DIRECTORY3"; fi
+mkdir -p "$DIR_AUTORUN"
 
-cd "$DIRECTORY2" || return
+cd "$DIR_SCRIPTS" || return
 
 # Download the scripts
 wget -c -q -nc http://scripts.irssi.org/scripts/adv_windowlist.pl
@@ -31,8 +28,8 @@ wget -c -q -nc https://raw.githubusercontent.com/radiosilence/irssi-dunst/master
 wget -c -q -nc https://raw.githubusercontent.com/shabble/irssi-scripts/master/vim-mode/vim_mode.pl
 
 # Create the symlinks
-for file in "$DIRECTORY2"*.pl; do
-	ln -sf "$file" "$DIRECTORY3"
+for file in "$DIR_SCRIPTS"*.pl; do
+	ln -sf "$file" "$DIR_AUTORUN"
 done
 
-cd "$INITIALDIR" || return
+cd "$INITIAL_DIR" || return
