@@ -104,8 +104,8 @@ alias nez='nvim ~/.zshrc'
 alias soz='source ~/.zshrc'
 
 # Vim/Neovim
-alias vir='vim $HOME/.vimrc'
-alias nir='nvim $HOME/.config/nvim/init.vim'
+alias vir='vim $HOME/vimrc/vim/.vimrc'
+alias nir='nvim $HOME/vimrc/nvim/.config/nvim/init.vim'
 alias nor='nvim -N -u NORC'
 alias neo='nvim'
 alias syn='cd /usr/share/nvim/runtime/syntax/; ls'
@@ -168,6 +168,7 @@ alias gpull='git pull'
 
 # Dev
 alias cde='cd $HOME/DEV/; ls'
+alias cdv='cd $HOME/vimrc/; ls'
 alias cdd='cd $HOME/dotfiles/; ls'
 alias cdw='cd $HOME/DEV/vimwiki/; ls'
 alias cui='uuid | tr -d "\n" | xsel -b'
