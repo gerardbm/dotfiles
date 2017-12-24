@@ -218,7 +218,7 @@ xterm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35
 ! Rofi
 ! ------------------------------------------------------------
 
-rofi.modi              : window,run,drun,combi,ssh,keys
+rofi.modi              : run,window
 rofi.terminal          : /usr/bin/urxvtc
 rofi.run-shell-command : /usr/bin/urxvtc -e '{cmd}'
 rofi.ssh-command       : tmux split-window -h -p 50 '{ssh-client} {host}'
@@ -226,11 +226,11 @@ rofi.sidebar-mode      : true
 rofi.fuzzy             : true
 rofi.font              : Terminus\ 12
 rofi.location          : 0
-rofi.width             : 40
+rofi.width             : 32
 rofi.padding           : 2
 rofi.borderwidth       : 1
 rofi.columns           : 1
-rofi.lines             : 6
+rofi.lines             : 8
 rofi.separator-style   : none
 
 ! Key bindings
@@ -246,9 +246,9 @@ rofi.kb-remove-char-back    : Control+s,BackSpace
 rofi.kb-remove-char-forward : Control+d,Delete
 
 ! Colors            bg     fg     altbg  hlbg   hlfg
-rofi.color-normal : base1, base4, base2, base3, base1
-rofi.color-urgent : base1, acg50, base2, acg50, base1
-rofi.color-active : base1, acc50, base2, acc50, base1
+rofi.color-normal : base1, base4, base1, base2, acc50
+rofi.color-urgent : base1, acg50, base2, base1, acc50
+rofi.color-active : base1, acg50, base2, base2, acg50
 rofi.color-window : base1, acc50, base3
 rofi.bw           : 1
 
