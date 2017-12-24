@@ -31,6 +31,7 @@
 [color "status"]
 	added     = green
 	changed   = red
+	unmerged  = yellow
 	untracked = magenta
 ; }}}
 ; color branch {{{
