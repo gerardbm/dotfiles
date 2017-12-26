@@ -71,6 +71,9 @@ set wrapscan=yes
 " Option value is 'word', 'line' or 'page'
 set doubleclick = page
 
+" Inverted
+set inverted = yes
+
 " Set GUI options
 " m means menu, T means toolbar
 set guioptions = m
@@ -78,3 +81,5 @@ set guioptions = m
 " Set if use auto reload document
 " > 0 means auto reload after some seconds. = 0 means not auto reload
 " set autoreload = 3
+
+" vim: ft=vim
