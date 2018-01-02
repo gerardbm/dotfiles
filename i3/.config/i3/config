@@ -281,6 +281,7 @@ assign [class="^Glade$"] $ws2
 assign [class="^Designer$"] $ws2
 assign [class="^Gimp$"] $ws2
 assign [class="^LibreCAD$"] $ws2
+assign [class="^QCAD$"] $ws2
 assign [class="^Inkscape$"] $ws2
 assign [class="^Dia$"] $ws2
 assign [class="^Blender$"] $ws2
