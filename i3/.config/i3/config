@@ -304,8 +304,8 @@ assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 
 for_window [window_role="pop-up"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [title="About Mozilla Firefox"] floating enable border 1px
+for_window [class="Lxappearance"] floating enable border normal
+for_window [title="About Mozilla Firefox"] floating enable border normal
 for_window [class="SpeedCrunch"] floating enable border normal
 for_window [class="Qalculate-gtk"] floating enable border normal
 for_window [class="feh"] floating enable border normal
