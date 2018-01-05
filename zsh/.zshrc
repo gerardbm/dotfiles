@@ -95,6 +95,9 @@ alias ram='free -h'
 alias dush='du -sh'
 alias dushs='du -sh * | sort -r -h'
 alias disk='df -h .'
+alias cal1='ncal -M1b'
+alias cal3='ncal -M3b'
+alias caly='ncal -Myb'
 
 # X11
 alias xres='xrdb ~/.Xresources'
