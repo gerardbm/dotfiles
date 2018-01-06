@@ -2,10 +2,10 @@
 
 This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --no-folding <package>` to create the symlinks automatically for each package. For more information about stow read its documentation (`man stow`).
 
-Color schemes and neovim files are not into this repository. Find them into:
+Color schemes and vim/neovim files are not into this repository. Find them into:
 
 - Color schemes: [atomic](https://github.com/gerardbm/atomic)
-- Neovim: [vimrc](https://github.com/gerardbm/vimrc)
+- Vim/neovim: [vimrc](https://github.com/gerardbm/vimrc)
 
 Configuration files:
 
@@ -18,16 +18,17 @@ Configuration files:
 - Multiplexer : tmux
 - Font        : Terminess Powerline
 - CVS         : git
-- Editor      : neovim
-- Files       : ranger
+- Editor      : vim, neovim
+- Files       : ranger, mediainfo
 - IRC         : irssi
 - Email       : mutt
 - Music       : cmus
 - Video       : mpv
 - Images      : feh
-- Reader      : apvlv
+- Reader      : apvlv, zathura
 - Browser     : w3m
 - Interface   : surfraw
+- Bittorrent  : transmission-cli
 ```
 
 ## Setup
@@ -95,24 +96,15 @@ Pin-Priority: 300
 
 Make sure you have installed the following libraries, which are a requirement to run my setup properly:
 
-- apvlv: PDF reader customizable with vim-like navigation.
 - compton: compositor based on xcompmgr with some improvements.
 - dunst: a customizable and lightweight notification-daemon.
-- feh: image viewer which can be used as background setter.
-- FontAwesome.io: font to display icons in the i3bar.
 - libnotify-bin: a program to send desktop notifications.
 - lxappearance: customize look and feel (lxde-native).
 - lxpolkit: authorization manager for the desktop.
-- mediainfo: command-line tool to display info about audio/video.
 - pulseaudio-utils: to run pulse audio controls from the keyboard.
 - rofi: a window switcher, run dialog and dmenu replacement.
-- simplescreenrecorder: tool to record the desktop.
-- surfraw: a fast unix command line interface for WWW services.
-- translate-shell: tool to translate between languages.
-- transmission-cli: a bittorrent client from the command-line.
-- trash-cli: command-line tool to move files to the trash.
+- rxvt-unicde-256 color: VT102 emulator for the X window system.
 - udiskie: automounter for removable media (flash drives).
-- uuid: Universally Unique Identifier command line tool.
 - volumeicon-alsa: volume icon for the system tray.
 - wicd: Wired and wireless network connection manager.
 - xbacklight: adjust backlight brightness using RandR extension.
@@ -122,6 +114,8 @@ Optional:
 - arandr: can be useful to generate xrandr \*.sh scripts.
 - libfm-pref-apps and exo-preferred-applications: the name is self-descriptive.
 - redshift: adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less or reduce the risk for delayed sleep phase syndrome if you are working in front of the screen at night.
+
+Useful tools: uuid, fbreader, simplescreenrecorder, translate-shell, trash-cli
 
 ### Zsh
 
@@ -238,13 +232,13 @@ Install it from the repositories:
 
 `sudo apt-get -t sid install neovim`
 
-Make sure to have python3 enabled into Neovim:
+Make sure to have python3 enabled into neovim:
 
 `:CheckHealth`
 
 Install the plugins manager [vim-plug](https://github.com/junegunn/vim-plug) following the instructions from its repository.
 
-My neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
+My vim/neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
 Install the plugins with the command:
 
@@ -406,9 +400,9 @@ These are the guidelines:
 That said, it is very logical to have different modifier keys for every application:
 - <kbd>Super</kbd> to control the windows manager (i3wm in my case).
 - <kbd>Alt</kbd> to control the terminal multiplexer (tmux in my case).
-- <kbd>Control</kbd> to control a specific program (neovim, w3m, irssi).
+- <kbd>Control</kbd> to control a specific program (vim, w3m, irssi).
 
-Tmux and neovim share <kbd>Alt</kbd>+{hjkl} to navigate between tmux panes and neovim windows; thanks to the plugin [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
+Tmux and vim share <kbd>Alt</kbd>+{hjkl} to navigate between tmux panes and vim windows; thanks to the plugin [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
 
 Tmux uses a prefix key to separate all the shortcuts from the system. This idea is very convenient to avoid conflicts between shortcuts, however it implies too much keystrokes. This prefix also has some disadvantages, because it uses the default <kbd>Control</kbd>+<kbd>b</kbd>: you lose a useful readline command (backward character). Some people remap it to <kbd>Control</kbd>+<kbd>a</kbd> because it's easier to press, so they lose a useful readline command (go to the start of the line). Also, it is used into vim to increase a numeric value.
 
@@ -417,7 +411,7 @@ My recommendation is to use the <kbd>Alt</kbd> key to remap some tmux bind-keys 
 The following table shows the main workflow:
 
 ```
-| ACTION        | I3WM          | TMUX         | NEOVIM       |
+| ACTION        | I3WM          | TMUX         | VIM          |
 | $mod key      | Super         | Alt          | Control      |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (workspaces)  | (windows)    | (buffers)    |
