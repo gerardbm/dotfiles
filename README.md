@@ -1,6 +1,6 @@
 # ~/dotfiles for Debian 9 and WMs
 
-This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --no-folding <package>` to create the symlinks automatically for each package. For more information about stow read its documentation (`man stow`).
+This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --no-folding <package>` to create the symlinks automatically for each package. For more information about stow read its documentation (`stow(8)`).
 
 Color schemes and vim/neovim files are not into this repository. Find them into:
 
