@@ -216,7 +216,7 @@ fi
 
 # Default browsers
 if [ -n "$DISPLAY"  ]; then
-	export BROWSER=/usr/bin/qutebrowser
+	export BROWSER=/usr/bin/firefox
 else
 	export BROWSER=/usr/bin/w3m
 fi
