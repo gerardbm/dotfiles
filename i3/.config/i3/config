@@ -14,9 +14,6 @@ set $mod Mod4
 # font pango:DejaVu Sans Mono for Powerline 10
 font pango: Terminus 10
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
 # Atomic palette                 Fallback
 set_from_resource $base1 color0  #141A1F
 set_from_resource $acr50 color1  #EC5252
@@ -108,12 +105,12 @@ bindsym $mod+Control+i scratchpad show
 
 set $ws1  "1: >_ "
 set $ws2  "2: dev "
-set $ws3  "3: doc "
-set $ws4  "4: net "
-set $ws5  "5: smm "
+set $ws3  "3: des "
+set $ws4  "4: doc "
+set $ws5  "5: net "
 set $ws6  "6: sys "
 set $ws7  "7: var "
-set $ws8  "8: vid "
+set $ws8  "8: com "
 set $ws9  "9: www "
 
 # Switch to workspace
@@ -269,45 +266,79 @@ bindsym $mod+z \
 	bar mode toggle
 
 # -----------------------------------------------------------------------------
+# Mouse
+# -----------------------------------------------------------------------------
+
+# Drag and resize floating windows
+floating_modifier $mod
+
+# Middle button + $mod over any part of the window
+bindsym --whole-window $mod+button2 kill
+
+# -----------------------------------------------------------------------------
 # Assignments
 # -----------------------------------------------------------------------------
 
+# 1: >_
 assign [class="^URxvt$" instance="^rxvt-unicode$"] $ws1
+
+# 2: dev
 assign [class="^Gvim$"] $ws2
 assign [class="^Emacs$"] $ws2
 assign [class="^Atom$"] $ws2
 assign [class="^Eclipse$"] $ws2
-assign [class="^Glade$"] $ws2
-assign [class="^Designer$"] $ws2
-assign [class="^Gimp$"] $ws2
-assign [class="^LibreCAD$"] $ws2
-assign [class="^QCAD$"] $ws2
-assign [class="^Inkscape$"] $ws2
-assign [class="^Dia$"] $ws2
-assign [class="^Blender$"] $ws2
-assign [class="^FBReader$"] $ws3
-assign [class="^Apvlv$"] $ws3
-assign [class="^libreoffice-startcenter$"] $ws3
-assign [class="^PdfMod$"] $ws3
-assign [class="^Filezilla$"] $ws4
-assign [class="^Deluge$"] $ws4
-assign [class="^Amule$"] $ws4
-assign [class="^Skype$"] $ws5
+assign [class="^QtCreator$"] $ws2
+assign [class="^Codeblocks$"] $ws2
+
+# 3: des
+assign [class="^Glade$"] $ws3
+assign [class="^Designer$"] $ws3
+assign [class="^Dia$"] $ws3
+assign [class="^Gimp$"] $ws3
+assign [class="^Inkscape$"] $ws3
+assign [class="^Blender$"] $ws3
+assign [class="^QCAD$"] $ws3
+assign [class="^LibreCAD$"] $ws3
+assign [class="^Freecad$"] $ws3
+
+# 4: doc
+assign [class="^Apvlv$"] $ws4
+assign [class="^Zathura$"] $ws4
+assign [class="^PdfMod$"] $ws4
+assign [class="^FBReader$"] $ws4
+assign [class="^libreoffice-startcenter$"] $ws4
+
+# 5: net
+assign [class="^Filezilla$"] $ws5
+assign [class="^Deluge$"] $ws5
+assign [class="^Amule$"] $ws5
+
+# 6: sys
 assign [class="^Synaptic$"] $ws6
 assign [class="^Pcmanfm$"] $ws6
+
+# 7: var
 assign [class="^VirtualBox Manager$"] $ws7
 assign [class="^Wxmaxima$"] $ws7
-assign [class="^mpv$"] $ws8
+assign [class="^mpv$"] $ws7
+assign [class="^ioquake3$"] $ws7
+
+# 8: com
+assign [class="^Skype$"] $ws8
+
+# 9: www
 assign [class="^Firefox$"] $ws9
 assign [class="^Firefox-esr$"] $ws9
 assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 
+# Specific windows
 for_window [window_role="pop-up"] floating enable
 for_window [class="Lxappearance"] floating enable border normal
 for_window [title="About Mozilla Firefox"] floating enable border normal
 for_window [class="SpeedCrunch"] floating enable border normal
 for_window [class="Qalculate-gtk"] floating enable border normal
+for_window [class="Glade-previewer"] floating enable border normal
 for_window [class="feh"] floating enable border normal
 for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
