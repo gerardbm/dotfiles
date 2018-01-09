@@ -325,6 +325,7 @@ assign [class="^ioquake3$"] $ws7
 
 # 8: com
 assign [class="^Skype$"] $ws8
+assign [class="^TelegramDesktop$"] $ws8
 
 # 9: www
 assign [class="^Firefox$"] $ws9
