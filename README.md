@@ -1,6 +1,6 @@
 # ~/dotfiles for Debian 9 and WMs
 
-This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --no-folding <package>` to create the symlinks automatically for each package. For more information about stow read its documentation (`stow(8)`).
+This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --no-folding <package>` to create the symlinks automatically for each package. For more information about stow read its documentation: `stow(8)`.
 
 Color schemes and vim/neovim files are not into this repository. Find them into:
 
@@ -272,22 +272,47 @@ Install pylint from pip3:
 
 `sudo pip3 install pylint`
 
-### Nodejs, tern, jshint, csshint...
+### Nodejs, tern, jshint, csslint...
 
-Install them from the repositories:
+~~Install them from the repositories~~:
 
-`sudo apt-get install nodejs nodejs-legacy npm`
+~~`sudo apt-get install nodejs nodejs-legacy npm`~~
 
-Or, to have the latest nodejs...
+~~Or, to have the latest nodejs...~~
 
-`sudo apt-get -t sid install nodejs npm`
+~~`sudo apt-get -t sid install nodejs npm`~~
 
-Finally install the packages from npm:
+Download Node.js from [https://nodejs.org](https://nodejs.org).
+
+Unzip the binary archive (v.8.9.4 in my case):
+
+```sh
+sudo mkdir /usr/lib/nodejs
+sudo tar -xJvf node-v8.9.4-linux-x64.tar.xz -C /usr/lib/nodejs
+sudo mv /usr/lib/nodejs/node-v8.9.4-linux-x64 /usr/lib/nodejs/node-v8.9.4
+```
+
+Symlink the executables:
+
+```sh
+sudo ln -s /usr/lib/nodejs/node-v8.9.4/bin/node /usr/bin/node
+sudo ln -s /usr/lib/nodejs/node-v8.9.4/bin/npx /usr/bin/npx
+sudo ln -s /usr/lib/nodejs/node-v8.9.4/bin/npm /usr/bin/npm
+```
+
+Test the installation using:
+
+```sh
+node -v
+npm version
+```
+
+Finally install the packages using npm:
 
 ```sh
 sudo npm install -g tern
 sudo npm install -g jshint
-sudo npm install -g csshint
+sudo npm install -g csslint
 sudo npm install -g instant-markdown-d
 ```
 
