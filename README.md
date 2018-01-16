@@ -103,7 +103,7 @@ Make sure you have installed the following libraries, which are a requirement to
 - lxpolkit: authorization manager for the desktop.
 - pulseaudio-utils: to run pulse audio controls from the keyboard.
 - rofi: a window switcher, run dialog and dmenu replacement.
-- rxvt-unicde-256 color: VT102 emulator for the X window system.
+- rxvt-unicde-256color: VT102 emulator for the X window system.
 - udiskie: automounter for removable media (flash drives).
 - volumeicon-alsa: volume icon for the system tray.
 - wicd: Wired and wireless network connection manager.
