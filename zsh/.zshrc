@@ -76,7 +76,7 @@ fi
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Golang path
-export GOPATH=$HOME/DEV/goprojects
+export GOPATH=$HOME/Workspace/goprojects
 
 # Local bin path
 export PATH=$HOME/.local/bin:$PATH
@@ -170,10 +170,10 @@ alias gpush='git push'
 alias gpull='git pull'
 
 # Dev
-alias cde='cd $HOME/DEV/; ls'
+alias cde='cd $HOME/Workspace/; ls'
 alias cdv='cd $HOME/vimrc/; ls'
 alias cdd='cd $HOME/dotfiles/; ls'
-alias cdw='cd $HOME/DEV/vimwiki/; ls'
+alias cdw='cd $HOME/Workspace/vimwiki/; ls'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
 # Translate-shell
