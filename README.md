@@ -307,13 +307,29 @@ node -v
 npm version
 ```
 
+Make a directory to install global npm modules:
+
+`mkdir ~/.npm-global`
+
+Configure npm to use the new directory path:
+
+`npm config set prefix '~/.npm-global'`
+
+Add the path to `~/.zshrc` file:
+
+`export PATH=~/.npm-global/bin:$PATH`
+
+Update the system variables:
+
+`source ~/.zshrc`
+
 Finally install the packages using npm:
 
 ```sh
-sudo npm install -g tern
-sudo npm install -g jshint
-sudo npm install -g csslint
-sudo npm install -g instant-markdown-d
+npm install -g tern
+npm install -g jshint
+npm install -g csslint
+npm install -g instant-markdown-d
 ```
 
 ### W3m

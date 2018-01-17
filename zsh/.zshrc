@@ -75,6 +75,9 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# npm path
+export PATH=~/.npm-global/bin:$PATH
+
 # Golang path
 export GOPATH=$HOME/Workspace/goprojects
 
