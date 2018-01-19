@@ -75,14 +75,19 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Paths
+# --------------------------------------------------
+# Local bin path
+export PATH=$HOME/.local/bin:$PATH
+
 # npm path
 export PATH=~/.npm-global/bin:$PATH
 
+# QCAD path
+export PATH=/opt/qcad:$PATH
+
 # Golang path
 export GOPATH=$HOME/Workspace/goprojects
-
-# Local bin path
-export PATH=$HOME/.local/bin:$PATH
 
 # Aliases:
 # For a full list of active aliases, run `alias`.
