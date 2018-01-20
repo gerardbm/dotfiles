@@ -388,6 +388,7 @@ bar {
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id compton -b --config $HOME/.compton.conf
 exec --no-startup-id feh --bg-fill $HOME/.wallpaper/debian_cyan.png
+exec --no-startup-id bash ~/.config/i3/autoxrandr.sh
 
 exec --no-startup-id setcursor
 exec --no-startup-id setxkbmap es
