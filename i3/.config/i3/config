@@ -230,40 +230,43 @@ bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 
 # Pulse Audio controls
-# Note: volume status is are already in i3status
+# Note: volume status is already in i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym $mod+u               exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym $mod+i               exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym $mod+o               exec --no-startup-id pactl set-sink-volume 0 +10%
-bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute 1 toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+u exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+i exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym $mod+o exec --no-startup-id pactl set-sink-volume 0 +10%
 
 # Cmus-remote
-bindsym $mod+Control+u exec  --no-startup-id sh ~/.config/i3/cmus.sh
-bindsym XF86AudioPlay exec   --no-startup-id sh ~/.config/i3/cmus.sh
-bindsym XF86AudioNext exec   --no-startup-id cmus-remote -n && \
+bindsym $mod+Control+u exec --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym XF86AudioPlay exec --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && \
 	notify-send -t 2 'Cmus: next'
-bindsym XF86AudioPrev exec   --no-startup-id cmus-remote -r && \
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && \
 	notify-send -t 2 'Cmus: prev'
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec   --no-startup-id xbacklight -inc 10% && \
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10% && \
 	sh ~/.config/i3/xbacklight.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
 	sh ~/.config/i3/xbacklight.sh
 
 # Screenshot
 bindsym --release $mod+Print exec --no-startup-id scrot \
-	$HOME/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
+	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
 
 # Compton control
-bindsym $mod+c exec       --no-startup-id pkill compton
-bindsym $mod+Shift+c exec --no-startup-id compton -b --config $HOME/.compton.conf
+bindsym $mod+c exec --no-startup-id pkill compton
+bindsym $mod+Shift+c exec --no-startup-id compton -b --config ~/.compton.conf
 
 # Hide/display i3 bar
 bindsym $mod+z \
 	bar mode toggle
+
+# Toggle monitor modes
+bindsym $mod+Control+t exec --no-startup-id bash ~/.config/i3/togglexrandr.sh
 
 # -----------------------------------------------------------------------------
 # Mouse
@@ -368,7 +371,7 @@ bar {
 	separator_symbol "/"
 	strip_workspace_numbers yes
 	font pango: Terminus 10
-	status_command i3status -c $HOME/.config/i3/i3status.conf
+	status_command i3status -c ~/.config/i3/i3status.conf
 	colors {
 		background $base2
 		statusline $base4
@@ -386,8 +389,8 @@ bar {
 # -----------------------------------------------------------------------------
 
 exec --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id compton -b --config $HOME/.compton.conf
-exec --no-startup-id feh --bg-fill $HOME/.wallpaper/debian_cyan.png
+exec --no-startup-id compton -b --config ~/.compton.conf
+exec --no-startup-id feh --bg-fill ~/.wallpaper/debian_cyan.png
 exec --no-startup-id bash ~/.config/i3/autoxrandr.sh
 
 exec --no-startup-id setcursor
