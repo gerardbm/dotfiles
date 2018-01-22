@@ -178,9 +178,9 @@ alias gpush='git push'
 alias gpull='git pull'
 
 # Dev
-alias cde='cd $HOME/Workspace/; ls'
 alias cdv='cd $HOME/vimrc/; ls'
 alias cdd='cd $HOME/dotfiles/; ls'
+alias cds='cd $HOME/Workspace/; ls'
 alias cdw='cd $HOME/Workspace/vimwiki/; ls'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
