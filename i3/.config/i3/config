@@ -348,8 +348,13 @@ for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^rxvt-unicode$"] focus
+
+# Force focus
 for_window [class="^libreoffice-startcenter$"] focus
-for_window [class="mpv"] focus
+for_window [class="^Designer$"] focus
+for_window [class="^Zathura$"] focus
+for_window [class="^Dia$"] focus
+for_window [class="^mpv$"] focus
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
