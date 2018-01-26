@@ -355,6 +355,7 @@ for_window [class="^Designer$"] focus
 for_window [class="^Zathura$"] focus
 for_window [class="^Dia$"] focus
 for_window [class="^mpv$"] focus
+for_window [class="^TelegramDesktop$"] focus
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
