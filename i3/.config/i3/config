@@ -254,7 +254,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
 	sh ~/.config/i3/xbacklight.sh
 
 # Screenshot
+# - Fullscreen:
 bindsym --release $mod+Print exec --no-startup-id scrot \
+	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
+# - Select region:
+bindsym --release $mod+Shift+Print exec --no-startup-id scrot -s \
 	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
 
 # Compton control
