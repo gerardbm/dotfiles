@@ -407,6 +407,7 @@ exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id setcursor
 exec --no-startup-id setxkbmap es
 exec --no-startup-id udiskie -s
+exec --no-startup-id megasync
 # exec --no-startup-id volumeicon
 # exec --no-startup-id wicd-gtk -t
 
