@@ -159,7 +159,7 @@ alias srwes='surfraw wikipedia -l=ES'
 alias sry='surfraw youtube'
 
 # Faster git alias
-alias gs='git status'
+alias gg='git status'
 alias gd='git diff'
 alias gds='git diff --stat'
 alias gdc='git diff --cached'
