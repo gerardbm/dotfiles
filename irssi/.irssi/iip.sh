@@ -24,6 +24,7 @@ wget -c -q -nc http://scripts.irssi.org/scripts/tmux-nicklist-portable.pl
 wget -c -q -nc http://scripts.irssi.org/scripts/trackbar22.pl
 wget -c -q -nc http://scripts.irssi.org/scripts/usercount.pl
 wget -c -q -nc https://scripts.irssi.org/scripts/sb_position.pl
+wget -c -q -nc https://scripts.irssi.org/scripts/mouse.pl
 wget -c -q -nc https://raw.githubusercontent.com/radiosilence/irssi-dunst/master/notify.pl
 wget -c -q -nc https://raw.githubusercontent.com/shabble/irssi-scripts/master/vim-mode/vim_mode.pl
 
