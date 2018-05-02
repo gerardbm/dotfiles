@@ -5,11 +5,12 @@ Scripts:
 * **clones_scanner**: Notifies you if there's someone in #channel with the same hostname.
 * **go2**: This command is mapped to `^G` (ctrl+g) to go to a window.
 * **idletime**: It retrieves the idletime of any nickname.
+* **mouse**: Scroll up/down the window with the wheel mouse.
 * **notify**: Displays desktop notifications when a message is received.
 * **sb_position**: Displays current position in scrollback.
 * **scriptassist**: Really useful script manager. It checks for updates, as well!
 * **tmux-nicklist-portable**: It's awesome to see a nick list into a tmux pane.
-* **trackbar22**: It adds an horizontal line to remember the last line we read.
+* **trackbar**: It adds an horizontal line to remember the last line we read.
 * **usercount**: Count the users of a channel and display it in the status bar.
 * **vim_mode**: Emulates some of the vi(m) features for the Irssi inputline.
 
