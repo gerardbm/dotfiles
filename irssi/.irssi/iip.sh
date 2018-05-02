@@ -21,7 +21,7 @@ wget -c -q -nc http://scripts.irssi.org/scripts/go2.pl
 wget -c -q -nc http://scripts.irssi.org/scripts/idletime.pl
 wget -c -q -nc http://scripts.irssi.org/scripts/scriptassist.pl
 wget -c -q -nc http://scripts.irssi.org/scripts/tmux-nicklist-portable.pl
-wget -c -q -nc http://scripts.irssi.org/scripts/trackbar22.pl
+wget -c -q -nc http://scripts.irssi.org/scripts/trackbar.pl
 wget -c -q -nc http://scripts.irssi.org/scripts/usercount.pl
 wget -c -q -nc https://scripts.irssi.org/scripts/sb_position.pl
 wget -c -q -nc https://scripts.irssi.org/scripts/mouse.pl

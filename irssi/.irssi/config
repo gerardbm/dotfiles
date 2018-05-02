@@ -389,6 +389,8 @@ settings = {
     awl_placement = "bottom";
     awl_position = "-1";
     nicklist_pane_width = "20";
+    trackbar_style = "%w";
+    trackbar_string = "-";
   };
   "irc/core" = { auto_whowas = "yes"; max_ctcp_queue = "0"; };
 };
