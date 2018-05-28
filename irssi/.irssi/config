@@ -36,8 +36,8 @@ chatnets = {
     type = "IRC";
     autosendcmd = "wait -hispano 2000";
     nick = "NICKNAME";
-    username = "-";
-    realname = "Irssi";
+    username = "_-'";
+    realname = "GNU";
     usermode = "+cn";
     max_kicks = "1";
     max_msgs = "4";
@@ -48,7 +48,7 @@ chatnets = {
     autosendcmd = "";
     nick = "NICKNAME";
     username = "-";
-    realname = "Irssi";
+    realname = "GNU";
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
@@ -58,7 +58,7 @@ chatnets = {
     autosendcmd = "unquery NickServ";
     nick = "NICKNAME";
     username = "~";
-    realname = "Irssi";
+    realname = "GNU";
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
@@ -66,22 +66,16 @@ chatnets = {
 };
 
 channels = (
-  { name = "#programacion"; chatnet = "Hispano"; autojoin = "No"; },
-  { name = "#hardware"; chatnet = "Hispano"; autojoin = "No"; },
-  { name = "#android"; chatnet = "Hispano"; autojoin = "No"; },
-  { name = "#ubuntu"; chatnet = "Hispano"; autojoin = "No"; },
-  { name = "#irssi"; chatnet = "Hispano"; autojoin = "No"; },
-  { name = "#lleida"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#programacion"; chatnet = "Hispano"; autojoin = "Yes"; },
+  { name = "#matematicas"; chatnet = "Hispano"; autojoin = "Yes"; },
+  { name = "#irssi"; chatnet = "Hispano"; autojoin = "Yes"; },
+  { name = "#barcelona"; chatnet = "Hispano"; autojoin = "Yes"; },
+  { name = "#barcelona_ops"; chatnet = "Hispano"; autojoin = "Yes"; },
   { name = "#barcelona"; chatnet = "ChatZona"; autojoin = "No"; },
-  { name = "##linux"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#vim"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#git"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#css"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#bash"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#python"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#ubuntu"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#wordpress"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "##javascript"; chatnet = "Freenode"; autojoin = "No"; }
 );
 
 aliases = {
@@ -108,7 +102,11 @@ aliases = {
   INVITELIST = "MODE $C +I";
   J = "JOIN";
   K = "KICK";
-  KB = "KICKBAN";
+  KB = "/kickban $C $0 Actitud no permesa en aquest canal.";
+  KBS = "/kickban $C $0- Actitud no permesa en aquest canal.";
+  POL = "/kickban $C $0 Aquest no és un canal de política. Tens el canal #barcelona_politica per aquesta activitat.";
+  REP = "/kickban $C $0 No repeteixis, gràcies!";
+  SEX = "/kickban $C $0 Aquest no és un canal de sexe. Tens el canal #barcelona_sexe per aquesta activitat.";
   KN = "KNOCKOUT";
   LAST = "LASTLOG";
   LEAVE = "PART";
@@ -348,8 +346,8 @@ conversions = {
 
 settings = {
   core = {
-    real_name = "Irssi";
-    user_name = "-";
+    real_name = "GNU";
+    user_name = "_-'";
     nick = "NICKNAME";
     recode_fallback = "CP1252";
     recode_out_default_charset = "UTF-8";
@@ -392,7 +390,11 @@ settings = {
     trackbar_style = "%w";
     trackbar_string = "-";
   };
-  "irc/core" = { auto_whowas = "yes"; max_ctcp_queue = "0"; };
+  "irc/core" = {
+    auto_whowas = "yes";
+    max_ctcp_queue = "0";
+    ban_type = "host";
+  };
 };
 hilights = ( { text = "NICKNAME"; nick = "yes"; word = "yes"; } );
 logs = { };
@@ -407,7 +409,6 @@ keyboard = (
   { key = "^F"; id = "forward_character"; data = ""; },
   { key = "^H"; id = "backspace"; data = ""; },
   { key = "^D"; id = "delete_character"; data = ""; },
-  { key = "meta-[M"; id = "command"; data = "mouse_xterm"; },
   { key = "meta-u"; id = "scroll_backward"; data = ""; },
   { key = "meta-d"; id = "scroll_forward"; data = ""; },
 
@@ -415,5 +416,6 @@ keyboard = (
     key = "^O";
     id = "command";
     data = "script exec Irssi::Script::tmux_nicklist_portable::toggle_nicklist";
-  }
+  },
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm "; }
 );
