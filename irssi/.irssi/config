@@ -66,11 +66,10 @@ chatnets = {
 };
 
 channels = (
+  { name = "#irssi"; chatnet = "Hispano"; autojoin = "Yes"; },
   { name = "#programacion"; chatnet = "Hispano"; autojoin = "Yes"; },
   { name = "#matematicas"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#irssi"; chatnet = "Hispano"; autojoin = "Yes"; },
   { name = "#barcelona"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#barcelona_ops"; chatnet = "Hispano"; autojoin = "Yes"; },
   { name = "#barcelona"; chatnet = "ChatZona"; autojoin = "No"; },
   { name = "#vim"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#git"; chatnet = "Freenode"; autojoin = "No"; },
@@ -102,11 +101,7 @@ aliases = {
   INVITELIST = "MODE $C +I";
   J = "JOIN";
   K = "KICK";
-  KB = "/kickban $C $0 Actitud no permesa en aquest canal.";
-  KBS = "/kickban $C $0- Actitud no permesa en aquest canal.";
-  POL = "/kickban $C $0 Aquest no és un canal de política. Tens el canal #barcelona_politica per aquesta activitat.";
-  REP = "/kickban $C $0 No repeteixis, gràcies!";
-  SEX = "/kickban $C $0 Aquest no és un canal de sexe. Tens el canal #barcelona_sexe per aquesta activitat.";
+  KB = "KICKBAN";
   KN = "KNOCKOUT";
   LAST = "LASTLOG";
   LEAVE = "PART";
