@@ -19,6 +19,8 @@ if [ "$STATUS" = "status playing" ]; then
 	DISPLAY="Cmus: play"
 elif [ "$STATUS" = "status stopped" ]; then
 	DISPLAY="Cmus: stop"
+elif [ "$STATUS" = "status paused" ]; then
+	DISPLAY="Cmus: pause"
 fi
 
 notify-send -t 2 "$DISPLAY"
