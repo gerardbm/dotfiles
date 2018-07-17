@@ -62,7 +62,7 @@ Xft.lcdfilter : lcddefault
 ! ------------------------------------------------------------
 
 URxvt*termName       : screen-256color
-URxvt*font           : xft:Terminess Powerline:size=12
+URxvt*font           : xft:Terminess Powerline:size=13
 !
 ! Terminus italics are ugly, so I do not use them.
 !
@@ -72,7 +72,7 @@ URxvt*font           : xft:Terminess Powerline:size=12
 !
 URxvt.keysym.C-M-8 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11\007
 URxvt.keysym.C-M-9 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11:bold\007
-URxvt.keysym.C-M-0 : command:\033]710;xft:Terminess Powerline:size=12:bold\007
+URxvt.keysym.C-M-0 : command:\033]710;xft:Terminess Powerline:size=13:bold\007
 
 URxvt*letterSpace    : 0
 URxvt*internalBorder : 1
@@ -185,7 +185,7 @@ URxvt.keysym.Control-K : resize-font:reset
 xterm*termName        : xterm-256color
 xterm*renderFont      : true
 xterm*faceName        : Terminess Powerline
-xterm*faceSize        : 12
+xterm*faceSize        : 13
 xterm*locale          : true
 xterm*metaSendsEscape : true
 xterm*eightBitInput   : false
@@ -246,7 +246,7 @@ rofi.run-shell-command : /usr/bin/urxvtc -e '{cmd}'
 rofi.ssh-command       : tmux split-window -h -p 50 '{ssh-client} {host}'
 rofi.sidebar-mode      : true
 rofi.fuzzy             : true
-rofi.font              : Terminus\ 12
+rofi.font              : Terminus\ 13
 rofi.location          : 0
 rofi.width             : 32
 rofi.padding           : 2
