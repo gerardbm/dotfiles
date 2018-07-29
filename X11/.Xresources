@@ -182,7 +182,7 @@ URxvt.keysym.Control-K : resize-font:reset
 ! XTerm
 ! ------------------------------------------------------------
 
-xterm*termName        : xterm-256color
+xterm*termName        : screen-256color
 xterm*renderFont      : true
 xterm*faceName        : Terminess Powerline
 xterm*faceSize        : 13
