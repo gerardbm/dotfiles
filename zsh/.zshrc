@@ -64,9 +64,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-	export EDITOR='nvim'
+	export EDITOR='vim'
 else
-	export EDITOR='nvim'
+	export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -111,16 +111,21 @@ alias caly='ncal -Myb'
 alias xres='xrdb ~/.Xresources'
 
 # Zsh
-alias nez='nvim ~/.zshrc'
+alias viz='vim ~/.zshrc'
 alias soz='source ~/.zshrc'
 
-# Vim/Neovim
+# Vim
 alias vir='vim $HOME/vimrc/vim/.vimrc'
-alias nir='nvim $HOME/vimrc/nvim/.config/nvim/init.vim'
-alias nor='nvim -N -u NORC'
-alias neo='nvim'
-alias syn='cd /usr/share/nvim/runtime/syntax/; ls'
-alias neodiff='nvim `git diff --name-only`'
+alias vor='vim -N -u NORC'
+alias vimgd='vim `git diff --name-only`'
+
+# Neovim
+if [ -x "$(command -v nvim)"  ]; then
+	alias neo='nvim'
+	alias nir='nvim $HOME/vimrc/nvim/.config/nvim/init.vim'
+	alias nor='nvim -N -u NORC'
+	alias neogd='nvim `git diff --name-only`'
+fi
 
 # Emacs
 alias emacst='emacs -nw'

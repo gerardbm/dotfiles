@@ -59,39 +59,6 @@ Configuration files:
 
 `autologin-user=<user>`
 
-**Enable 'unstable' (sid) repositories**
-
-1. Edit the file `/etc/apt/sources.list`
-
-`sudo nano /etc/apt/sources.list`
-
-2. Add this two lines at the end:
-
-```
-deb http://ftp.es.debian.org/debian/ sid main contrib non-free
-deb-src http://ftp.es.debian.org/debian/ sid main contrib non-free
-```
-
-3. Change the preferences. Create the following file:
-
-`sudo nano /etc/apt/preferences`
-
-4. Add these lines:
-
-```
-Package: *
-Pin: release a=stable
-Pin-Priority: 900
-
-Package: *
-Pin: release a=unstable
-Pin-Priority: 300
-```
-
-5. Finally, update:
-
-`sudo apt-get update`
-
 ### i3-wm
 
 Make sure you have installed the following libraries, which are a requirement to run my setup properly:
@@ -174,11 +141,15 @@ To check for newer versions on Github:
 
 ### Tmux
 
-Install it from the repositories:
+The version from the repositories is too old. Install it from the source code:
 
-`sudo apt-get -t sid install tmux`
+1. Download a tar.gz from github.
+2. Unzip: `tar -zxvf tmux-2.7.tar.gz`
+3. Join to the directory created: `cd tmux-2.7`
+4. Compile it: `./configure; make; sudo checkinstall`
+5. Install the required dependencies and repeat the `./configure`
 
-Install the package `urlview`:
+Then, install the package `urlview`:
 
 `sudo apt-get install urlview`
 
@@ -218,37 +189,36 @@ Install it from the repositories:
 
 (Not using anymore, though).
 
-### Vim
+### Vim 8
 
-Install it from the repositories:
+Install it from the repositories (the stable version is enough):
 
 `sudo apt-get install vim vim-gtk3`
 
 The package `vim-gtk3` adds the 'huge version' with a lot of features (+python3, +clipboard...), and the GTK3 GUI.
 
-### Neovim
+Install the plugins manager [vim-plug](https://github.com/junegunn/vim-plug); follow the instructions from its repository:
 
-Install it from the repositories:
-
-`sudo apt-get -t sid install neovim`
-
-Make sure to have python3 enabled into neovim:
-
-`:CheckHealth`
-
-Install the plugins manager [vim-plug](https://github.com/junegunn/vim-plug) following the instructions from its repository.
-
-My vim/neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
+```sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ ```
 
 Install the plugins with the command:
 
 `:PlugInstall`.
 
-### Vint
-
-Install pip3 from the repositories:
+To make it compatible with the plugin `Shougo/deoplete.nvim`, it requires two plugins (`roxma/vim-hug-neovim-rpc` and `roxma/nvim-yarp`) that require neovim installed from pip3, so first install python3-pip and then install neovim from there:
 
 `sudo apt-get install python3-pip`
+
+`sudo pip3 install neovim`
+
+My vim/neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
+
+Neovim is available from github, just download its AppImage from the releases section.
+
+### Vint
 
 Install pylint from pip3:
 
@@ -264,23 +234,11 @@ The package `libclang-dev` is required on Debian.
 
 ### Pylint
 
-Install pip3 from the repositories:
-
-`sudo apt-get install python3-pip`
-
 Install pylint from pip3:
 
 `sudo pip3 install pylint`
 
 ### Nodejs, tern, jshint, csslint...
-
-~~Install them from the repositories~~:
-
-~~`sudo apt-get install nodejs nodejs-legacy npm`~~
-
-~~Or, to have the latest nodejs...~~
-
-~~`sudo apt-get -t sid install nodejs npm`~~
 
 Download Node.js from [https://nodejs.org](https://nodejs.org).
 
