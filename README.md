@@ -201,7 +201,7 @@ Install the plugins manager [vim-plug](https://github.com/junegunn/vim-plug); fo
 
 ```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  ```
 
 Install the plugins with the command:
@@ -214,9 +214,34 @@ To make it compatible with the plugin `Shougo/deoplete.nvim`, it requires two pl
 
 `sudo pip3 install neovim`
 
-My vim/neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
+My vim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
-Neovim is available from github, just download its AppImage from the releases section.
+### Neovim
+
+Neovim is available from github, so download the AppImage from the releases section.
+
+Move the file `nvim.appimage` to `/opt/neovim/`:
+
+`sudo mv nvim.appimage /opt/neovim/`
+
+Join to the folder and create the symlink:
+
+`sudo ln -sf /opt/neovim/nvim.appimage /usr/local/bin/nvim`
+
+Give permissions to the file:
+
+`sudo chmod 755 /opt/neovim/nvim.appimage`
+
+A desktop file is not needed because it's a terminal application.
+
+Finally, install [vim-plug](https://github.com/junegunn/vim-plug) for neovim using this command:
+
+```sh
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+My neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
 ### Vint
 
