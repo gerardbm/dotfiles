@@ -66,6 +66,10 @@ function pan_reset()
 	mp.set_property("video-pan-x", 0.0)
 end
 
+function custom_quit_for_i3wm()
+	mp.command('quit; run i3-msg workspace back_and_forth')
+end
+
 -- Key bindings
 mp.add_key_binding("z", "zoom_in", zoom_in)
 mp.add_key_binding("Shift+z", "zoom_out", zoom_out)
@@ -80,3 +84,5 @@ mp.add_key_binding("h", "pan_left", pan_left)
 mp.add_key_binding("k", "pan_up", pan_up)
 mp.add_key_binding("j", "pan_down", pan_down)
 mp.add_key_binding("Ctrl+p", "reset_pan", pan_reset)
+
+mp.add_key_binding("q", "custom_quit_for_i3wm", custom_quit_for_i3wm)
