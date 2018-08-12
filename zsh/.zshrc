@@ -190,8 +190,8 @@ alias cdw='cd $HOME/Workspace/vimwiki/; ls'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
 # Translate-shell
-alias enes='trans en:es -e bing -b'
-alias esen='trans es:en -e bing -b'
+alias enes='trans en:es -brief'
+alias esen='trans es:en -brief'
 
 # Network
 alias ipr='ip route'
