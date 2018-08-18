@@ -245,9 +245,9 @@ My neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
 ### Vint
 
-Install pylint from pip3:
+Install vint from pip3:
 
-`sudo pip3 install vint`
+`sudo pip3 install vim-vint`
 
 ### Clang
 
