@@ -243,12 +243,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 My neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
-### Vint
-
-Install vint from pip3:
-
-`sudo pip3 install vim-vint`
-
 ### Clang
 
 Install clang from the repositories:
@@ -272,6 +266,18 @@ Open Vim and run the following command:
 Install pylint from pip3:
 
 `sudo pip3 install pylint`
+
+### Vint
+
+Install vint from pip3:
+
+`sudo pip3 install vim-vint`
+
+### Shellcheck
+
+Install shellcheck from the repositories:
+
+`sudo apt-get install shellcheck`
 
 ### Nodejs, tern, jshint, csslint...
 
