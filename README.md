@@ -257,6 +257,16 @@ Install clang from the repositories:
 
 The package `libclang-dev` is required on Debian.
 
+### Golang
+
+Inistall golang from the repositories:
+
+`sudo apt-get install golang`
+
+Open Vim and run the following command:
+
+`:GoInstallBinaries`
+
 ### Pylint
 
 Install pylint from pip3:
