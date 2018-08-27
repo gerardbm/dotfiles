@@ -417,6 +417,16 @@ Compile the file `$HOME/.lesskey` with `lesskey` command to generate it.
 
 Sources: https://www.systutorials.com/docs/linux/man/1-lesskey/#lbAE
 
+### Youtube-dl
+
+Download it from the repositories:
+
+`sudo apt-get install youtube-dl`
+
+Update it to the last version:
+
+`sudo -H pip install --upgrade youtube-dl`
+
 ### VirtualBox
 
 Packages for VirtualBox are not available in Debian 9. To install VirtualBox you must use the stretch-backports repository or the upstream third-party repository. More info, here: https://wiki.debian.org/VirtualBox.
