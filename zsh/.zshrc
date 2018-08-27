@@ -118,6 +118,7 @@ alias soz='source ~/.zshrc'
 alias vir='vim $HOME/vimrc/vim/.vimrc'
 alias vor='vim -N -u NORC'
 alias vimgd='vim `git diff --name-only`'
+alias svim='sudoedit'
 
 # Neovim
 if [ -x "$(command -v nvim)"  ]; then
