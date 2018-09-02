@@ -305,3 +305,5 @@ rofi.bw           : 1
 ! 711; = set bold font
 ! 712; = set italic font
 ! 713; = set bold italic font
+!
+! For more information, see 'man 7 urxvt'
