@@ -1,7 +1,7 @@
 ; user {{{
 [user]
-	email     = gerardbajona@gmail.com
-	name      = Gerard\n
+	email = gerardbajona@gmail.com
+	name = Gerard
 ; }}}
 ; core {{{
 [core]
