@@ -379,7 +379,7 @@ client.background       $base2
 bar {
 	position top
 	separator_symbol "/"
-	strip_workspace_numbers yes
+	strip_workspace_numbers no
 	font pango: Terminus 10
 	status_command i3status -c ~/.config/i3/i3status.conf
 	colors {
@@ -417,4 +417,4 @@ exec --no-startup-id pactl set-sink-volume 0 '30%'
 exec --no-startup-id xbacklight -set 50%
 
 # Keyboard: set initial delay 300ms, repeat 35ms
-exec --no-startup-id xset r rate 600 30
+exec --no-startup-id xset r rate 800 30

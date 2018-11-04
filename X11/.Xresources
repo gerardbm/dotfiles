@@ -95,6 +95,19 @@ URxvt*keysym.End     : \033[4~
 URxvt*keysym.KP_Home : \033[1~
 URxvt*keysym.KP_End  : \033[4~
 
+! URxvt*keysym.F1   : \033[11~
+! URxvt*keysym.F2   : \033[12~
+! URxvt*keysym.F3   : \033[13~
+! URxvt*keysym.F4   : \033[14~
+! URxvt*keysym.F5   : \033[15~
+! URxvt*keysym.F6   : \033[17~
+! URxvt*keysym.F7   : \033[18~
+! URxvt*keysym.F8   : \033[19~
+! URxvt*keysym.F9   : \033[20~
+! URxvt*keysym.F10  : \033[21~
+! URxvt*keysym.F11  : \033[23~
+! URxvt*keysym.F12  : \033[24~
+
 URxvt*keysym.S-F1  : \033[11;2~
 URxvt*keysym.S-F2  : \033[12;2~
 URxvt*keysym.S-F3  : \033[13;2~
