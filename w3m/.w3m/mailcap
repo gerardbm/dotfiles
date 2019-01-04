@@ -1,2 +1,2 @@
 image/*; feh %s
-application/pdf; apvlv %s
+application/pdf; mupdf %s
