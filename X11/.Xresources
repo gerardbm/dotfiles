@@ -121,8 +121,16 @@ URxvt*keysym.S-F10 : \033[21;2~
 URxvt*keysym.S-F11 : \033[23;2~
 URxvt*keysym.S-F12 : \033[24;2~
 
+! Scroll 1 line
+URxvt*keysym.Control-K: command:\033]720;1\007
+URxvt*keysym.Control-J: command:\033]721;1\007
+
+! Scroll 8 lines
+URxvt*keysym.Control-P: command:\033]720;8\007
+URxvt*keysym.Control-N: command:\033]721;8\007
+
 ! Default transparency
-URxvt.color0 : base1
+URxvt*color0 : base1
 
 ! Switch color schemes (Atomic colors)
 ! ------------------------------------------------------------
@@ -171,25 +179,15 @@ URxvt.perl-ext             : default,url-select,resize-font,unichr,clipboard
 URxvt.keysym.Control-O     : perl:url-select:select_next
 URxvt.url-select.launcher  : tmux new-window w3m
 URxvt.url-select.underline : true
-!
-! Pressing 'y', the URL is copied to PRIMARY
-! To paste it, press Shift-Insert
-!
-! Or...
-!
-! Copy it from PRIMARY to clipboard with C-M-c
-! Now it can be pasted from clipboard with C-M-v
-!
-! URxvt.keysym.Control-C : eval:selection_to_clipboard
-! URxvt.keysym.Control-V : eval:paste_clipboard
-
-URxvt.keysym.Control-C : perl:clipboard:copy
-URxvt.keysym.Control-V : perl:clipboard:paste
+URxvt.clipboard.autocopy   : true
+URxvt.keysym.Control-C     : perl:clipboard:copy
+URxvt.keysym.Control-V     : perl:clipboard:paste
+! Press 'y' to copy the selected URL to PRIMARY and clipboard
 
 ! Plugin: resize-font
 URxvt.keysym.Control-H : resize-font:smaller
 URxvt.keysym.Control-L : resize-font:bigger
-URxvt.keysym.Control-K : resize-font:reset
+URxvt.keysym.Control-R : resize-font:reset
 
 ! ------------------------------------------------------------
 ! XTerm
