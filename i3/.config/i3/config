@@ -47,7 +47,8 @@ default_orientation horizontal
 # -----------------------------------------------------------------------------
 
 # Start a terminal
-bindsym $mod+Control+n exec --no-startup-id rxvt-unicode -name 'rxvt-unicode'
+bindsym $mod+Control+n exec --no-startup-id rxvt-unicode -name 'rxvt'
+bindsym $mod+Control+b exec --no-startup-id rxvt-unicode -name 'rxvt-float'
 
 # Kill focused window
 bindsym $mod+Control+j kill
@@ -86,7 +87,7 @@ bindsym $mod+f fullscreen toggle
 # Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+p layout tabbed
 bindsym $mod+n layout toggle split
-bindsym $mod+b layout stacking
+bindsym $mod+s layout stacking
 
 # Toggle tiling / floating
 bindsym $mod+Control+space floating toggle
@@ -219,13 +220,12 @@ mode "$mode_caps" {
 }
 
 # Open applications
-bindsym $mod+Control+g exec --no-startup-id gvim
-bindsym $mod+Control+e exec --no-startup-id emacs
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
-bindsym $mod+Control+b exec --no-startup-id FBReader
-bindsym $mod+Control+q exec --no-startup-id qalculate-gtk
-bindsym $mod+Control+m exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
-bindsym $mod+Control+o exec --no-startup-id urxvt -name 'python' -e 'bpython3'
+bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -e 'vifm'
+bindsym $mod+Control+o exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
+bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
+bindsym $mod+Control+y exec --no-startup-id urxvt -name 'python' -e 'python3'
+bindsym $mod+Control+t exec --no-startup-id urxvt -name 'top' -e 'top'
 bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 
@@ -270,7 +270,7 @@ bindsym $mod+z \
 	bar mode toggle
 
 # Toggle monitor modes
-bindsym $mod+Control+t exec --no-startup-id bash ~/.config/i3/togglexrandr.sh
+bindsym $mod+Shift+t exec --no-startup-id bash ~/.config/i3/togglexrandr.sh
 
 # -----------------------------------------------------------------------------
 # Mouse
@@ -287,7 +287,7 @@ bindsym --whole-window $mod+button2 kill
 # -----------------------------------------------------------------------------
 
 # 1: >_
-assign [class="^URxvt$" instance="^rxvt-unicode$"] $ws1
+assign [class="^URxvt$" instance="^rxvt$"] $ws1
 
 # 2: dev
 assign [class="^Gvim$"] $ws2
@@ -321,7 +321,6 @@ assign [class="^Deluge$"] $ws5
 assign [class="^Amule$"] $ws5
 
 # 6: sys
-assign [class="^Synaptic$"] $ws6
 assign [class="^Pcmanfm$"] $ws6
 
 # 7: var
@@ -349,9 +348,13 @@ for_window [class="Qalculate-gtk"] floating enable border normal
 for_window [class="Glade-previewer"] floating enable border normal
 for_window [class="feh"] floating enable border normal
 for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
-for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^maxima$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
-for_window [class="^URxvt$" instance="^rxvt-unicode$"] focus
+for_window [class="^URxvt$" instance="^vifm$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^top$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^rxvt$"] focus
+for_window [class="^URxvt$" instance="^rxvt-float$"] floating enable border 1px
 
 # Force focus
 for_window [class="^libreoffice-startcenter$"] focus
