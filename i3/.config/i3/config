@@ -322,6 +322,7 @@ assign [class="^Amule$"] $ws5
 
 # 6: sys
 assign [class="^Pcmanfm$"] $ws6
+assign [class="^URxvt$" instance="^vifm$"] $ws6
 
 # 7: var
 assign [class="^VirtualBox Manager$"] $ws7
@@ -350,7 +351,7 @@ for_window [class="feh"] floating enable border normal
 for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^maxima$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
-for_window [class="^URxvt$" instance="^vifm$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^vifm$"] focus
 for_window [class="^URxvt$" instance="^top$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^rxvt$"] focus
