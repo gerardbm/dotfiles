@@ -14,18 +14,18 @@ Configuration files:
 - WM          : i3-wm
 - Menu        : rofi
 - Shell       : zsh
-- Terminal    : urxvt
+- Terminal    : urxvt, xterm
 - Multiplexer : tmux
 - Font        : Terminess Powerline
 - CVS         : git
 - Editor      : vim, neovim
-- Files       : ranger, mediainfo
+- Files       : vifm, ranger
 - IRC         : irssi
 - Email       : mutt
 - Music       : cmus
 - Video       : mpv
 - Images      : feh
-- Reader      : apvlv, zathura
+- Reader      : mupdf, apvlv, zathura
 - Browser     : w3m
 - Interface   : surfraw
 - Bittorrent  : transmission-cli
@@ -350,6 +350,24 @@ Install it from the repositories:
 Symlink the ranger settings:
 
 `cd $HOME/dotfiles && stow --no-folding ranger`
+
+### Vifm
+
+Install it from the repositories:
+
+`sudo apt-get install vifm`
+
+Symlink the vifm settings:
+
+`cd $HOME/dotfiles && stow --no-folding vifm`
+
+Install the atomic theme for vifm:
+
+```sh
+mkdir $HOME/.mutt
+git clone https://github.com/gerardbm/atomic
+cp atomic/vifm/atomic.vifm $HOME/.config/vifm/colors/
+```
 
 ### Mutt
 
