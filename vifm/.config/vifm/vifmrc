@@ -1,13 +1,7 @@
 " vim: filetype=vifm :
-" Sample configuration file for vifm (last updated: 28 June, 2016)
-" You can edit this file by hand.
-" The " character at the beginning of a line comments out the line.
-" Blank lines are ignored.
-" The basic format for each item is shown with an example.
-
 " ------------------------------------------------------------------------------
 
-" This is the actual command used to start vi.  The default is vim.
+" This is the actual command used to start vi. The default is vim.
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
@@ -17,12 +11,16 @@ set vicmd=vim
 
 " Trash Directory
 " The default is to move files that are deleted with dd or :d to
-" the trash directory.  If you change this you will not be able to move
+" the trash directory. If you change this you will not be able to move
 " files by deleting them and then using p to put the file in the new location.
 " I recommend not changing this until you are familiar with vifm.
 " This probably shouldn't be an option.
 
 set trash
+
+" Set trash directory
+
+set trashdir=~/.local/share/Trash/files/
 
 " This is how many directories to store in the directory history.
 
@@ -113,7 +111,10 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 " :mark mark /full/directory/path [filename]
 
-mark b ~/bin/
+mark w ~/Workspace
+mark b ~/Baixades
+mark v ~/Vídeos
+mark s ~/Sync
 mark h ~/
 
 " ------------------------------------------------------------------------------
@@ -386,17 +387,20 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 
 " ------------------------------------------------------------------------------
 
-" Sample mappings
+" Mappings
 
 " Start shell in current directory
-nnoremap s :shell<cr>
+nnoremap S :shell<cr>
 
 " Display sorting dialog
-nnoremap S :sort<cr>
+nnoremap s :sort<cr>
 
 " Toggle visibility of preview window
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
+
+" Toggle visibility of dotfiles
+nnoremap zh za
 
 " Open file in existing instance of gvim
 nnoremap o :!gvim --remote-tab-silent %f<cr>
@@ -414,29 +418,31 @@ nnoremap yf :!echo %c:p | xclip %i<cr>
 
 " Mappings for faster renaming
 nnoremap I cw<c-a>
-nnoremap cc cw<c-u>
 nnoremap A cw
 
 " Open console in current directory
 nnoremap ,t :!xterm &<cr>
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
+" nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
 " Open gvim to edit vifmrc
-nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
+" nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
 
 " Example of standard two-panel file managers mappings
-nnoremap <f3> :!less %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
-nnoremap <f7> :mkdir<space>
-nnoremap <f8> :delete<cr>
+nnoremap ,l :!less %f<cr>
+nnoremap ,e :edit<cr>
+nnoremap ,c :copy<cr>
+nnoremap ,m :move<cr>
+nnoremap ,n :mkdir<space>
+nnoremap ,d :!trash %f<cr>
 
 " ------------------------------------------------------------------------------
+
+nnoremap <space> /
+nnoremap ,<space> ?
 
 " Various customization examples
 
