@@ -3,6 +3,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Modifier is the Super (Win) key
+set $alt Mod1
 set $mod Mod4
 
 # -----------------------------------------------------------------------------
@@ -252,6 +253,12 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10% && \
 	sh ~/.config/i3/xbacklight.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
 	sh ~/.config/i3/xbacklight.sh
+
+# Screen rotation
+bindsym $mod+$alt+j exec --no-startup-id sh ~/.config/i3/rotate.sh normal
+bindsym $mod+$alt+l exec --no-startup-id sh ~/.config/i3/rotate.sh left
+bindsym $mod+$alt+h exec --no-startup-id sh ~/.config/i3/rotate.sh right
+bindsym $mod+$alt+k exec --no-startup-id sh ~/.config/i3/rotate.sh inverted
 
 # Screenshot
 # - Fullscreen:
