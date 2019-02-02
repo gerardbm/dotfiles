@@ -260,6 +260,9 @@ bindsym $mod+$alt+l exec --no-startup-id sh ~/.config/i3/rotate.sh left
 bindsym $mod+$alt+h exec --no-startup-id sh ~/.config/i3/rotate.sh right
 bindsym $mod+$alt+k exec --no-startup-id sh ~/.config/i3/rotate.sh inverted
 
+# Invert screen colors
+bindsym $mod+$alt+i exec --no-startup-id xcalib -i -a
+
 # Screenshot
 # - Fullscreen:
 bindsym --release $mod+Print exec --no-startup-id scrot \
