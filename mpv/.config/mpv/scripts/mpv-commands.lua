@@ -71,11 +71,13 @@ function custom_quit_for_i3wm()
 end
 
 function inverse_color()
-	mp.set_property("vf", "eq=1:-1")
-end
-
-function recover_color()
-	mp.set_property("vf", "eq=1:1")
+	if var_f == nil or var_f == 1 then
+		mp.set_property("vf", "eq=1:-1")
+		var_f = 0
+	else
+		mp.set_property("vf", "eq=1:1")
+		var_f = 1
+	end
 end
 
 -- Key bindings
@@ -94,6 +96,5 @@ mp.add_key_binding("j", "pan_down", pan_down)
 mp.add_key_binding("Ctrl+p", "reset_pan", pan_reset)
 
 mp.add_key_binding("i", "inverse_color", inverse_color)
-mp.add_key_binding("shift+i", "recover_color", recover_color)
 
 mp.add_key_binding("q", "custom_quit_for_i3wm", custom_quit_for_i3wm)
