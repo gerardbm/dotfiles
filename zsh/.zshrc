@@ -150,15 +150,11 @@ alias aptaut='sudo apt-get autoremove'
 alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Surfraw
-alias sra='surfraw archwiki'
-alias sre='surfraw debwiki'
-alias src='surfraw cite'
 alias srd='surfraw duckduckgo'
-alias srg='surfraw google'
+alias srg='surfraw github'
 alias srl='surfraw slinuxdoc'
-alias srm='surfraw mdm'
+alias srm='surfraw mdn'
 alias srs='surfraw stack'
-alias srt='surfraw github'
 alias srw='surfraw wikipedia'
 alias srwca='surfraw wikipedia -l=CA'
 alias srwes='surfraw wikipedia -l=ES'
@@ -241,6 +237,9 @@ fi
 # Commands
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
+bindkey "^Q" kill-word
+bindkey "^O" forward-word
+bindkey "^I" backward-word
 
 # Syntax highlighting
 source $HOME/.syntax/zsh-syntax-highlighting.zsh
