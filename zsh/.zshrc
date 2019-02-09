@@ -238,8 +238,6 @@ fi
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 bindkey "^Q" kill-word
-bindkey "^O" forward-word
-bindkey "^I" backward-word
 
 # Syntax highlighting
 source $HOME/.syntax/zsh-syntax-highlighting.zsh
