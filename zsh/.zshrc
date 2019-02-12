@@ -133,6 +133,9 @@ alias emacst='emacs -nw'
 
 # Trash-cli tool
 alias tra='trash'
+alias tral='trash-list'
+alias trae='trash-empty'
+alias traun='trash `git ls-files . --exclude-standard --others`' # rm untracked
 
 # Apt
 alias aptedit='sudo apt edit-sources'
@@ -196,6 +199,9 @@ alias esen='trans es:en -brief'
 # Network
 alias ipr='ip route'
 alias wanip='curl -s icanhazip.com'
+alias wifil='wicd-cli -S --wireless; wicd-cli -l --wireless'
+alias wific='wicd-cli -c --wireless -n'
+alias wifix='wicd-cli -x --wireless'
 
 # Testing terminal emulators
 alias tmux16='env TERM=xterm-16color tmux'
