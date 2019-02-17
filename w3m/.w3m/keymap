@@ -233,7 +233,7 @@ keymap n SEARCH_NEXT
 keymap N SEARCH_PREV
 
 ########## bookmarks ##########
-keymap a ADD_BOOKMARK
+keymap C-a ADD_BOOKMARK
 keymap C-b VIEW_BOOKMARK
 
 ########## tab ##########
