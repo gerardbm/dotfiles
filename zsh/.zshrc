@@ -135,7 +135,7 @@ alias emacst='emacs -nw'
 alias tra='trash'
 alias tral='trash-list'
 alias trae='trash-empty'
-alias traun='trash `git ls-files . --exclude-standard --others`' # rm untracked
+alias traun='trash `git ls-files . --exclude-standard --others`' # mv untracked
 
 # Apt
 alias aptedit='sudo apt edit-sources'
@@ -178,9 +178,10 @@ alias gk='git checkout'
 alias gb='git branch'
 alias gt='git tag'
 alias gm='git merge'
-alias grebm='git rebase master' # Update a branch with the master
-alias gunst='git reset HEAD' # Unstage file
-alias gundo='git reset --soft HEAD~1' # Undo last commit
+alias grebm='git rebase master'       # Update a branch with the master
+alias guntr='git rm --cached'         # Untrack file
+alias gunst='git reset HEAD'          # Unstage file
+alias gunco='git reset --soft HEAD~1' # Undo last commit
 alias gpuom='git push origin master'
 alias gpush='git push'
 alias gpull='git pull'
@@ -210,8 +211,8 @@ alias testft='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[4munderline\e[0m \e[9m
 alias testvt='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[1m\e[3mbolditalic\e[0m"'
 
 # http://www.zzapper.co.uk/zshtips.html
-alias -g ND='*(/om[1])' 	      # newest directory
-alias -g NF='*(.om[1])' 	      # newest file
+alias -g ND='*(/om[1])'     # newest directory
+alias -g NF='*(.om[1])'     # newest file
 alias -g NO='&>|/dev/null'
 alias -g P='2>&1 | $PAGER'
 alias -g VV='| vim -R -'
