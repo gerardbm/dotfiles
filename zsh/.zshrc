@@ -99,13 +99,12 @@ alias cmc='./configure && make && sudo checkinstall'
 alias cleanswap='sudo swapoff -a && sudo swapon -a'
 alias pscpu='ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6'
 alias pscpuw='watch "ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6"'
+
+# Hardware
 alias ram='free -h'
 alias dush='du -sh'
 alias dushs='du -sh * | sort -r -h'
 alias disk='df -h .'
-alias cal1='ncal -M1b'
-alias cal3='ncal -M3b'
-alias caly='ncal -Myb'
 
 # X11
 alias xres='xrdb ~/.Xresources'
@@ -129,7 +128,10 @@ if [ -x "$(command -v nvim)"  ]; then
 fi
 
 # Emacs
-alias emacst='emacs -nw'
+alias ema='emacs -nw'
+
+# Maxima
+maxio() { maxima --very-quiet --batch-string "$1\;" }
 
 # Trash-cli tool
 alias tra='trash'
@@ -196,6 +198,15 @@ alias cui='uuid | tr -d "\n" | xsel -b'
 # Translate-shell
 alias enes='trans en:es -brief'
 alias esen='trans es:en -brief'
+
+# Time
+alias cal1='ncal -M1b'
+alias cal3='ncal -M3b'
+alias caly='ncal -Myb'
+alias diso='date -I | sed "s/-//g"'
+alias disc='date -I | sed "s/-//g" | tr -d "\n" | xsel -b'
+alias dutc='date -u'
+alias dabs='echo "Day: $(date +%j) - Week: $(date +%V)"'
 
 # Network
 alias ipr='ip route'
