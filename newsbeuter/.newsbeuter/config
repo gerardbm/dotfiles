@@ -1,33 +1,52 @@
 # vim: ft=conf nospell
+include "~/.newsbeuter/colors"
+urls-source local
+
+# Browser
 browser /usr/bin/w3m
 external-url-viewer /usr/bin/urlview
+
+# General settings
 always-display-description true
-goto-next-feed no
-text-width 78
-max-items 500
-
-# Filters
-define-filter "Starred" "flags # \"S\""
-
+article-sort-order date-asc
 auto-reload yes
+confirm-exit no
+define-filter "Starred" "flags # \"S\""
 feed-sort-order title-dec
+goto-first-unread yes
+goto-next-feed no
 max-downloads 4
+max-items 128
+notify-program /usr/bin/dunst
 player mplayer
-refresh-on-startup no
-suppress-first-reload yes
-reload-time 20
+podcast-auto-enqueue yes
+refresh-on-startup yes
 reload-threads 2
+reload-time 60
+show-keymap-hint no
 show-read-articles yes
 show-read-feeds yes
+suppress-first-reload no
+text-width 80
 
-# key binding --------------------
+# Format
+articlelist-format "%4i %S %f (%D) %6L │ %?T? %-17T; ?%t"
+feedlist-format "%4i %n %S %11u %t"
 
+# Keymaps
 unbind-key j
 unbind-key k
 unbind-key J
 unbind-key K
 unbind-key g all
 unbind-key G all
+unbind-key u
+unbind-key d
+unbind-key SPACE
+unbind-key Z
+unbind-key l
+unbind-key h
+unbind-key F
 
 bind-key j down all
 bind-key k up all
@@ -35,6 +54,10 @@ bind-key J next-feed
 bind-key K prev-feed
 bind-key g home all
 bind-key G end all
-
 bind-key u pageup all
 bind-key d pagedown all
+bind-key SPACE open-search
+bind-key Z quit
+bind-key l next
+bind-key h prev
+bind-key F edit-flags
