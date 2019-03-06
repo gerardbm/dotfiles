@@ -17,7 +17,6 @@ goto-first-unread yes
 goto-next-feed no
 max-downloads 4
 max-items 128
-notify-program /usr/bin/dunst
 player mplayer
 podcast-auto-enqueue yes
 refresh-on-startup yes

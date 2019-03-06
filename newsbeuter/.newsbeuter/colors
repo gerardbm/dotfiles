@@ -1,1 +1,17 @@
-color listnormal color15 color0
+# vim: ft=conf nospell
+color   listnormal          color7   color0
+color   listfocus           color6   color8
+color   listnormal_unread   color15  color0 bold
+color   listfocus_unread    color6   color8 bold
+color   info                color6   color8
+color   background          color9   color0
+
+highlight article     "^(Feed|Title|Author|Link|Date):.*"   color4  default
+highlight article     "^Podcast Download URL:.*"            color5  default
+highlight article     "^Links:"                             color15 default
+highlight article     "\\[[0-9][0-9]*\\]"                   color1  default
+highlight article     "\\[image [0-9][0-9]*\\]"             color2  default
+highlight article     "\\[embedded flash: [0-9][0-9]*\\]"   color5  default
+highlight article     ":.*\\(link\\)$"                      color12 default
+highlight article     ":.*\\(image\\)$"                     color2  default
+highlight article     ":.*\\(embedded flash\\)$"            color3  default
