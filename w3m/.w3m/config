@@ -80,7 +80,7 @@ urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
 editor /usr/bin/vim
 mailto_options 1
 mailer /usr/bin/mail
-extbrowser sh -c 'echo "$0" | xsel -b'
+extbrowser sh -c 'echo "$0" | tr -d "\n" | xsel -b'
 extbrowser2 /usr/bin/luakit
 extbrowser3 /usr/bin/firefox
 extbrowser4 /usr/bin/mpv
