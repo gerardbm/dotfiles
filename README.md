@@ -535,7 +535,7 @@ The following table shows the main workflow:
 Command line tools:
 
 ```
-| ACTION        | man           | w3m          | irssi        |
+| ACTION        | man (less)    | w3m          | irssi        |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (pages)       | (tabs)       | (windows)    |
 | Next          |               | Ctrl+l       | Ctrl+j       |
@@ -550,13 +550,13 @@ Command line tools:
 
 ---
 
-| ACTION        | ranger        | cmus         | mutt         |
-| ------------- | ------------- | ------------ | ------------ |
-|               | (files, dirs) | (playlists)  | (emails)     |
-| Up: 1 line    | k             | k            | k            |
-| Down: 1 line  | j             | j            | j            |
-| Custom ←      | h, fold       | h, seek -5   |              |
-| Custom →      | l, unfold     | l, seek +5   |              |
+| ACTION        | vifm          | ranger        | cmus         | mutt         |
+| ------------- | ------------- | ------------- | ------------ | ------------ |
+|               | (files, dirs) | (files, dirs) | (playlists)  | (emails)     |
+| Up: 1 line    | k             | k             | k            | k            |
+| Down: 1 line  | j             | j             | j            | j            |
+| Custom ←      | h, fold       | h, fold       | h, seek -5   |              |
+| Custom →      | l, unfold     | l, unfold     | l, seek +5   |              |
 
 ---
 
@@ -567,17 +567,19 @@ Command line tools:
 Multimedia tools:
 
 ```
-| ACTION        | apvlv         | mpv          | feh          |
-| ------------- | ------------- | ------------ | ------------ |
-|               | (pdfs)        | (videos)     | (images)     |
-| ←             | h             | h            | h            |
-| →             | l             | l            | l            |
-| ↑             | k             | k            | k            |
-| ↓             | j             | j            | j            |
-| Zoom in       | z             | z            | z            |
-| Zoom out      | Z             | Z            | Z            |
-| Up: ½ page    | u             |              |              |
-| Down: ½ page  | d             |              |              |
+| ACTION        | mupdf         | apvlv         | mpv          | feh          |
+| ------------- | ------------- | ------------- | ------------ | ------------ |
+|               | (pdfs)        | (pdfs)        | (videos)     | (images)     |
+| ←             | h             | h             | h            | h            |
+| →             | l             | l             | l            | l            |
+| ↑             | k             | k             | k            | k            |
+| ↓             | j             | j             | j            | j            |
+| Zoom in       | +             | z             | z            | z            |
+| Zoom out      | -             | Z             | Z            | Z            |
+| Up: ½ page    | b             | u             |              |              |
+| Down: ½ page  | space         | d             |              |              |
+| Rotate        | R, L          | r             | r            | <, >         |
+| Quit          | q             | q             | q            | q            |
 ```
 
 Yes, a mouse would make the life easier. And slower ;-)
