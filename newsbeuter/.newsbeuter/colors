@@ -1,8 +1,8 @@
 # vim: ft=conf nospell
-color   listnormal          color7   color0
+color   listnormal          color15  color0
 color   listfocus           color6   color8
-color   listnormal_unread   color15  color0 bold
-color   listfocus_unread    color6   color8 bold
+color   listnormal_unread   color2   color0
+color   listfocus_unread    color6   color8
 color   info                color6   color8
 color   background          color9   color0
 

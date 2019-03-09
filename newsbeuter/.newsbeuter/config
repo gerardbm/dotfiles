@@ -10,7 +10,7 @@ external-url-viewer /usr/bin/urlview
 always-display-description true
 article-sort-order date-asc
 auto-reload yes
-confirm-exit no
+confirm-exit yes
 define-filter "Starred" "flags # \"S\""
 feed-sort-order title-dec
 goto-first-unread yes
@@ -56,7 +56,7 @@ bind-key G end all
 bind-key u pageup all
 bind-key d pagedown all
 bind-key SPACE open-search
-bind-key Z quit
+bind-key q quit
 bind-key l next
 bind-key h prev
 bind-key F edit-flags
