@@ -48,7 +48,7 @@ visited_anchor 1
 visited_color magenta
 pagerline 10000
 use_history 1
-history 100
+history 1000
 save_hist 1
 confirm_qq 1
 close_tab_back 0

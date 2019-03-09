@@ -159,8 +159,8 @@ keymap M EXTERN_LINK
 ########## history navigation ##########
 keymap L NEXT
 keymap H PREV
-keymap :m SELECT_MENU
-keymap :h HISTORY
+keymap C-m SELECT_MENU
+keymap C-k HISTORY
 
 ########## scrolling ##########
 keymap C-e UP
