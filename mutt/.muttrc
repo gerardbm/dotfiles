@@ -19,8 +19,8 @@ set status_format = "%f (%s) (%?V?limited to '%V'&no limit pattern?) (%P)"
 set menu_scroll
 set tilde
 
-# Use neovim editor and don't break lines
-set editor="nvim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
+# Use vim editor and don't break lines
+set editor="vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
 
 # Charset
 set charset      = utf-8
@@ -30,6 +30,9 @@ set send_charset = utf-8
 set certificate_file = "~/.mutt/certificates"
 set ssl_starttls     = yes
 set ssl_force_tls    = yes
+
+# Disable GPGME
+set crypt_use_gpgme = no
 
 # Load atomic theme
 source $HOME/.mutt/atomic.muttrc
@@ -71,6 +74,9 @@ bind index L list-reply
 
 bind index h limit
 
+bind index dd delete-message
+bind index uu undelete-message
+
 # '?' is used for search-opposite
 bind index \Ch help
 
@@ -101,6 +107,9 @@ bind pager r reply
 bind pager a group-reply
 bind pager l list-reply
 bind pager L list-reply
+
+bind pager dd delete-message
+bind pager uu undelete-message
 
 # '?' is used for search-opposite
 bind pager \Ch help
