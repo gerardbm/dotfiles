@@ -135,6 +135,9 @@ alias ema='emacs -nw'
 # Maxima
 maxio() { maxima --very-quiet --batch-string "$1\;" }
 
+# Sqlite
+sqlio() { sqlite3 -list -batch "$1" "$2" | column -t -s "|" }
+
 # Trash-cli tool
 alias tra='trash'
 alias tral='trash-list'
