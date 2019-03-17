@@ -40,3 +40,5 @@
 	local     = blue
 	remote    = magenta
 ; }}}
+[credential]
+	helper = cache --timeout 3600
