@@ -93,6 +93,8 @@ export GOPATH=$HOME/Workspace/goprojects
 # For a full list of active aliases, run `alias`.
 # --------------------------------------------------
 alias lsp='ls -C --color=always | less -R'
+alias lsd='ls -ld */'
+alias lsf='ls -lp | grep -v "/"'
 alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
