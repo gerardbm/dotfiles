@@ -432,3 +432,5 @@ exec --no-startup-id xbacklight -set 50%
 
 # Keyboard: set initial delay 300ms, repeat 35ms
 exec --no-startup-id xset r rate 800 30
+
+# vim:filetype=i3config
