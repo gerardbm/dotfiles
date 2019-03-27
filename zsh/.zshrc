@@ -99,8 +99,6 @@ alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
 alias cleanswap='sudo swapoff -a && sudo swapon -a'
-alias pscpu='ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6'
-alias pscpuw='watch "ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6"'
 
 # Hardware
 alias ram='free -h'
@@ -131,12 +129,6 @@ fi
 
 # Emacs
 alias ema='emacs -nw'
-
-# Maxima
-maxio() { maxima --very-quiet --batch-string "$1\;" }
-
-# Sqlite
-sqlio() { sqlite3 -list -batch "$1" "$2" | column -t -s "|" }
 
 # Trash-cli tool
 alias tra='trash'
@@ -219,12 +211,6 @@ alias wanip='curl -s icanhazip.com'
 alias wifil='wicd-cli -S --wireless; wicd-cli -l --wireless'
 alias wific='wicd-cli -c --wireless -n'
 alias wifix='wicd-cli -x --wireless'
-
-# Testing terminal emulators
-alias tmux16='env TERM=xterm-16color tmux'
-alias testpl='echo "\ue0b0 \ue0b1 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699 \ue0b3 \ue0b2"'
-alias testft='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[4munderline\e[0m \e[9mstrikethrough\e[0m"'
-alias testvt='echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[1m\e[3mbolditalic\e[0m"'
 
 # http://www.zzapper.co.uk/zshtips.html
 alias -g ND='*(/om[1])'     # newest directory

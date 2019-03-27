@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: Use maxima from the shell
+
+maxima --very-quiet --batch-string "$1\;"

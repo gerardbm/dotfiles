@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Description: Use sqlite from the shell with better output format
+
+sqlcmd=$(echo "$2" | grep -ie ^select)
+if [[ "$?" -eq 0 ]]; then
+	sqlite3 -list -batch "$1" "$2" | column -t -s "|"
+else
+	sqlite3 -list -batch "$1" "$2"
+fi

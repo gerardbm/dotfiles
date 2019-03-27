@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo -e "\e[1mbold\e[0m \e[3mitalic\e[0m \e[1m\e[3mbolditalic\e[0m"
