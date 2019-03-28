@@ -289,6 +289,12 @@ Install shellcheck from the repositories:
 
 `sudo apt-get install shellcheck`
 
+### Chktex
+
+Install chktex from the repositories:
+
+`sudo apt-get install chktex`
+
 ### Nodejs, tern, jshint, csslint...
 
 Download Node.js from [https://nodejs.org](https://nodejs.org).
@@ -338,7 +344,6 @@ Finally install the packages using npm:
 npm install -g tern
 npm install -g jshint
 npm install -g csslint
-npm install -g instant-markdown-d
 ```
 
 ### W3m
