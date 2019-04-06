@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: extract audio from a Youtube video.
+
+youtube-dl --extract-audio --audio-format mp3

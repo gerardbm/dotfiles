@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Description: download all videos from a channel/user,
+# keeping each playlist in a separate directory.
+
+youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'
