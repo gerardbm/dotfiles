@@ -299,20 +299,20 @@ Install chktex from the repositories:
 
 Download Node.js from [https://nodejs.org](https://nodejs.org).
 
-Unzip the binary archive (v.8.9.4 in my case):
+Unzip the binary archive (v.10.15.3 in my case):
 
 ```sh
 sudo mkdir /usr/lib/nodejs
-sudo tar -xJvf node-v8.9.4-linux-x64.tar.xz -C /usr/lib/nodejs
-sudo mv /usr/lib/nodejs/node-v8.9.4-linux-x64 /usr/lib/nodejs/node-v8.9.4
+sudo tar -xJvf node-v10.15.3-linux-x64.tar.xz -C /usr/lib/nodejs
+sudo mv /usr/lib/nodejs/node-v10.15.3-linux-x64 /usr/lib/nodejs/node-v10.15.3
 ```
 
 Symlink the executables:
 
 ```sh
-sudo ln -s /usr/lib/nodejs/node-v8.9.4/bin/node /usr/bin/node
-sudo ln -s /usr/lib/nodejs/node-v8.9.4/bin/npx /usr/bin/npx
-sudo ln -s /usr/lib/nodejs/node-v8.9.4/bin/npm /usr/bin/npm
+sudo ln -s /usr/lib/nodejs/node-v10.15.3/bin/node /usr/bin/node
+sudo ln -s /usr/lib/nodejs/node-v10.15.3/bin/npx /usr/bin/npx
+sudo ln -s /usr/lib/nodejs/node-v10.15.3/bin/npm /usr/bin/npm
 ```
 
 Test the installation using:
