@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Description: speed setup of the wireless mouse "Telink 2.4G Mouse".
+
+MOUSEID=$(xinput --list --short \
+	| grep "Telink 2.4G Mouse" \
+	| grep "pointer" \
+	| grep -oe "id=." \
+	| tr -d "id=")
+
+xinput --set-prop "$MOUSEID" \
+	"Coordinate Transformation Matrix" "$1" 0 0 0 "$1" 0 0 0 1
