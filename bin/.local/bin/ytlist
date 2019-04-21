@@ -2,4 +2,4 @@
 #
 # Description: download all videos from a playlist in a separate directory.
 
-youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'
+youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $1
