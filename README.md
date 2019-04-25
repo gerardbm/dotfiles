@@ -1,14 +1,14 @@
 # ~/dotfiles for Debian 9 and i3wm
 
-![screenshot01](https://github.com/gerardbm/dotfiles/blob/master/screenshot01.png)
+![screenshot01](https://github.com/gerardbm/dotfiles/blob/master/images/screenshot01.png)
 
-![screenshot02](https://github.com/gerardbm/dotfiles/blob/master/screenshot02.png)
+![screenshot02](https://github.com/gerardbm/dotfiles/blob/master/images/screenshot02.png)
 
-![screenshot03](https://github.com/gerardbm/dotfiles/blob/master/screenshot03.png)
+![screenshot03](https://github.com/gerardbm/dotfiles/blob/master/images/screenshot03.png)
 
-![screenshot04](https://github.com/gerardbm/dotfiles/blob/master/screenshot04.png)
+![screenshot04](https://github.com/gerardbm/dotfiles/blob/master/images/screenshot04.png)
 
-![screenshot05](https://github.com/gerardbm/dotfiles/blob/master/screenshot05.png)
+![screenshot05](https://github.com/gerardbm/dotfiles/blob/master/images/screenshot05.png)
 
 This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --no-folding <package>` to create the symlinks automatically for each package. For more information about stow read its documentation: `stow(8)`.
 
