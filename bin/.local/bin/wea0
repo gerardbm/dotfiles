@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: weather 0.
+
+curl "wttr.in/$1?Fn0Q"
