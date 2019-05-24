@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: ansiweather, forecast for the next five days.
+
+ansiweather -l $1 -a false -F | sed  's/-/\n/g' | sed  's/=>/\n/g'

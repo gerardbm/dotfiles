@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: ansiweather, forecast for today.
+
+ansiweather -l $1 -a false | sed  's/-/\n/g' | column -t -s "=>"
