@@ -37,7 +37,7 @@ chatnets = {
     autosendcmd = "wait -hispano 2000";
     nick = "NICKNAME";
     username = "_-'";
-    realname = "GNU";
+    realname = "UNIX";
     usermode = "+cn";
     max_kicks = "1";
     max_msgs = "4";
@@ -48,7 +48,7 @@ chatnets = {
     autosendcmd = "";
     nick = "NICKNAME";
     username = "-";
-    realname = "GNU";
+    realname = "UNIX";
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
@@ -58,7 +58,7 @@ chatnets = {
     autosendcmd = "unquery NickServ";
     nick = "NICKNAME";
     username = "~";
-    realname = "GNU";
+    realname = "UNIX";
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
@@ -66,11 +66,9 @@ chatnets = {
 };
 
 channels = (
-  { name = "#irssi"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#programacion"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#matematicas"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#barcelona"; chatnet = "Hispano"; autojoin = "Yes"; },
-  { name = "#barcelona"; chatnet = "ChatZona"; autojoin = "No"; },
+  { name = "#programacion"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#matematicas"; chatnet = "Hispano"; autojoin = "No"; },
+  { name = "#linux"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#vim"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#git"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#bash"; chatnet = "Freenode"; autojoin = "No"; },
@@ -341,7 +339,7 @@ conversions = {
 
 settings = {
   core = {
-    real_name = "GNU";
+    real_name = "UNIX";
     user_name = "_-'";
     nick = "NICKNAME";
     recode_fallback = "CP1252";
@@ -368,6 +366,7 @@ settings = {
     autolog = "yes";
     autolog_path = "~/.irssi/logs/$tag/$0.log";
     hilight_nick_matches = "yes";
+    hilight_nick_matches_everywhere = "yes";
     hide_colors = "yes";
     expand_escapes = "yes";
     hide_text_style = "yes";
@@ -391,9 +390,7 @@ settings = {
     ban_type = "host";
   };
 };
-hilights = ( { text = "NICKNAME"; nick = "yes"; word = "yes"; } );
 logs = { };
-notifies = { NICKNAME = { }; };
 keyboard = (
   { key = "^G"; id = "command"; data = "go"; },
   { key = "^K"; id = "command"; data = "window previous"; },
