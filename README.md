@@ -222,7 +222,9 @@ To make it compatible with the plugin `Shougo/deoplete.nvim`, it requires two pl
 
 `sudo apt-get install python3-pip`
 
-`sudo pip3 install neovim`
+`pip3 install neovim`
+
+`pip3 install pynvim`
 
 My vim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
