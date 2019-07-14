@@ -226,6 +226,10 @@ To make it compatible with the plugin `Shougo/deoplete.nvim`, it requires two pl
 
 `pip3 install pynvim`
 
+From the Vim command line:
+
+`:pythonx import pynvim`
+
 My vim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
 ### Neovim
