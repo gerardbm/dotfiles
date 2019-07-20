@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Description: display a chronometer in the shell.
+
+function chronos() {
+  local BEGIN=$(date +%s)
+
+  while true; do
+    local NOW=$(date +%s)
+    local DIFF=$(($NOW - $BEGIN))
+    local MINS=$(($DIFF / 60 % 60))
+    local SECS=$(($DIFF % 60))
+    local HOURS=$(($DIFF / 3600 % 24))
+    local DAYS=$(($DIFF / 86400))
+    local DAYS_UNIT
+    [ "$DAYS" == 1 ] && DAYS_UNIT="Day" || DAYS_UNIT="Days"
+
+    printf "\r  %d %s, %02d:%02d:%02d  " $DAYS $DAYS_UNIT $HOURS $MINS $SECS
+    sleep 0.25
+  done
+}
+
+chronos
