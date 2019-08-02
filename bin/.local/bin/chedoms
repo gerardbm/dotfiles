@@ -5,8 +5,8 @@
 # Please copy, share, redistribute and improve
 
 if [ "$#" == "0" ]; then
-    echo "You need tu supply at least one argument!"
-    exit 1
+	echo "You need tu supply at least one argument!"
+	exit 1
 fi
 
 DOMAINS=( '.com' '.net' '.org' )
@@ -14,14 +14,14 @@ DOMAINS=( '.com' '.net' '.org' )
 ELEMENTS=${#DOMAINS[@]}
 
 while (( "$#" )); do
-  for (( i=0;i<$ELEMENTS;i++)); do
-      whois $1${DOMAINS[${i}]} | egrep -q \
-      '^No match|^NOT FOUND|^Not fo|AVAILABLE|^No Data Fou|has not been regi|No entri'
-          if [ $? -eq 0 ]; then
-              echo -e "\e[0;32m$1${DOMAINS[${i}]} : available"
-		  else
-              echo -e "\e[0;31m$1${DOMAINS[${i}]} : already in use"
-          fi
-  done
-shift
+	for (( i=0;i<$ELEMENTS;i++)); do
+		whois $1${DOMAINS[${i}]} | egrep -q \
+			'^No match|^NOT FOUND|^Not fo|AVAILABLE|^No Data Fou|has not been regi|No entri'
+		if [ $? -eq 0 ]; then
+			echo -e "$1${DOMAINS[${i}]} :\e[0;32m available\e[0m"
+		else
+			echo -e "$1${DOMAINS[${i}]} :\e[0;31m already in use\e[0m"
+		fi
+	done
+	shift
 done
