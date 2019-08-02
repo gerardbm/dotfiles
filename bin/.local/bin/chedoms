@@ -9,7 +9,7 @@ if [ "$#" == "0" ]; then
     exit 1
 fi
 
-DOMAINS=( '.com' '.net' '.info' '.org' )
+DOMAINS=( '.com' '.net' '.org' )
 
 ELEMENTS=${#DOMAINS[@]}
 
@@ -18,7 +18,9 @@ while (( "$#" )); do
       whois $1${DOMAINS[${i}]} | egrep -q \
       '^No match|^NOT FOUND|^Not fo|AVAILABLE|^No Data Fou|has not been regi|No entri'
           if [ $? -eq 0 ]; then
-              echo "$1${DOMAINS[${i}]} : available"
+              echo -e "\e[0;32m$1${DOMAINS[${i}]} : available"
+		  else
+              echo -e "\e[0;31m$1${DOMAINS[${i}]} : already in use"
           fi
   done
 shift
