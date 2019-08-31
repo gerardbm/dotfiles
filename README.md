@@ -352,6 +352,35 @@ npm install -g jshint
 npm install -g csslint
 ```
 
+### Ruby and Jekyll
+
+Install the dependencies:
+
+`sudo apt updatesudo apt install git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev`
+
+Then install Rbenv:
+
+`curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash -`
+
+Add Rbenv to the PATH in `~/.zshrc`:
+
+```sh
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+```
+
+Install the wanted Ruby version:
+
+`rbenv install 2.6.4`
+
+And make it global:
+
+`rbenv global 2.6.4`
+
+Finally install the last Jekyll version:
+
+`gem install jekyll`
+
 ### W3m
 
 Install it from the repositories:

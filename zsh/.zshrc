@@ -89,6 +89,10 @@ export PATH=/opt/qcad:$PATH
 # Golang path
 export GOPATH=$HOME/Workspace/goprojects
 
+# Ruby path
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # Aliases:
 # For a full list of active aliases, run `alias`.
 # --------------------------------------------------
