@@ -25,21 +25,21 @@ read -r wmthemecolor
 echo -n "HEX color for Manifest background: "
 read -r wmbgcolor
 
-mkdir icons
-cd icons
+mkdir -p icons
+cd icons || exit
 
 # This uses rsvg-convert to create crisp PNG icons
 for size in 16 32 48 150 180 192 512; do
 	ICON_OUT=$ICON_FILE-${size}.png
 	DIMENSIONS=${size}x${size}
-	rsvg-convert -w $size -p 300 -d 300 $ICON_PATH > $ICON_OUT
+	rsvg-convert -w "$size" -p 300 -d 300 "$ICON_PATH" > "$ICON_OUT"
 
 	# Use ImageMagick to center the image and make it square
-	convert $ICON_OUT -gravity center -background transparent \
-		-resize $DIMENSIONS -extent $DIMENSIONS temp-$ICON_OUT
+	convert "$ICON_OUT" -gravity center -background transparent \
+		-resize "$DIMENSIONS" -extent "$DIMENSIONS" temp-"$ICON_OUT"
 
 	# Use 8-bit colour to reduce the file size.
-	pngquant 256 < temp-$ICON_OUT > $FAVICON_FILE-$DIMENSIONS.png
+	pngquant 256 < temp-"$ICON_OUT" > "$FAVICON_FILE"-"$DIMENSIONS".png
 done
 
 # Merge the 16, 32 and 48 pixel versions into a multi-sized ICO file
@@ -65,42 +65,42 @@ cp ../$FAVICON_FILE.svg safari-pinned-tab.svg
 sed -i -e 's/fill:#.\{6\}/fill:#000000/g' safari-pinned-tab.svg
 
 # Clean up the temporary files
-rm ${ICON_FILE}*png temp-${ICON_FILE}*png
+rm "${ICON_FILE}"*png temp-"${ICON_FILE}"*png
 rm $FAVICON_FILE-48x48.png
 
 # Create Browserconfig file
 cat > browserconfig.xml <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 <browserconfig>
-	<msapplication>
-		<tile>
-			<square150x150logo src="/mstile-150x150.png"/>
-			<TileColor>$tilecolor</TileColor>
-		</tile>
-	</msapplication>
+    <msapplication>
+        <tile>
+            <square150x150logo src="/icons/mstile-150x150.png"/>
+            <TileColor>$tilecolor</TileColor>
+        </tile>
+    </msapplication>
 </browserconfig>
 EOF
 
 # Create Webmanifest file
 cat > site.webmanifest <<EOF
 {
-	"name": "$wmname",
-	"short_name": "$wmshortname",
-	"icons": [
-			{
-					"src": "/android-chrome-192x192.png",
-					"sizes": "192x192",
-					"type": "image/png"
-			},
-			{
-					"src": "/android-chrome-512x512.png",
-					"sizes": "512x512",
-					"type": "image/png"
-			}
-	],
-	"theme_color": "$wmthemecolor",
-	"background_color": "$wmbgcolor",
-	"display": "standalone"
+    "name": "$wmname",
+    "short_name": "$wmshortname",
+    "icons": [
+        {
+            "src": "/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "$wmthemecolor",
+    "background_color": "$wmbgcolor",
+    "display": "standalone"
 }
 EOF
 
