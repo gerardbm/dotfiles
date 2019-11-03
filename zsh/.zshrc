@@ -196,6 +196,10 @@ alias cds='cd $HOME/Workspace/; ls'
 alias cdw='cd $HOME/Workspace/vimwiki/; ls'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
+# Deploy
+alias rsyncd='rsync -v -rz --checksum --delete'
+alias -g rsh='--rsh="ssh -p2222"'
+
 # Translate-shell
 alias enes='trans en:es -brief'
 alias esen='trans es:en -brief'
