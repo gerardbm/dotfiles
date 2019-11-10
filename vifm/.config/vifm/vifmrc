@@ -420,6 +420,8 @@ nnoremap yf :!echo %c:p | xclip %i<cr>
 nnoremap I cw<c-a>
 nnoremap A cw
 
+nnoremap q :wq<cr>
+
 " Open console in current directory
 nnoremap ,t :!xterm &<cr>
 

@@ -255,11 +255,6 @@ else
 	export BROWSER=/usr/bin/w3m
 fi
 
-# Commands
-bindkey "^P" up-line-or-beginning-search
-bindkey "^N" down-line-or-beginning-search
-bindkey "^Q" kill-word
-
 # Syntax highlighting
 source $HOME/.syntax/zsh-syntax-highlighting.zsh
 
@@ -275,3 +270,96 @@ man() {
 	LESS_TERMCAP_us=$'\e[00;33m' \
 	command man "$@"
 }
+
+# --------------------------------------------------
+
+# Vi-mode
+bindkey -v
+
+export KEYTIMEOUT=20
+
+# Navigate in tab autocomplete menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Change cursor shape
+zle-keymap-select () {
+if [ $KEYMAP = vicmd ]; then
+	echo -ne "\e[2 q"
+else
+	echo -ne "\e[6 q"
+fi
+}
+
+zle-line-init() {
+	echo -ne "\e[6 q"
+}
+
+zle-line-finish() {
+	echo -ne "\e[2 q"
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-init
+zle -N zle-line-finish
+
+vifmx() {
+	vifm .
+}
+
+bindkey -s '^o' 'vifmx\n'
+
+# Edit line in vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^x' edit-command-line
+
+# Readline commands in vi-mode
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^b' backward-char
+bindkey '^f' forward-char
+bindkey '^h' backward-delete-char
+bindkey '^d' delete-char
+bindkey '^k' kill-line
+bindkey '^u' kill-whole-line
+bindkey '^w' backward-kill-word
+bindkey '^q' kill-word
+bindkey '^p' up-line-or-beginning-search
+bindkey '^n' down-line-or-beginning-search
+
+# Interrupt key is Ctrl+j
+# - As in tmux to close pane/window: Ctrl+Alt+j
+# - As in i3wm window: Ctrl+$mod+j
+stty intr ^j
+
+# Escape key is Ctrl+c
+# - As in vim
+bindkey '^c' vi-cmd-mode
+
+# Surround
+autoload -U select-quoted # ci"
+zle -N select-quoted
+for m in visual viopp; do
+	for c in {a,i}{\',\",\`}; do
+		bindkey -M $m $c select-quoted
+	done
+done
+
+autoload -U select-bracketed # ci{, ci(
+zle -N select-bracketed
+for m in visual viopp; do
+	for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+		bindkey -M $m $c select-bracketed
+	done
+done
+
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -a cs change-surround
+bindkey -a ds delete-surround
+bindkey -a ys add-surround
+bindkey -M visual S add-surround
