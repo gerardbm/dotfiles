@@ -123,6 +123,9 @@ alias vor='vim -N -u NORC'
 alias vimgd='vim `git diff --name-only`'
 alias svim='sudoedit'
 
+# Vifm
+alias vif='vim ~/.config/vifm/vifmrc'
+
 # Neovim
 if [ -x "$(command -v nvim)"  ]; then
 	alias neo='nvim'
