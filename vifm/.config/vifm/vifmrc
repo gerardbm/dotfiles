@@ -224,7 +224,7 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in sxiv}
-        \ sxiv,
+        \ sxiv &,
         \ {View in gpicview}
         \ gpicview %c,
         \ {View in shotwell}
@@ -440,6 +440,9 @@ nnoremap ,c :copy<cr>
 nnoremap ,m :move<cr>
 nnoremap ,n :mkdir<space>
 nnoremap ,d :!trash %f<cr>
+
+" Preview images
+nnoremap ,i :!sxiv * 2>/dev/null &<CR>
 
 " ------------------------------------------------------------------------------
 
