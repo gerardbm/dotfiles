@@ -444,6 +444,9 @@ nnoremap ,d :!trash %f<cr>
 " Preview images
 nnoremap ,i :!sxiv * 2>/dev/null &<CR>
 
+" Edit file in gvim
+nnoremap ,f :!gvimr %f &<CR>
+
 " ------------------------------------------------------------------------------
 
 nnoremap <space> /

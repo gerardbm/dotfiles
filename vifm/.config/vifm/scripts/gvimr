@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+GVIM=$(ps -ef | pgrep -i gvim -c)
+
+if [[ "$GVIM" -eq 0 ]]; then
+	gvim "$1" 2>/dev/null
+else
+	gvim --remote "$1"
+fi

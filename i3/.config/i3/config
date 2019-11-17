@@ -93,11 +93,14 @@ bindsym $mod+s layout stacking
 # Toggle tiling / floating
 bindsym $mod+Control+space floating toggle
 
+# Toggle focus tiling / floating
+bindsym $mod+a focus mode_toggle
+
 # Focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+w focus parent
 
 # Focus the child container
-bindsym $mod+Control+a focus child
+bindsym $mod+Control+w focus child
 
 # Make the focused window a scratchpad
 bindsym $mod+Shift+i move scratchpad
@@ -188,22 +191,10 @@ mode "$mode_system" {
 	bindsym Control+c mode "default"
 }
 
-# Move floating windows with keys
-set $mode_move [Move]
-bindsym $mod+m mode "$mode_move" focus floating
-mode "$mode_move" {
-	bindsym $alt+Tab focus right
-
-	bindsym h move left
-	bindsym j move down
-	bindsym k move up
-	bindsym l move right
-
-	# Back to normal: Enter or Escape
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	bindsym Control+c mode "default"
-}
+# Automatic alignment for floating windows
+# TODO: Make a toggle function with i3-msg and get_tree
+bindsym $mod+m exec sh ~/.config/i3/win2right.sh
+bindsym $mod+Shift+m exec sh ~/.config/i3/win2center.sh
 
 # Caps mode
 set $mode_caps [CAPS]
