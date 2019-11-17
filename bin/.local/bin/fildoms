@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Description: filter domains from a list of URLs.
+# Usage: fildoms <filename>
+
+grep -oP '[^\./]*\.[^\./]*(:|/)' "$1" \
+	| sed -e 's/\(:.*\/\|\/\)//g' | sort | uniq -u
