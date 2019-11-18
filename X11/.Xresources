@@ -283,7 +283,7 @@ rofi.color-normal : base1, base4, base1, base2, acc50
 rofi.color-urgent : base1, acg50, base2, base1, acc50
 rofi.color-active : base1, acg50, base2, base2, acg50
 rofi.color-window : base1, acc50, base3
-rofi.bw           : 1
+rofi.bw           : 2
 
 ! ------------------------------------------------------------
 ! Information
