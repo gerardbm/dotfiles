@@ -192,9 +192,7 @@ mode "$mode_system" {
 }
 
 # Automatic alignment for floating windows
-# TODO: Make a toggle function with i3-msg and get_tree
-bindsym $mod+m exec sh ~/.config/i3/win2right.sh
-bindsym $mod+Shift+m exec sh ~/.config/i3/win2center.sh
+bindsym $mod+m exec sh ~/.config/i3/winner.sh
 
 # Caps mode
 set $mode_caps [CAPS]
