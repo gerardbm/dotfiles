@@ -390,7 +390,7 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " Mappings
 
 " Start shell in current directory
-nnoremap S :shell<cr>
+nnoremap <C-o> :shell<cr>
 
 " Display sorting dialog
 nnoremap s :sort<cr>
