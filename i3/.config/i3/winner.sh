@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-SCREENW=$(xrandr | grep '\Wconnected' | awk '{ print $4 }' | cut -d 'x' -f1)
-SCREENH=$(xrandr | grep '\Wconnected' | awk '{ print $4 }' | cut -d 'x' -f2 | cut -d '+' -f1)
+SCREEN_W=$(xrandr | grep '\Wconnected' | awk '{ print $4 }' | cut -d 'x' -f1)
+SCREEN_H=$(xrandr | grep '\Wconnected' | awk '{ print $4 }' | cut -d 'x' -f2 | cut -d '+' -f1)
 BORDERS=2
 RIGHT=5
 GAP=100
@@ -14,24 +14,24 @@ fi
 
 if [ "$POSITION" = 0 ]; then
 	POSITION=1
-	WINDOWW=$(echo "$SCREENW-$GAP" | bc)
-	WINDOWH=$(echo "$SCREENH-$GAP" | bc)
-	XPOS=$(echo "($SCREENW-$WINDOWW)/2" | bc)
-	YPOS=$(echo "($SCREENH-$WINDOWH)/2" | bc)
+	WIN_W=$(echo "$SCREEN_W-$GAP" | bc)
+	WIN_H=$(echo "$SCREEN_H-$GAP" | bc)
+	XPOS=$(echo "($GAP)/2" | bc)
+	YPOS=$(echo "($GAP)/2" | bc)
 elif [ "$POSITION" = 1 ]; then
 	POSITION=2
-	WINDOWW=300
-	WINDOWH=$(echo "$SCREENH-$GAP" | bc)
-	XPOS=$(echo "$SCREENW-$WINDOWW-($BORDERS*2)-$RIGHT" | bc)
-	YPOS=$(echo "($SCREENH-$WINDOWH)/2" | bc)
+	WIN_W=300
+	WIN_H=$(echo "$SCREEN_H-$GAP" | bc)
+	XPOS=$(echo "$SCREEN_W-$WIN_W-($BORDERS*2)-$RIGHT" | bc)
+	YPOS=$(echo "($GAP)/2" | bc)
 elif [ "$POSITION" = 2 ]; then
 	POSITION=0
-	WINDOWW=300
-	WINDOWH=300
-	XPOS=$(echo "$SCREENW-$WINDOWW-($BORDERS*2)-$RIGHT" | bc)
-	YPOS=$(echo "($SCREENH-$GAP/2" | bc)
+	WIN_W=300
+	WIN_H=300
+	XPOS=$(echo "$SCREEN_W-$WIN_W-($BORDERS*2)-$RIGHT" | bc)
+	YPOS=$(echo "($GAP)/2" | bc)
 fi
 
 echo "${POSITION}" > /tmp/screenpos.dat
 
-i3-msg floating enable\; resize set "$WINDOWW" "$WINDOWH"\; move window to position "$XPOS" "$YPOS"
+i3-msg floating enable\; resize set "$WIN_W" "$WIN_H"\; move window to position "$XPOS" "$YPOS"
