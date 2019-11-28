@@ -84,7 +84,7 @@ extbrowser sh -c 'echo "$0" | tr -d "\n" | xsel -b'
 extbrowser2 /usr/bin/luakit
 extbrowser3 /usr/bin/firefox
 extbrowser4 /usr/bin/mpv
-extbrowser5
+extbrowser5 /usr/bin/mplayer
 extbrowser6
 extbrowser7
 extbrowser8
