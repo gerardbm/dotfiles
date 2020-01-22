@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description: Resize, crop to the golden ratio and compress images.
+#
+# Tools used:
+# - convert
+# - identify
+# - optipng
+# - pngcrush
+# - jpegoptim
+# - jpegtran
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+Crophi: Resize, crop to the golden ratio and compress images.
+
+Usage: crophi <integer> <filename>
+
+	- integer → the width of the compressed file.
+	- filename → a list of files to compress.
+
+Example: crophi 500 picture.png picture.jpeg
+
+Resize and crop are done with convert(1).
+PNG compression is done with pngoptim(1) and pngcrush(1).
+JPEG compression is done with jpegoptim(1) and jpegtran(1).
+EOF
+exit 1
+fi
+
+SIZE="$1"
+
+if ! [[ "$SIZE" =~ ^[0-9]+$ ]] ; then
+	echo "Error: first option must be an integer."
+	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+fi
+
+if ! [[ "$SIZE" -gt 0 ]] ; then
+	echo "Error: first option must be greater than 0."
+	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+fi
+
+opt_png() {
+	echo "Optimizing PNG-image: $RENAME"
+	optipng -o1 --quiet "$RENAME"
+	pngcrush -q "$RENAME" /tmp/$$; mv /tmp/$$ "$RENAME"
+}
+
+opt_jpg() {
+	echo "Optimizing $EXT-image: $RENAME"
+	jpegoptim --max=80 "$RENAME"
+	jpegtran -copy none -optimize -outfile "$RENAME" "$RENAME"
+}
+
+for f in "${@:2}"; do
+	NAME="${f%%.*}"
+	EXT="${f##*.}"
+	HEIGHT=$(echo "($SIZE*0.618)" | bc | awk '{printf "%.0f\n", $1}')
+	RENAME="${NAME}-${SIZE}x${HEIGHT}.${EXT}"
+	echo "$RENAME"
+
+	cp "$f" "$RENAME"
+
+	convert "$f" \
+		-resize "$SIZE"x"$HEIGHT"^ \
+		-gravity center \
+		-crop "$SIZE"x"$HEIGHT"+0+0 "$RENAME"
+
+	if [[ ${EXT,,} == "png" ]] ; then
+		opt_png
+	fi
+
+	if [[ "${EXT,,}" =~ (jpg|jpeg) ]] ; then
+		opt_jpg
+	fi
+
+done

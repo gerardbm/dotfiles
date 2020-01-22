@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description: Invert colors
+#
+# Tools used: convert
+
+for f in "${@:1}"; do
+	NAME="${f%%.*}"
+	EXT="${f##*.}"
+	SUFFIX="inv"
+	RENAME="${NAME}-${SUFFIX}.${EXT}"
+
+	cp "$f" "$RENAME"
+
+	echo "Inverting colors: $RENAME"
+	convert "$f" -negate "$RENAME"
+
+done

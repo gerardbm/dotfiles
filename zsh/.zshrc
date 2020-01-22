@@ -243,6 +243,7 @@ alias -g CC='| xsel -b'
 
 # Misc
 alias news='newsbeuter'
+alias www='w3m'
 
 # --------------------------------------------------
 

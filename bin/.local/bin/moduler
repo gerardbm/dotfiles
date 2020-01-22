@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description: modulate colors
+#
+# Tools used: convert
+#
+# Parameters:
+# $1 = brightness
+# $2 = saturation
+# $3 = hue
+
+for f in "${@:4}"; do
+	NAME="${f%%.*}"
+	EXT="${f##*.}"
+	SUFFIX="mod"
+	RENAME="${NAME}-${SUFFIX}.${EXT}"
+
+	cp "$f" "$RENAME"
+
+	echo "Modulating colors: $RENAME"
+	convert -modulate "$1,$2,$3" "$f" "$RENAME"
+
+done
