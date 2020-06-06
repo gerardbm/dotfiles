@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Description: Preview Jekyll localhost:4000 with the w3m browser
+
+INUSE=$(lsof -i :4000)
+
+if [ "$INUSE" ]; then
+	xterm -e w3m -config ~/.w3m/config_img http://localhost:4000/
+else
+	notify-send "Localhost is not running."
+fi
