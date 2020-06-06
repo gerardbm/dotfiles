@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-SCREEN_W=$(xrandr | grep '\Wconnected' | awk '{ print $4 }' | cut -d 'x' -f1)
-SCREEN_H=$(xrandr | grep '\Wconnected' | awk '{ print $4 }' | cut -d 'x' -f2 | cut -d '+' -f1)
+SCREEN_W=$(xrandr | grep '\Wprimary' | awk '{ print $4 }' | cut -d 'x' -f1)
+SCREEN_H=$(xrandr | grep '\Wprimary' | awk '{ print $4 }' | cut -d 'x' -f2 | cut -d '+' -f1)
 BORDERS=2
 RIGHT=5
 GAP=100
