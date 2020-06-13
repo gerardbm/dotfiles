@@ -121,6 +121,9 @@ alias soz='source ~/.zshrc'
 alias vir='vim $HOME/vimrc/vim/.vimrc'
 alias vor='vim -N -u NORC'
 alias vimgd='vim `git diff --name-only`'
+alias vimgdh='vim `git diff --name-only | head -n 1`'
+alias vimgdt='vim `git diff --name-only | tail -n 1`'
+alias vimun='vim `git ls-files . --exclude-standard --others`'
 alias svim='sudoedit'
 
 # Vifm
@@ -246,6 +249,7 @@ alias -g CC='| xsel -b'
 # Misc
 alias news='newsbeuter'
 alias www='w3m'
+alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
 
 # --------------------------------------------------
 
