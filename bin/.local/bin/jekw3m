@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 #
-# Description: Preview Jekyll localhost:4000 with the w3m browser
+# Description: Preview Jekyll server with the w3m browser
 #
 # Old usage with xterm and w3m configured to display images:
 # xterm -e w3m -config ~/.w3m/config_img http://localhost:4000/
 
-INUSE=$(lsof -i :4000)
+lsof -i :4000 >/dev/null 2>&1
 
-if [ "$INUSE" ]; then
+if [ $? -eq 0 ]; then
 	urxvt \
 		-b 55 \
 		-fn "xft:DejaVu Sans Mono for Powerline:size=13" \
 		-e w3m http://localhost:4000/
 else
-	notify-send "Localhost is not running."
+	notify-send "Jekyll server is not running."
 fi

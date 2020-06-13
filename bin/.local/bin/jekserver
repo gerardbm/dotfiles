@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# Description: Run Jekyll server and display an indicator in the i3wm
+# See i3/.config/i3/i3status.conf for more information about /tmp/jekyll.ps
+
+stop_jekyll() {
+	rm -f /tmp/jekyll.ps
+	pkill -f jekyll
+}
+
+lsof -i :4000 >/dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+	stop_jekyll
+	printf "\n > "
+	printf "\033[31m%s \n\033[0m" "Jekyll server was stopped!"
+	printf "\n > "
+	printf "\033[32m%s \n\033[0m" "Executing Jekyll server again..."
+	printf "\n"
+	jekserver
+else
+	touch /tmp/jekyll.ps
+	notify-send "Executing Jekyll server..."
+	jekyll serve &
+	trap stop_jekyll INT
+	MYPID=$!
+	wait $MYPID
+	stop_jekyll
+	notify-send "Jekyll server was stopped!"
+fi
