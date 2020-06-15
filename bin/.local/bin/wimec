@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# Description: Connect/disconnect the WiFi
+
+MYSSID="UNIX"
+
+# Get the wireless interface name
+INTERFACE=$(perl < /proc/net/wireless -ne '/(\w+):/ && print $1')
+
+# Check if WiFi is connected ('state UP')
+ip address | grep "$INTERFACE" | grep -o 'state UP' >/dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+	notify-send 'Desconnecting the WiFi...'
+	wicd-cli -x --wireless &
+	wait
+	notify-send 'WiFi disconnected!'
+else
+	notify-send 'Connecting the WiFi...'
+	wicd-cli -S --wireless
+	NUM=$(wicd-cli -l --wireless | grep "$MYSSID" | awk '{print $1}')
+	wicd-cli -c --wireless -n "$NUM" &
+	wait
+	notify-send 'WiFi connected!'
+fi
