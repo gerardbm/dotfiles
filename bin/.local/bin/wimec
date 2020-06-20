@@ -13,13 +13,17 @@ ip address | grep "$INTERFACE" | grep -o 'state UP' >/dev/null 2>&1
 if [ $? -eq 0 ]; then
 	notify-send 'Desconnecting the WiFi...'
 	wicd-cli -x --wireless &
-	wait
+	proc1=$!
+	wait $proc1
 	notify-send 'WiFi disconnected!'
 else
 	notify-send 'Connecting the WiFi...'
-	wicd-cli -S --wireless
+	wicd-cli -S --wireless &
+	proc2=$!
+	wait $proc2
 	NUM=$(wicd-cli -l --wireless | grep "$MYSSID" | awk '{print $1}')
 	wicd-cli -c --wireless -n "$NUM" &
-	wait
+	proc3=$!
+	wait $proc3
 	notify-send 'WiFi connected!'
 fi
