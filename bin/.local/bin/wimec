@@ -11,13 +11,13 @@ INTERFACE=$(perl < /proc/net/wireless -ne '/(\w+):/ && print $1')
 ip address | grep "$INTERFACE" | grep -o 'state UP' >/dev/null 2>&1
 
 if [ $? -eq 0 ]; then
-	notify-send 'Desconnecting the WiFi...'
+	notify-send -t 2 'Desconnecting the WiFi...'
 	wicd-cli -x --wireless &
 	proc1=$!
 	wait $proc1
-	notify-send 'WiFi disconnected!'
+	notify-send -t 2 'WiFi disconnected!'
 else
-	notify-send 'Connecting the WiFi...'
+	notify-send -t 2 'Connecting the WiFi...'
 	wicd-cli -S --wireless &
 	proc2=$!
 	wait $proc2
@@ -25,5 +25,5 @@ else
 	wicd-cli -c --wireless -n "$NUM" &
 	proc3=$!
 	wait $proc3
-	notify-send 'WiFi connected!'
+	notify-send -t 2 'WiFi connected!'
 fi

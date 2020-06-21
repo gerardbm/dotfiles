@@ -13,5 +13,5 @@ if [ $? -eq 0 ]; then
 		-fn "xft:DejaVu Sans Mono for Powerline:size=13" \
 		-e w3m http://localhost:4000/
 else
-	notify-send "Jekyll server is not running."
+	notify-send -t 2 "Jekyll server is not running."
 fi
