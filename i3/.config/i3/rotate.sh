@@ -8,4 +8,4 @@
 
 OUTPUT=$(xrandr | grep '\Wconnected' | awk '{ print $1 }')
 xrandr --output "$OUTPUT" --rotate "$1"
-notify-send "$OUTPUT → Screen rotation: $1"
+notify-send -t 2 "$OUTPUT → Screen rotation: $1"
