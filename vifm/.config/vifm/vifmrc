@@ -169,11 +169,11 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf mupdf %c &
+filextype *.pdf mupdf %c 2>/dev/null &
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " Epub
-filextype *.epub mupdf %c &
+filextype *.epub mupdf %c 2>/dev/null &
 fileviewer *.epub pdftotext -nopgbrk %c -
 
 " PostScript
@@ -231,6 +231,14 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ shotwell,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
          \ convert -identify %f -verbose /dev/null
+
+filetype *.webp
+        \ {View in gthumb}
+        \ gthumb %f 2>/dev/null &,
+
+filetype *.xcf
+        \ {Edit with Gimp}
+        \ gimp %f 2>/dev/null &,
 
 " OpenRaster
 filextype *.ora
@@ -442,7 +450,7 @@ nnoremap ,n :mkdir<space>
 nnoremap ,d :!trash %f<cr>
 
 " Preview images
-nnoremap ,i :!sxiv * 2>/dev/null &<CR>
+nnoremap <C-s> :!sxiv -t *.(png|jpg|jpeg|bmp|gif|tiff) 2>/dev/null &<CR>
 
 " Edit file in gvim
 nnoremap ,f :!gvimr %f &<CR>

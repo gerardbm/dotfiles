@@ -316,10 +316,16 @@ zle -N zle-line-init
 zle -N zle-line-finish
 
 vifmx() {
-	vifm .
+	vifm . 2>/dev/null
 }
 
 bindkey -s '^o' 'vifmx\n'
+
+lsix() {
+	sxiv -t *.(png|jpg|jpeg|bmp|gif|tiff) 2>/dev/null
+}
+
+bindkey -s '^s' 'lsix\n'
 
 # Edit line in vim
 autoload edit-command-line; zle -N edit-command-line
