@@ -6,5 +6,6 @@
 # Full configuration is available in this repository:
 # URL: https://github.com/gerardbm/dotfiles
 
-notify-send -t 2 "Brightness: $(xbacklight -get \
-	| awk '{printf "%.0f\n", $1}')%"
+GETVAL=$(xbacklight -get | awk '{printf "%.0f\n", $1}')
+
+notify-send -t 2 "Brightness: $GETVAL"
