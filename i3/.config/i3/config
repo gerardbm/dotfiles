@@ -97,10 +97,10 @@ bindsym $mod+Control+space floating toggle
 bindsym $mod+a focus mode_toggle
 
 # Focus the parent container
-bindsym $mod+w focus parent
+bindsym $mod+c focus parent
 
 # Focus the child container
-bindsym $mod+Control+w focus child
+bindsym $mod+Control+c focus child
 
 # Make the focused window a scratchpad
 bindsym $mod+Shift+i move scratchpad
@@ -150,7 +150,7 @@ force_display_urgency_hint 0 ms
 focus_on_window_activation focus
 
 # Reload the configuration file
-bindsym $mod+Control+c reload
+bindsym $mod+Control+e reload
 
 # Restart i3 inplace (preserves your layout/session)
 bindsym $mod+Control+r restart
@@ -219,7 +219,7 @@ bindsym $mod+Control+t exec --no-startup-id urxvt -name 'top' -e 'top'
 bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
-bindsym $mod+Control+0 exec --no-startup-id sh ~/.local/bin/wimec
+bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec
 
 # Pulse Audio controls
 # Note: volume status is already in i3status
@@ -245,6 +245,26 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10% && \
 	sh ~/.config/i3/xbacklight.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
 	sh ~/.config/i3/xbacklight.sh
+bindsym $mod+Control+1 exec --no-startup-id xbacklight -set 10% && \
+	notify-send -t 2 'Brigthness: 10%'
+bindsym $mod+Control+2 exec --no-startup-id xbacklight -set 20% && \
+	notify-send -t 2 'Brigthness: 20%'
+bindsym $mod+Control+3 exec --no-startup-id xbacklight -set 30% && \
+	notify-send -t 2 'Brigthness: 30%'
+bindsym $mod+Control+4 exec --no-startup-id xbacklight -set 40% && \
+	notify-send -t 2 'Brigthness: 40%'
+bindsym $mod+Control+5 exec --no-startup-id xbacklight -set 50% && \
+	notify-send -t 2 'Brigthness: 50%'
+bindsym $mod+Control+6 exec --no-startup-id xbacklight -set 60% && \
+	notify-send -t 2 'Brigthness: 60%'
+bindsym $mod+Control+7 exec --no-startup-id xbacklight -set 70% && \
+	notify-send -t 2 'Brigthness: 70%'
+bindsym $mod+Control+8 exec --no-startup-id xbacklight -set 80% && \
+	notify-send -t 2 'Brigthness: 80%'
+bindsym $mod+Control+9 exec --no-startup-id xbacklight -set 90% && \
+	notify-send -t 2 'Brigthness: 90%'
+bindsym $mod+Control+0 exec --no-startup-id xbacklight -set 100% && \
+	notify-send -t 2 'Brigthness: 100%'
 
 # Screen rotation
 bindsym $mod+$alt+j exec --no-startup-id sh ~/.config/i3/rotate.sh normal
@@ -267,8 +287,10 @@ bindsym --release $mod+Control+Print exec --no-startup-id scrot -ub \
 	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
 
 # Compton control
-bindsym $mod+c exec --no-startup-id pkill compton
-bindsym $mod+Shift+c exec --no-startup-id compton -b --config ~/.compton.conf
+bindsym $mod+Control+g exec --no-startup-id \
+	pkill compton && notify-send -t 2 'Compton killed.'
+bindsym $mod+Shift+g exec --no-startup-id \
+	compton -b --config ~/.compton.conf && notify-send -t 2 'Compton restarted.'
 
 # Hide/display i3 bar
 bindsym $mod+z \
