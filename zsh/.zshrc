@@ -123,6 +123,9 @@ alias vor='vim -N -u NORC'
 alias vimgd='vim `git diff --name-only`'
 alias vimgdh='vim `git diff --name-only | head -n 1`'
 alias vimgdt='vim `git diff --name-only | tail -n 1`'
+alias vimgds='vim `git diff --staged --name-only`'
+alias vimgdsh='vim `git diff --staged --name-only | head -n 1`'
+alias vimgdst='vim `git diff --staged --name-only | tail -n 1`'
 alias vimun='vim `git ls-files . --exclude-standard --others`'
 alias svim='sudoedit'
 
@@ -174,6 +177,7 @@ alias sry='surfraw youtube'
 
 # Faster git alias
 alias gg='git status'
+alias gx='git status -s'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gdn='git diff --name-only'
@@ -183,6 +187,7 @@ alias gcam='git commit --amend -m'
 alias gl='git lol'
 alias gls='git log --stat'
 alias ga='git add'
+alias gau='git add $(git ls-files -o --exclude-standard)' # Add untracked
 alias gk='git checkout'
 alias gb='git branch'
 alias gt='git tag'
@@ -315,16 +320,20 @@ zle -N zle-keymap-select
 zle -N zle-line-init
 zle -N zle-line-finish
 
+vimgit() {
+	vimx
+}
+
 vifmx() {
 	vifm . 2>/dev/null
 }
-
-bindkey -s '^o' 'vifmx\n'
 
 lsix() {
 	sxiv -t *.(png|jpg|jpeg|bmp|gif|tiff) 2>/dev/null
 }
 
+bindkey -s '^v' 'vimgit\n'
+bindkey -s '^o' 'vifmx\n'
 bindkey -s '^s' 'lsix\n'
 
 # Edit line in vim

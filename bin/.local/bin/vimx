@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# Description: this script lists all your working, staging and untracked files,
+# numerates them and asks you to type a number to edit that file.
+
+if ! [[ -d "$PWD/.git" ]]; then
+	echo "Not a git repository."
+	exit 1
+fi
+
+printf "\n"
+
+IFS=$'\n'
+XPOS=0
+LINES=$(script --flush --quiet --return\
+	/tmp/ansible-output.txt --command "git status -s")
+
+for i in $LINES; do
+	XPOS=$(("$XPOS" +1))
+	printf "\033[36m%4s. \033[0m" "$XPOS"
+	echo "$i"
+done
+
+printf "\n"
+
+read -r -p "Type a number: " answer
+
+FILES=$(git status -s)
+
+for i in $FILES; do
+	INDEX=$(("$INDEX" +1))
+	if [ "$answer" -eq "$INDEX" ] 2>/dev/null; then
+		FILE=$(echo "$i" | awk '{print $2}')
+		vim "$FILE"
+	fi
+done

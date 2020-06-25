@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Description: edit file from X position in the unstaged area
+
+if ! [[ -d "$PWD/.git" ]]; then
+	echo "Not a git repository."
+	exit 1
+fi
+
+LINES=$(git diff --name-only)
+
+for i in $LINES; do
+	XPOS=$(("$XPOS" +1))
+	i=$(basename "$i")
+	printf "\033[36m\n%4s. \033[0m$i" "$XPOS"
+done
+
+printf "\n\n"
+
+read -r -p "Type a number: " answer
+
+for i in $LINES; do
+	INDEX=$(("$INDEX" +1))
+	if [ "$answer" -eq "$INDEX" ] 2>/dev/null; then
+		vim "$i"
+	fi
+done
