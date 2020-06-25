@@ -329,7 +329,9 @@ vifmx() {
 }
 
 lsix() {
+	setopt +o nomatch
 	sxiv -t *.(png|jpg|jpeg|bmp|gif|tiff) 2>/dev/null
+	setopt -o nomatch
 }
 
 bindkey -s '^v' 'vimgit\n'
