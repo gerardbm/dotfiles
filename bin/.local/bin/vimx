@@ -8,6 +8,11 @@ if ! [[ -d "$PWD/.git" ]]; then
 	exit 1
 fi
 
+if [ "$(git status -s | wc -l)" -eq 0 ]; then
+	echo "All files are commited."
+	exit 1
+fi
+
 printf "\n"
 
 IFS=$'\n'
