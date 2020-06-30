@@ -103,6 +103,7 @@ alias unbz='tar -jxvf'
 alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
 alias cleanswap='sudo swapoff -a && sudo swapon -a'
+alias yy='pwd | tr -d "\n" | xsel -b'
 
 # Hardware
 alias ram='free -h'
