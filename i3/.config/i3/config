@@ -178,10 +178,11 @@ mode "$mode_resize" {
 bindsym $mod+0 mode "$mode_system"
 
 # System mode
-set $mode_system [L], [R], [P]
+set $mode_system [L], [S], [R], [P]
 
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3-msg exit, mode "default"
+	bindsym s exec --no-startup-id systemctl suspend, mode "default"
 	bindsym r exec --no-startup-id sh ~/.config/i3/reboot.sh, mode "default"
 	bindsym p exec --no-startup-id sh ~/.config/i3/power.sh, mode "default"
 
@@ -195,7 +196,7 @@ mode "$mode_system" {
 bindsym $mod+m exec sh ~/.config/i3/winner.sh
 
 # Caps mode
-set $mode_caps [CAPS]
+set $mode_caps [█]
 
 bindsym Caps_Lock mode "$mode_caps"
 bindsym Shift+Caps_Lock mode "$mode_caps"
