@@ -291,8 +291,7 @@ man() {
 
 # Vi-mode
 bindkey -v
-
-export KEYTIMEOUT=20
+export KEYTIMEOUT=1
 
 # Navigate in tab autocomplete menu
 bindkey -M menuselect 'h' vi-backward-char
@@ -340,7 +339,8 @@ bindkey -s '^o' 'vifmx\n'
 bindkey -s '^s' 'lsix\n'
 
 # Edit line in vim
-autoload edit-command-line; zle -N edit-command-line
+autoload -U edit-command-line
+zle -N edit-command-line
 bindkey '^x' edit-command-line
 
 # Readline commands in vi-mode
