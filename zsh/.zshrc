@@ -104,6 +104,8 @@ alias ungz='tar -zxvf'
 alias cmc='./configure && make && sudo checkinstall'
 alias cleanswap='sudo swapoff -a && sudo swapon -a'
 alias yy='pwd | tr -d "\n" | xsel -b'
+alias fid='find . -type d -name'
+alias fif='find . -type f -name'
 
 # Hardware
 alias ram='free -h'
