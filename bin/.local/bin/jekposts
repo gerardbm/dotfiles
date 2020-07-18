@@ -3,22 +3,53 @@
 # Description: Make a list of Jekyll posts and count the words
 # The front matter and HTML tags are not count
 
-TOTAL=0
+EXISTS=$(find _posts/ -type f -iregex '.*\.md$' 2>/dev/null)
+SP="|-----------------------|------------------------------------|----------|"
+
+if ! [ "$EXISTS" ]; then
+	echo "Check if _posts directory exists."
+	echo "Check if _posts contains markdown files."
+	exit 1
+fi
+
+printf "%s\n" "$SP"
+printf "| %-21s " "Categories"
+printf "| %-34s " "Posts"
+printf "|    Words |\n"
+printf "%s\n" "$SP"
+
+TC=$(ls _posts/ | wc -l)
+TP=0
+TW=0
 
 for i in $(find _posts/ -type f -iregex '.*\.md$' 2>/dev/null); do
 	WORD=$(sed '1{/^---$/!q;};1,/^---$/d' "$i" | sed 's/<[^>]*.//g' | wc -w)
-	NAME=$(basename "$i" | \
-		sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//' | \
-		sed 's/\.md$//')
-	printf "\033[36m%40s \033[0m" "$NAME"
-	printf "\033[33m%6s w \033[0m" "$WORD"
-	printf "\n"
-	TOTAL=$(("$TOTAL"+"$WORD"))
+	NAME=$(basename "$i" .md | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//')
+	CAT=$(echo "$i" | sed 's/_posts\///' | sed 's/\/.*$//')
+	printf "| \033[36m%-21s \033[0m" "$CAT"
+	printf "| \033[36m%-34s \033[0m" "$NAME"
+	printf "| \033[33m%6s w \033[0m" "$WORD"
+	printf "|\n"
+	TW=$(("$TW"+"$WORD"))
+	TP=$(("$TP"+1))
 done
 
-if [ "$TOTAL" -gt 0 ]; then
-	TEXT="TOTAL (ALL POSTS)"
-	printf "\033[36m%40s \033[0m" "$TEXT"
-	printf "\033[33m%6s w \033[0m" "$TOTAL"
-	printf "\n"
+if [ "$TC" -gt 1 ]; then
+	TCu="categories"
+else
+	TCu="category"
+fi
+
+if [ "$TP" -gt 1 ]; then
+	TPu="posts"
+else
+	TPu="post"
+fi
+
+if [ "$TW" -gt 0 ]; then
+	printf "%s\n" "$SP"
+	printf "| %-21s " "$TC $TCu"
+	printf "| %-34s " "$TP $TPu"
+	printf "| %6s w |\n" "$TW"
+	printf "%s\n" "$SP"
 fi
