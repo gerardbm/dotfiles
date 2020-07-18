@@ -5,7 +5,7 @@
 
 TOTAL=0
 
-for i in $(find _posts/ -type f -iregex '.*\.md$'); do
+for i in $(find _posts/ -type f -iregex '.*\.md$' 2>/dev/null); do
 	WORD=$(sed '1{/^---$/!q;};1,/^---$/d' "$i" | sed 's/<[^>]*.//g' | wc -w)
 	NAME=$(basename "$i" | \
 		sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//' | \
@@ -16,7 +16,9 @@ for i in $(find _posts/ -type f -iregex '.*\.md$'); do
 	TOTAL=$(("$TOTAL"+"$WORD"))
 done
 
-TEXT="TOTAL (ALL POSTS)"
-printf "\033[36m%40s \033[0m" "$TEXT"
-printf "\033[33m%6s w \033[0m" "$TOTAL"
-printf "\n"
+if [ "$TOTAL" -gt 0 ]; then
+	TEXT="TOTAL (ALL POSTS)"
+	printf "\033[36m%40s \033[0m" "$TEXT"
+	printf "\033[33m%6s w \033[0m" "$TOTAL"
+	printf "\n"
+fi
