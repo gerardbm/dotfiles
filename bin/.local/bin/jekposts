@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Description: Make a list of Jekyll posts and count the words
+# The front matter and HTML tags are not count
+
+TOTAL=0
+
+for i in $(find _posts/ -type f -iregex '.*\.md$'); do
+	WORD=$(sed '1{/^---$/!q;};1,/^---$/d' "$i" | sed 's/<[^>]*.//g' | wc -w)
+	NAME=$(basename "$i" | \
+		sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//' | \
+		sed 's/\.md$//')
+	printf "\033[36m%40s \033[0m" "$NAME"
+	printf "\033[33m%6s w \033[0m" "$WORD"
+	printf "\n"
+	TOTAL=$(("$TOTAL"+"$WORD"))
+done
+
+TEXT="TOTAL (ALL POSTS)"
+printf "\033[36m%40s \033[0m" "$TEXT"
+printf "\033[33m%6s w \033[0m" "$TOTAL"
+printf "\n"
