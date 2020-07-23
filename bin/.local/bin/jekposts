@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Description: Make a list of Jekyll posts and count the words
-# The front matter and HTML tags are not count
+# The front matter, comments and HTML tags are not count
 
 EXISTS=$(find _posts/ -type f -iregex '.*\.md$' 2>/dev/null)
 SP="|-----------------------|------------------------------------|----------|"
@@ -23,7 +23,10 @@ TP=0
 TW=0
 
 for i in $(find _posts/ -type f -iregex '.*\.md$' 2>/dev/null); do
-	WORD=$(sed '1{/^---$/!q;};1,/^---$/d' "$i" | sed 's/<[^>]*.//g' | wc -w)
+	WORD=$( \
+		sed '1{/^---$/!q;};1,/^---$/d' "$i" | \
+		sed 's/{% comment.*endcomment %}//g' | \
+		sed 's/<[^>]*.//g' | wc -w)
 	NAME=$(basename "$i" .md | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//')
 	CAT=$(echo "$i" | sed 's/_posts\///' | sed 's/\/.*$//')
 	printf "| \033[36m%-21s \033[0m" "$CAT"
