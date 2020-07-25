@@ -255,8 +255,9 @@ alias -g NUL='> /dev/null 2>&1'
 alias -g CC='| xsel -b'
 
 # Convert utilities
-alias convertar='convert -alpha remove -background white'
 alias convertao='convert -alpha on'
+alias convertar='convert -alpha remove -background white'
+alias convertdd='convert -alpha remove -background white -density 300 -depth 8'
 
 # Misc
 alias news='newsbeuter'
