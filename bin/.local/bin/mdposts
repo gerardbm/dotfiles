@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Description: Make a list of Jekyll posts and count the words
+# Description: Make a list of markdown posts and count the words
 # The front matter, comments and HTML tags are not count
 
 EXISTS=$(find _posts/ -type f -iregex '.*\.md$' 2>/dev/null)
