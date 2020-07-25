@@ -23,7 +23,7 @@ Usage: optimer <integer> <filename>
 Example: optimer 500 picture.png picture.jpeg
 
 Resize is done with convert(1).
-PNG compression is done with pngoptim(1) and pngcrush(1).
+PNG compression is done with optipng(1) and pngcrush(1).
 JPEG compression is done with jpegoptim(1) and jpegtran(1).
 EOF
 exit 1
