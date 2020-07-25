@@ -254,6 +254,10 @@ alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
 alias -g CC='| xsel -b'
 
+# Convert utilities
+alias convertar='convert -alpha remove -background white'
+alias convertao='convert -alpha on'
+
 # Misc
 alias news='newsbeuter'
 alias www='w3m'
