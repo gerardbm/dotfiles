@@ -20,11 +20,11 @@ if [ $? -eq 0 ]; then
 	jekserver
 else
 	touch /tmp/jekyll.ps
-	notify-send -t 2 "Executing Jekyll server..."
+	notify-send -t 2000 "Executing Jekyll server..."
 	jekyll serve &
 	trap stop_jekyll INT
 	MYPID=$!
 	wait $MYPID
 	stop_jekyll
-	notify-send -t 2 "Jekyll server was stopped!"
+	notify-send -t 2000 "Jekyll server was stopped!"
 fi

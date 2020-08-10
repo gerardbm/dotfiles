@@ -23,4 +23,4 @@ elif [ "$STATUS" = "status paused" ]; then
 	DISPLAY="Cmus: pause"
 fi
 
-notify-send -t 2 "$DISPLAY"
+notify-send -t 2000 "$DISPLAY"

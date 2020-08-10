@@ -236,9 +236,9 @@ bindsym $mod+o exec --no-startup-id pactl set-sink-volume 0 +10%
 bindsym $mod+Control+u exec --no-startup-id sh ~/.config/i3/cmus.sh
 bindsym XF86AudioPlay exec --no-startup-id sh ~/.config/i3/cmus.sh
 bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && \
-	notify-send -t 2 'Cmus: next'
+	notify-send -t 2000 'Cmus: next'
 bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && \
-	notify-send -t 2 'Cmus: prev'
+	notify-send -t 2000 'Cmus: prev'
 
 # Screen brightness controls
 bindsym $mod+Shift+b exec --no-startup-id sh ~/.config/i3/xbacklight.sh
@@ -247,25 +247,25 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10% && \
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
 	sh ~/.config/i3/xbacklight.sh
 bindsym $mod+Control+1 exec --no-startup-id xbacklight -set 10% && \
-	notify-send -t 2 'Brigthness: 10%'
+	notify-send -t 2000 'Brigthness: 10%'
 bindsym $mod+Control+2 exec --no-startup-id xbacklight -set 20% && \
-	notify-send -t 2 'Brigthness: 20%'
+	notify-send -t 2000 'Brigthness: 20%'
 bindsym $mod+Control+3 exec --no-startup-id xbacklight -set 30% && \
-	notify-send -t 2 'Brigthness: 30%'
+	notify-send -t 2000 'Brigthness: 30%'
 bindsym $mod+Control+4 exec --no-startup-id xbacklight -set 40% && \
-	notify-send -t 2 'Brigthness: 40%'
+	notify-send -t 2000 'Brigthness: 40%'
 bindsym $mod+Control+5 exec --no-startup-id xbacklight -set 50% && \
-	notify-send -t 2 'Brigthness: 50%'
+	notify-send -t 2000 'Brigthness: 50%'
 bindsym $mod+Control+6 exec --no-startup-id xbacklight -set 60% && \
-	notify-send -t 2 'Brigthness: 60%'
+	notify-send -t 2000 'Brigthness: 60%'
 bindsym $mod+Control+7 exec --no-startup-id xbacklight -set 70% && \
-	notify-send -t 2 'Brigthness: 70%'
+	notify-send -t 2000 'Brigthness: 70%'
 bindsym $mod+Control+8 exec --no-startup-id xbacklight -set 80% && \
-	notify-send -t 2 'Brigthness: 80%'
+	notify-send -t 2000 'Brigthness: 80%'
 bindsym $mod+Control+9 exec --no-startup-id xbacklight -set 90% && \
-	notify-send -t 2 'Brigthness: 90%'
+	notify-send -t 2000 'Brigthness: 90%'
 bindsym $mod+Control+0 exec --no-startup-id xbacklight -set 100% && \
-	notify-send -t 2 'Brigthness: 100%'
+	notify-send -t 2000 'Brigthness: 100%'
 
 # Screen rotation
 bindsym $mod+$alt+j exec --no-startup-id sh ~/.config/i3/rotate.sh normal
@@ -279,19 +279,19 @@ bindsym $mod+$alt+i exec --no-startup-id xcalib -i -a
 # Screenshot
 # - Fullscreen:
 bindsym --release $mod+Print exec --no-startup-id scrot \
-	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
+	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2000 'Screenshot!'
 # - Select region:
 bindsym --release $mod+Shift+Print exec --no-startup-id scrot -s \
-	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
+	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2000 'Screenshot!'
 # - Focused window, with border
 bindsym --release $mod+Control+Print exec --no-startup-id scrot -ub \
-	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2 'Screenshot!'
+	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2000 'Screenshot!'
 
 # Compton control
 bindsym $mod+Control+g exec --no-startup-id \
-	pkill compton && notify-send -t 2 'Compton killed.'
+	pkill compton && notify-send -t 2000 'Compton killed.'
 bindsym $mod+Shift+g exec --no-startup-id \
-	compton -b --config ~/.compton.conf && notify-send -t 2 'Compton restarted.'
+	compton -b --config ~/.compton.conf && notify-send -t 2000 'Compton restarted.'
 
 # Hide/display i3 bar
 bindsym $mod+z \
