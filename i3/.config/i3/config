@@ -221,6 +221,7 @@ bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec
+bindsym $mod+Control+q exec --no-startup-id sh ~/.local/bin/ramuse
 
 # Pulse Audio controls
 # Note: volume status is already in i3status

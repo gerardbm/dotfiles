@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Display system information
+# Usage: sysn <name>
+
+SP="--------------------------------------------"
+
+free -h | awk '/^Mem:/ { print "FREE : " $3 " / " $2 }'
+sensors | awk '/^temp1/ {print "TEMP : " $2}'
+
+FIRST=$(ps axch -o cmd:15,%mem --sort=-%mem | grep "$1")
+SECOND=$(ps axch -o cmd:15,%cpu --sort=-%cpu | grep "$1")
+
+if [ "$FIRST" ]; then
+	printf "\n"
+	echo "RAM              (%)    CPU              (%)"
+	echo "$SP"
+	paste <(echo "$FIRST") <(echo "$SECOND")
+	echo "$SP"
+fi

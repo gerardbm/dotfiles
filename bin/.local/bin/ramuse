@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Display ram usage
+
+RAM=$(free -h | awk '/^Mem:/ { print $3 " / " $2 }')
+
+notify-send -t 3000 "RAM usage = $RAM"
