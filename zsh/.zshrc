@@ -96,6 +96,8 @@ eval "$(rbenv init -)"
 # Aliases:
 # For a full list of active aliases, run `alias`.
 # --------------------------------------------------
+alias ls='ls --color=always --group-directories-first'
+alias ll='ls -l --color=always --group-directories-first'
 alias lsp='ls -C --color=always | less -R'
 alias lsd='ls -ld */'
 alias lsf='ls -lp | grep -v "/"'
