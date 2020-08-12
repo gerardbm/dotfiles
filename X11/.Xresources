@@ -70,8 +70,13 @@ URxvt*font           : xft:Terminess Powerline:size=13
 ! URxvt*italicFont     : xft:Terminus:size=12:italic
 ! URxvt*boldItalicFont : xft:Terminus:size=12:bold:italic
 !
-URxvt.keysym.C-M-8 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11\007
-URxvt.keysym.C-M-9 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11:bold\007
+URxvt.keysym.C-M-1 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11\007
+URxvt.keysym.C-M-2 : command:\033]710;xft:Droid Sans Mono for Powerline:size=11\007
+URxvt.keysym.C-M-3 : command:\033]710;xft:Roboto Mono for Powerline:size=11\007
+URxvt.keysym.C-M-4 : command:\033]710;xft:Fira Mono for Powerline:size=11\007
+URxvt.keysym.C-M-5 : command:\033]710;xft:Noto Mono for Powerline:size=11\007
+! ---
+URxvt.keysym.C-M-9 : command:\033]710;xft:Terminess Powerline:size=13\007
 URxvt.keysym.C-M-0 : command:\033]710;xft:Terminess Powerline:size=13:bold\007
 
 URxvt*letterSpace    : 0
