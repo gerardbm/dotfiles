@@ -175,9 +175,9 @@ alias srg='surfraw github'
 alias srl='surfraw slinuxdoc'
 alias srm='surfraw mdn'
 alias srs='surfraw stack'
-alias srw='surfraw wikipedia'
-alias srwca='surfraw wikipedia -l=CA'
-alias srwes='surfraw wikipedia -l=ES'
+alias wen='surfraw wikipedia'
+alias wca='surfraw wikipedia -l=CA'
+alias wes='surfraw wikipedia -l=ES'
 alias sry='surfraw youtube'
 
 # Faster git alias
