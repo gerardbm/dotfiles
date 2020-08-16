@@ -320,11 +320,34 @@ man() {
 	command man "$@"
 }
 
+# Custom tools
+# Maps called after vi-mode
+vimgit() {
+	vimx
+}
+
+vifmx() {
+	vifm . 2>/dev/null
+}
+
+lsix() {
+	setopt +o nomatch
+	sxiv -t *.(png|jpg|jpeg|bmp|gif|tiff) 2>/dev/null
+	setopt -o nomatch
+}
+
 # --------------------------------------------------
 
 # Vi-mode
 bindkey -v
 export KEYTIMEOUT=1
+
+bindkey -s '^v' 'vimgit\n'
+bindkey -s '^o' 'vifmx\n'
+bindkey -s '^s' 'lsix\n'
+
+# Visual mode settings
+zle_highlight=( region:bg=7,fg=0 )
 
 # Navigate in tab autocomplete menu
 bindkey -M menuselect 'h' vi-backward-char
@@ -353,24 +376,6 @@ zle -N zle-keymap-select
 zle -N zle-line-init
 zle -N zle-line-finish
 
-vimgit() {
-	vimx
-}
-
-vifmx() {
-	vifm . 2>/dev/null
-}
-
-lsix() {
-	setopt +o nomatch
-	sxiv -t *.(png|jpg|jpeg|bmp|gif|tiff) 2>/dev/null
-	setopt -o nomatch
-}
-
-bindkey -s '^v' 'vimgit\n'
-bindkey -s '^o' 'vifmx\n'
-bindkey -s '^s' 'lsix\n'
-
 # Edit line in vim
 autoload -U edit-command-line
 zle -N edit-command-line
@@ -396,8 +401,10 @@ bindkey '^n' down-line-or-beginning-search
 stty intr ^j
 
 # Escape key is Ctrl+c
-# - As in vim
 bindkey '^c' vi-cmd-mode
+
+# Escape key from visual mode is Ctrl+c
+bindkey -M visual '^c' deactivate-region
 
 # Surround
 autoload -U select-quoted # ci"
