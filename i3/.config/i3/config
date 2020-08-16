@@ -48,14 +48,15 @@ default_orientation horizontal
 # -----------------------------------------------------------------------------
 
 # Start a terminal
-bindsym $mod+Control+n exec --no-startup-id rxvt-unicode -name 'rxvt'
-bindsym $mod+Control+b exec --no-startup-id rxvt-unicode -name 'rxvt-float'
+bindsym $mod+n exec --no-startup-id rxvt-unicode -name 'rxvt'
+bindsym $mod+b exec --no-startup-id rxvt-unicode -name 'rxvt-float'
 
 # Kill focused window
 bindsym $mod+Control+j kill
 
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
+bindsym $mod+p exec --no-startup-id sh ~/.local/bin/unipicker
 
 # Navigate to the next/prev workspace
 bindsym $mod+Control+l workspace next
@@ -86,8 +87,8 @@ bindsym $mod+y split toggle
 bindsym $mod+f fullscreen toggle
 
 # Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+p layout tabbed
-bindsym $mod+n layout toggle split
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 bindsym $mod+s layout stacking
 
 # Toggle tiling / floating

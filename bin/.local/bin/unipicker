@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description: Search unicode characters and paste them everywhere
+
+set -e
+
+SYMFILE="$HOME/.local/bin/unipicker.d/symbols"
+LETTER=$(cat "$SYMFILE" | \
+	eval rofi -dmenu -p "Search: " | \
+	sed -E 's/^(.).*/\1/g')
+
+xdotool type "$LETTER"
