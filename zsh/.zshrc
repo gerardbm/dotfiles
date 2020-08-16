@@ -171,7 +171,8 @@ alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Surfraw
 alias srd='surfraw duckduckgo'
-alias srg='surfraw github'
+alias srg='surfraw google'
+alias srh='surfraw github'
 alias srl='surfraw slinuxdoc'
 alias srm='surfraw mdn'
 alias srs='surfraw stack'
@@ -281,7 +282,30 @@ else
 fi
 
 # Syntax highlighting
-source $HOME/.syntax/zsh-syntax-highlighting.zsh
+if [[ -a ~/.syntax/zsh-syntax-highlighting.zsh ]]; then
+	source $HOME/.syntax/zsh-syntax-highlighting.zsh
+fi
+
+# Autosuggestions
+if [[ -a ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=007'
+	ZSH_AUTOSUGGEST_STRATEGY=(completion)
+fi
+
+# Speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # Configure pager 'less'
 export MANPAGER='less -s -M +Gg'

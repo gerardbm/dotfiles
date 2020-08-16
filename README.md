@@ -116,6 +116,10 @@ Enable zsh-syntax-highlighting:
 
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.syntax`
 
+Enable zsh-autosuggestions:
+
+`git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
+
 Symlink the zsh settings:
 
 `cd $HOME/dotfiles && stow --no-folding zsh`
