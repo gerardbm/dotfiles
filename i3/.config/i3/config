@@ -52,7 +52,8 @@ bindsym $mod+n exec --no-startup-id rxvt-unicode -name 'rxvt'
 bindsym $mod+b exec --no-startup-id rxvt-unicode -name 'rxvt-float'
 
 # Kill focused window
-bindsym $mod+Control+j kill
+bindsym $mod+x kill
+bindsym $mod+Control+Return kill
 
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
@@ -92,7 +93,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+s layout stacking
 
 # Toggle tiling / floating
-bindsym $mod+Control+space floating toggle
+bindsym $mod+d floating toggle
 
 # Toggle focus tiling / floating
 bindsym $mod+a focus mode_toggle
@@ -222,7 +223,7 @@ bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder --start-hidden
 bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec
-bindsym $mod+Control+q exec --no-startup-id sh ~/.local/bin/ramuse
+bindsym $mod+Control+b exec --no-startup-id sh ~/.local/bin/ramuse
 
 # Pulse Audio controls
 # Note: volume status is already in i3status
@@ -296,8 +297,7 @@ bindsym $mod+Shift+g exec --no-startup-id \
 	compton -b --config ~/.compton.conf && notify-send -t 2000 'Compton restarted.'
 
 # Hide/display i3 bar
-bindsym $mod+z \
-	bar mode toggle
+bindsym $mod+Control+space bar mode toggle
 
 # Toggle monitor modes
 bindsym $mod+Shift+t exec --no-startup-id bash ~/.config/i3/togglexrandr.sh
