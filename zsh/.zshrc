@@ -381,7 +381,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x' edit-command-line
 
-# Readline commands in vi-mode
+# Readline commands
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^b' backward-char
@@ -394,6 +394,11 @@ bindkey '^w' backward-kill-word
 bindkey '^q' kill-word
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
+
+# Vi-mode commands
+# This skips 'down-line-or-history' and 'up-line-or-history'
+bindkey -M vicmd 'j' down-line
+bindkey -M vicmd 'k' up-line
 
 # Interrupt key is Ctrl+j
 # - As in tmux to close pane/window: Ctrl+Alt+j
