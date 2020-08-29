@@ -542,10 +542,10 @@ The following table shows the main workflow:
 | Last          | Ctrl+Super+p  | Ctrl+Alt+p   | Ctrl+p Enter |
 | ------------- | ------------- | ------------ | ------------ |
 |               |               | (windows)    | (buffers)    |
-| Up: 1 line    |               | Alt+m k      | Ctrl+k       |
-| Down: 1 line  |               | Alt+m j      | Ctrl+j       |
-| Up: ½ page    |               | Alt+m u      | Ctrl+u       |
-| Down: ½ page  |               | Alt+m d      | Ctrl+d       |
+| Up: 1 line    |               | Alt+space k  | Ctrl+k       |
+| Down: 1 line  |               | Alt+space j  | Ctrl+j       |
+| Up: ½ page    |               | Alt+space u  | Ctrl+u       |
+| Down: ½ page  |               | Alt+space d  | Ctrl+d       |
 | ------------- | ------------- | ------------ | ------------ |
 |               | (windows)     | (panes)      | (windows)    |
 | Focus ←       | Super+h       | Alt+h        | Alt+h        |
@@ -564,6 +564,8 @@ The following table shows the main workflow:
 | Focus #7      | Super+7       | Alt+7        |              |
 | Focus #8      | Super+8       | Alt+8        |              |
 | Focus #9      | Super+9       | Alt+9        |              |
+| New terminal  | Super+n       | Alt+n        | Ctrl+t       |
+| Kill active   | Super+x       | Alt+x        | Ctrl+w j     |
 | New terminal  | Ctrl+Super+n  | Ctrl+Alt+n   | Ctrl+t       |
 | Kill active   | Ctrl+Super+j  | Ctrl+Alt+j   | Ctrl+w j     |
 | Only active   |               |              | Ctrl+w o     |
