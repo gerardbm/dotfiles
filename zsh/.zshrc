@@ -266,6 +266,7 @@ alias convertdd='convert -alpha remove -background white -density 300 -depth 8'
 alias news='newsbeuter'
 alias www='w3m'
 alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
+alias yt='youtube-dl -if best'
 
 # --------------------------------------------------
 
