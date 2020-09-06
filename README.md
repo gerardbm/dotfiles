@@ -620,22 +620,60 @@ Command line tools:
 2. Alt+p and Alt+n are configured by default into irssi.
 ```
 
-Multimedia tools:
+PDF and images:
 
 ```
-| ACTION        | mupdf         | apvlv         | mpv          | feh          |
-| ------------- | ------------- | ------------- | ------------ | ------------ |
-|               | (pdfs)        | (pdfs)        | (videos)     | (images)     |
-| ←             | h             | h             | h            | h            |
-| →             | l             | l             | l            | l            |
-| ↑             | k             | k             | k            | k            |
-| ↓             | j             | j             | j            | j            |
-| Zoom in       | +             | z             | z            | z            |
-| Zoom out      | -             | Z             | Z            | Z            |
-| Up: ½ page    | b             | u             |              |              |
-| Down: ½ page  | space         | d             |              |              |
-| Rotate        | R, L          | r             | r            | <, >         |
-| Quit          | q             | q             | q            | q            |
+| ACTION        | mupdf         | apvlv         | feh          |
+| ------------- | ------------- | ------------- | ------------ |
+|               | (pdfs)        | (pdfs)        | (images)     |
+| ←             | h             | h             | h            |
+| →             | l             | l             | l            |
+| ↑             | k             | k             | k            |
+| ↓             | j             | j             | j            |
+| Zoom in       | +             | z             | z            |
+| Zoom out      | -             | Z             | Z            |
+| Up: ½ page    | b             | u             |              |
+| Down: ½ page  | space         | d             |              |
+| Rotate        | R, L          | r             | <, >         |
+| Quit          | q             | q             | q            |
+```
+
+Audio:
+
+```
+| ACTION        | cmus          |
+| ------------- | ------------- |
+| ← (-seek)     | h             |
+| → (+seek)     | l             |
+| ↑             | k             |
+| ↓             | j             |
+| Pause         | c             |
+| Stop          | v             |
+| Volume up     | +             |
+| Volume down   | -             |
+| Quit          | q             |
+```
+
+Video:
+
+```
+| ACTION        | mpv           |
+| ------------- | ------------- |
+| ← (-seek)     | h             |
+| → (+seek)     | l             |
+| ←             | Ctrl+h        |
+| →             | Ctrl+l        |
+| ↑             | Ctrl+k        |
+| ↓             | Ctrl+j        |
+| Reset         | Ctrl+p        |
+| Zoom in       | z             |
+| Zoom out      | Z             |
+| Reset zoom    | Ctrl+z        |
+| Rotate        | r             |
+| Reset rotate  | Ctrl+r        |
+| Volume up     | +             |
+| Volume down   | -             |
+| Quit          | q             |
 ```
 
 Yes, a mouse would make the life easier. And slower ;-)
