@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-#
-# List files and sort them by size
-
-ls -Slhlp | grep -v "/" \
-	| awk '{print $5,$9}' \
-	| awk '/^[0-9]/' \
-	| awk '{ printf "\033[38m%5s \033[36m%s\033[0m\n", $1,$2 }'
-
