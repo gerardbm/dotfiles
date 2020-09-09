@@ -270,6 +270,28 @@ bindsym $mod+Control+9 exec --no-startup-id xbacklight -set 90% && \
 bindsym $mod+Control+0 exec --no-startup-id xbacklight -set 100% && \
 	notify-send -t 2000 'Brigthness: 100%'
 
+# Screen color temperature
+bindsym $mod+$alt+1 exec --no-startup-id sct 1000 && \
+	notify-send -t 2000 'Sct: 1000 (lowest)'
+bindsym $mod+$alt+2 exec --no-startup-id sct 1611 && \
+	notify-send -t 2000 'Sct: 1611'
+bindsym $mod+$alt+3 exec --no-startup-id sct 2222 && \
+	notify-send -t 2000 'Sct: 2222'
+bindsym $mod+$alt+4 exec --no-startup-id sct 2833 && \
+	notify-send -t 2000 'Sct: 2833'
+bindsym $mod+$alt+5 exec --no-startup-id sct 3444 && \
+	notify-send -t 2000 'Sct: 3444'
+bindsym $mod+$alt+6 exec --no-startup-id sct 4056 && \
+	notify-send -t 2000 'Sct: 4056'
+bindsym $mod+$alt+7 exec --no-startup-id sct 4667 && \
+	notify-send -t 2000 'Sct: 4667'
+bindsym $mod+$alt+8 exec --no-startup-id sct 5278 && \
+	notify-send -t 2000 'Sct: 5278'
+bindsym $mod+$alt+9 exec --no-startup-id sct 5889 && \
+	notify-send -t 2000 'Sct: 5889'
+bindsym $mod+$alt+0 exec --no-startup-id sct && \
+	notify-send -t 2000 'Sct: 6500 (reset)'
+
 # Screen rotation
 bindsym $mod+$alt+j exec --no-startup-id sh ~/.config/i3/rotate.sh normal
 bindsym $mod+$alt+l exec --no-startup-id sh ~/.config/i3/rotate.sh left
