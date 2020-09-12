@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Description: convert file to PNG with density parameter.
+# Usage: convertx <integer> <filename>
+
+for f in "${@:2}"; do
+	NAME="${f%%.*}"
+	DENSITY="dens$1"
+	RESULT="${NAME}-${DENSITY}.png"
+
+	echo "> Converting: $f to $RESULT with $1."
+
+	convert \
+		-alpha remove \
+		-background white \
+		-density "$1" \
+		-strip \
+		-depth 8 "$f" "$RESULT"
+
+done
