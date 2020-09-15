@@ -109,6 +109,8 @@ alias cleanswap='sudo swapoff -a && sudo swapon -a'
 alias yy='pwd | tr -d "\n" | xsel -b'
 alias fid='find . -type d -name'
 alias fif='find . -type f -name'
+alias fidi='find . -type d -iname'
+alias fifi='find . -type f -iname'
 
 # Hardware
 alias ram='free -h'
@@ -134,6 +136,8 @@ alias vimgdsh='vim `git diff --staged --name-only | head -n 1`'
 alias vimgdst='vim `git diff --staged --name-only | tail -n 1`'
 alias vimun='vim `git ls-files . --exclude-standard --others`'
 alias svim='sudoedit'
+alias vimt='vim `ls | tail -n 1`'
+alias vimh='vim `ls | head -n 1`'
 
 # Vifm
 alias vif='vim ~/.config/vifm/vifmrc'
