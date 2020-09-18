@@ -1,4 +1,4 @@
-# i3wm config file (v4)
+# i3wm config file (v4.13)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -58,7 +58,7 @@ bindsym $mod+Control+j kill
 
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
-bindsym $mod+p exec --no-startup-id sh ~/.local/bin/unipicker
+bindsym $mod+Control+space exec --no-startup-id sh ~/.local/bin/unipicker
 
 # Navigate to the next/prev workspace
 bindsym $mod+Control+l workspace next
@@ -99,11 +99,11 @@ bindsym $mod+d floating toggle
 # Toggle focus tiling / floating
 bindsym $mod+a focus mode_toggle
 
-# Focus the parent container
-bindsym $mod+c focus parent
+# Focus the parent container (mode_toggle is enough)
+# bindsym $mod+c focus parent
 
-# Focus the child container
-bindsym $mod+Control+c focus child
+# Focus the child container (mode_toggle is enough)
+# bindsym $mod+Control+c focus child
 
 # Make the focused window a scratchpad
 bindsym $mod+Shift+i move scratchpad
@@ -196,7 +196,13 @@ mode "$mode_system" {
 }
 
 # Automatic alignment for floating windows
-bindsym $mod+m exec sh ~/.config/i3/winner.sh
+bindsym $mod+c move absolute position center
+bindsym $mod+t exec --no-startup-id sh ~/.config/i3/winner.sh
+bindsym $mod+v exec --no-startup-id sh ~/.config/i3/winbig.sh
+bindsym $mod+m exec --no-startup-id sh ~/.config/i3/winside.sh
+
+# Hide/display i3 bar
+bindsym $mod+z bar mode toggle
 
 # Caps mode
 set $mode_caps [█]
@@ -224,6 +230,8 @@ bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec "UNIX"
 bindsym $mod+Control+s exec --no-startup-id sh ~/.local/bin/ramuse
+bindsym $mod+Control+b exec --no-startup-id sh ~/.config/i3/xbacklight.sh
+bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
 
 # Pulse Audio controls
 # Note: volume status is already in i3status
@@ -244,7 +252,6 @@ bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && \
 	notify-send -t 2000 'Cmus: prev'
 
 # Screen brightness controls
-bindsym $mod+Shift+b exec --no-startup-id sh ~/.config/i3/xbacklight.sh
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10% && \
 	sh ~/.config/i3/xbacklight.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
@@ -318,11 +325,8 @@ bindsym $mod+Control+g exec --no-startup-id \
 bindsym $mod+Shift+g exec --no-startup-id \
 	compton -b --config ~/.compton.conf && notify-send -t 2000 'Compton restarted.'
 
-# Hide/display i3 bar
-bindsym $mod+Control+space bar mode toggle
-
 # Toggle monitor modes
-bindsym $mod+Shift+t exec --no-startup-id bash ~/.config/i3/togglexrandr.sh
+bindsym $mod+$alt+t exec --no-startup-id bash ~/.config/i3/togglexrandr.sh
 
 # -----------------------------------------------------------------------------
 # Mouse
@@ -409,6 +413,7 @@ for_window [class="^URxvt$" instance="^top$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^rxvt$"] focus
 for_window [class="^URxvt$" instance="^rxvt-float$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^vifm-float$"] floating enable border 1px
 
 # Force focus
 for_window [class="^libreoffice-startcenter$"] focus

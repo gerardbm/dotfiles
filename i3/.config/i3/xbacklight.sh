@@ -8,4 +8,4 @@
 
 GETVAL=$(xbacklight -get | awk '{printf "%.0f\n", $1}')
 
-notify-send -t 2000 "Brightness: $GETVAL"
+notify-send -t 2000 "Brightness information: $GETVAL%"
