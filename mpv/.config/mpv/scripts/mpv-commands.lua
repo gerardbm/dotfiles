@@ -97,4 +97,4 @@ mp.add_key_binding("Ctrl+p", "reset_pan", pan_reset)
 
 mp.add_key_binding("i", "inverse_color", inverse_color)
 
-mp.add_key_binding("q", "custom_quit_for_i3wm", custom_quit_for_i3wm)
+mp.add_key_binding("Ctrl+q", "custom_quit_for_i3wm", custom_quit_for_i3wm)
