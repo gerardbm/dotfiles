@@ -210,13 +210,29 @@ set $mode_caps [█]
 bindsym Caps_Lock mode "$mode_caps"
 bindsym Shift+Caps_Lock mode "$mode_caps"
 bindsym Control+Caps_Lock mode "$mode_caps"
+bindsym Control+Shift+Caps_Lock mode "$mode_caps"
 bindsym $alt+Caps_Lock mode "$mode_caps"
+bindsym $alt+Shift+Caps_Lock mode "$mode_caps"
+bindsym $alt+Control+Caps_Lock mode "$mode_caps"
+bindsym $alt+Control+Shift+Caps_Lock mode "$mode_caps"
+bindsym $mod+Caps_Lock mode "$mode_caps"
+bindsym $mod+Shift+Caps_Lock mode "$mode_caps"
+bindsym $mod+Control+Caps_Lock mode "$mode_caps"
+bindsym $mod+Control+Shift+Caps_Lock mode "$mode_caps"
 
 mode "$mode_caps" {
 	bindsym Caps_Lock mode "default"
 	bindsym Shift+Caps_Lock mode "default"
 	bindsym Control+Caps_Lock mode "default"
+	bindsym Control+Shift+Caps_Lock mode "default"
 	bindsym $alt+Caps_Lock mode "default"
+	bindsym $alt+Shift+Caps_Lock mode "default"
+	bindsym $alt+Control+Caps_Lock mode "default"
+	bindsym $alt+Control+Shift+Caps_Lock mode "default"
+	bindsym $mod+Caps_Lock mode "default"
+	bindsym $mod+Shift+Caps_Lock mode "default"
+	bindsym $mod+Control+Caps_Lock mode "default"
+	bindsym $mod+Control+Shift+Caps_Lock mode "default"
 }
 
 # Open applications
@@ -440,7 +456,7 @@ client.background       $base2
 
 bar {
 	position top
-	separator_symbol "/"
+	separator_symbol "¦"
 	strip_workspace_numbers no
 	font pango: Terminus 10
 	status_command i3status -c ~/.config/i3/i3status.conf
@@ -448,11 +464,11 @@ bar {
 		background $base2
 		statusline $base4
 		separator  $acc50
-		focused_workspace  $acc50 $acc50 $base2
+		focused_workspace  $base2 $base2 $acc50
 		active_workspace   $base2 $base2 $acb50
-		inactive_workspace $base2 $base2 $acc50
+		inactive_workspace $base2 $base2 $base3
 		urgent_workspace   $base2 $base2 $acg50
-		binding_mode       $base2 $base2 $acr50
+		binding_mode       $base2 $base2 $aco50
 	}
 }
 
