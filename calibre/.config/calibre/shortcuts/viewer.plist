@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Document Bottom</key>
+	<array>
+		<string>Shift+G</string>
+	</array>
+	<key>Document Top</key>
+	<array>
+		<string>G</string>
+	</array>
+	<key>Font larger</key>
+	<array>
+		<string>+</string>
+	</array>
+	<key>Font smaller</key>
+	<array>
+		<string>-</string>
+	</array>
+	<key>Fullscreen</key>
+	<array>
+		<string>F</string>
+	</array>
+	<key>Next Page</key>
+	<array>
+		<string>N</string>
+	</array>
+	<key>Previous Page</key>
+	<array>
+		<string>P</string>
+	</array>
+	<key>Quit</key>
+	<array>
+		<string>Q</string>
+	</array>
+</dict>
+</plist>
