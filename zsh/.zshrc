@@ -122,11 +122,11 @@ alias disk='df -h .'
 alias xres='xrdb ~/.Xresources'
 
 # Zsh
-alias viz='vim ~/.zshrc'
-alias soz='source ~/.zshrc'
+alias viz='vim $HOME/.zshrc'
+alias soz='source $HOME/.zshrc'
 
 # Vim
-alias vir='vim $HOME/vimrc/vim/.vimrc'
+alias vir='vim $HOME/.vimrc'
 alias vor='vim -N -u NORC'
 alias vimgd='vim `git diff --name-only`'
 alias vimgdh='vim `git diff --name-only | head -n 1`'
@@ -145,7 +145,7 @@ alias vif='vim ~/.config/vifm/vifmrc'
 # Neovim
 if [ -x "$(command -v nvim)"  ]; then
 	alias neo='nvim'
-	alias nir='nvim $HOME/vimrc/nvim/.config/nvim/init.vim'
+	alias nir='nvim $HOME/.config/nvim/init.vim'
 	alias nor='nvim -N -u NORC'
 	alias neogd='nvim `git diff --name-only`'
 fi
@@ -273,6 +273,7 @@ alias news='newsbeuter'
 alias www='w3m'
 alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
 alias yt='youtube-dl -if best'
+alias epub='ebook-viewer'
 
 # --------------------------------------------------
 

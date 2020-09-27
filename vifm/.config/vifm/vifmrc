@@ -173,7 +173,7 @@ filextype *.pdf mupdf %c 2>/dev/null &
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " Epub
-filextype *.epub mupdf %c 2>/dev/null &
+filextype *.epub ebook-viewer %c 2>/dev/null &
 fileviewer *.epub pdftotext -nopgbrk %c -
 
 " PostScript

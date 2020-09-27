@@ -386,6 +386,7 @@ assign [class="^Zathura$"] $ws4
 assign [class="^PdfMod$"] $ws4
 assign [class="^FBReader$"] $ws4
 assign [class="^libreoffice-startcenter$"] $ws4
+assign [class="^calibre$"] $ws4
 
 # 5: net
 assign [class="^Filezilla$"] $ws5
@@ -438,6 +439,7 @@ for_window [class="^Zathura$"] focus
 for_window [class="^Dia$"] focus
 for_window [class="^mpv$"] focus
 for_window [class="^TelegramDesktop$"] focus
+for_window [class="^calibre$"] focus
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -447,7 +449,7 @@ for_window [urgent=latest] focus
 # -----------------------------------------------------------------------------
 
 # class                 border backg. text   indic. child_border
-client.focused          $acc50 $acc50 $base2 $acr50 $acc50
+client.focused          $acc50 $acc50 $base2 $aco50 $acc50
 client.focused_inactive $base3 $base3 $base2 $base3
 client.unfocused        $base2 $base2 $base3 $base2
 client.urgent           $acg50 $acg50 $base1 $acg50
