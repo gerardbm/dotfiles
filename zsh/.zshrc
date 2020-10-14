@@ -274,6 +274,7 @@ alias www='w3m'
 alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
 alias yt='youtube-dl -if best'
 alias epub='ebook-viewer'
+alias ff='pcmanfm .'
 
 # --------------------------------------------------
 
