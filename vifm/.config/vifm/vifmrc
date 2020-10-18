@@ -458,6 +458,10 @@ nnoremap <C-s> :!setopt +o nomatch &&
 nnoremap ,f :!gvimr %f &<CR>
 nnoremap ,j :!tmux new-window vim %f 2>/dev/null &<CR>
 
+" Bookmarks
+nnoremap bb :bmarks<CR>
+nnoremap ba :bmark .<CR>
+
 " ------------------------------------------------------------------------------
 
 nnoremap <space> /
