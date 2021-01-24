@@ -216,6 +216,7 @@ alias gpush='git push'
 alias gpull='git pull'
 
 # Dev
+alias cdf='cd $HOME/Sync/; ls'
 alias cdv='cd $HOME/vimrc/; ls'
 alias cdd='cd $HOME/dotfiles/; ls'
 alias cds='cd $HOME/Workspace/; ls'
@@ -278,6 +279,8 @@ alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
 alias yt='youtube-dl -if best'
 alias epub='ebook-viewer'
 alias ff='pcmanfm .'
+alias mpv0='mpv --ytdl-format=0'
+alias mpv1='mpv --ytdl-format=1'
 
 # --------------------------------------------------
 
