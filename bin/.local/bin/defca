@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Description: get definition from diccionari.cat
+
+QUERY=$(perl -MLWP::Simple -e  "getprint 'http://www.diccionari.cat/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=$1'")
+URL=$(echo "$QUERY" | cut -d"'" -f2)
+w3m "$URL"

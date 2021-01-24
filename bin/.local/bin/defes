@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: get definition from rae.es
+
+w3m "https://dle.rae.es/$1"
