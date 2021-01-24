@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: kill Chromium incognito tabs
+
+killall chromium

@@ -56,6 +56,9 @@ bindsym $mod+b exec --no-startup-id rxvt-unicode -name 'rxvt-float'
 bindsym $mod+x kill
 bindsym $mod+Control+j kill
 
+# Kill Chromium from anywhere
+bindsym $mod+Control+shift+j exec --no-startup-id sh ~/.local/bin/killc
+
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
 bindsym $mod+Control+space exec --no-startup-id sh ~/.local/bin/unipicker
@@ -238,7 +241,7 @@ mode "$mode_caps" {
 # Open applications
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
 bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -e 'vifm'
-bindsym $mod+Control+o exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
+bindsym $mod+Control+a exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
 bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
 bindsym $mod+Control+y exec --no-startup-id urxvt -name 'python' -e 'python3'
 bindsym $mod+Control+t exec --no-startup-id urxvt -name 'top' -e 'top'
@@ -379,6 +382,9 @@ assign [class="^Blender$"] $ws3
 assign [class="^QCAD$"] $ws3
 assign [class="^LibreCAD$"] $ws3
 assign [class="^Freecad$"] $ws3
+assign [class="^Skychart$"] $ws3
+assign [class="^kstars$"] $ws3
+assign [class="^stellarium$"] $ws3
 
 # 4: doc
 assign [class="^Apvlv$"] $ws4
@@ -410,6 +416,7 @@ assign [class="^TelegramDesktop$"] $ws8
 # 9: www
 assign [class="^Firefox$"] $ws9
 assign [class="^Firefox-esr$"] $ws9
+assign [class="^Navigator$"] $ws9
 assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 

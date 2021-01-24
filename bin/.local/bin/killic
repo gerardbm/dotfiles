@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Description: kill Chromium incognito tabs
+
+ps aux | grep chromium | grep 'disable-databases' \
+	| awk '{print $2}' | xargs kill -9
