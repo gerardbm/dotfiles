@@ -89,12 +89,12 @@ mp.add_key_binding("r", "cw", cw)
 mp.add_key_binding("Shift+r", "ccw", ccw)
 mp.add_key_binding("Ctrl+r", "reset_rotate", reset_rotate)
 
-mp.add_key_binding("Ctrl+l", "pan_right", pan_right)
-mp.add_key_binding("Ctrl+h", "pan_left", pan_left)
-mp.add_key_binding("Ctrl+k", "pan_up", pan_up)
-mp.add_key_binding("Ctrl+j", "pan_down", pan_down)
+mp.add_key_binding("l", "pan_right", pan_right)
+mp.add_key_binding("h", "pan_left", pan_left)
+mp.add_key_binding("k", "pan_up", pan_up)
+mp.add_key_binding("j", "pan_down", pan_down)
 mp.add_key_binding("Ctrl+p", "reset_pan", pan_reset)
 
 mp.add_key_binding("i", "inverse_color", inverse_color)
 
-mp.add_key_binding("Ctrl+q", "custom_quit_for_i3wm", custom_quit_for_i3wm)
+mp.add_key_binding("q", "custom_quit_for_i3wm", custom_quit_for_i3wm)
