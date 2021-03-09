@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Description: Youtube browser using duckduckgo.
+
+string=$(echo "$@" | sed -E "s/\s/\+/g")
+
+w3m https://duckduckgo.com/?q="site:youtube.com $string&iax=videos"
