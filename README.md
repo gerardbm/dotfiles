@@ -30,6 +30,8 @@ Configuration files:
 - CVS         : git
 - Editor      : vim, neovim
 - Files       : vifm, ranger
+- Finder      : fzf
+- Youtube     : ytfzf
 - IRC         : irssi
 - Email       : mutt
 - Music       : cmus
@@ -421,6 +423,25 @@ Install the atomic theme for vifm:
 mkdir $HOME/.mutt
 git clone https://github.com/gerardbm/atomic
 cp atomic/vifm/atomic.vifm $HOME/.config/vifm/colors/
+```
+
+### FZF
+
+Install it following the instructions from [fzf Github page](https://github.com/junegunn/fzf/).
+
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
+### Ytfzf
+
+Install it following the instructions from [ytfzf Github page](https://github.com/pystardust/ytfzf/).
+
+```sh
+git clone https://github.com/pystardust/ytfzf
+cd ytfzf
+sudo make install
 ```
 
 ### Mutt

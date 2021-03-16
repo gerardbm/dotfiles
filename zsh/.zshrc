@@ -281,6 +281,9 @@ alias epub='ebook-viewer'
 alias ff='pcmanfm .'
 alias mpv0='mpv --ytdl-format=0'
 alias mpv1='mpv --ytdl-format=1'
+alias ytf='ytfzf -Dfl'
+alias ytd='ytfzf -Dfdl'
+alias yth='ytfzf -DfHl'
 
 # --------------------------------------------------
 
@@ -451,3 +454,15 @@ bindkey -a cs change-surround
 bindkey -a ds delete-surround
 bindkey -a ys add-surround
 bindkey -M visual S add-surround
+
+# FZF Config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="\
+--height=15 --reverse \
+--prompt='> ' --pointer='→' --no-bold \
+--color fg:15,bg:0,hl:3,fg+:6,bg+:8,hl+:3,\
+info:6,prompt:6,spinner:2,pointer:3,marker:3,border:6"
+
+export YTFZF_EXTMENU_LEN=150
+export YTFZF_EXTMENU=" fzf $FZF_DEFAULT_OPTS"
