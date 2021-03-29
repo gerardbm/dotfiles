@@ -142,6 +142,12 @@ alias vimh='vim `ls | head -n 1`'
 # Vifm
 alias vif='vim ~/.config/vifm/vifmrc'
 
+# Tmux
+alias vit='vim ~/.tmux.conf'
+
+# Xresources
+alias vix='vim ~/.Xresources'
+
 # Neovim
 if [ -x "$(command -v nvim)"  ]; then
 	alias neo='nvim'
