@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Description: text to image
+#
+# Tools used: convert
+#
+# Parameters:
+# $1 = text
+# $2 = color
+
+if [ -z "$2" ]; then
+	color="#ff7f2a"
+	echo "Using a default color: #ff7f2a."
+else
+	color="$2"
+	echo "Using the color $2."
+fi
+
+convert \
+	-background "transparent" \
+	-fill "$color"  \
+	-pointsize 16 \
+	-gravity center label:"'$1'" image.png
