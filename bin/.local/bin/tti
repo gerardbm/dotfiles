@@ -20,4 +20,4 @@ convert \
 	-background "transparent" \
 	-fill "$color"  \
 	-pointsize 16 \
-	-gravity center label:"'$1'" image.png
+	-gravity center label:"$1" image.png
