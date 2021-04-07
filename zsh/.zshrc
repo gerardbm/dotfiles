@@ -315,6 +315,7 @@ if [[ -a ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
 	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=007'
 	ZSH_AUTOSUGGEST_STRATEGY=(completion)
+	ZSH_AUTOSUGGEST_USE_ASYNC=1
 fi
 
 # Speeds up pasting w/ autosuggest
@@ -418,6 +419,8 @@ bindkey '^w' backward-kill-word
 bindkey '^q' kill-word
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
+bindkey '^z' autosuggest-clear
+bindkey '^y' autosuggest-toggle
 
 # Vi-mode commands
 # This skips 'down-line-or-history' and 'up-line-or-history'
