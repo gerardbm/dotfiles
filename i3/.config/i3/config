@@ -250,6 +250,7 @@ bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec "UNIX"
 bindsym $mod+Control+s exec --no-startup-id sh ~/.local/bin/ramuse
 bindsym $mod+Control+b exec --no-startup-id sh ~/.config/i3/xbacklight.sh
+bindsym $mod+Control+o exec --no-startup-id midori
 bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
 
 # Pulse Audio controls
@@ -438,6 +439,7 @@ for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^rxvt$"] focus
 for_window [class="^URxvt$" instance="^rxvt-float$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^vifm-float$"] floating enable border 1px
+for_window [class="^Midori$"] floating enable border 1px
 
 # Force focus
 for_window [class="^libreoffice-startcenter$"] focus
