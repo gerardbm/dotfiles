@@ -58,6 +58,7 @@ bindsym $mod+Control+j kill
 
 # Kill Chromium from anywhere
 bindsym $mod+Control+shift+j exec --no-startup-id sh ~/.local/bin/killc
+bindsym $mod+Control+shift+i exec --no-startup-id sh ~/.local/bin/killic
 
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
@@ -250,7 +251,7 @@ bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec "UNIX"
 bindsym $mod+Control+s exec --no-startup-id sh ~/.local/bin/ramuse
 bindsym $mod+Control+b exec --no-startup-id sh ~/.config/i3/xbacklight.sh
-bindsym $mod+Control+o exec --no-startup-id midori
+bindsym $mod+Control+o exec --no-startup-id firefox
 bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
 
 # Pulse Audio controls
@@ -415,9 +416,6 @@ assign [class="^Skype$"] $ws8
 assign [class="^TelegramDesktop$"] $ws8
 
 # 9: www
-assign [class="^Firefox$"] $ws9
-assign [class="^Firefox-esr$"] $ws9
-assign [class="^Navigator$"] $ws9
 assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 
@@ -439,7 +437,7 @@ for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^rxvt$"] focus
 for_window [class="^URxvt$" instance="^rxvt-float$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^vifm-float$"] floating enable border 1px
-for_window [class="^Midori$"] floating enable border 1px
+for_window [class="^Firefox-esr$"] floating enable border 1px
 
 # Force focus
 for_window [class="^libreoffice-startcenter$"] focus
