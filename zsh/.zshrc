@@ -468,6 +468,7 @@ bindkey -M visual S add-surround
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS="\
+--bind ctrl-f:abort \
 --height=15 --reverse \
 --prompt='> ' --pointer='→' --no-bold \
 --color fg:15,bg:0,hl:3,fg+:6,bg+:8,hl+:3,\
