@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Description: Browse multiple PDF files in a specific directory
+
+find "$1" -iname '*\.pdf' | xargs -n1 mupdf
