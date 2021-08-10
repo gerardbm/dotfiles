@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# Description: Make a list of markdown posts ordered by order value
+
+EXISTS=$(find _posts/ -type f -iregex '.*\.md$' 2>/dev/null)
+
+# Check if there are posts
+if ! [ "$EXISTS" ]; then
+	echo "Check if _posts directory exists."
+	echo "Check if _posts contains markdown files."
+	exit 1
+fi
+
+# Check if the category is typed
+if [ -z "$1" ]; then
+	echo "Type a category name (slug)."
+	exit 1
+fi
+
+# Check if the category is correct
+if ! [ -d "_posts/$1" ]; then
+	echo "The category name (slug) does not exist."
+	exit 1
+fi
+
+echo "sorted number, order value, post name"
+
+for i in $(find _posts/"$1" -type f -iregex '.*\.md$' 2>/dev/null); do
+	ORDER=$(grep 'order: ' < "$i" | awk '{print $2}')
+	NAME=$(basename "$i" .md | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//')
+	echo "$ORDER, $NAME"
+done | sort -nsk1 | awk '{print 10*(NR-1) " " $0}'
