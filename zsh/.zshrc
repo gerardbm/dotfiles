@@ -290,6 +290,7 @@ alias mpv1='mpv --ytdl-format=1'
 alias ytf='ytfzf -Dfl'
 alias ytd='ytfzf -Dfdl'
 alias yth='ytfzf -DfHl'
+alias report='sh report.sh'
 
 # --------------------------------------------------
 
