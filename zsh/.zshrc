@@ -111,6 +111,7 @@ alias fid='find . -type d -name'
 alias fif='find . -type f -name'
 alias fidi='find . -type d -iname'
 alias fifi='find . -type f -iname'
+alias mkd='mkdir -pv'
 
 # Hardware
 alias ram='free -h'
@@ -290,7 +291,9 @@ alias mpv1='mpv --ytdl-format=1'
 alias ytf='ytfzf -Dfl'
 alias ytd='ytfzf -Dfdl'
 alias yth='ytfzf -DfHl'
-alias report='sh report.sh'
+alias report='zsh report.sh'
+alias nav='zsh nav.sh'
+alias clock='tty-clock -C6 -c'
 
 # --------------------------------------------------
 
