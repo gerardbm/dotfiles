@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Description: Open w3m browser in a new window
+
+urxvt -name 'www' \
+	-b 90 \
+	-fn "xft:DejaVu Sans Mono for Powerline:size=13" \
+	-e w3m "$1"
