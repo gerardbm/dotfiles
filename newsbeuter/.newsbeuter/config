@@ -3,7 +3,7 @@ include "~/.newsbeuter/colors"
 urls-source local
 
 # Browser
-browser /usr/bin/w3m
+browser www
 external-url-viewer /usr/bin/urlview
 
 # General settings
