@@ -8,7 +8,7 @@
 lsof -i :4000 >/dev/null 2>&1
 
 if [ $? -eq 0 ]; then
-	urxvt \
+	urxvt -name 'jekw3m' \
 		-b 55 \
 		-fn "xft:DejaVu Sans Mono for Powerline:size=13" \
 		-e w3m http://localhost:4000/
