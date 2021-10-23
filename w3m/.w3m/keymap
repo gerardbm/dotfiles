@@ -250,6 +250,7 @@ keymap T TAB_MENU
 
 ########## quit ##########
 keymap ZZ EXIT
+keymap q EXIT
 keymap C-Q EXIT
 keymap ZQ QUIT
 keymap :q QUIT
