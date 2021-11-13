@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description: Navigate a URLs list and pick one to paste anywhere
+
+set -e
+
+SYMFILE="$HOME/.urls"
+URL=$(cat "$SYMFILE" | \
+	eval rofi -dmenu -p "Search: ")
+
+xdotool type "$URL"

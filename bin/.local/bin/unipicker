@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Version: 1.0.0
 #
-# Description: Search unicode characters and paste them everywhere
+# Description: Search unicode characters and paste them anywhere
 
 set -e
 

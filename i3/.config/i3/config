@@ -62,6 +62,7 @@ bindsym $mod+Control+shift+i exec --no-startup-id sh ~/.local/bin/killic
 
 # Start program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
+bindsym $mod+Control+comma exec --no-startup-id sh ~/.local/bin/urlpicker
 bindsym $mod+Control+space exec --no-startup-id sh ~/.local/bin/unipicker
 
 # Navigate to the next/prev workspace
