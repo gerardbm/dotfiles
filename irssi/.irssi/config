@@ -20,14 +20,14 @@ servers = (
     ssl_verify = "no";
   },
   {
-    address = "irc.freenode.net";
-    chatnet = "Freenode";
-    port = "6667";
+    address = "irc.libera.chat";
+    chatnet = "Libera";
+    port = "6697";
     autoconnect = "no";
     nick = "NICKNAME";
     password = "PASSWORD";
-    use_ssl = "no";
-    ssl_verify = "no";
+    use_ssl = "yes";
+    ssl_verify = "yes";
   }
 );
 
@@ -53,9 +53,9 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
   };
-  Freenode = {
+  Libera = {
     type = "IRC";
-    autosendcmd = "unquery NickServ";
+    autosendcmd = "";
     nick = "NICKNAME";
     username = "~";
     realname = "UNIX";
@@ -68,11 +68,11 @@ chatnets = {
 channels = (
   { name = "#programacion"; chatnet = "Hispano"; autojoin = "No"; },
   { name = "#matematicas"; chatnet = "Hispano"; autojoin = "No"; },
-  { name = "#linux"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#vim"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#git"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#bash"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#python"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#linux"; chatnet = "Libera"; autojoin = "No"; },
+  { name = "#vim"; chatnet = "Libera"; autojoin = "No"; },
+  { name = "#git"; chatnet = "Libera"; autojoin = "No"; },
+  { name = "#bash"; chatnet = "Libera"; autojoin = "No"; },
+  { name = "#python"; chatnet = "Libera"; autojoin = "No"; },
 );
 
 aliases = {
@@ -334,7 +334,7 @@ statusbar = {
 conversions = {
   Hispano = "CP1252";
   ChatZona = "UTF-8";
-  Freenode = "UTF-8";
+  Libera = "UTF-8";
 };
 
 settings = {
