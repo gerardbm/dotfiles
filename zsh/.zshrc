@@ -93,6 +93,9 @@ export GOPATH=$HOME/Workspace/goprojects
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # Aliases:
 # For a full list of active aliases, run `alias`.
 # --------------------------------------------------

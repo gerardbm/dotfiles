@@ -1,4 +1,4 @@
-# ~/dotfiles for Debian 9 and i3wm
+# ~/dotfiles for Debian and i3wm
 
 ![screenshot01](https://github.com/gerardbm/dotfiles/blob/master/images/screenshot01.png)
 
@@ -285,6 +285,8 @@ Open Vim and run the following command:
 
 ### Pylint
 
+Note: check pyenv to install other Python versions.
+
 Install pylint from pip3:
 
 `sudo pip3 install pylint`
@@ -307,7 +309,7 @@ Install chktex from the repositories:
 
 `sudo apt-get install chktex`
 
-### Nodejs, tern, jshint, csslint...
+### Nodejs, tern, jshint, csslint
 
 Download Node.js from [https://nodejs.org](https://nodejs.org).
 
@@ -356,6 +358,54 @@ Finally install the packages using npm:
 npm install -g tern
 npm install -g jshint
 npm install -g csslint
+```
+
+### Pyenv
+
+Install pyenv:
+
+```sh
+curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+```
+
+Add pyenv to the path:
+
+```sh
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+echo 'eval "$(pyenv init --path)"' >> ~/.profile
+
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+```
+
+Install a Python version. For example:
+
+```sh
+pyenv install 3.8.0
+```
+
+Activate the Python version:
+
+```sh
+pyenv local 3.8.0
+```
+
+Then use `pip3.8` to install some Python tools: `youtube-dl`, `skyfield`, `pylint`, etc.
+
+How to use again the system version:
+
+```sh
+pyenv local system
+```
+
+How to list all the available versions:
+
+```sh
+pyenv versions
 ```
 
 ### Ruby and Jekyll
@@ -698,3 +748,5 @@ Video:
 ```
 
 Yes, a mouse would make the life easier. And slower ;-)
+
+This setup works in Debian 9 or later.
