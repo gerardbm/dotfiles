@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#
+# Description: Use find to find files and directories
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+Usage: fit <maxdepth> <type> <name>
+
+The first parameter: "-maxdepth"
+	Descend at most levels.
+	It must be a non-negative integer.
+	Use "0" for all the possible levels.
+
+The second parameter: "-type"
+	b → block (buffered) special
+	c → character (unbuffered) special
+	d → directory
+	p → named pipe (FIFO)
+	f → regular file
+	l → symbolic  link
+	s → socket
+
+The third parameter: "-name"
+	Base of the filename.
+EOF
+exit 1
+fi
+
+if ! [[ "$1" =~ ^[0-9]+$ ]] ; then
+	echo "Error: the second parameter must be non-negative integer."
+	echo "Usage: fi <maxdepth> <type> <name>" >&2; exit 1
+fi
+
+if ! [[ "$2" =~ (b|c|d|p|f|l|s) ]] ; then
+	echo "Error: the first parameter must be b, c, d, p f, l, s."
+	echo "See the help page (fit -h) for more information."
+	echo "Usage: fi <maxdepth> <type> <name>" >&2; exit 1
+fi
+
+find . -maxdepth "$1" -type "$2" -iname "*$3*"
