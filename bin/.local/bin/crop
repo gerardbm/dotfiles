@@ -34,22 +34,22 @@ WIDTH="$1"
 HEIGHT="$2"
 
 if ! [[ "$WIDTH" =~ ^[0-9]+$ ]] ; then
-	echo "Error: first option must be an integer."
+	echo "Error: first parameter must be an integer."
 	echo "Usage: crophi <integer> <filename>" >&2; exit 1
 fi
 
 if ! [[ "$HEIGHT" =~ ^[0-9]+$ ]] ; then
-	echo "Error: first option must be an integer."
+	echo "Error: second parameter must be an integer."
 	echo "Usage: crophi <integer> <filename>" >&2; exit 1
 fi
 
 if ! [[ "$WIDTH" -gt 0 ]] ; then
-	echo "Error: first option must be greater than 0."
+	echo "Error: first parameter must be greater than 0."
 	echo "Usage: crophi <integer> <filename>" >&2; exit 1
 fi
 
 if ! [[ "$HEIGHT" -gt 0 ]] ; then
-	echo "Error: first option must be greater than 0."
+	echo "Error: second parameter must be greater than 0."
 	echo "Usage: crophi <integer> <filename>" >&2; exit 1
 fi
 
