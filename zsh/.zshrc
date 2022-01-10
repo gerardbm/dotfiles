@@ -297,6 +297,7 @@ alias deploy='zsh deploy.sh'
 alias report='zsh report.sh'
 alias nav='zsh nav.sh'
 alias clock='tty-clock -C6 -c'
+alias ra='ranger'
 
 # --------------------------------------------------
 
