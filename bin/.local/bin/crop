@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description: Resize, crop to the golden ratio and compress images.
+#
+# Tools used:
+# - convert
+# - identify
+# - optipng
+# - pngcrush
+# - jpegoptim
+# - jpegtran
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+Crophi: Resize, crop and compress images.
+
+Usage: crophi <integer1> <integer2> <filename>
+
+	- integer1 → the width of the compressed file.
+	- integer2 → the height of the compressed file.
+	- filename → a list of files to compress.
+
+Example: crop 600 400 picture1.png picture2.jpeg
+
+Resize and crop are done with convert(1).
+PNG compression is done with pngoptim(1) and pngcrush(1).
+JPEG compression is done with jpegoptim(1) and jpegtran(1).
+EOF
+exit 1
+fi
+
+WIDTH="$1"
+HEIGHT="$2"
+
+if ! [[ "$WIDTH" =~ ^[0-9]+$ ]] ; then
+	echo "Error: first option must be an integer."
+	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+fi
+
+if ! [[ "$HEIGHT" =~ ^[0-9]+$ ]] ; then
+	echo "Error: first option must be an integer."
+	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+fi
+
+if ! [[ "$WIDTH" -gt 0 ]] ; then
+	echo "Error: first option must be greater than 0."
+	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+fi
+
+if ! [[ "$HEIGHT" -gt 0 ]] ; then
+	echo "Error: first option must be greater than 0."
+	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+fi
+
+opt_png() {
+	echo "Optimizing PNG-image: $RENAME"
+	optipng -o1 --quiet "$RENAME"
+	pngcrush -q "$RENAME" /tmp/$$; mv /tmp/$$ "$RENAME"
+}
+
+opt_jpg() {
+	echo "Optimizing $EXT-image: $RENAME"
+	jpegoptim --max=80 "$RENAME"
+	jpegtran -copy none -optimize -outfile "$RENAME" "$RENAME"
+}
+
+for f in "${@:3}"; do
+	NAME="${f%%.*}"
+	EXT="${f##*.}"
+	RENAME="${NAME}-${WIDTH}x${HEIGHT}.${EXT}"
+	echo "$RENAME"
+
+	cp "$f" "$RENAME"
+
+	convert "$f" \
+		-resize "$WIDTH"x"$HEIGHT"^ \
+		-gravity center \
+		-crop "$WIDTH"x"$HEIGHT"+0+0 "$RENAME"
+
+	if [[ ${EXT,,} == "png" ]] ; then
+		opt_png
+	fi
+
+	if [[ "${EXT,,}" =~ (jpg|jpeg) ]] ; then
+		opt_jpg
+	fi
+
+done
