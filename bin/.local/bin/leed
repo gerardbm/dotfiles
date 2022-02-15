@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Description: check broken links (internal and external)
+
+GEM=$(gem list html-proof -i)
+
+if [ "$GEM" == "false" ]; then
+	echo "Gem 'html-proof' is not installed."
+	exit 0;
+fi
+
+DIR="_site"
+
+if [ -d "$DIR" ]; then
+	htmlproofer --ignore_empty_mailto "$DIR"
+fi
