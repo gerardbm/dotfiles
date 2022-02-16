@@ -285,7 +285,7 @@ alias convertdd='convert -alpha remove -background white -density 300 -depth 8'
 # Misc
 alias news='newsbeuter'
 alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
-alias yt='youtube-dl -if best'
+alias yt='yt-dlp -if best'
 alias epub='ebook-viewer'
 alias ff='pcmanfm .'
 alias mpv0='mpv --ytdl-format=0'

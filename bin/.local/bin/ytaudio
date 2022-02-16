@@ -2,4 +2,4 @@
 #
 # Description: extract audio from a Youtube video.
 
-youtube-dl --extract-audio --audio-format mp3 $1
+yt-dlp --extract-audio --audio-format mp3 $1
