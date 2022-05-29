@@ -26,7 +26,7 @@ fi
 echo "sorted number, order value, post name"
 
 for i in $(find _posts/"$1" -type f -iregex '.*\.md$' 2>/dev/null); do
-	ORDER=$(grep 'order: ' < "$i" | awk '{print $2}')
+	ORDER=$(grep '^order: ' < "$i" | awk '{print $2}')
 	NAME=$(basename "$i" .md | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//')
 	echo "$ORDER, $NAME"
 done | sort -nsk1 | awk '{print 10*(NR-1) " " $0}'
