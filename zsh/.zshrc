@@ -78,21 +78,23 @@ fi
 # Paths
 # --------------------------------------------------
 # Local bin path
-export PATH=$HOME/.local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # npm path
-export PATH=~/.npm-global/bin:$PATH
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 # QCAD path
-export PATH=/opt/qcad:$PATH
+export PATH="/opt/qcad:$PATH"
 
 # Golang path
-export GOPATH=$HOME/Workspace/goprojects
+export GOPATH="$HOME/Workspace/goprojects"
 
 # Ruby path
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Pyenv path
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
