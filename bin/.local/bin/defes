@@ -2,4 +2,4 @@
 #
 # Description: get definition from rae.es
 
-w3m "https://dle.rae.es/$1"
+luakit "https://dle.rae.es/$1"
