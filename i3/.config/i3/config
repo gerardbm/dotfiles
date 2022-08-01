@@ -415,6 +415,7 @@ assign [class="^TelegramDesktop$"] $ws8
 assign [class="^Chromium$"] $ws9
 assign [class="^qutebrowser$"] $ws9
 assign [class="^Firefox-esr$"] $ws9
+assign [class="^Google-chrome$"] $ws9
 
 # Specific windows
 for_window [window_role="pop-up"] floating enable
