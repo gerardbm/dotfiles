@@ -477,6 +477,7 @@ bindkey -M visual S add-surround
 # FZF Config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND="ag -p ~/.gitignore -g ''"
 export FZF_DEFAULT_OPTS="\
 --bind ctrl-f:abort \
 --height=15 --reverse \
