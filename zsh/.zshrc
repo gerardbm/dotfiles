@@ -357,10 +357,6 @@ man() {
 
 # Custom tools
 # Maps called after vi-mode
-vimgit() {
-	vimx
-}
-
 vifmx() {
 	vifm . 2>/dev/null
 }
@@ -377,7 +373,6 @@ lsix() {
 bindkey -v
 export KEYTIMEOUT=1
 
-bindkey -s '^v' 'vimgit\n'
 bindkey -s '^o' 'vifmx\n'
 bindkey -s '^s' 'lsix\n'
 
@@ -479,10 +474,12 @@ bindkey -M visual S add-surround
 
 export FZF_DEFAULT_COMMAND="ag -p ~/.gitignore -g ''"
 export FZF_DEFAULT_OPTS="\
---bind ctrl-f:abort \
+--bind ctrl-f:abort,\
+ctrl-u:preview-half-page-up,\
+ctrl-d:preview-half-page-down \
 --height=15 --reverse \
 --prompt='> ' --pointer='→' --no-bold \
---color fg:15,bg:0,hl:3,fg+:6,bg+:8,hl+:3,\
+--color fg:15,bg:0,hl:3,fg+:6,bg+:8,hl+:3,header:7,\
 info:6,prompt:6,spinner:2,pointer:3,marker:3,border:6"
 
 export YTFZF_EXTMENU_LEN=150

@@ -185,8 +185,7 @@ URxvt.keysym.Control-O     : perl:url-select:select_next
 URxvt.url-select.launcher  : tmux new-window w3m
 URxvt.url-select.underline : true
 URxvt.clipboard.autocopy   : true
-URxvt.keysym.Control-C     : perl:clipboard:copy
-URxvt.keysym.Control-V     : perl:clipboard:paste
+URxvt.keysym.Control-v     : perl:clipboard:paste
 ! Press 'y' to copy the selected URL to PRIMARY and clipboard
 
 ! Plugin: resize-font
