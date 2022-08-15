@@ -428,6 +428,7 @@ for_window [class="Qalculate-gtk"] floating enable border normal
 for_window [class="Glade-previewer"] floating enable border normal
 for_window [class="feh"] floating enable border normal
 for_window [class="Sxiv"] floating enable border normal
+for_window [class="Gpicview"] floating enable border normal
 for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^maxima$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
