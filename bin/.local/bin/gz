@@ -2,17 +2,18 @@
 #
 # Description: navigate between git commits with FZF
 
-_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
-_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always %'"
+HASH="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+LINE="$HASH | xargs -I % sh -c 'git show --color=always %'"
 
-git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr)' |
+git log --graph \
+	--pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr)' |
 fzf -i -e \
 	--tiebreak=index \
 	--height=0 \
 	--no-multi \
 	--ansi \
-	--preview="$_viewGitLogLine" \
+	--preview="$LINE" \
 	--header "View (enter), copy hash (ctrl-y)" \
-	--bind "ctrl-y:execute($_gitLogLineToHash | tr -d '\n' | xsel -b)" \
-	--bind "enter:execute($_viewGitLogLine | less -R)" \
+	--bind "ctrl-y:execute($HASH | tr -d '\n' | xsel -b)" \
+	--bind "enter:execute($LINE | less -R)" \
 	--bind "ctrl-f:abort"
