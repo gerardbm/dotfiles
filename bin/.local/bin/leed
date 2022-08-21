@@ -12,5 +12,5 @@ fi
 DIR="_site"
 
 if [ -d "$DIR" ]; then
-	htmlproofer --ignore_empty_mailto "$DIR"
+	htmlproofer --ignore_empty_mailto --allow-hash-href "$DIR"
 fi
