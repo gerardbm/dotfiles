@@ -287,6 +287,8 @@ alias convertdd='convert -alpha remove -background white -density 300 -depth 8'
 # Misc
 alias news='newsbeuter'
 alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
+alias jeklast='bundle exec jekyll serve --limit_posts 1 -l'
+alias jekincr='bundle exec jekyll serve --incremental -l'
 alias yt='yt-dlp -if best'
 alias epub='ebook-viewer'
 alias ff='pcmanfm .'
