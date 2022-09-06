@@ -57,6 +57,11 @@ Xft.lcdfilter : lcddefault
 *.colorBD : acc70
 *.colorUL : acb70
 
+! Transparency not used
+! URxvt*transparent: true
+! URxvt*shading: 30
+! URxvt*blurRadius: 10
+
 ! ------------------------------------------------------------
 ! URxvt
 ! ------------------------------------------------------------
