@@ -489,6 +489,7 @@ info:6,prompt:6,spinner:2,pointer:3,marker:3,border:6"
 
 export FZF_CTRL_T_COMMAND="ag -p ~/.gitignore -g ''"
 export FZF_CTRL_T_OPTS="--bind ctrl-t:abort"
+export FZF_CTRL_R_OPTS="--bind ctrl-r:abort"
 
 export YTFZF_EXTMENU_LEN=150
 export YTFZF_EXTMENU=" fzf $FZF_DEFAULT_OPTS"
