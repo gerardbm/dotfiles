@@ -210,6 +210,7 @@ alias gdsw='git diff --staged --color-words'
 alias gdsn='git diff --staged --name-only'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gcmd='git commit -m "$(date -I | sed "s/-//g")"'
 alias gcam='git commit --amend -m'
 alias gl='git lol'
 alias gls='git log --stat'
@@ -429,6 +430,7 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey '^z' autosuggest-clear
 bindkey '^y' autosuggest-toggle
+bindkey "^t" fzf-file-widget
 
 # Vi-mode commands
 # This skips 'down-line-or-history' and 'up-line-or-history'
@@ -484,6 +486,9 @@ export FZF_DEFAULT_OPTS="\
 --prompt='> ' --pointer='→' --no-bold \
 --color fg:15,bg:0,hl:3,fg+:6,bg+:8,hl+:3,header:7,\
 info:6,prompt:6,spinner:2,pointer:3,marker:3,border:6"
+
+export FZF_CTRL_T_COMMAND="ag -p ~/.gitignore -g ''"
+export FZF_CTRL_T_OPTS="--bind ctrl-t:abort"
 
 export YTFZF_EXTMENU_LEN=150
 export YTFZF_EXTMENU=" fzf $FZF_DEFAULT_OPTS"
