@@ -359,6 +359,9 @@ man() {
 	command man "$@"
 }
 
+# Prevent ^d (ctrl-d) exiting the shell
+set -o ignoreeof
+
 # Custom tools
 # Maps called after vi-mode
 vifmx() {
