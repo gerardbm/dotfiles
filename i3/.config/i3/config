@@ -420,6 +420,7 @@ assign [class="^Google-chrome$"] $ws9
 # Specific windows
 for_window [window_role="pop-up"] floating enable
 for_window [class="Lxappearance"] floating enable border normal
+for_window [class="lxqt-openssh-askpass"] floating enable border normal
 for_window [class="luakit"] floating enable border normal
 for_window [title="Quant al Mozilla Firefox"] floating enable border normal
 for_window [title="Acerca de"] floating enable border normal
