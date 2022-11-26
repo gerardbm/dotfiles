@@ -80,6 +80,7 @@ Make sure you have installed the following libraries, which are a requirement to
 - libnotify-bin: a program to send desktop notifications.
 - lxappearance: customize look and feel (lxde-native).
 - lxpolkit: authorization manager for the desktop.
+- lxqt-openssh-askpass: handle password access.
 - pulseaudio-utils: to run pulse audio controls from the keyboard.
 - rofi: a window switcher, run dialog and dmenu replacement.
 - rxvt-unicde-256color: VT102 emulator for the X window system.

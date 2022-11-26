@@ -477,7 +477,7 @@ bindkey -a ds delete-surround
 bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
-# Define a better askpass
+# Use this ssh-askpass
 export SSH_ASKPASS=/usr/bin/lxqt-openssh-askpass
 
 # FZF Config
