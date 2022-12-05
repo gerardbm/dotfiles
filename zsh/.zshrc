@@ -204,9 +204,11 @@ alias gg='git status'
 alias gx='git status -s'
 alias gd='git diff'
 alias gdw='git diff --color-words'
+alias gdm='git diff --color-words=.'
 alias gdn='git diff --name-only'
 alias gds='git diff --staged'
 alias gdsw='git diff --staged --color-words'
+alias gdsm='git diff --staged --color-words=.'
 alias gdsn='git diff --staged --name-only'
 alias gc='git commit'
 alias gcm='git commit -m'
@@ -478,7 +480,7 @@ bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
 # Use this ssh-askpass
-export SSH_ASKPASS=/usr/bin/lxqt-openssh-askpass
+# export SSH_ASKPASS=/usr/bin/lxqt-openssh-askpass
 
 # FZF Config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
