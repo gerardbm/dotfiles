@@ -54,15 +54,20 @@ set font "Terminus 12"
 " -----------------------------------------------------------------------------
 
 " Zoom in/out
-map z zoom in
-map Z zoom out
+map [normal]     z zoom in
+map [normal]     Z zoom out
+map [fullscreen] z zoom in
+map [fullscreen] Z zoom out
 
 " Toggle mode
-map D toggle_page_mode
+map [normal]     D toggle_page_mode
+map [fullscreen] D toggle_page_mode
 
 " Scroll
-map u scroll half-up
-map d scroll half-down
+map [normal]     u scroll half-up
+map [normal]     d scroll half-down
+map [fullscreen] u scroll half-up
+map [fullscreen] d scroll half-down
 
 " Fullscreen
 map [normal]     f toggle_fullscreen
@@ -73,10 +78,13 @@ map [normal]     <C-r> reload
 map [fullscreen] <C-r> reload
 
 " Status bar
-map b toggle_statusbar
+map [normal]     b toggle_statusbar
+map [fullscreen] b toggle_statusbar
 
 " Set width as in mupdf
-map H adjust_window best-fit
-map W adjust_window width
+map [normal]     H adjust_window best-fit
+map [normal]     W adjust_window width
+map [fullscreen] H adjust_window best-fit
+map [fullscreen] W adjust_window width
 
 " vim: ft=vim
