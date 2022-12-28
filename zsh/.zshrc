@@ -306,6 +306,7 @@ alias report='zsh report.sh'
 alias nav='zsh nav.sh'
 alias clock='tty-clock -C6 -c'
 alias ra='ranger'
+alias za='zathura'
 
 # --------------------------------------------------
 
