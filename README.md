@@ -21,7 +21,7 @@ Configuration files:
 
 ```
 - Distro      : Debian
-- WM          : i3-wm
+- WM          : i3-wm (i3-gaps)
 - Menu        : rofi
 - Shell       : zsh
 - Terminal    : urxvt, xterm
@@ -72,6 +72,8 @@ Configuration files:
 `autologin-user=<user>`
 
 ### i3-wm
+
+Install [i3-radius](https://github.com/terroo/i3-radius). It's i3-wm with gaps and rounded corners. Just clone the linked repository and run `sh build.sh`. From the i3-wm version 4.22, i3-gaps settings will be included.
 
 Make sure you have installed the following libraries, which are a requirement to run my setup properly:
 

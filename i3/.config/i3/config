@@ -33,8 +33,14 @@ set_from_resource $acv70 color13 #CA96FF
 set_from_resource $acc70 color14 #6ECFCF
 set_from_resource $base4 color15 #A6B5C5
 
+# Gaps style
+gaps outer 5
+gaps inner 10
+smart_gaps on
+
 # Border style
-new_window pixel 2
+for_window [class=".*"] border pixel 1 #*
+new_window pixel 1
 new_float normal
 
 # Smart borders
@@ -386,7 +392,6 @@ assign [class="^stellarium$"] $ws3
 
 # 4: doc
 assign [class="^Apvlv$"] $ws4
-assign [class="^Zathura$"] $ws4
 assign [class="^PdfMod$"] $ws4
 assign [class="^FBReader$"] $ws4
 assign [class="^libreoffice-startcenter$"] $ws4
