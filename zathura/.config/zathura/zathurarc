@@ -65,11 +65,18 @@ map u scroll half-up
 map d scroll half-down
 
 " Fullscreen
-map [normal]     <F11> toggle_fullscreen
-map [fullscreen] <F11> toggle_fullscreen
+map [normal]     f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
 
 " Reload
 map [normal]     <C-r> reload
 map [fullscreen] <C-r> reload
+
+" Status bar
+map b toggle_statusbar
+
+" Set width as in mupdf
+map H adjust_window best-fit
+map W adjust_window width
 
 " vim: ft=vim
