@@ -394,6 +394,7 @@ assign [class="^stellarium$"] $ws3
 assign [class="^Apvlv$"] $ws4
 assign [class="^PdfMod$"] $ws4
 assign [class="^FBReader$"] $ws4
+assign [class="(?i)libreoffice.*"] $ws4
 assign [class="^libreoffice-startcenter$"] $ws4
 assign [class="^calibre$"] $ws4
 
