@@ -18,18 +18,18 @@ font pango: Terminus 10
 # Atomic palette                 Fallback
 set_from_resource $base1 color0  #141A1F
 set_from_resource $acr50 color1  #EC5252
-set_from_resource $acg50 color2  #5DA813
+set_from_resource $acg50 color2  #5DA713
 set_from_resource $aco50 color3  #C97016
-set_from_resource $acb50 color4  #3790E9
-set_from_resource $acv50 color5  #A35AED
-set_from_resource $acc50 color6  #13AEAE
-set_from_resource $base3 color7  #53697F
+set_from_resource $acb50 color4  #3890E9
+set_from_resource $acv50 color5  #A359ED
+set_from_resource $acc50 color6  #13AFAF
+set_from_resource $base3 color7  #6B859E
 set_from_resource $base2 color8  #1A2128
 set_from_resource $acr70 color9  #FF9191
 set_from_resource $acg70 color10 #9ACD68
-set_from_resource $aco70 color11 #EDA45C
+set_from_resource $aco70 color11 #EDA55D
 set_from_resource $acb70 color12 #7DBEFF
-set_from_resource $acv70 color13 #CA96FF
+set_from_resource $acv70 color13 #CB96FF
 set_from_resource $acc70 color14 #6ECFCF
 set_from_resource $base4 color15 #A6B5C5
 
