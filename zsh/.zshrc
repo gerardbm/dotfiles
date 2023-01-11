@@ -307,6 +307,7 @@ alias nav='zsh nav.sh'
 alias clock='tty-clock -C6 -c'
 alias ra='ranger'
 alias za='zathura'
+alias wxh='identify -format "%wx%h" %f 2>/dev/null'
 
 # --------------------------------------------------
 
