@@ -230,7 +230,8 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in shotwell}
         \ shotwell,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ convert -identify %f -verbose /dev/null
+        \ identify -format '%%wx%%h' %f 2>/dev/null
+        " \ convert -identify %f -verbose /dev/null
 
 filetype *.webp
         \ {View in gthumb}
