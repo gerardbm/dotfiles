@@ -70,8 +70,8 @@ map [fullscreen] u scroll half-up
 map [fullscreen] d scroll half-down
 
 " Fullscreen
-map [normal]     f toggle_fullscreen
-map [fullscreen] f toggle_fullscreen
+" map [normal]     f toggle_fullscreen
+" map [fullscreen] f toggle_fullscreen
 
 " Reload
 map [normal]     <C-r> reload
@@ -86,5 +86,8 @@ map [normal]     H adjust_window best-fit
 map [normal]     W adjust_window width
 map [fullscreen] H adjust_window best-fit
 map [fullscreen] W adjust_window width
+
+map [normal]     i set recolor
+map [fullscreen] i set recolor
 
 " vim: ft=vim
