@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Version: 1.0.0
 #
-# Description: Resize, crop to the golden ratio and compress images.
+# Description: Resize, crop and compress images.
 #
 # Tools used:
 # - convert
