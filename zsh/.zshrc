@@ -489,8 +489,6 @@ bindkey -M visual S add-surround
 
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -p ~/.gitignore -g ''"
 export FZF_DEFAULT_OPTS="\
---bind ctrl-f:abort \
---bind ctrl-p:abort \
 --bind alt-u:preview-half-page-up \
 --bind alt-d:preview-half-page-down \
 --height=15 --reverse \
