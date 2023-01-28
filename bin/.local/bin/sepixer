@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description: Simulate a sepia-toned photo
+#
+# Tools used:
+# - convert
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+Sepixer: Simulate a sepia-toned photo
+
+Usage: sepixer <integer> <filename1> <filename2>...
+
+	- integer → the percentage of sepia tone [0-100].
+	- filename → a list of files to compress.
+
+Example: sepixer 85 picture.png figure.jpeg image.jpg
+
+Conversion is done with convert(1).
+PNG compression is done with optipng(1) and pngcrush(1).
+JPEG compression is done with jpegoptim(1) and jpegtran(1).
+EOF
+exit 1
+fi
+
+VALUE="$1"
+
+if ! [[ "$VALUE" =~ ^[0-9]+$ ]] ; then
+	echo "Error: first option must be an integer."
+	echo "Usage: optimer <integer> <filename>" >&2; exit 1
+fi
+
+if ! [[ "$VALUE" -gt 0 ]] ; then
+	echo "Error: first option must be greater than 0."
+	echo "Usage: optimer <integer> <filename>" >&2; exit 1
+fi
+
+for f in "${@:2}"; do
+	NAME="${f%%.*}"
+	EXT="${f##*.}"
+	RENAMED="${NAME}-sepia${VALUE}.${EXT}"
+
+	convert -colorspace sRGB -sepia-tone "$VALUE%" "$f" "$RENAMED"
+
+	if [[ ${EXT,,} == "png" ]] ; then
+		echo "Optimizing PNG-image: $RENAMED"
+		optipng -o1 --quiet "$RENAMED"
+		pngcrush -q "$RENAMED" /tmp/$$; mv /tmp/$$ "$RENAMED"
+	fi
+
+	if [[ "${EXT,,}" =~ (jpg|jpeg) ]] ; then
+		echo "Optimizing $EXT-image: $RENAMED"
+		jpegoptim --max=80 "$RENAMED"
+		jpegtran -copy none -optimize -outfile "$RENAMED" "$RENAMED"
+	fi
+
+done
