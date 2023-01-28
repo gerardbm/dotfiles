@@ -2,4 +2,4 @@
 #
 # Description: ansiweather, forecast for the next five days.
 
-ansiweather -l $1 -a false -F | sed  's/-/\n/g' | sed  's/=>/\n/g'
+ansiweather -l $1 -a false -F | sed  's/\s-\s/\n /g' | sed  's/=>/\n/g'
