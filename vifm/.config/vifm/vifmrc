@@ -472,6 +472,9 @@ nnoremap ba :bmark .<CR>
 nnoremap <space> /
 nnoremap ,<space> ?
 
+" Load favicons.vifm
+source /home/gerard/.config/vifm/favicons.vifm
+
 " Various customization examples
 
 " Use ag (the silver searcher) instead of grep
