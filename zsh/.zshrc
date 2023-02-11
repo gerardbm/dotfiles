@@ -142,8 +142,10 @@ alias vimgdsh='vim `git diff --staged --name-only | head -n 1`'
 alias vimgdst='vim `git diff --staged --name-only | tail -n 1`'
 alias vimun='vim `git ls-files . --exclude-standard --others`'
 alias svim='sudoedit'
-alias vimt='vim `ls | tail -n 1`'
-alias vimh='vim `ls | head -n 1`'
+alias vimt='vim `ls --color=never | tail -n 1`'
+alias vimh='vim `ls --color=never | head -n 1`'
+alias virec='vim `ls --color=never *rec`'
+alias vish='vim `ls --color=never *sh`'
 
 # Vifm
 alias vif='vim ~/.config/vifm/vifmrc'
