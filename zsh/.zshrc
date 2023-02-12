@@ -398,26 +398,30 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# Change cursor shape
-zle-keymap-select () {
-if [ $KEYMAP = vicmd ]; then
-	echo -ne "\e[2 q"
-else
-	echo -ne "\e[6 q"
+# Change the cursor shape only under pts (GUI terminals)
+# - tty = native terminal device
+# - pts = pseudo terminal slave
+if tty | fgrep pts &>|/dev/null; then
+	zle-keymap-select () {
+	if [ $KEYMAP = vicmd ]; then
+		echo -ne "\e[2 q"
+	else
+		echo -ne "\e[6 q"
+	fi
+	}
+
+	zle-line-init() {
+		echo -ne "\e[6 q"
+	}
+
+	zle-line-finish() {
+		echo -ne "\e[2 q"
+	}
+
+	zle -N zle-keymap-select
+	zle -N zle-line-init
+	zle -N zle-line-finish
 fi
-}
-
-zle-line-init() {
-	echo -ne "\e[6 q"
-}
-
-zle-line-finish() {
-	echo -ne "\e[2 q"
-}
-
-zle -N zle-keymap-select
-zle -N zle-line-init
-zle -N zle-line-finish
 
 # Edit line in vim
 autoload -U edit-command-line
