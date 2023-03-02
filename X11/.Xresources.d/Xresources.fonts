@@ -1,0 +1,10 @@
+URxvt.keysym.C-M-1 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=11,xft:TerminessTTF Nerd Font Mono\007
+URxvt.keysym.C-M-2 : command:\033]710;xft:Droid Sans Mono for Powerline:size=11,xft:TerminessTTF Nerd Font Mono\007
+URxvt.keysym.C-M-3 : command:\033]710;xft:Roboto Mono for Powerline:size=11,xft:TerminessTTF Nerd Font Mono\007
+URxvt.keysym.C-M-4 : command:\033]710;xft:Fira Mono for Powerline:size=11,xft:TerminessTTF Nerd Font Mono\007
+URxvt.keysym.C-M-5 : command:\033]710;xft:Noto Mono for Powerline:size=11,xft:TerminessTTF Nerd Font Mono\007
+URxvt.keysym.C-M-6 : command:\033]710;xft:Go Mono for Powerline:size=11,xft:TerminessTTF Nerd Font Mono\007
+! ---
+URxvt.keysym.C-M-9 : command:\033]710;xft:Terminess Powerline:size=13,xft:TerminessTTF Nerd Font Mono\007
+URxvt.keysym.C-M-0 : command:\033]710;xft:Terminess Powerline:size=13:bold,xft:TerminessTTF Nerd Font Mono\007
+
