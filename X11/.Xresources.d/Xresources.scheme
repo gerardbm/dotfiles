@@ -1,7 +1,7 @@
-#define base1 #12161A
-#define base2 #181C21
-#define base3 #6D7885
-#define base4 #A2ACB9
+#define base1 #0F1419
+#define base2 #141A20
+#define base3 #6C7885
+#define base4 #A3ACB7
 #define acr50 #FB6F92
 #define aco50 #C39720
 #define acg50 #5AB220
