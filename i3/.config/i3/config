@@ -248,6 +248,7 @@ bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
 bindsym $mod+Control+y exec --no-startup-id urxvt -name 'python' -e 'python3'
 bindsym $mod+Control+t exec --no-startup-id urxvt -name 'top' -e 'top'
 bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
+bindsym $mod+Control+c exec --no-startup-id sh ~/.config/i3/calendar.sh
 bindsym $mod+Control+o exec --no-startup-id sh ~/.local/bin/www
 bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec "UNIX"
@@ -442,6 +443,9 @@ for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^vifm$"] focus
 for_window [class="^URxvt$" instance="^top$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^alsa$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^cal$"] floating enable border 1px
+for_window [class="^URxvt$" instance="^cal$"] resize set 716 230
+for_window [class="^URxvt$" instance="^cal$"] move absolute position center
 for_window [class="^URxvt$" instance="^rxvt$"] focus
 for_window [class="^URxvt$" instance="^rxvt-float$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^vifm-float$"] floating enable border 1px
