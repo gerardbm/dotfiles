@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Use a string in the date command.
+# Perform arithmetic operations with dates.
+#
+# For example:
+# 	"-2 months -25 days"
+# 	"3 weeks 1 day"
+
+date --date="$*"
