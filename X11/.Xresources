@@ -194,8 +194,11 @@ xterm*colorBD : acc70
 xterm*colorUL : acb70
 
 xterm*VT100.Translations: #override \
-	Ctrl Alt <Key>V: insert-selection(CLIPBOARD) \n\
-	Ctrl Alt <Key>C: copy-selection(CLIPBOARD) \n\
+	Ctrl <Key>V: insert-selection(CLIPBOARD) \n\
+	Ctrl <Key>C: copy-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>H: smaller-vt-font() \n\
+	Ctrl Shift <Key>L: larger-vt-font() \n\
+	Ctrl Shift <Key>R: set-vt-font(d)
 
 xterm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
 
