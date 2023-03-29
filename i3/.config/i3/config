@@ -243,11 +243,11 @@ mode "$mode_caps" {
 
 # Open applications
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
-bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -b 30 -e 'vifm'
-bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -b 30 -e 'maxima'
-bindsym $mod+Control+y exec --no-startup-id urxvt -name 'python' -b 30 -e 'python3'
-bindsym $mod+Control+t exec --no-startup-id urxvt -name 'top' -b 30 -e 'top'
-bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -b 30 -e 'alsamixer'
+bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -e 'vifm'
+bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
+bindsym $mod+Control+y exec --no-startup-id urxvt -name 'python' -e 'python3'
+bindsym $mod+Control+t exec --no-startup-id urxvt -name 'top' -b 15 -e 'top'
+bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+b exec --no-startup-id urxvt -name 'tra' -b 30 \
 	bash -e ~/.config/i3/translate.sh
 bindsym $mod+Control+c exec --no-startup-id sh ~/.config/i3/calendar.sh
@@ -256,7 +256,7 @@ bindsym $mod+Control+o exec --no-startup-id sh ~/.local/bin/www
 bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec "UNIX"
 bindsym $mod+Control+a exec --no-startup-id sh ~/.local/bin/ramuse
-bindsym $mod+m exec --no-startup-id urxvt -name 'qalc' -b 30 -e 'qalc'
+bindsym $mod+m exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
 bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
 
 # Pulse Audio controls
