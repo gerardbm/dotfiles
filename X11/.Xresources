@@ -161,6 +161,8 @@ xterm*utf8            : 2
 xterm*jumpScroll      : true
 xterm*multiScroll     : true
 xterm*trimSelection   : true
+xterm*allowFontOps    : true
+xterm*allowColorOps   : true
 
 xterm*cursorUnderline : true
 xterm*cursorBlink     : false
