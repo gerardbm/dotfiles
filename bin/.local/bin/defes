@@ -2,4 +2,14 @@
 #
 # Description: get definition from rae.es
 
-luakit "https://dle.rae.es/$1"
+word=$1
+
+# buscar la palabra en el archivo
+result=$(grep -m1 -w "\"$word\"" "$HOME/.local/bin/def.d/esp.txt")
+
+if [ -z "$result" ]; then
+  echo "No se encontró la palabra \"$word\" en el diccionario."
+else
+  definitions=$(echo "$result" | cut -d',' -f2- | tr -d '{}"' | tr ',' '\n')
+  echo -n "$definitions"
+fi
