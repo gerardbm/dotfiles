@@ -1,15 +1,21 @@
-#!/usr/bin/env bash
-#
-# Description: get definition from rae.es
+#!/usr/bin/env python
+"""Spanish dictionary"""
 
-word=$1
+import csv
+import sys
+import os
 
-# buscar la palabra en el archivo
-result=$(grep -m1 -w "\"$word\"" "$HOME/.local/bin/def.d/esp.txt")
+WORD = sys.argv[1]
+HOME = os.getenv('HOME')
+FILE = HOME + '/.local/bin/def.d/esp.csv'
 
-if [ -z "$result" ]; then
-  echo "No se encontró la palabra \"$word\" en el diccionario."
-else
-  definitions=$(echo "$result" | cut -d',' -f2- | tr -d '{}"' | tr ',' '\n')
-  echo -n "$definitions"
-fi
+with open(FILE, newline='', encoding='utf-8') as f:
+    reader = csv.reader(f, delimiter=',')
+    for row in reader:
+        if row[0] == WORD:
+            definitions = row[1:]
+            for definition in definitions:
+                print(definition.replace('"', ''))
+            break
+    else:
+        print(f"No se encontró la palabra '{WORD}' en el diccionario.")
