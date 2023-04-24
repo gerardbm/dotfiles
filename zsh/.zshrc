@@ -398,6 +398,15 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+# Copy to clipboard
+function vi-yank-xsel {
+	zle vi-yank
+	echo "$CUTBUFFER" | tr -d "\n" | xsel -b
+}
+
+zle -N vi-yank-xsel
+bindkey -M vicmd 'y' vi-yank-xsel
+
 # Change the cursor shape only under pts (GUI terminals)
 # - tty = native terminal device
 # - pts = pseudo terminal slave
