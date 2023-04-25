@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Description: extract audio from a Youtube video and convert it to AAC.
+
+TITLE=$(yt-dlp --get-title $1)
+yt-dlp --extract-audio --audio-format mp3 $1 -o "$TITLE.mp3"
+ffmpeg -i "$TITLE.mp3" "$TITLE.aac" && trash "$TITLE.mp3"
