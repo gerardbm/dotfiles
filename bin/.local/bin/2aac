@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+
+# Description: Convert MP3 files to AAC
+
+for i in "${@:1}"; do
+	NAME="${i%%.*}"
+	ffmpeg -i "$i" "$NAME.aac"
+done
