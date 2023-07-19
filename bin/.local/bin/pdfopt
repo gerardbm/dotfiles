@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+#
+# Description: optimize PDF files.
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+PDFopt: optimize PDF files
+
+Usage: pdfopt <int> <filename1> <filename2>...
+
+	- int → an integer number for the DPI.
+	- filename → a list of PDF files.
+
+Example: pdfopt 72 input1.pdf input2.pdf
+EOF
+exit 1
+fi
+
+if ! [[ "$1" =~ ^[0-9]+$ ]] ; then
+	echo "Error: first option must be an integer: dpi."
+	echo "Usage: pdfopt <integer> <filename> <filename2>..." >&2; exit 1
+fi
+
+if ! [[ "$1" -gt 0 ]] ; then
+	echo "Error: first option must be an integer greater than 0."
+	echo "Usage: pdfopt <integer> <filename1> <filename2>..." >&2; exit 1
+fi
+
+for f in "${@:2}"; do
+	N="${f%%.*}"
+	R="${N}_opt.pdf"
+
+	gs \
+		-sOutputFile="$R" \
+		-sDEVICE=pdfwrite \
+		-dDownsampleColorImages=true \
+		-dDownsampleGrayImages=true \
+		-dDownsampleMonoImages=true \
+		-dColorImageResolution="$1" \
+		-dGrayImageResolution="$1" \
+		-dMonoImageResolution="$1" \
+		-dCompatibilityLevel=1.4 \
+		-dNOPAUSE \
+		-dBATCH \
+		"$f"
+
+done
