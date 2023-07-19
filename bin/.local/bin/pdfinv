@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-# Description: invert the order of pages in a PDF file.
+# Description: invert the order of pages in PDF files.
 
 if [ "$1" == "-h" ]; then
 cat <<EOF
-PDFinv: invert ther order of pages in a PDF file.
+PDFinv: invert ther order of pages in PDF files.
 
 Usage: pdfinv <filename1> <filename2>...
 
