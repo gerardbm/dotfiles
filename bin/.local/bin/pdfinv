@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Description: invert the order of pages in a PDF file.
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+PDFinv: invert ther order of pages in a PDF file.
+
+Usage: pdfinv <filename1> <filename2>...
+
+	- filename → a list of PDF files.
+
+Example: pdfinv input1.pdf input2.pdf
+EOF
+exit 1
+fi
+
+for f in "${@:1}"; do
+	N="${f%%.*}"
+	R="${N}_inv.pdf"
+
+	pdftk "$f" cat end-1 output "$R"
+
+done

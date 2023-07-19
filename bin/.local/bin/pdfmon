@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# Description: invert the order of pages in a PDF file.
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+PDFmon: convert a PDF file to monochrome (black & white)
+
+Usage: pdfmon <filename1> <filename2>...
+
+	- filename → a list of PDF files.
+
+Example: pdfmon input1.pdf input2.pdf
+EOF
+exit 1
+fi
+
+for f in "${@:1}"; do
+	N="${f%%.*}"
+	R="${N}_mon.pdf"
+
+	gs \
+		-sOutputFile="$R" \
+		-sDEVICE=pdfwrite \
+		-sColorConversionStrategy=Gray \
+		-dProcessColorModel=/DeviceGray \
+		-dCompatibilityLevel=1.4 \
+		-dNOPAUSE \
+		-dBATCH \
+		"$f"
+
+done
