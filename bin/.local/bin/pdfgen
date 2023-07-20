@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Description: generate a PDF file from images.
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+PDFgen: generate a PDF file from images
+
+Usage: pdfgen <filename1> <filename2>...
+
+	- filename → a list of images.
+
+Example: pdfgen image1.jpg image2.pdf
+EOF
+exit 1
+fi
+
+convert "${@:1}" output.pdf
+echo "File output.pdf has been generated."

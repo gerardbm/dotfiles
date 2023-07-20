@@ -30,6 +30,7 @@ for f in "${@:2}"; do
 	N="${f%%.*}"
 	R="${N}_opt.pdf"
 
+	echo "Optimizing the file $f..."
 	gs \
 		-sOutputFile="$R" \
 		-sDEVICE=pdfwrite \
@@ -43,5 +44,6 @@ for f in "${@:2}"; do
 		-dNOPAUSE \
 		-dBATCH \
 		"$f"
+	echo "The file $R has been generated."
 
 done

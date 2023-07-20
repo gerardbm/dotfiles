@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# Description: convert PDF pages to images.
+
+if [ "$1" == "-h" ]; then
+cat <<EOF
+PDFimg: convert PDF pages to images
+
+Usage: pdfimg <format> <filename1> <filename2>...
+
+	- format → mono, gray, png, jpeg, tiff.
+	- filename → a list of PDF files.
+
+Example: pdfimg input1.pdf input2.pdf
+EOF
+exit 1
+fi
+
+if ! [[ "$1" =~ (mono|gray|png|jpeg|tiff) ]] ; then
+	echo "Error: first option must be mono, gray, png, jpeg or tiff"
+	echo "Usage: pdfimg gray <filename> <filename2>..." >&2; exit 1
+fi
+
+for f in "${@:2}"; do
+	N="${f%%.*}"
+
+	echo "Extracting pages as individual images from $f..."
+	pdftoppm "$f" "$N" -"$1"
+
+done
+
+echo "Done!"

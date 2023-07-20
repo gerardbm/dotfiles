@@ -19,6 +19,8 @@ for f in "${@:1}"; do
 	N="${f%%.*}"
 	R="${N}_inv.pdf"
 
+	echo "Inverting the pages order from the file $f..."
 	pdftk "$f" cat end-1 output "$R"
+	echo "File $R has been generated."
 
 done

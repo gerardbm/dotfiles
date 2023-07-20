@@ -19,6 +19,7 @@ for f in "${@:1}"; do
 	N="${f%%.*}"
 	R="${N}_mon.pdf"
 
+	echo "Converting the file $f to monochrome..."
 	gs \
 		-sOutputFile="$R" \
 		-sDEVICE=pdfwrite \
@@ -28,5 +29,6 @@ for f in "${@:1}"; do
 		-dNOPAUSE \
 		-dBATCH \
 		"$f"
+	echo "File $R has been generated."
 
 done
