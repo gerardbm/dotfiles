@@ -304,8 +304,9 @@ alias ytf='ytfzf -Dfl'
 alias ytd='ytfzf -Dfdl'
 alias yth='ytfzf -DfHl'
 alias deploy='zsh deploy.sh'
-alias report='zsh report.sh'
+alias rep='zsh report.sh'
 alias nav='zsh nav.sh'
+alias run='zsh run.sh'
 alias clock='tty-clock -C6 -c'
 alias ra='ranger'
 alias za='zathura'
@@ -447,12 +448,12 @@ bindkey '^d' delete-char
 bindkey '^k' kill-line
 bindkey '^u' kill-whole-line
 bindkey '^w' backward-kill-word
-bindkey '^q' kill-word
+bindkey '^g' kill-word
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey '^z' autosuggest-clear
 bindkey '^y' autosuggest-toggle
-bindkey "^t" fzf-file-widget
+bindkey "^q" fzf-file-widget
 
 # Vi-mode commands
 # This skips 'down-line-or-history' and 'up-line-or-history'
@@ -506,6 +507,7 @@ export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -p ~/.gitignore -g ''"
 export FZF_DEFAULT_OPTS="\
 --bind alt-u:preview-half-page-up \
 --bind alt-d:preview-half-page-down \
+--bind ctrl-p:abort \
 --height=15 --reverse \
 --prompt='> ' --pointer='→' --no-bold \
 --color fg:15,bg:0,hl:3,fg+:6,bg+:8,hl+:3,header:7,\
