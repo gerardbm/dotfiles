@@ -133,7 +133,8 @@ URxvt.keysym.Control-O     : perl:url-select:select_next
 URxvt.url-select.launcher  : tmux new-window w3m
 URxvt.url-select.underline : true
 URxvt.clipboard.autocopy   : true
-URxvt.keysym.Control-v     : perl:clipboard:paste
+URxvt.keysym.Control-V     : perl:clipboard:paste
+URxvt.keysym.Control-C     : perl:clipboard:copy
 ! Press 'y' to copy the selected URL to PRIMARY and clipboard
 
 ! Plugin: resize-font
@@ -196,8 +197,8 @@ xterm*colorBD : acc70
 xterm*colorUL : acb70
 
 xterm*VT100.Translations: #override \
-	Ctrl <Key>V: insert-selection(CLIPBOARD) \n\
-	Ctrl <Key>C: copy-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
 	Ctrl Shift <Key>H: smaller-vt-font() \n\
 	Ctrl Shift <Key>L: larger-vt-font() \n\
 	Ctrl Shift <Key>R: set-vt-font(d)
