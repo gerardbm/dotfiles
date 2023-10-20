@@ -13,9 +13,9 @@
 
 if [ "$1" == "-h" ]; then
 cat <<EOF
-Crophi: Resize, crop and compress images.
+Crop: Resize, crop and compress images.
 
-Usage: crophi <integer1> <integer2> <filename>
+Usage: crop <integer1> <integer2> <filename>
 
 	- integer1 → the width of the compressed file.
 	- integer2 → the height of the compressed file.
@@ -35,22 +35,22 @@ HEIGHT="$2"
 
 if ! [[ "$WIDTH" =~ ^[0-9]+$ ]] ; then
 	echo "Error: first parameter must be an integer."
-	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+	echo "Usage: crop <integer> <filename>" >&2; exit 1
 fi
 
 if ! [[ "$HEIGHT" =~ ^[0-9]+$ ]] ; then
 	echo "Error: second parameter must be an integer."
-	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+	echo "Usage: crop <integer> <filename>" >&2; exit 1
 fi
 
 if ! [[ "$WIDTH" -gt 0 ]] ; then
 	echo "Error: first parameter must be greater than 0."
-	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+	echo "Usage: crop <integer> <filename>" >&2; exit 1
 fi
 
 if ! [[ "$HEIGHT" -gt 0 ]] ; then
 	echo "Error: second parameter must be greater than 0."
-	echo "Usage: crophi <integer> <filename>" >&2; exit 1
+	echo "Usage: crop <integer> <filename>" >&2; exit 1
 fi
 
 opt_png() {
