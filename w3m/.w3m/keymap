@@ -191,13 +191,18 @@ keymap C-r REDO
 keymap C-z UNDO
 
 ########## navigation ##########
-keymap f MOVE_LIST_MENU
-keymap F LIST_MENU
+# keymap f MOVE_LIST_MENU
+# keymap F LIST_MENU
 keymap C-n NEXT_LINK
 keymap C-p PREV_LINK
 keymap p PEEK_LINK
 keymap y EXTERN
 keymap Y EXTERN_LINK
+
+########## vimium ##########
+keymap  ff  COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
+keymap  fg   COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
+keymap  ft   COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
 
 # reload
 keymap r RELOAD
