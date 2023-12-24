@@ -264,8 +264,10 @@ bindsym $mod+i exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym $mod+o exec --no-startup-id pactl set-sink-volume 0 +10%
 
 # Volume for Bluetooth (it uses pulseaudio instead of alsa)
-bindsym $mod+comma exec --no-startup-id pactl set-sink-volume 1 -10%
-bindsym $mod+period exec --no-startup-id pactl set-sink-volume 1 +10%
+bindsym $mod+comma exec --no-startup-id pactl set-sink-volume \
+	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink -10%
+bindsym $mod+period exec --no-startup-id pactl set-sink-volume \
+	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink +10%
 
 # Cmus-remote
 bindsym $mod+Control+u exec --no-startup-id sh ~/.config/i3/cmus.sh
