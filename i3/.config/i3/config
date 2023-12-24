@@ -87,12 +87,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# Split horizontal
-bindsym $mod+period split h
-
-# Split vertical
-bindsym $mod+minus split v
-
 # Toggle split
 bindsym $mod+y split toggle
 
@@ -268,6 +262,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+u exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+i exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym $mod+o exec --no-startup-id pactl set-sink-volume 0 +10%
+
+# Volume for Bluetooth (it uses pulseaudio instead of alsa)
+bindsym $mod+comma exec --no-startup-id pactl set-sink-volume 1 -10%
+bindsym $mod+period exec --no-startup-id pactl set-sink-volume 1 +10%
 
 # Cmus-remote
 bindsym $mod+Control+u exec --no-startup-id sh ~/.config/i3/cmus.sh
@@ -514,6 +512,7 @@ exec --no-startup-id setxkbmap es
 exec --no-startup-id udiskie -s
 exec --no-startup-id megasync
 exec --no-startup-id numlockx on
+exec --no-startup-id blueman-applet
 # exec --no-startup-id volumeicon
 # exec --no-startup-id wicd-gtk -t
 
