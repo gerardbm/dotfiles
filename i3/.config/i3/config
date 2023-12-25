@@ -261,7 +261,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume \
 	@DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute \
 	@DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute \
+	@DEFAULT_SOURCE@ toggle
 
 # Volume for default Alsa
 bindsym $mod+u exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -491,14 +492,14 @@ client.background       $base2
 
 bar {
 	position top
-	separator_symbol "¦"
+	separator_symbol "|"
 	strip_workspace_numbers no
 	font pango: Terminus 10
 	status_command i3status -c ~/.config/i3/i3status.conf
 	colors {
 		background $base2
 		statusline $base4
-		separator  $acdkc
+		separator  $base3
 		focused_workspace  $base2 $base2 $acdkc
 		active_workspace   $base2 $base2 $acdkb
 		inactive_workspace $base2 $base2 $base3
