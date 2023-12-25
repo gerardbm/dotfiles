@@ -255,18 +255,25 @@ bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
 
 # Pulse Audio controls
 # Note: volume status is already in i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume \
+	@DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume \
+	@DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute \
+	@DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym $mod+u exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym $mod+i exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym $mod+o exec --no-startup-id pactl set-sink-volume 0 +10%
+
+# Volume for default Alsa
+bindsym $mod+u exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym $mod+o exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 
 # Volume for Bluetooth (it uses pulseaudio instead of alsa)
-bindsym $mod+comma exec --no-startup-id pactl set-sink-volume \
-	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink -10%
+bindsym $mod+comma exec --no-startup-id pactl set-sink-mute \
+	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink toggle
 bindsym $mod+period exec --no-startup-id pactl set-sink-volume \
+	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink -10%
+bindsym $mod+minus exec --no-startup-id pactl set-sink-volume \
 	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink +10%
 
 # Cmus-remote
