@@ -91,7 +91,7 @@ export GOPATH="$HOME/Workspace/goprojects"
 
 # Ruby path
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # Pyenv path
 export PATH="$HOME/.pyenv/bin:$PATH"

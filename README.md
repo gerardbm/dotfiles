@@ -425,7 +425,7 @@ Add Rbenv to the PATH in `~/.zshrc`:
 
 ```sh
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
 ```
 
 Install the wanted Ruby version:
@@ -439,6 +439,27 @@ And make it global:
 Finally install the last Jekyll version:
 
 `gem install jekyll`
+
+#### Update Ruby with
+
+If the Ruby version is missing, upgrade ruby-build:
+
+`cd /home/gerard/.rbenv/plugins/ruby-build && git pull && cd -`
+
+Then install the newer version:
+
+`rbenv install 3.2.0`
+
+Then update Jekyll:
+
+`gem install jekyll -v 4.3.3`
+
+Some updates:
+
+```
+gem update --system
+bundle update --bundler
+```
 
 ### W3m
 
