@@ -103,7 +103,7 @@ Useful tools: uuid, fbreader, simplescreenrecorder, translate-shell, trash-cli
 
 Install it from the repositories:
 
-`sudo apt-get install zsh`
+`sudo apt install zsh`
 
 Install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) following the instructions from its page.
 
@@ -139,11 +139,11 @@ Log out and log in to see the new shell as default.
 
 Install it from the repositories:
 
-`sudo apt-get install rxvt-unicode-256color`
+`sudo apt install rxvt-unicode-256color`
 
 Symlink the rxvt-unicode settings:
 
-`cd $HOME/dotfiles && stow --no-folding X`
+`cd $HOME/dotfiles && stow --no-folding X11`
 
 Atomic color scheme is already included.
 
@@ -170,7 +170,7 @@ The version from the repositories is too old. Install it from the source code:
 
 Then, install the package `urlview`:
 
-`sudo apt-get install urlview`
+`sudo apt install urlview`
 
 Symlink the tmux settings:
 
@@ -180,7 +180,7 @@ Symlink the tmux settings:
 
 Install it from the repositories:
 
-`sudo apt-get install git`
+`sudo apt install git`
 
 Symlink the git settings:
 
@@ -204,7 +204,7 @@ And install it:
 
 Install it from the repositories:
 
-`sudo apt-get install fonts-font-awesome`
+`sudo apt install fonts-font-awesome`
 
 (Not using anymore, though).
 
@@ -212,7 +212,7 @@ Install it from the repositories:
 
 Install it from the repositories (the stable version is enough):
 
-`sudo apt-get install vim vim-gtk3`
+`sudo apt install vim vim-gtk3`
 
 The package `vim-gtk3` adds the 'huge version' with a lot of features (+python3, +clipboard...), and the GTK3 GUI.
 
@@ -229,7 +229,7 @@ Install the plugins with the command:
 
 To make it compatible with the plugin `Shougo/deoplete.nvim`, it requires two plugins (`roxma/vim-hug-neovim-rpc` and `roxma/nvim-yarp`) that require neovim installed from pip3, so first install python3-pip and then install neovim from there:
 
-`sudo apt-get install python3-pip`
+`sudo apt install python3-pip`
 
 `pip3 install neovim`
 
@@ -272,7 +272,7 @@ My neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
 Install clang from the repositories:
 
-`sudo apt-get install clang libclang-dev`
+`sudo apt install clang libclang-dev`
 
 The package `libclang-dev` is required on Debian.
 
@@ -280,7 +280,7 @@ The package `libclang-dev` is required on Debian.
 
 Inistall golang from the repositories:
 
-`sudo apt-get install golang`
+`sudo apt install golang`
 
 Open Vim and run the following command:
 
@@ -304,13 +304,13 @@ Install vint from pip3:
 
 Install shellcheck from the repositories:
 
-`sudo apt-get install shellcheck`
+`sudo apt install shellcheck`
 
 ### Chktex
 
 Install chktex from the repositories:
 
-`sudo apt-get install chktex`
+`sudo apt install chktex`
 
 ### Nodejs, tern, jshint, csslint
 
@@ -522,7 +522,7 @@ sudo make install
 
 Install it from the repositories:
 
-`sudo apt-get install mutt`
+`sudo apt install mutt`
 
 Copy the mutt settings (no symlink):
 
@@ -540,7 +540,7 @@ cp atomic/mutt/atomic.muttrc $HOME/.mutt
 
 Install it from the repositories:
 
-`sudo apt-get install cmus`
+`sudo apt install cmus`
 
 Symlink the cmus settings:
 
@@ -562,7 +562,7 @@ From cmus command line:
 
 Install it from the repositories:
 
-`sudo apt-get install irssi`
+`sudo apt install irssi`
 
 Create the folder first and then copy (no symlink) the irssi settings:
 
@@ -588,7 +588,7 @@ Sources: https://www.systutorials.com/docs/linux/man/1-lesskey/#lbAE
 
 Download it from the repositories:
 
-`sudo apt-get install youtube-dl`
+`sudo apt install youtube-dl`
 
 Update it to the last version:
 
