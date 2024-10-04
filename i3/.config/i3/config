@@ -397,9 +397,6 @@ assign [class="^Blender$"] $ws3
 assign [class="^QCAD$"] $ws3
 assign [class="^LibreCAD$"] $ws3
 assign [class="^Freecad$"] $ws3
-assign [class="^Skychart$"] $ws3
-assign [class="^kstars$"] $ws3
-assign [class="^stellarium$"] $ws3
 
 # 4: doc
 assign [class="^Apvlv$"] $ws4
@@ -425,8 +422,9 @@ assign [class="^mpv$"] $ws7
 assign [class="^ioquake3$"] $ws7
 
 # 8: com
-assign [class="^Skype$"] $ws8
-assign [class="^TelegramDesktop$"] $ws8
+assign [class="^Skychart$"] $ws8
+assign [class="^kstars$"] $ws8
+assign [class="^stellarium$"] $ws8
 
 # 9: www
 assign [class="^Chromium$"] $ws9
