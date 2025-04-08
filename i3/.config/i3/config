@@ -344,13 +344,13 @@ bindsym $mod+$alt+i exec --no-startup-id xcalib -i -a
 
 # Screenshot
 # - Fullscreen:
-bindsym --release $mod+Print exec --no-startup-id scrot \
+bindsym --release $mod+$alt+p exec --no-startup-id scrot \
 	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2000 'Screenshot!'
 # - Select region:
-bindsym --release $mod+Shift+Print exec --no-startup-id scrot -s \
+bindsym --release $mod+$alt+m exec --no-startup-id scrot -s \
 	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2000 'Screenshot!'
 # - Focused window, with border
-bindsym --release $mod+Control+Print exec --no-startup-id scrot -ub \
+bindsym --release $mod+$alt+n exec --no-startup-id scrot -ub \
 	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2000 'Screenshot!'
 
 # Compton control
