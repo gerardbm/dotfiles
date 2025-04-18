@@ -110,15 +110,15 @@ bindsym $mod+Shift+i move scratchpad
 # Show the scratchpad window
 bindsym $mod+Control+i scratchpad show
 
-set $ws1  "1: >_ "
-set $ws2  "2: dev "
-set $ws3  "3: des "
-set $ws4  "4: doc "
-set $ws5  "5: net "
-set $ws6  "6: sys "
-set $ws7  "7: var "
-set $ws8  "8: com "
-set $ws9  "9: www "
+set $ws1  "1: >_"
+set $ws2  "2: dev"
+set $ws3  "3: des"
+set $ws4  "4: cad"
+set $ws5  "5: doc"
+set $ws6  "6: sys"
+set $ws7  "7: var"
+set $ws8  "8: sci"
+set $ws9  "9: www"
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -380,9 +380,7 @@ bindsym --whole-window $mod+button2 kill
 assign [class="^URxvt$" instance="^rxvt$"] $ws1
 
 # 2: dev
-assign [class="^Gvim$"] $ws2
 assign [class="^Emacs$"] $ws2
-assign [class="^Atom$"] $ws2
 assign [class="^Eclipse$"] $ws2
 assign [class="^QtCreator$"] $ws2
 assign [class="^Codeblocks$"] $ws2
@@ -392,24 +390,22 @@ assign [class="^Glade$"] $ws3
 assign [class="^Designer$"] $ws3
 assign [class="^Dia$"] $ws3
 assign [class="^Gimp*"] $ws3
-assign [class="^Inkscape$"] $ws3
-assign [class="^Blender$"] $ws3
-assign [class="^QCAD$"] $ws3
-assign [class="^LibreCAD$"] $ws3
-assign [class="^Freecad$"] $ws3
+assign [class="^krita*"] $ws3
 
-# 4: doc
+# 4: cad
+assign [class="^LibreCAD$"] $ws4
+assign [class="^QCAD$"] $ws4
+assign [class="^Freecad$"] $ws4
+assign [class="^Inkscape$"] $ws4
+assign [class="^Blender$"] $ws4
+
+# 5: doc
 assign [class="^Apvlv$"] $ws4
 assign [class="^PdfMod$"] $ws4
 assign [class="^FBReader$"] $ws4
 assign [class="(?i)libreoffice.*"] $ws4
 assign [class="^libreoffice-startcenter$"] $ws4
 assign [class="^calibre$"] $ws4
-
-# 5: net
-assign [class="^Filezilla$"] $ws5
-assign [class="^Deluge$"] $ws5
-assign [class="^Amule$"] $ws5
 
 # 6: sys
 assign [class="^Pcmanfm$"] $ws6
@@ -421,7 +417,7 @@ assign [class="^Wxmaxima$"] $ws7
 assign [class="^mpv$"] $ws7
 assign [class="^ioquake3$"] $ws7
 
-# 8: com
+# 8: sci
 assign [class="^Skychart$"] $ws8
 assign [class="^kstars$"] $ws8
 assign [class="^stellarium$"] $ws8
@@ -446,6 +442,8 @@ for_window [class="Glade-previewer"] floating enable border normal
 for_window [class="feh"] floating enable border normal
 for_window [class="Sxiv"] floating enable border normal
 for_window [class="Gpicview"] floating enable border normal
+for_window [class="Gpick"] floating enable border normal
+for_window [class="Gvim"] floating enable border 1px
 for_window [class="^URxvt$" instance="^qalc$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^maxima$"] floating enable border 1px
 for_window [class="^URxvt$" instance="^python$"] floating enable border 1px
