@@ -400,12 +400,12 @@ assign [class="^Inkscape$"] $ws4
 assign [class="^Blender$"] $ws4
 
 # 5: doc
-assign [class="^Apvlv$"] $ws4
-assign [class="^PdfMod$"] $ws4
-assign [class="^FBReader$"] $ws4
-assign [class="(?i)libreoffice.*"] $ws4
-assign [class="^libreoffice-startcenter$"] $ws4
-assign [class="^calibre$"] $ws4
+assign [class="^Apvlv$"] $ws5
+assign [class="^PdfMod$"] $ws5
+assign [class="^FBReader$"] $ws5
+assign [class="(?i)libreoffice.*"] $ws5
+assign [class="^libreoffice-startcenter$"] $ws5
+assign [class="^calibre$"] $ws5
 
 # 6: sys
 assign [class="^Pcmanfm$"] $ws6
