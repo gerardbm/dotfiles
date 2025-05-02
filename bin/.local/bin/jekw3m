@@ -9,8 +9,8 @@ lsof -i :4000 >/dev/null 2>&1
 
 if [ $? -eq 0 ]; then
 	urxvt -name 'jekw3m' \
-		-b 30 \
-		-fn "xft:DejaVu Sans Mono for Powerline:size=13" \
+		-b 60 \
+		-fn "xft:Noto Mono for Powerline:size=14" \
 		-e w3m http://localhost:4000/
 else
 	notify-send -t 2000 "Jekyll server is not running."

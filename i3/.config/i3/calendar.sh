@@ -7,5 +7,5 @@
 # URL: https://github.com/gerardbm/dotfiles
 
 urxvt -name 'cal' \
-	-b 30 \
+	-b 15 \
 	-e bash -c 'ncal -Mb3 | less'
