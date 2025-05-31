@@ -16,22 +16,22 @@ set $mod Mod4
 font pango: Terminus 10
 
 # Atomic palette                 Fallback
-set_from_resource $base1 color0  #0F1419
-set_from_resource $acdkr color1  #FB6F92
-set_from_resource $acdkg color2  #5AB220
-set_from_resource $acdko color3  #C39720
-set_from_resource $acdkb color4  #27A7EC
-set_from_resource $acdkv color5  #E66AFA
-set_from_resource $acdkc color6  #23B0A3
-set_from_resource $base3 color7  #6C7885
-set_from_resource $base2 color8  #141A20
-set_from_resource $aclir color9  #EA92A4
-set_from_resource $aclig color10 #78BC5C
-set_from_resource $aclio color11 #CBA65D
-set_from_resource $aclib color12 #6FB1E7
-set_from_resource $acliv color13 #D991E6
-set_from_resource $aclic color14 #62BAB0
-set_from_resource $base4 color15 #A3ACB7
+set_from_resource $base1 color0  #111318
+set_from_resource $acdkr color1  #FB7279
+set_from_resource $acdkg color2  #79AD20
+set_from_resource $acdko color3  #D88E20
+set_from_resource $acdkb color4  #5A9FFA
+set_from_resource $acdkv color5  #D576FA
+set_from_resource $acdkc color6  #23B0A5
+set_from_resource $base3 color7  #79849A
+set_from_resource $base2 color8  #171A20
+set_from_resource $aclir color9  #EF9DA0
+set_from_resource $aclig color10 #93C159
+set_from_resource $aclio color11 #EAA559
+set_from_resource $aclib color12 #95B4ED
+set_from_resource $acliv color13 #D4A0ED
+set_from_resource $aclic color14 #5FC3BA
+set_from_resource $base4 color15 #AFB3BE
 
 # Gaps style
 gaps outer 5
