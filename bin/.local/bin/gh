@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Description: search into git commits with FZF
+
+HASH="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+LINE="$HASH | xargs -I % sh -c 'git show --color=always %'"
+
+git log \
+	--pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr)' \
+	-i -G "$1" |
+fzf -i -e \
+	--tiebreak=index \
+	--height=0 \
+	--no-multi \
+	--ansi \
+	--preview="$LINE" \
+	--header "View (enter), copy hash (ctrl-y)" \
+	--bind "ctrl-y:execute($HASH | tr -d '\n' | xsel -b)" \
+	--bind "enter:execute($LINE | less -R)" \
+	--bind "ctrl-f:abort"
