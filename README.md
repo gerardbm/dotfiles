@@ -8,7 +8,7 @@ This repository uses **stow** hierarchy: clone it into `$HOME` and use `stow --n
 
 Color schemes and vim/neovim files are not into this repository. Find them into:
 
-- Color schemes: [atomic](https://github.com/gerardbm/atomic)
+- Color schemes: [cosmic](https://github.com/gerardbm/cosmic)
 - Vim/neovim: [vimrc](https://github.com/gerardbm/vimrc)
 
 Configuration files:
@@ -139,7 +139,7 @@ Symlink the rxvt-unicode settings:
 
 `cd $HOME/dotfiles && stow --no-folding X`
 
-Atomic color scheme is already included.
+Cosmic color scheme is already included.
 
 Install the scripts:
 
