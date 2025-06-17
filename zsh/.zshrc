@@ -318,8 +318,8 @@ alias wxh='identify -format "%wx%h" %f 2>/dev/null'
 # --------------------------------------------------
 
 # Atomic dark color scheme for tty
-if [[ -a ~/.local/bin/atomic-tty.sh ]]; then
-	source ~/.local/bin/atomic-tty.sh
+if [[ -a ~/.local/bin/tty-xres.sh ]]; then
+	source ~/.local/bin/tty-xres.sh
 fi
 
 # Default browsers
