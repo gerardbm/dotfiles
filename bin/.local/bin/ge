@@ -3,10 +3,13 @@
 # Description: this script lists all your working, staging and untracked files,
 # numerates them and asks you to type a number to edit that file.
 
-if ! [[ -d "$PWD/.git" ]]; then
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 	echo "Not a git repository."
 	exit 1
 fi
+
+ROOT_DIR=$(git rev-parse --show-toplevel)
+cd "$ROOT_DIR" || exit 1
 
 if [ "$(git status -s | wc -l)" -eq 0 ]; then
 	echo "All files are commited."
