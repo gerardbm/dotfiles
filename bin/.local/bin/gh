@@ -2,6 +2,12 @@
 #
 # Description: search into git commits with FZF
 
+# Check if a search term was provided
+if [ -z "$1" ]; then
+	echo "Usage: $(basename "$0") <search string>"
+	exit 1
+fi
+
 HASH="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 LINE="$HASH | xargs -I % sh -c 'git show --color=always %'"
 
