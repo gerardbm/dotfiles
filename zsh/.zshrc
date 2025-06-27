@@ -234,6 +234,7 @@ alias gunco='git reset --soft HEAD~1' # Undo last commit
 alias gpuom='git push origin master'
 alias gpush='git push'
 alias gpull='git pull'
+alias gurl='git ls-remote --get-url origin'
 
 # Dev
 alias cdf='cd $HOME/Sync/; ls'
