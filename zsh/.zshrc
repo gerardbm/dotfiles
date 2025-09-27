@@ -302,8 +302,10 @@ alias jekincr='bundle exec jekyll serve --incremental -l'
 alias yt='yt-dlp'
 alias epub='ebook-viewer'
 alias ff='pcmanfm .'
-alias mpv0='mpv --ytdl-format=0'
-alias mpv1='mpv --ytdl-format=1'
+alias mpv0='mpv --ytdl-format=0' # 240
+alias mpv1='mpv --ytdl-format=1' # 480
+alias mpv2='mpv --ytdl-format=2' # 540
+alias mpv3='mpv --ytdl-format=3' # 720
 alias ytf='ytfzf -Dfl'
 alias ytd='ytfzf -Dfdl'
 alias yth='ytfzf -DfHl'
