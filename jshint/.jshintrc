@@ -5,5 +5,6 @@
 	"asi"       : true,
 	"boss"      : true,
 	"expr"      : true,
-	"validthis" : true
+	"validthis" : true,
+	"esversion" : 6
 }
