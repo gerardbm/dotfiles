@@ -200,9 +200,33 @@ alias wen='surfraw wikipedia'
 alias wca='surfraw wikipedia -l=CA'
 alias wes='surfraw wikipedia -l=ES'
 
-# Faster git alias
+# Git status
 alias gg='git status'
 alias gx='git status -s'
+
+# Git log
+alias gl='git lol'
+alias gla='git lol --all'
+alias gls='git lol --stat'
+
+# Git add
+alias ga='git add'
+alias gau='git add $(git ls-files -o --exclude-standard)' # Add untracked
+
+# Git commit
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcmd='git commit -m "$(date -I | sed "s/-//g")"'
+alias gcma='git commit --amend -m'
+
+# Git reset
+alias gr='git reset'                # Reset --mixed (default)
+alias grh='git reset HEAD'          # Unstage file
+alias grs='git reset --soft'        # Undo to a HASH
+alias grl='git reset --soft HEAD~1' # Undo the last commit
+alias grv='git revert HEAD'         # Revert the last commit
+
+# Git diff
 alias gd='git diff'
 alias gdw='git diff --color-words'
 alias gdm='git diff --color-words=.'
@@ -211,25 +235,30 @@ alias gds='git diff --staged'
 alias gdsw='git diff --staged --color-words'
 alias gdsm='git diff --staged --color-words=.'
 alias gdsn='git diff --staged --name-only'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gcmd='git commit -m "$(date -I | sed "s/-//g")"'
-alias gcam='git commit --amend -m'
-alias gl='git lol'
-alias gls='git log --stat'
-alias ga='git add'
-alias gau='git add $(git ls-files -o --exclude-standard)' # Add untracked
-alias gk='git checkout'
+
+# Git branch
 alias gb='git branch'
+alias gbm='git branch -m'       # Rename a branch
+alias gbd='git branch -d'       # Delete a branch
+alias gkm='git checkout master' # Return to master
+# ToDo: git switch and git restore in new git vesion
+
+# Git stash
+alias gsave='git stash save' # Push in new git version
+alias glist='git stash list' # List the stashes
+alias gdrop='git stash drop'
+alias gapply='git stash apply'
+alias gpop='git stash pop'   # Apply + drop
+
+# Git misc
+alias gk='git checkout'
 alias gt='git tag'
 alias gm='git merge'
 alias grebm='git rebase master'       # Update a branch with the master
-alias guntr='git rm --cached'         # Untrack file
-alias gunst='git reset HEAD'          # Unstage file
-alias gunco='git reset --soft HEAD~1' # Undo last commit
 alias gpuom='git push origin master'
 alias gpush='git push'
 alias gpull='git pull'
+alias guntr='git rm --cached'         # Untrack file
 alias gurl='git ls-remote --get-url origin'
 
 # Dev
