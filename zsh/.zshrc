@@ -193,16 +193,12 @@ alias aptupg='sudo apt-get update && sudo apt-get upgrade'
 
 # Surfraw
 alias srd='surfraw duckduckgo'
-alias srg='surfraw google'
-alias srh='surfraw github'
 alias srl='surfraw slinuxdoc'
 alias srm='surfraw mdn'
-alias srr='surfraw rae'
 alias srs='surfraw stack'
 alias wen='surfraw wikipedia'
 alias wca='surfraw wikipedia -l=CA'
 alias wes='surfraw wikipedia -l=ES'
-alias sry='surfraw youtube'
 
 # Faster git alias
 alias gg='git status'
