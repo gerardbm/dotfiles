@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="atomic-lambda"
+ZSH_THEME="cosmic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -348,8 +348,8 @@ alias wxh='identify -format "%wx%h" %f 2>/dev/null'
 # --------------------------------------------------
 
 # Atomic dark color scheme for tty
-if [[ -a ~/.local/bin/tty-xres.sh ]]; then
-	source ~/.local/bin/tty-xres.sh
+if [[ -a ~/.local/bin/cosmic-tty.sh ]]; then
+	source ~/.local/bin/cosmic-tty.sh
 fi
 
 # Default browsers
