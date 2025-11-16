@@ -520,7 +520,7 @@ exec --no-startup-id setxkbmap es
 exec --no-startup-id udiskie -s
 exec --no-startup-id megasync
 exec --no-startup-id numlockx on
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 # exec --no-startup-id volumeicon
 # exec --no-startup-id wicd-gtk -t
 
