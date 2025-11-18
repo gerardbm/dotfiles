@@ -262,11 +262,11 @@ alias guntr='git rm --cached'         # Untrack file
 alias gurl='git ls-remote --get-url origin'
 
 # Dev
-alias cdf='cd $HOME/Sync/; ls'
-alias cdv='cd $HOME/vimrc/; ls'
-alias cdd='cd $HOME/dotfiles/; ls'
-alias cds='cd $HOME/Workspace/; ls'
-alias cdw='cd $HOME/Workspace/vimwiki/; ls'
+alias cdf='cd $HOME/Sync/'
+alias cdv='cd $HOME/vimrc/'
+alias cdd='cd $HOME/dotfiles/'
+alias cds='cd $HOME/Workspace/'
+alias cdw='cd $HOME/Workspace/vimwiki/'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
 # Deploy
