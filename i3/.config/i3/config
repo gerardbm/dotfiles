@@ -332,7 +332,7 @@ bindsym $mod+$alt+8 exec --no-startup-id sct 5278 && \
 	notify-send -t 2000 'Sct: 5278'
 bindsym $mod+$alt+9 exec --no-startup-id sct 5889 && \
 	notify-send -t 2000 'Sct: 5889'
-bindsym $mod+$alt+0 exec --no-startup-id sct && \
+bindsym $mod+$alt+0 exec --no-startup-id sct 6500 && \
 	notify-send -t 2000 'Sct: 6500 (reset)'
 
 # Screen rotation
