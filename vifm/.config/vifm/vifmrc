@@ -59,7 +59,7 @@ set iec
 
 " Selected color scheme
 
-colorscheme atomic
+colorscheme cosmic
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
