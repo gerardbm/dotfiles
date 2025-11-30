@@ -513,6 +513,9 @@ bar {
 # Startup
 # -----------------------------------------------------------------------------
 
+# exec --no-startup-id hsetroot -clear -add '#053542' -add '#a46b16' -gradient 0
+exec --no-startup-id hsetroot -clear -add \
+	'#053542' -add '#1a4d5c' -add '#a46b16' -gradient 0
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id compton -b --config ~/.compton.conf
 exec --no-startup-id bash ~/.config/i3/autoxrandr.sh
