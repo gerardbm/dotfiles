@@ -514,8 +514,7 @@ bar {
 # -----------------------------------------------------------------------------
 
 # exec --no-startup-id hsetroot -clear -add '#053542' -add '#a46b16' -gradient 0
-exec --no-startup-id hsetroot -clear -add \
-	'#053542' -add '#1a4d5c' -add '#a46b16' -gradient 0
+exec --no-startup-id hsetroot -clear -solid '#05313c'
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id compton -b --config ~/.compton.conf
 exec --no-startup-id bash ~/.config/i3/autoxrandr.sh
@@ -526,7 +525,7 @@ exec --no-startup-id setxkbmap es
 exec --no-startup-id udiskie -s
 exec --no-startup-id megasync
 exec --no-startup-id numlockx on
-# exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 # exec --no-startup-id volumeicon
 # exec --no-startup-id wicd-gtk -t
 
