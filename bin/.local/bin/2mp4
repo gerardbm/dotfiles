@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+
+# Description: Convert video files to MP4
+
+for i in "${@:1}"; do
+	NAME="${i%%.*}"
+	ffmpeg -i "$i" -c:v libx264 -crf 23 -preset slow -c:a libopus -b:a 128k "$NAME.mp4"
+done
