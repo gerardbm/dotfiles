@@ -64,7 +64,7 @@ URxvt*font           : xft:Terminess Powerline:size=13,xft:TerminessTTF Nerd Fon
 ! URxvt*boldItalicFont : xft:Terminus:size=12:bold:italic
 !
 URxvt*letterSpace    : 0
-URxvt*internalBorder : 1
+URxvt*internalBorder : 8
 URxvt*scrollBar      : false
 URxvt*pointerBlank   : true
 URxvt*hold           : false
