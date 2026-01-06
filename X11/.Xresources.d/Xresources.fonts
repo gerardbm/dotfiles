@@ -4,6 +4,7 @@ URxvt.keysym.C-M-3 : command:\033]710;xft:Roboto Mono for Powerline:size=11\007
 URxvt.keysym.C-M-4 : command:\033]710;xft:Fira Mono for Powerline:size=11\007
 URxvt.keysym.C-M-5 : command:\033]710;xft:Noto Mono for Powerline:size=11\007
 URxvt.keysym.C-M-6 : command:\033]710;xft:Go Mono for Powerline:size=11\007
+URxvt.keysym.C-M-7 : command:\033]710;xft:0xProto Nerd Font:size=11\007
 ! ---
 URxvt.keysym.C-M-9 : command:\033]710;xft:Terminess Powerline:size=13\007
 URxvt.keysym.C-M-0 : command:\033]710;xft:Terminess Powerline:size=13:bold\007
