@@ -44,7 +44,7 @@ new_window pixel 1
 new_float normal
 
 # Smart borders
-hide_edge_borders smart
+# hide_edge_borders smart
 
 # Orientation
 default_orientation horizontal
@@ -239,7 +239,7 @@ mode "$mode_caps" {
 }
 
 # Open applications
-# Still free: mod+q and mod+Control+[a, e]
+# Still free: mod+q and mod+Control+e
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
 bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -e 'vifm'
 bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
@@ -250,8 +250,11 @@ bindsym $mod+Control+b exec --no-startup-id urxvt -name 'tra' -b 30 \
 	bash -e ~/.config/i3/translate.sh
 bindsym $mod+Control+c exec --no-startup-id sh ~/.config/i3/calendar.sh
 bindsym $mod+Control+o exec --no-startup-id sh ~/.local/bin/www
-bindsym $mod+Control+z exec --no-startup-id sh ~/.local/bin/jekw3m
 bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec "UNIX"
+bindsym $mod+Control+a exec --no-startup-id \
+	sh -c 'i3-msg resize set width 62 ppt || i3-msg resize set height 62 ppt'
+bindsym $mod+Control+z exec --no-startup-id \
+	sh -c 'i3-msg resize set width 50 ppt || i3-msg resize set height 50 ppt'
 bindsym $mod+m exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
 bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
 
@@ -499,7 +502,7 @@ for_window [urgent=latest] focus
 # -----------------------------------------------------------------------------
 
 # class                 border backg. text   indic. child_border
-client.focused          $acdkc $acdkc $base2 $acdko $acdkc
+client.focused          $acdkc $acdkc $base2 $acdkc $acdkc
 client.focused_inactive $base3 $base3 $base2 $base3
 client.unfocused        $base2 $base2 $base3 $base2
 client.urgent           $acdkg $acdkg $base1 $acdkg
