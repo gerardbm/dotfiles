@@ -96,13 +96,17 @@ export PATH="/opt/qcad:$PATH"
 export GOPATH="$HOME/Workspace/goprojects"
 
 # Ruby path
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+if command -v rbenv >/dev/null 2>&1; then
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	eval "$(~/.rbenv/bin/rbenv init - zsh)"
+fi
 
 # Pyenv path
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv >/dev/null 2>&1; then
+	export PATH="$HOME/.pyenv/bin:$PATH"
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+fi
 
 # Aliases:
 # For a full list of active aliases, run `alias`.
@@ -533,13 +537,10 @@ bindkey -a ds delete-surround
 bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
-# Use this ssh-askpass
-# export SSH_ASKPASS=/usr/bin/lxqt-openssh-askpass
-
 # FZF Config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -p ~/.gitignore -g ''"
+export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g ''"
 export FZF_DEFAULT_OPTS="\
 --bind alt-u:preview-half-page-up \
 --bind alt-d:preview-half-page-down \
@@ -549,7 +550,7 @@ export FZF_DEFAULT_OPTS="\
 --color fg:15,bg:0,hl:3,fg+:6,bg+:8,hl+:3,header:7,\
 info:6,prompt:6,spinner:2,pointer:3,marker:3,border:6"
 
-export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -p ~/.gitignore -g ''"
+export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g ''"
 export FZF_CTRL_T_OPTS="--bind ctrl-t:abort"
 export FZF_CTRL_R_OPTS="--bind ctrl-r:abort"
 
