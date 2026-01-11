@@ -6,6 +6,7 @@
 # Full configuration is available in this repository:
 # URL: https://github.com/gerardbm/dotfiles
 
-GETVAL=$(xbacklight -get | awk '{printf "%.0f\n", $1}')
+CUR=$(brightnessctl get)
+MAX=$(brightnessctl max)
 
-notify-send -t 2000 "Brightness information: $GETVAL%"
+notify-send -t 2000 "Brightness: level ${CUR}/${MAX}"

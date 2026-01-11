@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Prevent race condition, so don't remove this
+# (urxvt+i3 may start the script before the TTY is ready)
+sleep 0.05
+
 printf "1. Spanish to English\n2. English to Spanish\n0. Quit\n\n"
 
 while read -r -p "Input an option: " answer; do

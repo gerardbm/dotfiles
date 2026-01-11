@@ -19,9 +19,9 @@ done
 for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
 	if [[ ! $output =~ ^LVDS.*$ ]]; then
 		xrandr --output $lvds --off --output $output --primary --auto
-		feh --bg-fill ~/.wallpaper/distant-nebula-wallpaper-hd.jpg
+		# feh --bg-fill ~/.wallpaper/distant-nebula-wallpaper-hd.jpg
 	else
 		xrandr --output $lvds --auto
-		feh --bg-fill ~/.wallpaper/distant-nebula-wallpaper-hd.jpg
+		# feh --bg-fill ~/.wallpaper/distant-nebula-wallpaper-hd.jpg
 	fi
 done

@@ -1,4 +1,4 @@
-# i3wm config file (v4.13)
+# i3wm config file (v4.24)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -54,9 +54,9 @@ default_orientation horizontal
 # -----------------------------------------------------------------------------
 
 # Start a terminal
-bindsym $mod+n exec --no-startup-id rxvt-unicode -name 'rxvt'
-bindsym $mod+Control+n exec --no-startup-id rxvt-unicode -name 'rxvt'
-bindsym $mod+b exec --no-startup-id rxvt-unicode -name 'rxvt-float'
+bindsym $mod+n exec --no-startup-id urxvt -name 'rxvt'
+bindsym $mod+Control+n exec --no-startup-id urxvt -name 'rxvt'
+bindsym $mod+b exec --no-startup-id urxvt -name 'rxvt-float'
 
 # Kill focused window
 bindsym $mod+Control+q kill
@@ -119,7 +119,7 @@ set $ws6  "6: doc"
 set $ws7  "7: sci"
 set $ws8  "8: dir"
 set $ws9  "9: var"
-set $ws0  "X: www"
+set $ws0  "X: net"
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -239,7 +239,7 @@ mode "$mode_caps" {
 }
 
 # Open applications
-# Still free: mod+q and mod+Control+e
+# Still free: mod+q and mod+Control+e|w|o
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
 bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -e 'vifm'
 bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
@@ -249,8 +249,6 @@ bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+b exec --no-startup-id urxvt -name 'tra' -b 30 \
 	bash -e ~/.config/i3/translate.sh
 bindsym $mod+Control+c exec --no-startup-id sh ~/.config/i3/calendar.sh
-bindsym $mod+Control+o exec --no-startup-id sh ~/.local/bin/www
-bindsym $mod+Control+w exec --no-startup-id sh ~/.local/bin/wimec "UNIX"
 bindsym $mod+Control+a exec --no-startup-id \
 	sh -c 'i3-msg resize set width 62 ppt || i3-msg resize set height 62 ppt'
 bindsym $mod+Control+z exec --no-startup-id \
@@ -275,12 +273,12 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute \
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute \
 	@DEFAULT_SOURCE@ toggle
 
-# Volume for default Alsa
+# Volume (install pulseaudio)
 bindsym $mod+u exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym $mod+o exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 
-# Volume for Bluetooth (it uses pulseaudio instead of alsa)
+# Volume for Bluetooth
 bindsym $mod+F10 exec --no-startup-id pactl set-sink-mute \
 	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink toggle
 bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume \
@@ -299,56 +297,52 @@ bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && \
 	notify-send -t 2000 'Cmus: prev'
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10% && \
-	sh ~/.config/i3/xbacklight.sh
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10% && \
-	sh ~/.config/i3/xbacklight.sh
-bindsym $mod+Control+1 exec --no-startup-id xbacklight -set 10% && \
-	notify-send -t 2000 'Brigthness: 10%'
-bindsym $mod+Control+2 exec --no-startup-id xbacklight -set 20% && \
-	notify-send -t 2000 'Brigthness: 20%'
-bindsym $mod+Control+3 exec --no-startup-id xbacklight -set 30% && \
-	notify-send -t 2000 'Brigthness: 30%'
-bindsym $mod+Control+4 exec --no-startup-id xbacklight -set 40% && \
-	notify-send -t 2000 'Brigthness: 40%'
-bindsym $mod+Control+5 exec --no-startup-id xbacklight -set 50% && \
-	notify-send -t 2000 'Brigthness: 50%'
-bindsym $mod+Control+6 exec --no-startup-id xbacklight -set 60% && \
-	notify-send -t 2000 'Brigthness: 60%'
-bindsym $mod+Control+7 exec --no-startup-id xbacklight -set 70% && \
-	notify-send -t 2000 'Brigthness: 70%'
-bindsym $mod+Control+8 exec --no-startup-id xbacklight -set 80% && \
-	notify-send -t 2000 'Brigthness: 80%'
-bindsym $mod+Control+9 exec --no-startup-id xbacklight -set 90% && \
-	notify-send -t 2000 'Brigthness: 90%'
-bindsym $mod+Control+0 exec --no-startup-id xbacklight -set 100% && \
-	notify-send -t 2000 'Brigthness: 100%'
-
-# Display information
-bindsym $mod+Control+F1 exec --no-startup-id sh ~/.config/i3/xbacklight.sh
-bindsym $mod+Control+F2 exec --no-startup-id sh ~/.local/bin/ramuse
+bindsym $mod+Control+F1 exec --no-startup-id brightnessctl set 1- && \
+	sh ~/.config/i3/brightness.sh
+bindsym $mod+Control+F2 exec --no-startup-id brightnessctl set +1 && \
+	sh ~/.config/i3/brightness.sh
+bindsym $mod+Control+1 exec --no-startup-id brightnessctl set 1 && \
+	notify-send -t 2000 'Brigthness: level 1/15'
+bindsym $mod+Control+2 exec --no-startup-id brightnessctl set 2 && \
+	notify-send -t 2000 'Brigthness: level 2/15'
+bindsym $mod+Control+3 exec --no-startup-id brightnessctl set 3 && \
+	notify-send -t 2000 'Brigthness: level 3/15'
+bindsym $mod+Control+4 exec --no-startup-id brightnessctl set 4 && \
+	notify-send -t 2000 'Brigthness: level 4/15'
+bindsym $mod+Control+5 exec --no-startup-id brightnessctl set 5 && \
+	notify-send -t 2000 'Brigthness: level 5/15'
+bindsym $mod+Control+6 exec --no-startup-id brightnessctl set 6 && \
+	notify-send -t 2000 'Brigthness: level 6/15'
+bindsym $mod+Control+7 exec --no-startup-id brightnessctl set 7 && \
+	notify-send -t 2000 'Brigthness: level 7/15'
+bindsym $mod+Control+8 exec --no-startup-id brightnessctl set 8 && \
+	notify-send -t 2000 'Brigthness: level 8/15'
+bindsym $mod+Control+9 exec --no-startup-id brightnessctl set 9 && \
+	notify-send -t 2000 'Brigthness: level 9/15'
+bindsym $mod+Control+0 exec --no-startup-id brightnessctl set 10 && \
+	notify-send -t 2000 'Brigthness: level 10/15'
 
 # Screen color temperature
-bindsym $mod+$alt+1 exec --no-startup-id sct 1000 && \
-	notify-send -t 2000 'Sct: 1000 (lowest)'
-bindsym $mod+$alt+2 exec --no-startup-id sct 1611 && \
-	notify-send -t 2000 'Sct: 1611'
-bindsym $mod+$alt+3 exec --no-startup-id sct 2222 && \
-	notify-send -t 2000 'Sct: 2222'
-bindsym $mod+$alt+4 exec --no-startup-id sct 2833 && \
-	notify-send -t 2000 'Sct: 2833'
-bindsym $mod+$alt+5 exec --no-startup-id sct 3444 && \
-	notify-send -t 2000 'Sct: 3444'
-bindsym $mod+$alt+6 exec --no-startup-id sct 4056 && \
-	notify-send -t 2000 'Sct: 4056'
-bindsym $mod+$alt+7 exec --no-startup-id sct 4667 && \
-	notify-send -t 2000 'Sct: 4667'
-bindsym $mod+$alt+8 exec --no-startup-id sct 5278 && \
-	notify-send -t 2000 'Sct: 5278'
-bindsym $mod+$alt+9 exec --no-startup-id sct 5889 && \
-	notify-send -t 2000 'Sct: 5889'
-bindsym $mod+$alt+0 exec --no-startup-id sct 6500 && \
-	notify-send -t 2000 'Sct: 6500 (reset)'
+bindsym $mod+$alt+1 exec --no-startup-id xsct 1000 && \
+	notify-send -t 2000 'Xsct: 1000 (lowest)'
+bindsym $mod+$alt+2 exec --no-startup-id xsct 1611 && \
+	notify-send -t 2000 'Xsct: 1611'
+bindsym $mod+$alt+3 exec --no-startup-id xsct 2222 && \
+	notify-send -t 2000 'Xsct: 2222'
+bindsym $mod+$alt+4 exec --no-startup-id xsct 2833 && \
+	notify-send -t 2000 'Xsct: 2833'
+bindsym $mod+$alt+5 exec --no-startup-id xsct 3444 && \
+	notify-send -t 2000 'Xsct: 3444'
+bindsym $mod+$alt+6 exec --no-startup-id xsct 4056 && \
+	notify-send -t 2000 'Xsct: 4056'
+bindsym $mod+$alt+7 exec --no-startup-id xsct 4667 && \
+	notify-send -t 2000 'Xsct: 4667'
+bindsym $mod+$alt+8 exec --no-startup-id xsct 5278 && \
+	notify-send -t 2000 'Xsct: 5278'
+bindsym $mod+$alt+9 exec --no-startup-id xsct 5889 && \
+	notify-send -t 2000 'Xsct: 5889'
+bindsym $mod+$alt+0 exec --no-startup-id xsct 6500 && \
+	notify-send -t 2000 'Xsct: 6500 (reset)'
 
 # Screen rotation
 bindsym $mod+$alt+j exec --no-startup-id sh ~/.config/i3/rotate.sh normal
@@ -370,11 +364,11 @@ bindsym --release $mod+$alt+m exec --no-startup-id scrot -s \
 bindsym --release $mod+$alt+n exec --no-startup-id scrot -ub \
 	~/Shots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send -t 2000 'Screenshot!'
 
-# Compton control
+# Picom control
 bindsym $mod+Control+g exec --no-startup-id \
-	pkill compton && notify-send -t 2000 'Compton killed.'
+	pkill picom && notify-send -t 2000 'Picom killed.'
 bindsym $mod+Shift+g exec --no-startup-id \
-	compton -b --config ~/.compton.conf && notify-send -t 2000 'Compton restarted.'
+	picom -b --config ~/.picom.conf && notify-send -t 2000 'Picom restarted.'
 
 # Toggle monitor modes
 bindsym $mod+$alt+t exec --no-startup-id bash ~/.config/i3/togglexrandr.sh
@@ -444,7 +438,7 @@ assign [class="^ioquake3$"] $ws9
 assign [class="^Simplescreenrecorder$"] $ws9
 assign [class="^obs$"] $ws9
 
-# X: www
+# X: net
 assign [class="^Chromium$"] $ws0
 assign [class="^qutebrowser$"] $ws0
 assign [class="^Firefox-esr$"] $ws0
@@ -517,7 +511,7 @@ bar {
 	status_command i3status -c ~/.config/i3/i3status.conf
 	colors {
 		background $base2
-		statusline $base4
+		statusline $acdkc
 		separator  $base3
 		focused_workspace  $base2 $base2 $acdkc
 		active_workspace   $base2 $base2 $acdkb
@@ -534,8 +528,11 @@ bar {
 # exec --no-startup-id hsetroot -clear -add '#053542' -add '#a46b16' -gradient 0
 exec --no-startup-id hsetroot -clear -solid '#05313c'
 exec --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id compton -b --config ~/.compton.conf
+# exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id picom -b --config ~/.picom.conf
 exec --no-startup-id bash ~/.config/i3/autoxrandr.sh
+exec --no-startup-id feh --bg-fill \
+	~/.wallpaper/space-wallpaper-1920x1080-minimalist-universe-26331.jpg
 exec --no-startup-id xmodmap ~/.Xmodmap
 
 exec --no-startup-id setcursor
@@ -545,13 +542,16 @@ exec --no-startup-id megasync
 exec --no-startup-id numlockx on
 exec --no-startup-id blueman-applet
 # exec --no-startup-id volumeicon
-# exec --no-startup-id wicd-gtk -t
+exec --no-startup-id nm-applet
 
 #Set default volume
 exec --no-startup-id pactl set-sink-volume 0 '30%'
 
-# Set LCD brightness
-exec --no-startup-id xbacklight -set 50%
+# Set LCD brightness (8 is equal to 40%)
+exec --no-startup-id brightnessctl set 6
+
+# Disable the beep in the shell
+exec --no-startup-id xset b off
 
 # Keyboard: set initial delay 300ms, repeat 35ms
 exec --no-startup-id xset r rate 800 30
