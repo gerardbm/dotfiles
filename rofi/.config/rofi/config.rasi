@@ -1,0 +1,27 @@
+configuration {
+	modi: "run,window,filebrowser,ssh";
+	swow-icons: true;
+	display-run: "run";
+	display-window: "window";
+	display-filebrowser: "files";
+	display-ssh: "ssh";
+	terminal: "/usr/bin/urxvtc";
+	run-shell-command: "/usr/bin/urxvtc -e '{cmd}'";
+	sidebar-mode: true;
+	fuzzy: true;
+
+	kb-accept-entry: "Control+m,Return,KP_Enter";
+	kb-cancel: "Escape,Control+c";
+
+	/* MODES */
+	kb-mode-complete: "";
+	kb-mode-next: "Control+n,Control+Tab,Control+l";
+	kb-mode-previous: "Control+p";
+
+	/* ROWS */
+	kb-remove-to-eol: "";
+	kb-row-down: "Control+j";
+	kb-row-up: "Control+k";
+}
+
+@theme "themes/cosmic"
