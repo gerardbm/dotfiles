@@ -14,25 +14,25 @@ Color schemes and vim/neovim files are not into this repository. Find them into:
 Configuration files:
 
 ```
-- Distro      : Debian
-- WM          : i3-wm (i3-gaps)
+- Distro      : Debian 13
+- WM          : i3
 - Menu        : rofi
 - Shell       : zsh
 - Terminal    : urxvt, xterm
 - Multiplexer : tmux
-- Font        : Terminess Powerline
+- Font        : Noto Mono
 - CVS         : git
 - Editor      : vim, neovim
 - Files       : vifm, ranger
 - Finder      : fzf
-- Youtube     : ytfzf
 - IRC         : irssi
 - Email       : mutt
 - Music       : cmus
 - Video       : mpv
 - Images      : feh
-- Reader      : mupdf, apvlv, zathura
-- Browser     : w3m
+- PDF reader  : mupdf, apvlv, zathura
+- Epub reader : ebook-viewer, fbreader
+- Browser     : w3m, qutebrowser
 - Interface   : surfraw
 - Bittorrent  : transmission-cli
 ```
@@ -65,13 +65,15 @@ Configuration files:
 
 `autologin-user=<user>`
 
-### i3-wm
+### i3
 
-Install [i3-radius](https://github.com/terroo/i3-radius). It's i3-wm with gaps and rounded corners. Just clone the linked repository and run `sh build.sh`. From the i3-wm version 4.22, i3-gaps settings will be included.
+Install it from the repositories:
+
+`sudo apt-get install i3`
 
 Make sure you have installed the following libraries, which are a requirement to run my setup properly:
 
-- compton: compositor based on xcompmgr with some improvements.
+- picom: a lightweight compositor for X11 with animation support.
 - dunst: a customizable and lightweight notification-daemon.
 - libnotify-bin: a program to send desktop notifications.
 - lxappearance: customize look and feel (lxde-native).
@@ -79,19 +81,24 @@ Make sure you have installed the following libraries, which are a requirement to
 - lxqt-openssh-askpass: handle password access.
 - pulseaudio-utils: to run pulse audio controls from the keyboard.
 - rofi: a window switcher, run dialog and dmenu replacement.
-- rxvt-unicde-256color: VT102 emulator for the X window system.
+- rxvt-unicode: VT102 emulator for the X window system.
 - udiskie: automounter for removable media (flash drives).
 - volumeicon-alsa: volume icon for the system tray.
-- wicd: Wired and wireless network connection manager.
-- xbacklight: adjust backlight brightness using RandR extension.
+- blueman: bluetooth devices manager (blueman-applet included).
+- brightnessctl: read and control the device brightness.
 - xsel: command-line tool to manipulate the X selection.
+- xsct: set screen color temperature.
+- xcalib: tiny monitor calibration loader.
+- moreutils: additional Unix utilities.
+- silversearcher-ag: a very fast grep-like program.
+- fzf: a command line fuzzy-finde for general purpose.
 
 Optional:
 - arandr: can be useful to generate xrandr \*.sh scripts.
-- libfm-pref-apps and exo-preferred-applications: the name is self-descriptive.
 - redshift: adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less or reduce the risk for delayed sleep phase syndrome if you are working in front of the screen at night.
+- xdotool: simulate X11 input events for mouse and keyboard.
 
-Useful tools: uuid, fbreader, simplescreenrecorder, translate-shell, trash-cli
+Useful tools: uuid, fbreader, simplescreenrecorder, trash-cli
 
 ### Zsh
 
@@ -131,13 +138,36 @@ Log out and log in to see the new shell as default.
 
 ### URxvt
 
-Install it from the repositories:
+In Debian 13, I do not install rxvt-unicode from the official repositories. The packaged version is 9.31, but I deliberately use version 9.30 instead.
 
-`sudo apt-get install rxvt-unicode-256color`
+The reason is a regression introduced after 9.30 that affects how urxvt handles window resizing at startup and during geometry changes. With tiling window managers such as i3, this causes the shell prompt to appear vertically offset (centered or pushed down) when the terminal is opened maximized or
+resized, instead of starting at the top of the window.
+
+```bash
+git clone https://github.com/exg/rxvt-unicode.git
+cd rxvt-unicode
+git checkout rxvt-unicode-9.30
+git submodule update --init
+
+./configure \
+--prefix=/usr \
+--enable-perl \
+--enable-xft \
+--enable-unicode3
+
+wget http://dist.schmorp.de/libev/libev-4.33.tar.gz
+tar xf libev-4.33.tar.gz
+mv libev-4.33 libev
+
+make
+sudo make install
+```
+
+It was required to place `libev-4.33` as «libev» in the same folder before the `make`. Then, the command `checkinstall` failed. Use `sudo make install`.
 
 Symlink the rxvt-unicode settings:
 
-`cd $HOME/dotfiles && stow --no-folding X`
+`cd $HOME/dotfiles && stow --no-folding X11`
 
 Cosmic color scheme is already included.
 
@@ -154,13 +184,9 @@ To check for newer versions on Github:
 
 ### Tmux
 
-The version from the repositories is too old. Install it from the source code:
+Install it from the repositories:
 
-1. Download a tar.gz from github.
-2. Unzip: `tar -zxvf tmux-2.7.tar.gz`
-3. Join to the directory created: `cd tmux-2.7`
-4. Compile it: `./configure; make; sudo checkinstall`
-5. Install the required dependencies and repeat the `./configure`
+`sudo apt-get install tmux`
 
 Then, install the package `urlview`:
 
@@ -202,9 +228,9 @@ Install it from the repositories:
 
 (Not using anymore, though).
 
-### Vim 8
+### Vim 9
 
-Install it from the repositories (the stable version is enough):
+Install it from the repositories:
 
 `sudo apt-get install vim vim-gtk3`
 
@@ -237,19 +263,9 @@ My vim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
 ### Neovim
 
-Neovim is available from github, so download the AppImage from the releases section.
+Install it from the repositories:
 
-Move the file `nvim.appimage` to `/opt/neovim/`:
-
-`sudo mv nvim.appimage /opt/neovim/`
-
-Join to the folder and create the symlink:
-
-`sudo ln -sf /opt/neovim/nvim.appimage /usr/local/bin/nvim`
-
-Give permissions to the file:
-
-`sudo chmod 755 /opt/neovim/nvim.appimage`
+`sudo apt-get install neovim`
 
 A desktop file is not needed because it's a terminal application.
 
@@ -272,7 +288,7 @@ The package `libclang-dev` is required on Debian.
 
 ### Golang
 
-Inistall golang from the repositories:
+Install golang from the repositories:
 
 `sudo apt-get install golang`
 
@@ -282,9 +298,11 @@ Open Vim and run the following command:
 
 ### Pylint
 
-Note: check pyenv to install other Python versions.
+Install pylint from the repositories:
 
-Install pylint from pip3:
+`sudo apt-get install pylint`
+
+Note: check pyenv to install other Python versions.
 
 `sudo pip3 install pylint`
 
@@ -308,9 +326,13 @@ Install chktex from the repositories:
 
 ### Nodejs, tern, jshint, csslint
 
-Download Node.js from [https://nodejs.org](https://nodejs.org).
+Install Node.js from the repositories:
 
-Unzip the binary archive (v.10.15.3 in my case):
+`sudo apt-get install nodejs`
+
+Or download another version from [https://nodejs.org](https://nodejs.org).
+
+Unzip the binary archive (for example: v.10.15.3):
 
 ```sh
 sudo mkdir /usr/lib/nodejs
@@ -382,16 +404,16 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 Install a Python version. For example:
 
 ```sh
-pyenv install 3.8.0
+pyenv install 3.14.0
 ```
 
 Activate the Python version:
 
 ```sh
-pyenv local 3.8.0
+pyenv local 3.14.0
 ```
 
-Then use `pip3.8` to install some Python tools: `youtube-dl`, `skyfield`, `pylint`, etc.
+Then use `pip3.14` to install some Python tools.
 
 How to use again the system version:
 
@@ -502,16 +524,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 ```
 
-### Ytfzf
-
-Install it following the instructions from [ytfzf Github page](https://github.com/pystardust/ytfzf/).
-
-```sh
-git clone https://github.com/pystardust/ytfzf
-cd ytfzf
-sudo make install
-```
-
 ### Mutt
 
 Install it from the repositories:
@@ -580,17 +592,32 @@ Sources: https://www.systutorials.com/docs/linux/man/1-lesskey/#lbAE
 
 ### Youtube-dl
 
-Download it from the repositories:
+Install it using wget:
 
-`sudo apt-get install youtube-dl`
+`sudo wget -O /usr/local/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux`
+
+Give permissions:
+
+`sudo chmod a+rx /usr/local/bin/yt-dlp`
 
 Update it to the last version:
 
-`sudo -H pip install --upgrade youtube-dl`
+`sudo yt-dlp -U`
+
+### Translate-shell
+
+Install it from git:
+
+```bash
+git clone https://github.com/soimort/translate-shell
+cd translate-shell/
+make
+sudo make install
+```
 
 ### VirtualBox
 
-Packages for VirtualBox are not available in Debian 9. To install VirtualBox you must use the stretch-backports repository or the upstream third-party repository. More info, here: https://wiki.debian.org/VirtualBox.
+Packages for VirtualBox are not available in Debian 13. To install VirtualBox you must use the stretch-backports repository or the upstream third-party repository. More info, here: https://wiki.debian.org/VirtualBox.
 
 ## Navigation
 
@@ -767,4 +794,4 @@ Video:
 
 Yes, a mouse would make the life easier. And slower ;-)
 
-This setup works in Debian 9 or later.
+This setup works in Debian 13 or later.
