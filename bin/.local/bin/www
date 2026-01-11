@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-#
-# Description: Open w3m browser in a new window
-
-urxvt -name 'www' \
-	-b 60 \
-	-fn "xft:Noto Mono for Powerline:size=14" \
-	-e w3m "$1"
