@@ -55,16 +55,18 @@ Xft.lcdfilter : lcddefault
 ! ------------------------------------------------------------
 
 URxvt*termName       : screen-256color
-URxvt*font           : xft:Terminess Powerline:size=13,xft:TerminessTTF Nerd Font Mono
-!
-! Terminus italics are ugly, so I do not use them.
-!
-! URxvt*boldFont       : xft:Terminus:size=12:bold
-! URxvt*italicFont     : xft:Terminus:size=12:italic
-! URxvt*boldItalicFont : xft:Terminus:size=12:bold:italic
-!
+! URxvt*font           : xft:Terminess Powerline:size=13,xft:DejaVu Sans MNerd Font Mono
+! URxvt*boldFont       : xft:Terminess Powerline:size=13:bold,xft:DejaVu Sans MNerd Font Mono
+! URxvt*italicFont     : xft:Terminess Powerline:size=13:italic,xft:DejaVu Sans MNerd Font Mono
+! URxvt*boldItalicFont : xft:Terminess Powerline:size=13:bold:italic,xft:DejaVu Sans MNerd Font Mono
+
+URxvt*font           : xft:Noto Mono for Powerline:size=12,xft:DejaVu Sans MNerd Font Mono
+URxvt*boldFont       : xft:Noto Mono for Powerline:size=12:bold,xft:DejaVu Sans MNerd Font Mono
+URxvt*italicFont     : xft:Noto Mono for Powerline:size=12:italic,xft:DejaVu Sans MNerd Font Mono
+URxvt*boldItalicFont : xft:Noto Mono for Powerline:size=12:bold:italic,xft:DejaVu Sans MNerd Font Mono
+
 URxvt*letterSpace    : 0
-URxvt*internalBorder : 6
+URxvt*internalBorder : 1
 URxvt*scrollBar      : false
 URxvt*pointerBlank   : true
 URxvt*hold           : false
@@ -148,8 +150,8 @@ URxvt.keysym.Control-R : resize-font:reset
 
 xterm*termName        : screen-256color
 xterm*renderFont      : true
-xterm*faceName        : Terminess Powerline
-xterm*faceSize        : 13
+xterm*faceName        : Noto Mono for Powerline
+xterm*faceSize        : 12
 xterm*locale          : true
 xterm*metaSendsEscape : true
 xterm*eightBitInput   : false
@@ -204,44 +206,6 @@ xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>R: set-vt-font(d)
 
 xterm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
-
-! ------------------------------------------------------------
-! Rofi
-! ------------------------------------------------------------
-
-rofi.modi              : run,window
-rofi.terminal          : /usr/bin/urxvtc
-rofi.run-shell-command : /usr/bin/urxvtc -e '{cmd}'
-rofi.ssh-command       : tmux split-window -h -p 50 '{ssh-client} {host}'
-rofi.sidebar-mode      : true
-rofi.fuzzy             : true
-rofi.font              : Terminus\ 13
-rofi.location          : 0
-rofi.width             : 32
-rofi.padding           : 2
-rofi.borderwidth       : 1
-rofi.columns           : 1
-rofi.lines             : 8
-rofi.separator-style   : none
-
-! Key bindings
-rofi.kb-accept-entry        : Control+m,Return,KP_Enter
-rofi.kb-cancel              : Escape,Control+c
-rofi.kb-mode-next           : Control+l
-rofi.kb-mode-previous       : Control+h
-rofi.kb-row-down            : Control+j
-rofi.kb-row-up              : Control+k
-rofi.kb-remove-to-eol       : Control+y
-rofi.kb-remove-to-sol       : Control+u
-rofi.kb-remove-char-back    : Control+s,BackSpace
-rofi.kb-remove-char-forward : Control+d,Delete
-
-! Colors            bg     fg     altbg  hlbg   hlfg
-rofi.color-normal : base1, base4, base1, base2, acc50
-rofi.color-urgent : base1, acg50, base2, base1, acc50
-rofi.color-active : base1, acg50, base2, base2, acg50
-rofi.color-window : base1, acc50, base3
-rofi.bw           : 1
 
 ! ------------------------------------------------------------
 ! Information
