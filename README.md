@@ -1,4 +1,4 @@
-# ~/dotfiles for Debian and i3wm
+# ~/dotfiles for Debian 13 and i3
 
 ![screenshot01](https://github.com/gerardbm/dotfiles/blob/master/images/Cosmic-Lunar-Mode.png)
 
