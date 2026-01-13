@@ -1,0 +1,317 @@
+{
+  "viewer:": {
+    "config": {
+      "__timestamp__": "2026-01-13T23:12:11.240407+00:00",
+      "base_font_size": 28,
+      "current_color_scheme": "black",
+      "keyboard_shortcuts": {
+        "decrease_font_size": [
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "-",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "_",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "-",
+            "metaKey": false,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "_",
+            "metaKey": false,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "-",
+            "metaKey": true,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "_",
+            "metaKey": true,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "-",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "down": [
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "ArrowDown",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "d",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "end_of_book": [
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "End",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "g",
+            "metaKey": false,
+            "shiftKey": true
+          }
+        ],
+        "increase_font_size": [
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "=",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "+",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "+",
+            "metaKey": false,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "=",
+            "metaKey": false,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "+",
+            "metaKey": true,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "+",
+            "metaKey": true,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "=",
+            "metaKey": true,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "+",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "left": [
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "ArrowLeft",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "k",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "pagedown": [
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": " ",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "PageDown",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "n",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "pageup": [
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "PageUp",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": " ",
+            "metaKey": false,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "p",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "quit": [
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "q",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "q",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "right": [
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "ArrowRight",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "j",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "start_of_book": [
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "Home",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "g",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "toggle_autoscroll": [
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "Enter",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "toggle_full_screen": [
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "F11",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": true,
+            "key": "f",
+            "metaKey": false,
+            "shiftKey": true
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "f",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ],
+        "up": [
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "ArrowUp",
+            "metaKey": false,
+            "shiftKey": false
+          },
+          {
+            "altKey": false,
+            "ctrlKey": false,
+            "key": "u",
+            "metaKey": false,
+            "shiftKey": false
+          }
+        ]
+      },
+      "read_mode": "flow",
+      "standalone_font_settings": {
+        "serif_family": "Gentium Book Plus"
+      },
+      "standalone_misc_settings": {
+        "hide_tooltips": false
+      }
+    }
+  }
+}
