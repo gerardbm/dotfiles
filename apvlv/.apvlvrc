@@ -3,24 +3,24 @@
 " --------------------------------------------------
 
 " Zoom in/out
-map z zi
-map Z zo
+nmap z zi
+nmap Z zo
 
 " Zoom to fit window width
-map w zw
+nmap w zw
 
 " Zoom to fit window height
-map h zh
+nmap h zh
 
 " Scroll
-map u <C-u>
-map d <C-d>
+nmap u <C-u>
+nmap d <C-d>
 
 " Search
-map <Space> /
+nmap <Space> /
 
 " Ctrl+P show print dialog
-map <C-p> :print<CR>
+nmap <C-p> :print<CR>
 
 " Zoom value, default is fitwidth
 " Zoom has 4 styles:
@@ -69,14 +69,14 @@ set wrapscan=yes
 
 " Set double click action
 " Option value is 'word', 'line' or 'page'
-set doubleclick = page
+set doubleclick=page
 
 " Inverted
-set inverted = yes
+set inverted=yes
 
 " Set GUI options
 " m means menu, T means toolbar
-set guioptions = m
+set guioptions=m
 
 " Set if use auto reload document
 " > 0 means auto reload after some seconds. = 0 means not auto reload
