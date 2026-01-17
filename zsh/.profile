@@ -27,3 +27,4 @@ eval "$(pyenv init --path)"
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_STYLE_OVERRIDE=Adwaita-Dark
+export QT_LOGGING_RULES="qt.qpa.*=false;qt6ct.*=false"
