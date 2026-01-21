@@ -548,7 +548,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pactl set-sink-volume 0 '30%'
 
 # Set LCD brightness (8 is equal to 40%)
-exec --no-startup-id brightnessctl set 6
+exec --no-startup-id brightnessctl set 8
 
 # Disable the beep in the shell
 exec --no-startup-id xset b off
