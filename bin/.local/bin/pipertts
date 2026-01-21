@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+
+# Description: Text to voice es_ES
+
+# Default model
+MODEL="/opt/piper-tts/voices/es_ES-carlfm-high.onnx"
+PIPER="/opt/piper-tts/piper/piper"
+
+# Check parameters
+if [ "$#" -ne 2 ]; then
+  echo "Usage: pipertts \"text to speech\" output.wav"
+  exit 1
+fi
+
+TEXT="$1"
+OUTPUT="$2"
+
+echo "$TEXT" | "$PIPER" \
+  --model "$MODEL" \
+  --output_file "$OUTPUT"
