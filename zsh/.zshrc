@@ -96,17 +96,13 @@ export PATH="/opt/qcad:$PATH"
 export GOPATH="$HOME/Workspace/goprojects"
 
 # Ruby path
-if command -v rbenv >/dev/null 2>&1; then
-	export PATH="$HOME/.rbenv/bin:$PATH"
-	eval "$(~/.rbenv/bin/rbenv init - zsh)"
-fi
+export PATH="$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init - zsh)"
 
 # Pyenv path
-if command -v pyenv >/dev/null 2>&1; then
-	export PATH="$HOME/.pyenv/bin:$PATH"
-	eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
-fi
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Aliases:
 # For a full list of active aliases, run `alias`.
