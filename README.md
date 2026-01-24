@@ -150,10 +150,11 @@ git checkout rxvt-unicode-9.30
 git submodule update --init
 
 ./configure \
---prefix=/usr \
---enable-perl \
---enable-xft \
---enable-unicode3
+  --prefix=/usr \
+  --enable-256-color \
+  --enable-unicode3 \
+  --enable-perl \
+  --enable-font-styles
 
 wget http://dist.schmorp.de/libev/libev-4.33.tar.gz
 tar xf libev-4.33.tar.gz
