@@ -1,5 +1,5 @@
 # vim: ft=conf nospell
-include "~/.newsbeuter/colors"
+include "~/.newsboat/colors"
 urls-source local
 
 # Browser

@@ -323,7 +323,7 @@ alias convertar='convert -alpha remove -background white'
 alias convertdd='convert -alpha remove -background white -density 300 -depth 8'
 
 # Misc
-alias news='newsbeuter'
+alias news='newsboat'
 alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
 alias jekrun='bundle exec jekyll serve'
 alias jekone='bundle exec jekyll serve --limit_posts 1 -l'
