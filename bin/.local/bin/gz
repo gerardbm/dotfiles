@@ -5,7 +5,7 @@
 HASH="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 LINE="$HASH | xargs -I % sh -c 'git show --color=always %'"
 
-git log --graph \
+git log --color=always --graph \
 	--pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr)' |
 fzf -i -e \
 	--tiebreak=index \

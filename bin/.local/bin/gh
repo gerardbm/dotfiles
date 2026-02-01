@@ -11,7 +11,7 @@ fi
 HASH="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 LINE="$HASH | xargs -I % sh -c 'git show --color=always %'"
 
-git log \
+git log --color=always \
 	--pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr)' \
 	-i -G "$1" |
 fzf -i -e \
