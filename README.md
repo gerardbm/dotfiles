@@ -248,18 +248,6 @@ Install the plugins with the command:
 
 `:PlugInstall`.
 
-To make it compatible with the plugin `Shougo/deoplete.nvim`, it requires two plugins (`roxma/vim-hug-neovim-rpc` and `roxma/nvim-yarp`) that require neovim installed from pip3, so first install python3-pip and then install neovim from there:
-
-`sudo apt-get install python3-pip`
-
-`pip3 install neovim`
-
-`pip3 install pynvim`
-
-From the Vim command line:
-
-`:pythonx import pynvim`
-
 My vim config files are into [vimrc](https://github.com/gerardbm/vimrc).
 
 ### Neovim
