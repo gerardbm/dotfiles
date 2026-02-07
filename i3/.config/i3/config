@@ -239,7 +239,7 @@ mode "$mode_caps" {
 }
 
 # Open applications
-# Still free: mod+q and mod+Control+e|w|o
+# Still free: mod+q and mod+Control+e|w
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
 bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -e 'vifm'
 bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
@@ -287,14 +287,17 @@ bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume \
 	bluez_sink.AF_00_30_A2_3F_DA.a2dp_sink +10%
 
 # Cmus-remote
-bindsym $mod+Control+u exec --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym $mod+Control+u exec --no-startup-id cmus-remote -u
 bindsym $mod+comma exec --no-startup-id cmus-remote -k -10
 bindsym $mod+period exec --no-startup-id cmus-remote -k +10
-bindsym XF86AudioPlay exec --no-startup-id sh ~/.config/i3/cmus.sh
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u
 bindsym XF86AudioNext exec --no-startup-id cmus-remote -n && \
 	notify-send -t 2000 'Cmus: next'
 bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r && \
 	notify-send -t 2000 'Cmus: prev'
+
+# MPV remote
+bindsym $mod+Control+o exec --no-startup-id playerctl play-pause
 
 # Screen brightness controls
 bindsym $mod+Control+F1 exec --no-startup-id brightnessctl set 1- && \

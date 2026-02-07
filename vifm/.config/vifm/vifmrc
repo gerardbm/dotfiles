@@ -192,8 +192,8 @@ filextype *.djvu
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
-       \ {Play using MPlayer}
-       \ mplayer %f 2>/dev/null &,
+       \ {Play using MPV}
+       \ mpv %f 2>/dev/null &,
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 
