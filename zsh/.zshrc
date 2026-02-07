@@ -269,6 +269,7 @@ alias cdf='cd $HOME/Sync/'
 alias cdv='cd $HOME/vimrc/'
 alias cdd='cd $HOME/dotfiles/'
 alias cds='cd $HOME/Workspace/'
+alias cdm='cd $HOME/Workspace/maths'
 alias cdw='cd $HOME/Workspace/vimwiki/'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
