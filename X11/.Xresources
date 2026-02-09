@@ -60,9 +60,9 @@ URxvt*termName       : screen-256color
 ! URxvt*boldItalicFont : xft:Terminess Powerline:size=13:bold:italic,xft:DejaVu Sans MNerd Font Mono
 
 URxvt*font           : xft:Noto Mono for Powerline:size=12,xft:DejaVu Sans MNerd Font Mono
-URxvt*boldFont       : xft:Noto Mono for Powerline:size=12:bold,xft:DejaVu Sans MNerd Font Mono
-URxvt*italicFont     : xft:Noto Mono for Powerline:size=12:italic,xft:DejaVu Sans MNerd Font Mono
-URxvt*boldItalicFont : xft:Noto Mono for Powerline:size=12:bold:italic,xft:DejaVu Sans MNerd Font Mono
+! URxvt*boldFont       : xft:Noto Mono for Powerline:size=12:bold,xft:DejaVu Sans MNerd Font Mono
+! URxvt*italicFont     : xft:Noto Mono for Powerline:size=12:italic,xft:DejaVu Sans MNerd Font Mono
+! URxvt*boldItalicFont : xft:Noto Mono for Powerline:size=12:bold:italic,xft:DejaVu Sans MNerd Font Mono
 
 URxvt*letterSpace    : 0
 URxvt*internalBorder : 1
