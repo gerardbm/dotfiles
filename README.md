@@ -612,7 +612,7 @@ sudo make install
 
 ### VirtualBox
 
-Packages for VirtualBox are not available in Debian 13. To install VirtualBox you must use the stretch-backports repository or the upstream third-party repository. More info, here: https://wiki.debian.org/VirtualBox.
+Packages for VirtualBox are not available in Debian 13. To install VirtualBox you must use the trixie-backports repository or the upstream third-party repository. More info, here: https://wiki.debian.org/VirtualBox, and here: https://www.virtualbox.org/wiki/Linux_Downloads.
 
 ## Navigation
 
