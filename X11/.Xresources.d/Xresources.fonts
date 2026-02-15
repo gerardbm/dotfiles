@@ -1,2 +1,1 @@
-URxvt.keysym.C-M-1 : command:\033]710;xft:DejaVu Sans Mono for Powerline:size=12,xft:DejaVu Sans MNerd Font Mono\007
-URxvt.keysym.C-M-2 : command:\033]710;xft:Terminess Powerline:size=13,xft:DejaVu Sans MNerd Font Mono\007
+URxvt.keysym.C-M-1: command:\033]710;xft:Noto Mono for Powerline:size=12,xft:DejaVu Sans MNerd Font Mono\007

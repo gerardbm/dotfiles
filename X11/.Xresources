@@ -54,12 +54,12 @@ Xft.lcdfilter : lcddefault
 ! ------------------------------------------------------------
 
 URxvt*termName       : screen-256color
-! URxvt*font           : xft:Terminess Powerline:size=13,xft:DejaVu Sans MNerd Font Mono
-! URxvt*boldFont       : xft:Terminess Powerline:size=13:bold,xft:DejaVu Sans MNerd Font Mono
-! URxvt*italicFont     : xft:Terminess Powerline:size=13:italic,xft:DejaVu Sans MNerd Font Mono
-! URxvt*boldItalicFont : xft:Terminess Powerline:size=13:bold:italic,xft:DejaVu Sans MNerd Font Mono
+URxvt*font           : xft:Terminess Powerline:size=14,xft:DejaVu Sans MNerd Font Mono
+! URxvt*boldFont       : xft:Terminus:size=14:bold,xft:DejaVu Sans MNerd Font Mono
+! URxvt*italicFont     : xft:Terminus:size=14:italic,xft:DejaVu Sans MNerd Font Mono
+! URxvt*boldItalicFont : xft:Terminus:size=14:bold:italic,xft:DejaVu Sans MNerd Font Mono
 
-URxvt*font           : xft:Noto Mono for Powerline:size=12,xft:DejaVu Sans MNerd Font Mono
+! URxvt*font           : xft:Noto Mono for Powerline:size=12,xft:DejaVu Sans MNerd Font Mono
 ! URxvt*boldFont       : xft:Noto Mono for Powerline:size=12:bold,xft:DejaVu Sans MNerd Font Mono
 ! URxvt*italicFont     : xft:Noto Mono for Powerline:size=12:italic,xft:DejaVu Sans MNerd Font Mono
 ! URxvt*boldItalicFont : xft:Noto Mono for Powerline:size=12:bold:italic,xft:DejaVu Sans MNerd Font Mono
@@ -149,8 +149,8 @@ URxvt.keysym.Control-R : resize-font:reset
 
 xterm*termName        : screen-256color
 xterm*renderFont      : true
-xterm*faceName        : Noto Mono for Powerline
-xterm*faceSize        : 12
+xterm*faceName        : Terminess Powerline
+xterm*faceSize        : 14
 xterm*locale          : true
 xterm*metaSendsEscape : true
 xterm*eightBitInput   : false

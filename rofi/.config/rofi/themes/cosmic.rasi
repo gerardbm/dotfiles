@@ -17,7 +17,7 @@
   acc70: #5FC3BA;
   acb70: #95B4ED;
   acv70: #D4A0ED;
-  font: "Noto Mono 12";
+  font: "Terminus 15";
 }
 
 window {
@@ -81,7 +81,7 @@ scrollbar {
 }
 
 element-text {
-  padding: 1px 5px;
+  padding: 0px 5px;
   background-color: @base1;
   text-color: @base4;
 }
