@@ -5,6 +5,8 @@
 
 # Default model
 MODEL="/opt/piper-tts/voices/es_ES-carlfm-high.onnx"
+MODEL="/opt/piper-tts/voices/es_ES-sharvard-medium.onnx"
+MODEL="/opt/piper-tts/voices/es_ES-davefx-medium.onnx"
 PIPER="/opt/piper-tts/piper/piper"
 
 # Check parameters
