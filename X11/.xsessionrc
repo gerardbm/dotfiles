@@ -1,1 +1,2 @@
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+~/.config/i3/autoxrandr.sh &

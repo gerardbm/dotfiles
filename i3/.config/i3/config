@@ -529,13 +529,14 @@ bar {
 # -----------------------------------------------------------------------------
 
 # exec --no-startup-id hsetroot -clear -add '#053542' -add '#a46b16' -gradient 0
-exec --no-startup-id hsetroot -clear -solid '#05313c'
-exec --no-startup-id /usr/bin/lxpolkit
+# exec --no-startup-id hsetroot -clear -solid '#05313c'
 # exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+# exec --no-startup-id bash ~/.config/i3/autoxrandr.sh
+# exec --no-startup-id feh --bg-fill \
+#   ~/.wallpaper/space-wallpaper-1920x1080-minimalist-universe-26331.jpg
+
+exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id picom -b --config ~/.picom.conf
-exec --no-startup-id bash ~/.config/i3/autoxrandr.sh
-exec --no-startup-id feh --bg-fill \
-	~/.wallpaper/space-wallpaper-1920x1080-minimalist-universe-26331.jpg
 exec --no-startup-id xmodmap ~/.Xmodmap
 
 exec --no-startup-id setcursor
@@ -544,8 +545,8 @@ exec --no-startup-id udiskie -s
 exec --no-startup-id megasync
 exec --no-startup-id numlockx on
 exec --no-startup-id blueman-applet
-# exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
+# exec --no-startup-id volumeicon
 
 #Set default volume
 exec --no-startup-id pactl set-sink-volume 0 '30%'
