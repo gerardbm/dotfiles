@@ -14,24 +14,16 @@
 # Full configuration is available in this repository:
 # URL: https://github.com/gerardbm/dotfiles
 
-outputs=$(xrandr | grep " connected" | awk '{ print $1 }')
+internal="LVDS-1"
+external="VGA-1"
 
-internal=""
-external=""
-
-for output in $outputs; do
-    if [[ $output == eDP* ]] || [[ $output == LVDS* ]]; then
-        internal=$output
-    else
-        external=$output
-    fi
-done
-
-if [[ -n "$external" ]] && [[ -n "$internal" ]]; then
-    xrandr --output "$internal" --off --output "$external" --primary --auto
-elif [[ -n "$internal" ]]; then
-    xrandr --output "$internal" --primary --auto
+if xrandr | grep -q "$external connected"; then
+    xrandr --output "$external" --primary --mode 1920x1080 \
+      --pos 0x0 --rotate normal --output "$internal" --off
+else
+    xrandr --output "$internal" --primary --mode 1366x768 \
+      --pos 0x0 --rotate normal --output "$external" --off
 fi
 
-sleep 1
-feh --bg-fill ~/.wallpaper/space-wallpaper-1920x1080-minimalist-universe-26331.jpg
+feh --bg-fill \
+  ~/.wallpaper/space-wallpaper-1920x1080-minimalist-universe-26331.jpg
