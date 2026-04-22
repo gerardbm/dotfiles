@@ -54,7 +54,7 @@ Xft.lcdfilter : lcddefault
 ! ------------------------------------------------------------
 
 URxvt*termName       : screen-256color
-URxvt*font           : xft:Terminess Powerline:size=14,xft:DejaVu Sans MNerd Font Mono
+URxvt*font           : xft:xos4 Terminess Powerline:size=14,xft:DejaVu Sans MNerd Font Mono
 ! URxvt*boldFont       : xft:Terminus:size=14:bold,xft:DejaVu Sans MNerd Font Mono
 ! URxvt*italicFont     : xft:Terminus:size=14:italic,xft:DejaVu Sans MNerd Font Mono
 ! URxvt*boldItalicFont : xft:Terminus:size=14:bold:italic,xft:DejaVu Sans MNerd Font Mono
