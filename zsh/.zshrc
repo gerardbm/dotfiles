@@ -96,7 +96,7 @@ export PATH="/opt/qcad:$PATH"
 export GOPATH="$HOME/Workspace/goprojects"
 
 # Ruby path
-export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 # Pyenv path
