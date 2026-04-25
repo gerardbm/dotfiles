@@ -615,6 +615,12 @@ make
 sudo make install
 ```
 
+### PcManFm
+
+Set PcManFm as the default file manager. It's necessary for Chrome when it's broken after installing other tools:
+
+`xdg-mime default pcmanfm.desktop inode/directory`
+
 ### VirtualBox
 
 Packages for VirtualBox are not available in Debian 13. To install VirtualBox you must use the trixie-backports repository or the upstream third-party repository. More info, here: https://wiki.debian.org/VirtualBox, and here: https://www.virtualbox.org/wiki/Linux_Downloads.
