@@ -140,8 +140,15 @@ Log out and log in to see the new shell as default.
 
 In Debian 13, I do not install rxvt-unicode from the official repositories. The packaged version is 9.31, but I deliberately use version 9.30 instead.
 
-The reason is a regression introduced after 9.30 that affects how urxvt handles window resizing at startup and during geometry changes. With tiling window managers such as i3, this causes the shell prompt to appear vertically offset (centered or pushed down) when the terminal is opened maximized or
-resized, instead of starting at the top of the window.
+The reason is a regression introduced after 9.30 that affects how urxvt handles window resizing at startup and during geometry changes. With tiling window managers such as i3, this causes the shell prompt to appear vertically offset (centered or pushed down) when the terminal is opened maximized or resized, instead of starting at the top of the window.
+
+First of all, install the following dependencies:
+
+```bash
+sudo apt-get install libptytty-dev libperl-dev
+```
+
+Then, clone the repository and compile it:
 
 ```bash
 git clone https://github.com/exg/rxvt-unicode.git
@@ -266,24 +273,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 
 My neovim config files are into [vimrc](https://github.com/gerardbm/vimrc).
-
-### Clang
-
-Install clang from the repositories:
-
-`sudo apt-get install clang libclang-dev`
-
-The package `libclang-dev` is required on Debian.
-
-### Golang
-
-Install golang from the repositories:
-
-`sudo apt-get install golang`
-
-Open Vim and run the following command:
-
-`:GoInstallBinaries`
 
 ### Pylint
 
@@ -420,7 +409,7 @@ How to list all the available versions:
 pyenv versions
 ```
 
-### Ruby and Jekyll
+### Rbenv
 
 Install the dependencies:
 
@@ -428,47 +417,65 @@ Install the dependencies:
 
 Then install Rbenv:
 
-`curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash -`
+`curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash`
 
 Add Rbenv to the PATH in `~/.zshrc`:
 
 ```sh
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+eval "$(rbenv init - zsh)"
 ```
 
 Install the wanted Ruby version:
 
-`rbenv install 2.6.4`
+`rbenv install 3.2.2`
 
-And make it global:
+And make it local:
 
-`rbenv global 2.6.4`
+`rbenv local 3.2.2`
 
-Finally install the last Jekyll version:
+### Jekyll
 
-`gem install jekyll`
+When Rbenv is installed, in a Jekyll project, run:
 
-#### Update Ruby with
+`bundle install`
 
-If the Ruby version is missing, upgrade ruby-build:
+Some projects may have a `.ruby-version` file with a specified version.
 
-`cd /home/gerard/.rbenv/plugins/ruby-build && git pull && cd -`
+### Golang
 
-Then install the newer version:
+Install golang from the repositories:
 
-`rbenv install 3.2.0`
+`sudo apt-get install golang`
 
-Then update Jekyll:
+<!-- Open Vim and run the following command: -->
 
-`gem install jekyll -v 4.3.3`
+<!-- `:GoInstallBinaries` -->
 
-Some updates:
+### Hugo
 
+Install hugo from the repositories:
+
+`sudo apt-get install hugo`
+
+You can also install a specific version:
+
+```sh
+wget https://github.com/gohugoio/hugo/releases/download/v0.145.0/hugo_extended_0.145.0_linux-amd64.deb
+sudo dpkg -i hugo_extended_0.145.0_linux-amd64.deb
 ```
-gem update --system
-bundle update --bundler
-```
+
+To delete an another version installed with dpkg:
+
+`sudo dpkg -r hugo`
+
+### Clang
+
+Install clang from the repositories:
+
+`sudo apt-get install clang libclang-dev`
+
+The package `libclang-dev` is required on Debian.
 
 ### W3m
 
@@ -577,7 +584,7 @@ Run it:
 
 ### Less
 
-Less config is into a binarry file called `$HOME/.less`.
+Less configuration is into a binary file called `$HOME/.less`.
 
 Compile the file `$HOME/.lesskey` with `lesskey` command to generate it.
 
