@@ -238,7 +238,7 @@ mode "$mode_caps" {
 }
 
 # Open applications
-# Still free: mod+q and mod+Control+e|w
+# Still free: mod+q and mod+Control+w
 bindsym $mod+Control+f exec --no-startup-id pcmanfm
 bindsym $mod+Control+k exec --no-startup-id urxvt -name 'vifm' -e 'vifm'
 bindsym $mod+Control+m exec --no-startup-id urxvt -name 'maxima' -e 'maxima'
@@ -248,12 +248,18 @@ bindsym $mod+Control+v exec --no-startup-id urxvt -name 'alsa' -e 'alsamixer'
 bindsym $mod+Control+b exec --no-startup-id urxvt -name 'tra' -b 30 \
 	bash -e ~/.config/i3/translate.sh
 bindsym $mod+Control+c exec --no-startup-id sh ~/.config/i3/calendar.sh
+bindsym $mod+m exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
+bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
+
+# Resize windows proportionally
 bindsym $mod+Control+a exec --no-startup-id \
 	sh -c 'i3-msg resize set width 62 ppt || i3-msg resize set height 62 ppt'
 bindsym $mod+Control+z exec --no-startup-id \
 	sh -c 'i3-msg resize set width 50 ppt || i3-msg resize set height 50 ppt'
-bindsym $mod+m exec --no-startup-id urxvt -name 'qalc' -e 'qalc'
-bindsym $mod+p exec --no-startup-id sh ~/.config/i3/togglevifm.sh
+bindsym $mod+Control+e exec --no-startup-id \
+	sh -c 'i3-msg floating enable' && \
+	sh -c 'i3-msg resize set width 55 ppt height 90 ppt' && \
+	sh -c 'i3-msg move position center'
 
 # Screencast
 bindsym $mod+Control+s exec --no-startup-id simplescreenrecorder \
