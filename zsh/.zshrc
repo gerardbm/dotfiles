@@ -298,6 +298,7 @@ alias wanip='curl -s icanhazip.com'
 alias wifil='wicd-cli -S --wireless; wicd-cli -l --wireless'
 alias wific='wicd-cli -c --wireless -n'
 alias wifix='wicd-cli -x --wireless'
+alias pyser='python3 -m http.server'
 
 # http://www.zzapper.co.uk/zshtips.html
 alias -g ND='*(/om[1])'     # newest directory
