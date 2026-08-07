@@ -1,12 +1,36 @@
 #!/usr/bin/env bash
-# Version: 1.0.0
+# Version: 1.0.2
+# Date: 2026/08/08
+# Modified for Debian 13
 #
 # Description: Generate favicons for websites
 
+# Require exactly one argument
+if [ "$#" -ne 1 ]; then
+	echo "Usage: $0 <svg-file>"
+	exit 1
+fi
+
 ICON_PATH="$PWD/$1"
 
+# Check that the file exists
+if [ ! -f "$ICON_PATH" ]; then
+	echo "Error: file not found: $1" >&2
+	exit 1
+fi
+
+# Check that the file has an SVG extension
+case "${ICON_PATH##*.}" in
+	svg|SVG)
+			;;
+	*)
+			echo "Error: input file must be an SVG: $1" >&2
+			exit 1
+			;;
+esac
+
 ICON_BASE=$(basename "$ICON_PATH")
-ICON_FILE="${ICON_BASE%*.}"
+ICON_FILE="${ICON_BASE%.*}"
 
 FAVICON_FILE="favicon"
 
@@ -30,43 +54,56 @@ cd icons || exit
 
 # This uses rsvg-convert to create crisp PNG icons
 for size in 16 32 48 150 180 192 512; do
-	ICON_OUT=$ICON_FILE-${size}.png
-	DIMENSIONS=${size}x${size}
-	rsvg-convert -w "$size" -p 300 -d 300 "$ICON_PATH" > "$ICON_OUT"
+	ICON_OUT="$ICON_FILE-${size}.png"
+	DIMENSIONS="${size}x${size}"
 
-	# Use ImageMagick to center the image and make it square
-	convert "$ICON_OUT" -gravity center -background transparent \
-		-resize "$DIMENSIONS" -extent "$DIMENSIONS" temp-"$ICON_OUT"
+	# Convert SVG to PNG at the requested size
+	rsvg-convert \
+			-w "$size" \
+			-h "$size" \
+			"$ICON_PATH" > "$ICON_OUT"
 
-	# Use 8-bit colour to reduce the file size.
-	pngquant 256 < temp-"$ICON_OUT" > "$FAVICON_FILE"-"$DIMENSIONS".png
+	# Center the image and make it square
+	magick "$ICON_OUT" \
+			-alpha on \
+			-gravity center \
+			-background none \
+			-resize "$DIMENSIONS" \
+			-extent "$DIMENSIONS" \
+			"temp-$ICON_OUT"
+
+	# Reduce file size using 8-bit colour
+	pngquant 256 \
+			--output "$FAVICON_FILE-$DIMENSIONS.png" \
+			"temp-$ICON_OUT"
 done
 
-# Merge the 16, 32 and 48 pixel versions into a multi-sized ICO file
-convert -border 0 -background none -alpha on \
-	$FAVICON_FILE-16x16.png \
-	$FAVICON_FILE-32x32.png \
-	$FAVICON_FILE-48x48.png \
-	$FAVICON_FILE.ico
-mv $FAVICON_FILE.ico ..
+# MERGE ICO FILE
+# Instead of mergin small files, under Debian 13 we get the temporal 512x512
+# to generate an ICO containing all the needed resolutions (16, 32 and 48),
+# it will resize the images with an automatic antialias
+magick "temp-$ICON_FILE-512.png" \
+	-background none \
+	-define icon:auto-resize=48,32,16 \
+	"$FAVICON_FILE.ico"
+mv "$FAVICON_FILE.ico" ..
 
 # Create Apple icons
-mv $FAVICON_FILE-180x180.png apple-touch-icon.png
+mv "$FAVICON_FILE-180x180.png" apple-touch-icon.png
 
 # Create Android icons
-mv $FAVICON_FILE-192x192.png android-chrome-192x192.png
-mv $FAVICON_FILE-512x512.png android-chrome-512x512.png
+mv "$FAVICON_FILE-192x192.png" android-chrome-192x192.png
+mv "$FAVICON_FILE-512x512.png" android-chrome-512x512.png
 
 # Create MS tile icon
-mv $FAVICON_FILE-150x150.png mstile-150x150.png
+mv "$FAVICON_FILE-150x150.png" mstile-150x150.png
 
-# Create Safari icon
-cp ../$FAVICON_FILE.svg safari-pinned-tab.svg
+# Create Safari icon 
+cp "$ICON_PATH" safari-pinned-tab.svg
 sed -i -e 's/fill:#.\{6\}/fill:#000000/g' safari-pinned-tab.svg
 
 # Clean up the temporary files
 rm "${ICON_FILE}"*png temp-"${ICON_FILE}"*png
-rm $FAVICON_FILE-48x48.png
 
 # Create Browserconfig file
 cat > browserconfig.xml <<EOF
