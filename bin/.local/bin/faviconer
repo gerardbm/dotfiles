@@ -98,12 +98,24 @@ mv "$FAVICON_FILE-512x512.png" android-chrome-512x512.png
 # Create MS tile icon
 mv "$FAVICON_FILE-150x150.png" mstile-150x150.png
 
-# Create Safari icon 
+# Create Safari icon
 cp "$ICON_PATH" safari-pinned-tab.svg
 sed -i -e 's/fill:#.\{6\}/fill:#000000/g' safari-pinned-tab.svg
 
 # Clean up the temporary files
-rm "${ICON_FILE}"*png temp-"${ICON_FILE}"*png
+rm -f \
+    "$ICON_FILE-16.png" \
+    "$ICON_FILE-32.png" \
+    "$ICON_FILE-48.png" \
+    "$ICON_FILE-150.png" \
+    "$ICON_FILE-180.png" \
+    "$ICON_FILE-192.png" \
+    "$ICON_FILE-512.png"
+
+rm -f temp-"$ICON_FILE"-*.png
+
+# 48x48 is only needed temporarily for favicon.ico
+rm -f "$FAVICON_FILE-48x48.png"
 
 # Create Browserconfig file
 cat > browserconfig.xml <<EOF
