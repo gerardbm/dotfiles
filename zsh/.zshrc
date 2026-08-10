@@ -272,7 +272,6 @@ alias cds='cd $HOME/Workspace/'
 alias cdm='cd $HOME/Workspace/maths/'
 alias cdw='cd $HOME/Workspace/vimwiki/'
 alias cdg='cd $HOME/Workspace/geodata/'
-alias cdh='cd $HOME/Workspace/hugosite/'
 alias cui='uuid | tr -d "\n" | xsel -b'
 
 # Deploy
