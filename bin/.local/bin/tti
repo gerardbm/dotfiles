@@ -2,7 +2,8 @@
 #
 # Description: text to image
 #
-# Tools used: convert
+# Tools used: ImageMagick
+# Command: magick
 #
 # Parameters:
 # $1 = text
@@ -16,8 +17,12 @@ else
 	echo "Using the color $2."
 fi
 
-convert \
-	-background "transparent" \
-	-fill "$color"  \
+magick \
+	-background none \
+	-fill "$color" \
+	-font DejaVu-Sans \
 	-pointsize 16 \
-	-gravity center label:"$1" image.png
+	-gravity center \
+	label:"$1" \
+	-trim +repage \
+	image.png
