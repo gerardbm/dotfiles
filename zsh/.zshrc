@@ -321,9 +321,9 @@ alias -g NUL='> /dev/null 2>&1'
 alias -g CC='| tr -d "\n" | xsel -b'
 
 # Convert utilities
-alias convertao='convert -alpha on'
-alias convertar='convert -alpha remove -background white'
-alias convertdd='convert -alpha remove -background white -density 300 -depth 8'
+alias convertao='magick -alpha on'
+alias convertar='magick -alpha remove -background white'
+alias convertdd='magick -alpha remove -background white -density 300 -depth 8'
 
 # Misc
 alias news='newsboat'
