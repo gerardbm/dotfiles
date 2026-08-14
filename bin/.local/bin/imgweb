@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+# Version: 1.0.0
+#
+# Description:
+#   Generate web-ready JPEG variants from images.
+#
+#   For each input image:
+#     thumbnail-<name>.jpg  -> max. width 512px
+#     cover-<name>.jpg      -> max. width 1024px
+#
+# Requirements:
+#   - ImageMagick (magick)
+#   - jpegoptim
+#   - jpegtran
+
+set -u
+
+usage() {
+    cat <<EOF
+imgweb - Generate web-ready JPEG image variants
+
+Usage:
+    imgweb <filename1> <filename2>...
+
+For each input image, two JPEG files are generated:
+
+    thumbnail-<name>.jpg    Maximum width: 512px
+    cover-<name>.jpg        Maximum width: 1024px
+
+Examples:
+    imgweb lleida.jpg
+    imgweb lleida.jpg paisatge.png foto.webp
+
+Output:
+    thumbnail-lleida.jpg
+    cover-lleida.jpg
+
+    thumbnail-paisatge.jpg
+    cover-paisatge.jpg
+
+Images are converted to JPEG, compressed with jpegoptim
+and stripped of metadata.
+EOF
+}
+
+# Help
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    usage
+    exit 0
+fi
+
+# Check arguments
+if [[ $# -lt 1 ]]; then
+    echo "Error: at least one image is required." >&2
+    usage >&2
+    exit 1
+fi
+
+# Check required commands
+required_commands=(
+    magick
+    jpegoptim
+    jpegtran
+)
+
+for cmd in "${required_commands[@]}"; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+        echo "Error: required command not found: $cmd" >&2
+        exit 1
+    fi
+done
+
+# Generate one image variant.
+generate_variant() {
+    local input="$1"
+    local output="$2"
+    local width="$3"
+
+    echo "Creating: $output (${width}px)"
+
+    # Resize only if necessary.
+    # The x means: constrain width and preserve aspect ratio.
+    if ! magick "$input" \
+        -resize "${width}x>" \
+        -strip \
+        -quality 85 \
+        "$output"; then
+
+        echo "Error: ImageMagick failed on: $input" >&2
+        return 1
+    fi
+
+    # JPEG optimization.
+    if ! jpegoptim \
+        --max=80 \
+        --strip-all \
+        --quiet \
+        -- "$output"; then
+
+        echo "Warning: jpegoptim failed on: $output" >&2
+    fi
+
+    # Final JPEG optimization and metadata removal.
+    local optimized
+    optimized="$(mktemp --suffix=".jpg")"
+
+    if jpegtran \
+        -copy none \
+        -optimize \
+        -outfile "$optimized" \
+        "$output"; then
+
+        mv -- "$optimized" "$output"
+    else
+        echo "Warning: jpegtran failed on: $output" >&2
+        rm -f -- "$optimized"
+    fi
+}
+
+for input in "$@"; do
+
+    if [[ ! -f "$input" ]]; then
+        echo "Warning: file not found: $input" >&2
+        continue
+    fi
+
+    # Remove directory and extension from the input filename.
+    base="$(basename -- "$input")"
+    name="${base%.*}"
+
+    thumbnail="thumbnail-${name}.jpg"
+    cover="cover-${name}.jpg"
+
+    generate_variant "$input" "$thumbnail" 512
+    generate_variant "$input" "$cover" 1024
+
+done
