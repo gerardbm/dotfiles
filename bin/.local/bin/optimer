@@ -1,73 +1,182 @@
 #!/usr/bin/env bash
-# Version: 2.0.0
+# Version: 3.0.0
 #
 # Description: Resize and compress PNG and JPG/JPEG files
 #
 # Tools used:
-# - convert
-# - identify
+# - ImageMagick (magick)
 # - optipng
 # - pngcrush
 # - jpegoptim
 # - jpegtran
+#
+# Install tools:
+# sudo apt install imagemagick optipng pngcrush jpegoptim libjpeg-turbo-progs
 
-if [ "$1" == "-h" ]; then
-cat <<EOF
+set -u
+
+usage() {
+    cat <<EOF
 Optimer: Resize and compress PNG and JPG/JPEG files
 
-Usage: optimer <integer> <filename1> <filename2>...
+Usage:
+    optimer <width> <filename1> <filename2>...
 
-	- integer → the new width for the compressed file.
-	- filename → a list of files to compress.
+    width     New maximum width in pixels.
+    filename  Files to compress.
 
-Example: optimer 500 picture.png figure.jpeg image.jpg
+Example:
+    optimer 500 picture.png figure.jpeg image.jpg
 
-Resize is done with convert(1).
-PNG compression is done with optipng(1) and pngcrush(1).
-JPEG compression is done with jpegoptim(1) and jpegtran(1).
+Resize is done with ImageMagick (magick).
+PNG compression is done with optipng and pngcrush.
+JPEG compression is done with jpegoptim and jpegtran.
 EOF
-exit 1
+}
+
+# Help
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    usage
+    exit 0
+fi
+
+# Check arguments
+if [[ $# -lt 2 ]]; then
+    echo "Error: width and at least one filename are required." >&2
+    usage >&2
+    exit 1
 fi
 
 NEW_WIDTH="$1"
 
-if ! [[ "$NEW_WIDTH" =~ ^[0-9]+$ ]] ; then
-	echo "Error: first option must be an integer: image width in pixels."
-	echo "Usage: optimer <integer> <filename> <filename2>..." >&2; exit 1
+if ! [[ "$NEW_WIDTH" =~ ^[0-9]+$ ]]; then
+    echo "Error: first option must be an integer: image width in pixels." >&2
+    usage >&2
+    exit 1
 fi
 
-if ! [[ "$NEW_WIDTH" -gt 0 ]] ; then
-	echo "Error: first option must be an integer greater than 0."
-	echo "Usage: optimer <integer> <filename1> <filename2>..." >&2; exit 1
+if (( NEW_WIDTH <= 0 )); then
+    echo "Error: width must be greater than 0." >&2
+    usage >&2
+    exit 1
 fi
+
+# Check required commands
+required_commands=(
+    magick
+    optipng
+    pngcrush
+    jpegoptim
+    jpegtran
+)
+
+for cmd in "${required_commands[@]}"; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+        echo "Error: required command not found: $cmd" >&2
+        exit 1
+    fi
+done
 
 for f in "${@:2}"; do
-	NAME="${f%%.*}"
-	EXT="${f##*.}"
-	INITIAL_WIDTH="$(identify -format '%w' "$f")"
-	RESIZED="${NAME}-.${EXT}"
 
-	if [[ "$INITIAL_WIDTH" -gt "$NEW_WIDTH" ]] ; then
-		convert "$f" -resize "$NEW_WIDTH" "$RESIZED"
-	else
-		cp "$f" "$RESIZED"
-	fi
+    if [[ ! -f "$f" ]]; then
+        echo "Warning: file not found: $f" >&2
+        continue
+    fi
 
-	DIMS="$(identify -format '%wx%h' "$RESIZED" 2>/dev/null)"
-	RENAMED="${NAME}-${DIMS}.${EXT}"
+    # Split filename safely, including names containing dots
+    DIR="$(dirname -- "$f")"
+    BASE="$(basename -- "$f")"
+    NAME="${BASE%.*}"
+    EXT="${BASE##*.}"
+    EXT_LOWER="${EXT,,}"
 
-	mv "$RESIZED" "$RENAMED"
+    case "$EXT_LOWER" in
+        png|jpg|jpeg)
+            ;;
+        *)
+            echo "Warning: unsupported file type: $f" >&2
+            continue
+            ;;
+    esac
 
-	if [[ ${EXT,,} == "png" ]] ; then
-		echo "Optimizing PNG-image: $RENAMED"
-		optipng -o1 --quiet "$RENAMED"
-		pngcrush -q "$RENAMED" /tmp/$$; mv /tmp/$$ "$RENAMED"
-	fi
+    INITIAL_WIDTH="$(magick identify -format '%w' -- "$f" 2>/dev/null)"
 
-	if [[ "${EXT,,}" =~ (jpg|jpeg) ]] ; then
-		echo "Optimizing $EXT-image: $RENAMED"
-		jpegoptim --max=80 "$RENAMED"
-		jpegtran -copy none -optimize -outfile "$RENAMED" "$RENAMED"
-	fi
+    if [[ -z "$INITIAL_WIDTH" ]]; then
+        echo "Warning: cannot identify image: $f" >&2
+        continue
+    fi
+
+    # Keep the original extension and create an intermediate file.
+    RESIZED="$(mktemp --suffix=".$EXT")"
+
+    cleanup() {
+        rm -f -- "$RESIZED"
+    }
+    trap cleanup EXIT
+
+    if (( INITIAL_WIDTH > NEW_WIDTH )); then
+        echo "Resizing: $f -> ${NEW_WIDTH}px"
+        if ! magick "$f" -resize "${NEW_WIDTH}x" "$RESIZED"; then
+            echo "Error: ImageMagick failed on: $f" >&2
+            continue
+        fi
+    else
+        cp -- "$f" "$RESIZED"
+    fi
+
+    DIMS="$(magick identify -format '%wx%h' -- "$RESIZED" 2>/dev/null)"
+
+    if [[ -z "$DIMS" ]]; then
+        echo "Warning: cannot determine dimensions: $f" >&2
+        continue
+    fi
+
+    RENAMED="${DIR}/${NAME}-${DIMS}.${EXT}"
+
+    mv -- "$RESIZED" "$RENAMED"
+
+    # The temporary file is now gone, so don't delete RENAMED in cleanup.
+    RESIZED=""
+    trap - EXIT
+
+    case "$EXT_LOWER" in
+
+        png)
+            echo "Optimizing PNG: $RENAMED"
+
+            optipng -o1 --quiet -- "$RENAMED"
+
+            PNGCRUSHED="$(mktemp --suffix=".png")"
+
+            if pngcrush -q -- "$RENAMED" "$PNGCRUSHED"; then
+                mv -- "$PNGCRUSHED" "$RENAMED"
+            else
+                echo "Warning: pngcrush failed on: $RENAMED" >&2
+                rm -f -- "$PNGCRUSHED"
+            fi
+            ;;
+
+        jpg|jpeg)
+            echo "Optimizing JPEG: $RENAMED"
+
+            # Compress JPEG and remove metadata.
+            jpegoptim --max=80 -- "$RENAMED"
+
+            JPEGOPTIMIZED="$(mktemp --suffix=".$EXT")"
+
+            if jpegtran \
+                -copy none \
+                -optimize \
+                -outfile "$JPEGOPTIMIZED" \
+                "$RENAMED"; then
+
+                mv -- "$JPEGOPTIMIZED" "$RENAMED"
+            else
+                echo "Warning: jpegtran failed on: $RENAMED" >&2
+                rm -f -- "$JPEGOPTIMIZED"
+            fi
+            ;;
+    esac
 
 done
