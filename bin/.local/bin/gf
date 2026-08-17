@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+#
+# Description: navigate through git commits and preview the complete file
+#
+# Dependencies:
+#   - git
+#   - fzf
+#   - less
+#   - xsel
+#   - vim or neovim
+#   - vim-fugitive (for Ctrl-O)
+#
+# Usage:
+#   gf <file>
+#
+# Controls:
+#   ↑↓       navigate commits
+#   Enter    view diff in less
+#   Ctrl-O   open file at commit in vim/fugitive
+#   Ctrl-Y   copy commit hash
+#   Ctrl-F   quit
+
+FILE="${1:-}"
+
+if [[ -z "$FILE" ]]; then
+    echo "Usage: gf <file>"
+    exit 1
+fi
+
+HASH='echo {} | grep -o "[a-f0-9]\{7\}" | head -1'
+SHOW="$HASH | xargs -I % git show --color=always --format=fuller \
+  --unified=999999 % -- \"$FILE\""
+OPEN='commit=$(echo "{}" | grep -o "[a-f0-9]\{7\}" \
+  | head -1); vim -c "Gedit ${commit}:${FILE}"'
+
+export FILE
+
+git log --color=always --graph \
+    --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr)' \
+    -- "$FILE" |
+fzf -i -e \
+    --tiebreak=index \
+    --height=0 \
+    --no-multi \
+    --ansi \
+    --preview="$SHOW" \
+    --header "View (enter), copy hash (ctrl-y), edit (ctrl+o)" \
+    --bind "ctrl-y:execute($HASH | tr -d '\n' | xsel -b)" \
+    --bind "enter:execute($SHOW | less -R)" \
+    --bind "ctrl-o:execute($OPEN)" \
+    --bind "ctrl-f:abort"
