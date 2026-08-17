@@ -35,7 +35,7 @@ set_from_resource $base4 color15 #ACB5B9
 # Gaps style
 gaps outer 5
 gaps inner 10
-# smart_gaps on
+smart_gaps on
 
 # Border style
 for_window [class=".*"] border pixel 1 #*
@@ -43,7 +43,7 @@ new_window pixel 1
 new_float normal
 
 # Smart borders
-# hide_edge_borders smart
+hide_edge_borders smart
 
 # Orientation
 default_orientation horizontal
