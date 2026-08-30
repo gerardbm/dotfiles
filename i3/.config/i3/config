@@ -420,6 +420,8 @@ assign [class="^Inkscape$"] $ws4
 # 5: mod
 assign [class="^Freecad$"] $ws5
 assign [class="^Blender$"] $ws5
+assign [class="^Siril$"] $ws5
+assign [class="^hugin$"] $ws5
 
 # 6: doc
 assign [class="^Apvlv$"] $ws6
