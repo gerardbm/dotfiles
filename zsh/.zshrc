@@ -122,7 +122,6 @@ alias fid='find . -type d -name'
 alias fif='find . -type f -name'
 alias fidi='find . -type d -iname'
 alias fifi='find . -type f -iname'
-alias mkd='mkdir -pv'
 
 # Hardware
 alias ram='free -h'
@@ -325,6 +324,16 @@ alias convertao='magick -alpha on'
 alias convertar='magick -alpha remove -background white'
 alias convertdd='magick -alpha remove -background white -density 300 -depth 8'
 
+# Images information
+alias imgs='identify -format "%wx%h"'
+alias imgf='identify -format "%m"'
+alias imgd='identify -format "%z-bit\n"'
+alias imgh='identify -format "%[channels]\n"'
+alias imgc='identify -format "%[colorspace]\n"'
+alias imgq='identify -format "%Q\n"'
+alias imgp='identify -format "%x x %y %U\n"'
+alias imgz='identify -format "%b\n"'
+
 # Misc
 alias news='newsboat'
 alias jekill='pkill -f jekyll; rm /tmp/jekyll.ps'
@@ -349,7 +358,6 @@ alias run='zsh run.sh'
 alias clock='tty-clock -C6 -c'
 alias ra='ranger'
 alias za='zathura'
-alias wxh='identify -format "%wx%h" %f 2>/dev/null'
 
 # --------------------------------------------------
 
